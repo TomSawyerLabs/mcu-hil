@@ -7,7 +7,10 @@ wait on open question *n* in [plans/v2-design.md](../plans/v2-design.md).
 
 - Reproducible builds with open tools (KiCad, JLCPCB assembly, LCSC parts).
 - A base design that new parts can be added to: other AVRs (e.g. AVR32 UC3, XMEGA), each on its own
-  board or a couple per board. Pis aren't free, so one Pi should serve several DUTs. **(Q 1: base + cards?)**
+  board or a couple per board. Pis aren't free, so a board may carry more than one MCU.
+- **Complete boards, no plug-in cards.** Each variant is a whole CM carrier or HAT with its MCU(s) on it.
+  Variants share schematic sheets, not a connector.
+- **CM carrier outline = CM4/CM5 module outline (55 × 40 mm)**, stacking like the Waveshare CM4-NANO.
 - The main target is each part's standard, officially supported operating modes.
   Later special boards may push overclocking or power-draw limits.
 
@@ -41,14 +44,18 @@ wait on open question *n* in [plans/v2-design.md](../plans/v2-design.md).
   (5 V for 16U2 at 16 MHz, 3.3 V for XMEGA/UC3). The base supplies 5 V and 3.3 V, and the DUT side picks.
 - **Power meter per DUT rail**, sized for AVR currents: from µA in sleep to ~100–200 mA running. Covering that
   range likely takes a high-resolution monitor (INA228-class) or switchable shunts. To be chosen in part selection.
-- **DUT USB (carrier):** one USB port per DUT from a USB 2.0 hub on the CM's USB, each with a current-limited
-  VBUS switch the Pi controls (virtual unplug). A spare hub port goes to free DUT GPIO for software-USB testing. **(Q 3)**
+- **DUT USB:** one USB port per MCU, with a current-limited VBUS switch the Pi controls (virtual unplug).
+  Software-USB testing routes MCU GPIO to a D+/D- pair. A small hub on every board would let hardware and
+  software USB run at once, on both CM and HAT. **(Q 2: hub?)**
+- **HAT USB:** USB-C as a data link to the Pi through a short loopback cable. It is not a power input.
 - **Clock control:** keep GPCLK0 → XTAL1 override per DUT. Consider a programmable clock generator
   (Si5351-class, 3 outputs) for arbitrary and overclock frequencies.
 - **More programming interfaces** as DUT families need them: PDI (XMEGA), aWire/JTAG (UC3), UPDI, TPI, debugWIRE.
 - **CM carrier:** microSD slot (CM4/CM5 Lite; network boot is the plan, so no storage should be needed),
   Ethernet jack for network boot, and a USB-C port for backup power and rpiboot firmware flashing.
-  On CM4 the single USB 2.0 port is shared by the hub and rpiboot, so it needs a USB switch, as the CM4 IO board has. **(Q 4)**
+  On CM4 the single USB 2.0 port is shared by the hub and rpiboot, so it needs a USB switch, as the CM4 IO board has.
+- **Power input:** USB-C only, plus PoE as an option **(Q 3: how)**. No secondary power inputs anywhere;
+  the HAT is powered by the Pi.
 
 ## Shared GPIO map constraint
 

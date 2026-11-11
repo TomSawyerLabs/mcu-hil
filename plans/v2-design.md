@@ -35,23 +35,33 @@ work on arrival.
 - Start from v1's circuits (import the Altium project) rather than redraw from scratch.
 - **Why v2 (user, 2026-11-11):** reproducibility, moving to open tools, and a base design
   that new parts can be added to. Likely variants carry other AVRs (e.g. AVR32 UC3, XMEGA),
-  each on its own board or a couple sharing one. Pis aren't free, so sharing one Pi across
-  several DUTs matters.
+  each on its own board or a couple sharing one. Pis aren't free, so a board may carry more than one MCU.
+- **Architecture: complete boards, no plug-in cards.** Each variant is a whole board
+  (a CM carrier or a HAT) with its MCU(s) on it. "The boards are the plug-in cards."
+  Variants share a common base design (copied/shared schematic sheets), not a connector.
+- **CM carrier size: same outline as the CM4/CM5 module (55 × 40 mm)**, so they stack like the
+  Waveshare CM4-NANO carrier.
+- **Power input:** no secondary power input. CM carrier: USB-C (power + rpiboot), with **PoE as
+  an option** (population option or add-on). HAT: powered by the Pi only. Its USB-C is a **data**
+  connection to the Pi through a short loopback cable, so the HAT never back-feeds the Pi's 5 V.
 - **Target voltage:** whatever is easiest to run. The main target is each part's standard,
   officially supported operating modes. Special boards may later push overclocking or power-draw limits.
 - **Power meter:** yes, sized for the currents an AVR draws.
 - **DUT USB:** one port per DUT is enough, with per-port power control (virtual unplug).
-  If the hub has a spare port, wire its D+/D- to free DUT GPIO for software-USB testing.
-  (My reading: DUT GPIO, for V-USB-style firmware. To be confirmed.)
+  Software-USB testing goes to the **MCU's** GPIO (confirmed: we test the MCU, not the Pi).
+  On a single-MCU board, MCU GPIO can be routed to a USB D+/D- pair. Whether that needs a hub is
+  open question 2.
 - **Clock:** the Pi can optionally drive the DUT clock directly (v1's GPCLK0 override, kept and
   possibly extended with a programmable clock generator).
 - **CM boards:** a microSD slot on the carrier. Network boot is the plan, so CM4/CM5 Lite with no
   storage *should* work. A USB-C port is required, for backup power and firmware flashing (rpiboot).
   Network boot implies an Ethernet jack.
-- **v1 history:** a v1 was built, but it may not match the Altium files. The built board has no USB-C.
+- **v1 history:** a v1 was built, but it may not match the Altium files. Whether it has USB-C is
+  unconfirmed (the user will check the board edge).
 - **Repo:** rename the existing `TomSawyerLabs/avr-test-hat` to a name that implies a wider
   eventual pool of supported parts, make an archive branch and a tag of the old version, and do the
-  v2 rewrite there (not in a new repo). Name still to be picked (open question).
+  v2 rewrite there (not in a new repo). **Delete the Altium files from `master`** (they stay in git
+  history), and link the `v1` tag from the README. Name still to be picked (open question 1).
 
 ## Plan / steps
 
@@ -99,23 +109,25 @@ work on arrival.
 - [x] v1 import and review: `docs/v1-review.md` (2026-11-11).
 - [x] v1 board and schematic images: `docs/v1-images/` (rendered from files, no KiCad runtime).
 - [ ] v2 requirements: draft in `docs/v2-requirements.md`, waiting on answers to the open questions.
-- [ ] Repo rename + archive branch/tag + import v2 history.
+- [ ] Repo rename + archive branch/tag + import v2 history (Altium files deleted on `master`, README links `v1` tag).
+- [ ] Fit check: CM connectors, RJ45, USB-C, microSD, MCU, hub and power meter on 55 × 40 mm (likely both sides).
 
 ## Open questions for the user
 
-1. **Architecture:** one base board (Pi or CM, power, USB hub, power meters, clock) with
-   plug-in DUT cards, each card carrying one or two AVRs? Or a complete board per AVR variant?
-   Recommendation: base + cards. A new AVR then only costs a small, cheap card, and one Pi
-   serves several DUTs. How many card slots per base? (Recommendation: 2 on the carrier,
-   1 on the HAT; the HAT becomes "a base with one slot".)
-2. **Repo name** for the renamed `TomSawyerLabs/avr-test-hat`. Candidates: `mcu-test-bench`
-   (recommended: not tied to AVR or to HATs), `avr-test-bench`, `chip-test-rig`, `dut-bench`.
-   Also: should v1's Altium files leave `master` (kept on the `v1` tag/branch), or move to `legacy/v1/`?
-   Recommendation: remove from `master`; the tag keeps them.
-3. **Software-USB pairs:** confirm the spare hub port's D+/D- go to the *DUT's* GPIO
-   (for V-USB-style firmware on the AVR), not to the Pi's GPIO.
-4. **Carrier extras:** PoE, or 5 V USB-C only? Any enclosure or size target?
-   Recommendation: no PoE at first; size it around the DUT card slots.
+1. **Repo name** for the renamed `TomSawyerLabs/avr-test-hat` (user floated `uhwTest`,
+   "micro hardware test", and wants more thought). Candidates: `mcu-hil` ("hardware in the loop",
+   the standard term for this kind of rig), `uhw-test`, `mcu-test-boards`, `chip-hil`.
+   Recommendation: `mcu-hil`.
+2. **USB hub or not.** Without a hub, a CM4 has one USB 2.0 port, which already needs a switch
+   to share it between rpiboot (USB-C) and the MCU. A board that tests both an MCU's hardware USB
+   and a software-USB pin pair could then only use one at a time. A small 4-port hub on the board
+   (e.g. a CH334/FE1.1s-class part) lets both enumerate at once, works the same on CM4 and CM5,
+   and the same circuit works on the HAT behind the loopback cable. Recommendation: hub on every
+   board, with per-port power switches.
+3. **PoE option on a 55 × 40 mm board.** Real PoE needs a PD controller plus an isolated flyback
+   transformer, which won't fit beside everything else at the CM's size. Recommendation: a PoE-capable
+   magjack with its center taps on a 4-pin header (like the Pi's PoE header), so a separate PoE board
+   can stack on as the option.
 
 ## Things not to do
 
