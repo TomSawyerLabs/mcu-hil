@@ -9,11 +9,30 @@ Recovered data lives in [`reference/v1-import/`](../reference/v1-import/):
   It's reference only, not the v2 design.
 - `pcb-netlist.txt`: every footprint, its pad-to-net map, and the full netlist from that board.
 - `sch-records.txt`: components, values, ports, net labels and notes parsed from the `.SchDoc` sheets.
-- `tools/`: the plain-Python parsers that produced these. They need no KiCad runtime
-  (`sexpr.py` + `kpads.py` read `.kicad_pcb` text; `schdoc.py` and `altium_pads.py` read Altium files with `olefile`).
+- `tools/`: the plain-Python parsers and renderers that produced these and the images below. They need no
+  KiCad runtime (`sexpr.py` + `kpads.py` + `render_pcb.py` read `.kicad_pcb` text; `schdoc.py`,
+  `render_schdoc.py` and `altium_pads.py` read Altium files with `olefile`).
 
 KiCad 10's CLI cannot import Altium *schematics* (only the GUI can), so schematic intent
 comes from parsing the `.SchDoc` records directly. Connectivity comes from the board netlist.
+
+**Which revision is this?** The v1 board that was actually built has **no USB-C**. This Altium design has
+two USB-C connectors, so it's a later, possibly never-fabricated revision.
+
+## Images
+
+Re-drawn from the files with matplotlib. The schematics are approximate: fonts and some symbol graphics are simplified.
+
+- Board: [top](v1-images/pcb-top.png), [bottom](v1-images/pcb-bottom.png) (nearly every part is on the bottom)
+- Schematic sheets: [Main](v1-images/sch-Main.png), [AVR](v1-images/sch-AVR.png),
+  [Logic Buffer](v1-images/sch-Logic-Buffer.png), [Reset](v1-images/sch-Reset.png),
+  [Power Switch](v1-images/sch-Power-Switch.png), [Clock Buffer](v1-images/sch-Clock-Buffer.png),
+  [RPi header](v1-images/sch-RPi-HAT_Conn-EE.png), [EEPROM](v1-images/sch-EEPROM.png),
+  [I2C pull-ups](v1-images/sch-I2C-PullUps.png), [USB](v1-images/sch-USB.png),
+  [USB-C](v1-images/sch-USB-C.png), [micro-USB](v1-images/sch-microUSB.png)
+
+![v1 bottom](v1-images/pcb-bottom.png)
+![v1 main sheet](v1-images/sch-Main.png)
 
 ## What v1 is
 
@@ -79,20 +98,28 @@ These shape the v2 requirements.
    - R4/R5 ID EEPROM pull-ups: Value 3.9k, part 1k.
    - R6–R9, R19–R22, R27, R28: Value 4.7k, part 1k.
    - R10–R14: Value 220 Ω, parts 1k (R10, R12) and 120 Ω (R11, R13, R14).
-2. **5 V levels into the AVR come from a 3.3 V buffer.** U3 (LVC244 on 3V3) drives MOSI, SCLK and RXD into a 5V AVR
-   whose V_IH is 0.6·VCC = 3.0 V. That's marginal, and worse through the 220 Ω series resistors. The clock path does this right (AHCT at 5V).
-3. **Back-powering.** J6A feeds VBUS straight onto the Pi's 5V header pins with no ideal diode or
-   protection, which the HAT spec requires when a HAT supplies power. The reset pull-up R16 and the Q1 gate pull-up R15
-   go to the always-on 5V, not to the switched AVR VCC, so a powered-off DUT gets fed through its RESET pin.
+2. **The level shifter only shifts down.** U3 (74LVC244) is the level shifter, but it runs from 3V3. Its 5V-tolerant
+   inputs handle AVR → Pi (MISO, AVR TX) correctly. In the Pi → AVR direction (MOSI, SCLK, AVR RX), its outputs only
+   reach about 3.3 V, against the 5 V AVR's V_IH of 0.6·VCC = 3.0 V. That's about 0.3 V of margin, less under load.
+   It probably works on the bench, but it's not guaranteed. The clock path does this right (74AHCT on 5V, TTL inputs).
+3. **Back-powering.**
+   - J6A feeds VBUS straight onto the Pi's 5V header pins with no ideal diode. That's fine when it's the only supply.
+     If the Pi's own USB-C supply is plugged in at the same time, the two supplies are tied together, and each can
+     drive current back into the other (e.g. into a laptop port). The HAT spec asks for an ideal diode for this reason.
+   - With the DUT's VCC switched off, some signals still pull its pins high, so it gets partly powered through its
+     I/O clamp diodes: R8 (pull-up to 3V3 on AVR TX/PD3), HWB/PD7 (pulled up through R20 by the Pi's 1.8k on GPIO2),
+     and U3/U4 outputs if their enables are left on. RESET is *not* a path: AVR RESET pins have no clamp to VCC
+     (they take 12 V for high-voltage programming), so R16's pull-up to the always-on 5V is harmless there.
 4. **USB to the DUT.** J6B (USB-C) has no CC Rd, so C-to-C cables won't attach; only A-to-C cables work.
    J6B and J7 hang in parallel on the same D+/D-, which leaves a stub. VBUS from the host isn't used at all.
 5. **I2C1 is lost.** GPIO2/3 drive HWB. The Pi's 1.8k on-board pull-ups on those pins set the HWB default.
 6. **SPI0_CE0 (GPIO8) is used as a plain GPIO** (UART buffer enable), so the kernel spidev chip select has to be disabled or moved.
 7. **Footprints.** The J6A/J6B USB4105 shell tabs are SMD oval pads with unplated 0.61 mm holes, not the
    plated slots in GCT's recommended footprint, so they're mechanically weak. All parts are on the bottom
-   layer apart from J4.
+   layer apart from J4 and J5. J3 (bottom) and J4 (top) are **alternate ISP footprints that share three holes**:
+   pins 2/4/6 of each sit on the same spots and nets, so only one can be fitted.
 8. **DRC was not clean.** The PcbDoc stores unresolved violations: 6 short-circuit, 7 hole-to-hole
-   ("Pad/Via Touching Holes"), 13 clearance and 2 net-antennae. I don't know whether v1 was ever fabricated.
+   ("Pad/Via Touching Holes"; at least 3 are the shared J3/J4 holes), 13 clearance and 2 net-antennae.
 
 ## Import fidelity: holes and pads
 

@@ -1,12 +1,20 @@
-# v2 requirements (draft, pending user answers)
+# v2 requirements (draft)
 
-Derived from [v1-review.md](v1-review.md). Items marked **(Q n)** wait on open question *n* in
-[plans/v2-design.md](../plans/v2-design.md).
+Derived from [v1-review.md](v1-review.md) and the user's answers of 2026-11-11. Items marked **(Q n)**
+wait on open question *n* in [plans/v2-design.md](../plans/v2-design.md).
+
+## Purpose
+
+- Reproducible builds with open tools (KiCad, JLCPCB assembly, LCSC parts).
+- A base design that new parts can be added to: other AVRs (e.g. AVR32 UC3, XMEGA), each on its own
+  board or a couple per board. Pis aren't free, so one Pi should serve several DUTs. **(Q 1: base + cards?)**
+- The main target is each part's standard, officially supported operating modes.
+  Later special boards may push overclocking or power-draw limits.
 
 ## Keep from v1 (fixed where noted)
 
-- Pi-controlled DUT power switching, off by default. Separate VCC and USB rails are worth keeping for USB AVRs.
-- Reset control: open-drain, asserted by default, plus a reset-state LED. **Fix:** pull up to the switched target VCC, not the always-on 5V.
+- Pi-controlled DUT power switching, off by default. Separate VCC and USB rails for USB AVRs.
+- Reset control: open-drain, asserted by default, plus a reset-state LED.
 - ISP over Pi SPI0 through a buffer the Pi can disable, so the Pi lets go of the lines when not programming.
 - UART between Pi and DUT, also through a buffer that can be disabled.
 - HWB (DFU entry) control for USB AVRs. **Fix:** move it off GPIO2/3 so I2C1 is free.
@@ -17,25 +25,33 @@ Derived from [v1-review.md](v1-review.md). Items marked **(Q n)** wait on open q
 ## Fix
 
 - Every resistor value matches its part number, and every part has an LCSC number (the v1 BOM/schematic mismatch).
-- Real level translation referenced to the target's VCC (e.g. 74LVC1T45/2T45/8T245-class parts), not 3.3 V buffers driving 5 V inputs.
-- USB-C done properly: 5.1k Rd on any sink port, no unprotected back-feed of the Pi 5V rail
-  (the HAT spec's ideal-diode/back-power protection if the HAT accepts power).
+- Level translation in both directions, referenced to the target's VCC (e.g. 74LVC1T45/2T45/8T245-class),
+  not a 3.3 V buffer driving 5 V inputs.
+- No back-powering a switched-off DUT through its I/O pins: buffers default to Hi-Z, and pull-ups go to the
+  switched target rail.
+- USB-C done properly: 5.1k Rd on any sink port, and no two supplies tied together without an ideal diode.
 - No parallel USB connectors stubbing D+/D-.
 - Footprints from KiCad's standard library or JLC/EasyEDA, with plated slots where the datasheet asks for them.
+  No overlapping alternate footprints (v1's J3/J4).
 - Clean DRC/ERC, and JLC's DFM check passing.
 
-## Add (proposed)
+## Add
 
-- **Carrier (CM4/CM5):** native USB from the CM to the DUT. That needs a USB 2.0 hub if there's more than one DUT port
-  or the carrier itself needs USB. Each DUT port gets a VBUS switch with current limit, so the Pi can "unplug" it. **(Q 3)**
-- DUT current/voltage monitoring (INA226-class) on the switched rail. **(Q 4)**
-- Selectable target voltage (3.3 V / 5 V, maybe adjustable). **(Q 2)**
-- Support for more AVR programming interfaces (UPDI, PDI, TPI, debugWIRE) depending on the DUT families. **(Q 1)**
-- A breakout of more DUT GPIO to free Pi GPIO, for functional tests. **(Q 1)**
-- microSD. **(Q 5)**
+- **Target voltage:** whatever is easiest per DUT. Each DUT gets the rail its standard operating mode needs
+  (5 V for 16U2 at 16 MHz, 3.3 V for XMEGA/UC3). The base supplies 5 V and 3.3 V, and the DUT side picks.
+- **Power meter per DUT rail**, sized for AVR currents: from µA in sleep to ~100–200 mA running. Covering that
+  range likely takes a high-resolution monitor (INA228-class) or switchable shunts. To be chosen in part selection.
+- **DUT USB (carrier):** one USB port per DUT from a USB 2.0 hub on the CM's USB, each with a current-limited
+  VBUS switch the Pi controls (virtual unplug). A spare hub port goes to free DUT GPIO for software-USB testing. **(Q 3)**
+- **Clock control:** keep GPCLK0 → XTAL1 override per DUT. Consider a programmable clock generator
+  (Si5351-class, 3 outputs) for arbitrary and overclock frequencies.
+- **More programming interfaces** as DUT families need them: PDI (XMEGA), aWire/JTAG (UC3), UPDI, TPI, debugWIRE.
+- **CM carrier:** microSD slot (CM4/CM5 Lite; network boot is the plan, so no storage should be needed),
+  Ethernet jack for network boot, and a USB-C port for backup power and rpiboot firmware flashing.
+  On CM4 the single USB 2.0 port is shared by the hub and rpiboot, so it needs a USB switch, as the CM4 IO board has. **(Q 4)**
 
 ## Shared GPIO map constraint
 
 Both variants use the BCM GPIO 0–27 bank. CM4 and CM5 bring all of it out on their two Hirose DF40
-100-pin connectors, with the same alt functions as the 40-pin header, so one map serves both. The carrier gets extra pins (USB, more power control,
-maybe I2C GPIO expanders) that the HAT lacks, and on the HAT the DUT USB goes over a cable.
+100-pin connectors, with the same alt functions as the 40-pin header, so one map serves both. The carrier gets
+extra pins (USB, more power control, maybe I2C GPIO expanders) that the HAT lacks. On the HAT the DUT USB goes over a cable.

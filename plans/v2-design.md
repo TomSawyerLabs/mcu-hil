@@ -33,13 +33,35 @@ work on arrival.
   The carrier is the priority (it can have USB connections to the DUT).
   A USB cable between a Pi B and the HAT is an acceptable fallback for the HAT.
 - Start from v1's circuits (import the Altium project) rather than redraw from scratch.
+- **Why v2 (user, 2026-11-11):** reproducibility, moving to open tools, and a base design
+  that new parts can be added to. Likely variants carry other AVRs (e.g. AVR32 UC3, XMEGA),
+  each on its own board or a couple sharing one. Pis aren't free, so sharing one Pi across
+  several DUTs matters.
+- **Target voltage:** whatever is easiest to run. The main target is each part's standard,
+  officially supported operating modes. Special boards may later push overclocking or power-draw limits.
+- **Power meter:** yes, sized for the currents an AVR draws.
+- **DUT USB:** one port per DUT is enough, with per-port power control (virtual unplug).
+  If the hub has a spare port, wire its D+/D- to free DUT GPIO for software-USB testing.
+  (My reading: DUT GPIO, for V-USB-style firmware. To be confirmed.)
+- **Clock:** the Pi can optionally drive the DUT clock directly (v1's GPCLK0 override, kept and
+  possibly extended with a programmable clock generator).
+- **CM boards:** a microSD slot on the carrier. Network boot is the plan, so CM4/CM5 Lite with no
+  storage *should* work. A USB-C port is required, for backup power and firmware flashing (rpiboot).
+  Network boot implies an Ethernet jack.
+- **v1 history:** a v1 was built, but it may not match the Altium files. The built board has no USB-C.
+- **Repo:** rename the existing `TomSawyerLabs/avr-test-hat` to a name that implies a wider
+  eventual pool of supported parts, make an archive branch and a tag of the old version, and do the
+  v2 rewrite there (not in a new repo). Name still to be picked (open question).
 
 ## Plan / steps
 
 1. ~~Import v1 Altium project into KiCad and write up v1's circuits.~~ Done:
    `docs/v1-review.md`, with recovered data in `reference/v1-import/` (reference only).
 2. **(current: waiting on the user's answers)** Requirements for v2: draft is in
-   `docs/v2-requirements.md`. Finalize it once the open questions below are answered.
+   `docs/v2-requirements.md`, updated with the 2026-11-11 answers. Remaining questions are below.
+2b. Repo move, once the name is picked: rename on GitHub, add `v1-archive` branch and `v1` tag at
+   the old `master`, then bring this repo's history in additively (merge with
+   `--allow-unrelated-histories`, never a force-push). Each GitHub step needs the user's yes.
 3. GPIO map shared by both variants (CM4 vs CM5 differences, HAT 40-pin limits).
 4. Part selection with LCSC numbers + stock check (jlcpcb.com parts / JLC API).
 5. Schematic (shared sheets for common circuitry, per-variant top sheets).
@@ -75,34 +97,31 @@ work on arrival.
 
 - [x] Project dir + repo created, plan seeded (2026-11-11).
 - [x] v1 import and review: `docs/v1-review.md` (2026-11-11).
+- [x] v1 board and schematic images: `docs/v1-images/` (rendered from files, no KiCad runtime).
 - [ ] v2 requirements: draft in `docs/v2-requirements.md`, waiting on answers to the open questions.
+- [ ] Repo rename + archive branch/tag + import v2 history.
 
 ## Open questions for the user
 
-1. **DUT:** what will v2 test? v1 soldered an ATmega16U2 onto the HAT. Is v2 for external
-   boards (cable, ISP header, pogo fixture), an on-board chip or socket, or both? Which AVR
-   families (USB megaAVR like 16U2/32U4, classic megaAVR, tinyAVR 0/1/2 or AVR Dx over UPDI, XMEGA over PDI)?
-   This drives the programming interfaces, connectors and pin count.
-2. **Target voltage:** fixed 5 V like v1, switchable 3.3/5 V, or adjustable?
-   Recommendation: switchable 3.3/5 V, with level translators referenced to target VCC.
-3. **DUT USB on the carrier:** how many DUT USB ports? Per-port VBUS switching ("virtual unplug")?
-   CM4 has one USB 2.0 host port, so more than one port means a hub chip. CM5 has more.
-   Recommendation: a hub with 2 DUT ports, each with a VBUS load switch.
-4. **Measurement:** add DUT current/voltage monitoring (INA226-class)? Recommendation: yes.
-5. **microSD:** the request was cut off at "If there is room to support a uSD card on ...".
-   Which variant, and for what? Recommendation: on the carrier, wired to the CM's SD
-   interface so CM4/CM5 Lite (no eMMC) modules can boot.
-6. **Carrier extras:** Ethernet magjack? Power input (USB-C PD, barrel 12 V, PoE)? Form factor or enclosure?
-   Recommendation: gigabit Ethernet and 5 V USB-C PD input (CM5 wants 5 V/5 A), sized to fit
-   a stock enclosure if you have one in mind.
-7. **v1 history:** was v1 ever fabricated? What worked, what didn't, and what got bodged?
-8. **GitHub repo:** new repo (e.g. `TomSawyerLabs/avr-tester-v2`), or a v2 folder in the existing
-   `TomSawyerLabs/avr-test-hat`? Private or public? (No repo gets created until you answer.)
+1. **Architecture:** one base board (Pi or CM, power, USB hub, power meters, clock) with
+   plug-in DUT cards, each card carrying one or two AVRs? Or a complete board per AVR variant?
+   Recommendation: base + cards. A new AVR then only costs a small, cheap card, and one Pi
+   serves several DUTs. How many card slots per base? (Recommendation: 2 on the carrier,
+   1 on the HAT; the HAT becomes "a base with one slot".)
+2. **Repo name** for the renamed `TomSawyerLabs/avr-test-hat`. Candidates: `mcu-test-bench`
+   (recommended: not tied to AVR or to HATs), `avr-test-bench`, `chip-test-rig`, `dut-bench`.
+   Also: should v1's Altium files leave `master` (kept on the `v1` tag/branch), or move to `legacy/v1/`?
+   Recommendation: remove from `master`; the tag keeps them.
+3. **Software-USB pairs:** confirm the spare hub port's D+/D- go to the *DUT's* GPIO
+   (for V-USB-style firmware on the AVR), not to the Pi's GPIO.
+4. **Carrier extras:** PoE, or 5 V USB-C only? Any enclosure or size target?
+   Recommendation: no PoE at first; size it around the DUT card slots.
 
 ## Things not to do
 
 - Don't pick parts without an LCSC number or that are out of stock.
-- Don't modify the v1 repo (`..\avr-test-hat`); work from a copy.
+- Don't modify the v1 repo (`..\avr-test-hat`) beyond the agreed rename/archive/rewrite steps,
+  and don't touch its uncommitted `.github/` and `OS Image/` files (not this thread's).
 - **Don't run KiCad's runtime (kicad-cli or KiCad's Python) without asking first.**
   KiCad's Python (`pcbnew.LoadBoard` etc.) turns parser warnings into modal wx dialogs
   that land on the user's screen and block until dismissed. That happened ~16 times on
