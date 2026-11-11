@@ -9,7 +9,9 @@ work on arrival.
 
 ## Environment / context
 
-- This repo: `C:\Users\camer\git\Personal Projects\avr-tester-v2` (branch `master`, no remote yet).
+- This repo: `C:\Users\camer\git\Personal Projects\avr-tester-v2`. Remote `v1` =
+  `https://github.com/TomSawyerLabs/avr-test-hat.git` (fetch only so far; becomes `origin` →
+  `mcu-hil` after the rename). Repo-move work is on local branch `mcu-hil-merge` (step 2b).
 - v1 design: `C:\Users\camer\git\Personal Projects\avr-test-hat`
   (remote `https://github.com/TomSawyerLabs/avr-test-hat`).
   - v1 is **Altium**, not Ultiboard/Multisim: `HAT/AVR-Tester.PrjPcb`,
@@ -41,16 +43,23 @@ work on arrival.
   Variants share a common base design (copied/shared schematic sheets), not a connector.
 - **CM carrier size: same outline as the CM4/CM5 module (55 × 40 mm)**, so they stack like the
   Waveshare CM4-NANO carrier.
-- **Power input:** no secondary power input. CM carrier: USB-C (power + rpiboot), with **PoE as
-  an option** (population option or add-on). HAT: powered by the Pi only. Its USB-C is a **data**
+- **Power input:** no secondary power input. CM carrier: USB-C (power + rpiboot).
+  **No PoE in this version** (user, 2026-11-11: skip it; it didn't fit at 55 × 40 mm anyway).
+  Plain RJ45 magjack. HAT: powered by the Pi only. Its USB-C is a **data**
   connection to the Pi through a short loopback cable, so the HAT never back-feeds the Pi's 5 V.
 - **Target voltage:** whatever is easiest to run. The main target is each part's standard,
   officially supported operating modes. Special boards may later push overclocking or power-draw limits.
 - **Power meter:** yes, sized for the currents an AVR draws.
 - **DUT USB:** one port per DUT is enough, with per-port power control (virtual unplug).
   Software-USB testing goes to the **MCU's** GPIO (confirmed: we test the MCU, not the Pi).
-  On a single-MCU board, MCU GPIO can be routed to a USB D+/D- pair. Whether that needs a hub is
-  open question 2.
+  On a single-MCU board, MCU GPIO can be routed to a USB D+/D- pair.
+- **USB switch, not a hub** (user, 2026-11-11: "we only need one path at a time"). The host's one
+  USB 2.0 port goes through a high-speed analog USB switch (TS3USB221-class, HS-rated because the
+  rpiboot path runs at 480 Mbps) to exactly one of: USB-C (rpiboot), the MCU's hardware USB, or the
+  software-USB pin pair. Unselected paths are disconnected, so no D+/D- stubs. The switch selects
+  USB-C by default (pulled, so it's right before the CM boots). Accepted cost: on a board with
+  two USB MCUs, only one enumerates at a time, and tests switch between them. Same circuit on the HAT
+  behind the loopback cable.
 - **Clock:** the Pi can optionally drive the DUT clock directly (v1's GPCLK0 override, kept and
   possibly extended with a programmable clock generator).
 - **CM boards:** a microSD slot on the carrier. Network boot is the plan, so CM4/CM5 Lite with no
@@ -58,20 +67,31 @@ work on arrival.
   Network boot implies an Ethernet jack.
 - **v1 history:** a v1 was built, but it may not match the Altium files. Whether it has USB-C is
   unconfirmed (the user will check the board edge).
-- **Repo:** rename the existing `TomSawyerLabs/avr-test-hat` to a name that implies a wider
-  eventual pool of supported parts, make an archive branch and a tag of the old version, and do the
-  v2 rewrite there (not in a new repo). **Delete the Altium files from `master`** (they stay in git
-  history), and link the `v1` tag from the README. Name still to be picked (open question 1).
+- **Repo:** rename the existing `TomSawyerLabs/avr-test-hat` to **`TomSawyerLabs/mcu-hil`**
+  (picked 2026-11-11; the name was free), make an archive branch `v1-archive` and a tag `v1` of the
+  old version, and do the v2 rewrite there (not in a new repo). **Delete the Altium files from
+  `master`** (they stay in git history), and link the `v1` tag from the README.
 
 ## Plan / steps
 
 1. ~~Import v1 Altium project into KiCad and write up v1's circuits.~~ Done:
    `docs/v1-review.md`, with recovered data in `reference/v1-import/` (reference only).
-2. **(current: waiting on the user's answers)** Requirements for v2: draft is in
-   `docs/v2-requirements.md`, updated with the 2026-11-11 answers. Remaining questions are below.
-2b. Repo move, once the name is picked: rename on GitHub, add `v1-archive` branch and `v1` tag at
-   the old `master`, then bring this repo's history in additively (merge with
-   `--allow-unrelated-histories`, never a force-push). Each GitHub step needs the user's yes.
+2. ~~Requirements for v2~~: `docs/v2-requirements.md`, all questions answered (2026-11-11).
+2b. **(current: waiting on the user's yes for the GitHub steps)** Repo move to `mcu-hil`.
+   Local prep is done: in this repo, remote `v1` = the GitHub repo, and local branch
+   `mcu-hil-merge` holds the merge (`05395e7`, unrelated histories, README rewritten), then
+   Altium removal (`ec8def9`) and a `.gitignore` commit. Its first parent is our `master`, second is
+   v1 `4560cfe`, so pushing it to GitHub `master` is a **fast-forward** (no force).
+   GitHub steps, each needing its own yes:
+   1. `gh repo rename mcu-hil -R TomSawyerLabs/avr-test-hat --yes` (GitHub redirects the old URL).
+   2. `git push v1 4560cfe:refs/heads/v1-archive` and `git tag -a v1 4560cfe -m "v1: Altium AVR Test HAT"`
+      then `git push v1 refs/tags/v1`.
+   3. `git push v1 mcu-hil-merge:master` (fast-forward), then locally rename remote `v1` → `origin`
+      with URL `https://github.com/TomSawyerLabs/mcu-hil.git`, fast-forward local `master`,
+      delete `mcu-hil-merge`.
+   4. `gh repo edit TomSawyerLabs/mcu-hil --description "..."` (new description).
+   The v1 checkout `..\avr-test-hat` is left alone (its remote keeps working through the redirect).
+   The repo is public with no committed workflows, so pushes start no paid CI.
 3. GPIO map shared by both variants (CM4 vs CM5 differences, HAT 40-pin limits).
 4. Part selection with LCSC numbers + stock check (jlcpcb.com parts / JLC API).
 5. Schematic (shared sheets for common circuitry, per-variant top sheets).
@@ -108,26 +128,17 @@ work on arrival.
 - [x] Project dir + repo created, plan seeded (2026-11-11).
 - [x] v1 import and review: `docs/v1-review.md` (2026-11-11).
 - [x] v1 board and schematic images: `docs/v1-images/` (rendered from files, no KiCad runtime).
-- [ ] v2 requirements: draft in `docs/v2-requirements.md`, waiting on answers to the open questions.
-- [ ] Repo rename + archive branch/tag + import v2 history (Altium files deleted on `master`, README links `v1` tag).
-- [ ] Fit check: CM connectors, RJ45, USB-C, microSD, MCU, hub and power meter on 55 × 40 mm (likely both sides).
+- [x] v2 requirements: `docs/v2-requirements.md`, open questions answered (2026-11-11).
+- [x] Repo move local prep: branch `mcu-hil-merge` (merge, Altium removal, new README).
+- [ ] Repo move GitHub steps (rename, `v1-archive` + `v1`, push `master`), waiting on the user's yes.
+- [ ] Fit check: CM connectors, RJ45, USB-C, microSD, MCU, USB switch and power meter on 55 × 40 mm (likely both sides).
 
 ## Open questions for the user
 
-1. **Repo name** for the renamed `TomSawyerLabs/avr-test-hat` (user floated `uhwTest`,
-   "micro hardware test", and wants more thought). Candidates: `mcu-hil` ("hardware in the loop",
-   the standard term for this kind of rig), `uhw-test`, `mcu-test-boards`, `chip-hil`.
-   Recommendation: `mcu-hil`.
-2. **USB hub or not.** Without a hub, a CM4 has one USB 2.0 port, which already needs a switch
-   to share it between rpiboot (USB-C) and the MCU. A board that tests both an MCU's hardware USB
-   and a software-USB pin pair could then only use one at a time. A small 4-port hub on the board
-   (e.g. a CH334/FE1.1s-class part) lets both enumerate at once, works the same on CM4 and CM5,
-   and the same circuit works on the HAT behind the loopback cable. Recommendation: hub on every
-   board, with per-port power switches.
-3. **PoE option on a 55 × 40 mm board.** Real PoE needs a PD controller plus an isolated flyback
-   transformer, which won't fit beside everything else at the CM's size. Recommendation: a PoE-capable
-   magjack with its center taps on a 4-pin header (like the Pi's PoE header), so a separate PoE board
-   can stack on as the option.
+1. **Go-ahead for the repo-move GitHub steps** listed in step 2b (each needs a yes).
+2. Whether the built v1 board has USB-C (user checks the board edge 2026-11-12).
+
+Answered 2026-11-11: name `mcu-hil`; USB switch instead of a hub; no PoE this version.
 
 ## Things not to do
 

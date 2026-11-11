@@ -1,7 +1,7 @@
 # v2 requirements (draft)
 
-Derived from [v1-review.md](v1-review.md) and the user's answers of 2026-11-11. Items marked **(Q n)**
-wait on open question *n* in [plans/v2-design.md](../plans/v2-design.md).
+Derived from [v1-review.md](v1-review.md) and the user's answers of 2026-11-11.
+Decisions and open items live in [plans/v2-design.md](../plans/v2-design.md).
 
 ## Purpose
 
@@ -45,16 +45,19 @@ wait on open question *n* in [plans/v2-design.md](../plans/v2-design.md).
 - **Power meter per DUT rail**, sized for AVR currents: from µA in sleep to ~100–200 mA running. Covering that
   range likely takes a high-resolution monitor (INA228-class) or switchable shunts. To be chosen in part selection.
 - **DUT USB:** one USB port per MCU, with a current-limited VBUS switch the Pi controls (virtual unplug).
-  Software-USB testing routes MCU GPIO to a D+/D- pair. A small hub on every board would let hardware and
-  software USB run at once, on both CM and HAT. **(Q 2: hub?)**
+  Software-USB testing routes MCU GPIO to a D+/D- pair.
+- **USB switch, no hub:** only one USB path is needed at a time. The host's USB 2.0 port goes through a
+  high-speed analog USB switch to one of: USB-C (rpiboot, the default), the MCU's hardware USB, or the
+  software-USB pins. Unselected paths are fully disconnected. With two USB MCUs on one board, tests switch
+  between them. The same circuit sits on the HAT behind the loopback cable.
 - **HAT USB:** USB-C as a data link to the Pi through a short loopback cable. It is not a power input.
 - **Clock control:** keep GPCLK0 → XTAL1 override per DUT. Consider a programmable clock generator
   (Si5351-class, 3 outputs) for arbitrary and overclock frequencies.
 - **More programming interfaces** as DUT families need them: PDI (XMEGA), aWire/JTAG (UC3), UPDI, TPI, debugWIRE.
 - **CM carrier:** microSD slot (CM4/CM5 Lite; network boot is the plan, so no storage should be needed),
   Ethernet jack for network boot, and a USB-C port for backup power and rpiboot firmware flashing.
-  On CM4 the single USB 2.0 port is shared by the hub and rpiboot, so it needs a USB switch, as the CM4 IO board has.
-- **Power input:** USB-C only, plus PoE as an option **(Q 3: how)**. No secondary power inputs anywhere;
+  On CM4 the single USB 2.0 port is shared by rpiboot and the DUT, which the USB switch above handles.
+- **Power input:** USB-C only. No PoE in this version, and no secondary power inputs anywhere;
   the HAT is powered by the Pi.
 
 ## Shared GPIO map constraint
