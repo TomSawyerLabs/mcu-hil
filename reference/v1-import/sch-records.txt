@@ -1,0 +1,582 @@
+==================== AVR.SchDoc
+PORT: Reset  io=2
+PORT: HWB  
+PORT: Tx  io=1
+PORT: Rx  io=2
+PWRPORT: GND  
+PWRPORT: GND  
+COMP CAP-NP-2 | Chip Capacitor, 1 uF, +/- 10%, 16 V, 0603 (1608 Metric)
+   Value=1µF
+   designator C4
+   Comment=Capacitor 1uF +/- 10% 16V 0603
+PWRPORT: GND  
+PORT: SPI harness=SPI io=2
+PWRPORT: GND  
+COMP XTAL-1-3-4 | Ceramic SMD Crystal, 16 MHz, +/- 20 ppm, 18 pF, -20 to 70 degC, 4-Pin SMD, RoHS, Tape and Reel
+   Manufacturer=Abracon
+   designator X1
+   Comment=ABM3B-16.000MHZ-B2-T
+COMP CAP-NP-2 | Chip Capacitor, 12pF +/-10%, 50V, 0402, Thickness 0.33 mm
+   Value=12pF
+   designator C6
+   Comment=Capacitor 12pF +/-10% 50V 0402
+PWRPORT: GND  
+PWRPORT: GND  
+PWRPORT: GND  
+PWRPORT: GND  
+COMP CAP-NP-2 | Chip Capacitor, 100 nF, +/- 10%, 50 V, 0603 (1608 Metric)
+   Value=100nF
+   designator C2
+   Comment=Capacitor 100 nF +/-10% 50 V 0603
+COMP CAP-NP-2 | Chip Capacitor, 100 nF, +/- 10%, 50 V, 0603 (1608 Metric)
+   Value=100nF
+   designator C3
+   Comment=Capacitor 100 nF +/-10% 50 V 0603
+COMP CAP-NP-2 | Chip Capacitor, 12pF +/-10%, 50V, 0402, Thickness 0.33 mm
+   Value=12pF
+   designator C5
+   Comment=Capacitor 12pF +/-10% 50V 0402
+COMP RES-2 | Chip Resistor, 22 Ohm, +/- 1%, 100 mW, -55 to 155 degC, 0603 (1608 Metric)
+   Value=22
+   designator R1
+   Comment=Resistor 22R +/-1% 0603 100 mW
+COMP RES-2 | Chip Resistor, 22 Ohm, +/- 1%, 100 mW, -55 to 155 degC, 0603 (1608 Metric)
+   Value=22
+   designator R2
+   Comment=Resistor 22R +/-1% 0603 100 mW
+COMP ATMEGA16U2-AU | AVR AVR® ATmega Microcontroller IC 8-Bit 16MHz 16KB FLASH 32-TQFP 7x7
+LABEL: 'TXD'
+LABEL: 'RXD'
+LABEL: 'OC.0A'
+LABEL: 'OC.0B'
+LABEL: 'OC.1A'
+LABEL: 'OC.1B'
+LABEL: 'OC.1C'
+LABEL: 'ICP1'
+LABEL: 'CLKO'
+LABEL: 'CTS'
+LABEL: 'RTS'
+LABEL: 'XCK'
+LABEL: 'T0'
+LABEL: 'T1'
+LABEL: '____'
+LABEL: '____'
+LABEL: 'HWB'
+LABEL: '_____'
+LABEL: 'SCLK'
+LABEL: 'SS'
+LABEL: 'MOSI'
+LABEL: 'MISO'
+   Value=*
+   designator U1
+   Comment=ATMEGA16U2-AU
+NETLABEL: A_N  
+NETLABEL: A_P  
+PORT: LED  io=1
+PORT: UVCC  io=2
+PORT: VCC  io=2
+SHEETENTRY: Enable  io=2
+SHEETENTRY: Load  io=1
+SHEETNAME: Power  
+SHEETFILE: Power Switch  
+SHEETENTRY: Enable  io=2
+SHEETENTRY: Load  io=1
+SHEETNAME: USB  
+SHEETFILE: Power Switch  
+NETLABEL: UVCC  
+NETLABEL: VCC  
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=1k
+   designator R3
+   Comment=Resistor 1k +/-1% 0603 100 mW
+PORT: Clock  io=2
+COMP 2-1761605-1 | Wire-To-Board Connector, AMP-LATCH Series, Through Hole, Header, 6, 2.54 mm, Gold Plated Contacts
+   Value=*
+   designator J3
+   Comment=2-1761605-1
+NETLABEL: VCC  
+PWRPORT: GND  
+NETLABEL: Reset  
+NETLABEL: Reset  
+COMP CAP-NP-2 | Chip Capacitor, 10 uF, +/- 10%, 16 V, 0805 (2012 Metric)
+   Value=10µF
+   designator C1
+   Comment=Capacitor 10 uF +/- 10% 16 V 0805
+PWRPORT: 5V  
+PWRPORT: GND  
+SHEETENTRY: USB harness=USB 
+SHEETNAME: USB  
+SHEETFILE: USB  
+NETLABEL: SCLK  
+NETLABEL: MOSI  
+NETLABEL: MISO  
+NETLABEL: MISO  
+NETLABEL: SCLK  
+NETLABEL: MOSI  
+NETLABEL: VCC  
+NETLABEL: Reset  
+NETLABEL: MISO  
+NETLABEL: SCLK  
+NETLABEL: MOSI  
+PWRPORT: GND  
+COMP 30306-6002HB | Connector Header Through Hole 6 position 0.100 _2.54mm_
+   Value=*
+   designator J4
+   Comment=30306-6002HB
+==================== Clock Buffer.SchDoc
+COMP 74AHCT1G126SE-7 | 74AHC Series 5.5 V Surface Mount Single Buffer Gate w/ 3-ST Output - SOT-353
+   Value=*
+   designator U4
+   Comment=74AHCT1G126SE-7
+PWRPORT: 5V  
+PWRPORT: GND  
+PWRPORT: GND  
+COMP CAP-NP-2 | Chip Capacitor, 100 nF, +/- 10%, 50 V, 0603 (1608 Metric)
+   Value=100nF
+   designator C9
+   Comment=Capacitor 100 nF +/-10% 50 V 0603
+PWRPORT: 5V  
+PORT: Output  io=1
+PORT: Input  io=2
+PORT: Enable  io=2
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=4.7k
+   designator R28
+   Comment=Resistor 1k +/-1% 0603 100 mW
+PWRPORT: GND  
+==================== EEPROM.SchDoc
+PWRPORT: 3V3  
+COMP JUMPER | JUMPER
+   Value=None
+   designator J5
+   Comment=JUMPER
+PORT: I2C harness=I2C io=3
+COMP ONSC-CAT24C32-SOIC-8 | I2C CMOS Serial EEPROM, 32 Kb, 1.7 to 5.5 V, -40 to 85 degC, 8-Pin SOIC (751BD), RoHS, Tape and Reel
+   Manufacturer=ON Semiconductor
+   designator U2
+   Comment=CAT24C32WI-GT3
+NETLABEL: SCL  
+PWRPORT: GND  
+PWRPORT: GND  
+PWRPORT: 3V3  
+PWRPORT: GND  
+NETLABEL: SDA  
+NETLABEL: SCL  
+PWRPORT: 3V3  
+NETLABEL: SDA  
+COMP CAP-NP-2 | Chip Capacitor, 100 nF, +/- 10%, 50 V, 0603 (1608 Metric)
+   Value=100nF
+   designator C7
+   Comment=Capacitor 100 nF +/-10% 50 V 0603
+TEXTFRAME: 'Short @{"Id":"JBWAJBWZ\\PCAIDNAT"} to enable~1Write Protect'
+==================== I2C-PullUps.SchDoc
+PWRPORT: 3V3  
+PWRPORT: 3V3  
+PORT: I2C harness=I2C io=3
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=3.9k
+   designator R4
+   Comment=Resistor 1k +/-1% 0603 100 mW
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=3.9k
+   designator R5
+   Comment=Resistor 1k +/-1% 0603 100 mW
+==================== Logic Buffer.SchDoc
+NETLABEL: Master_MISO  
+COMP 74LVC244APW,118 | Octal buffer/line driver
+   Value=*
+   designator U3
+   Comment=74LVC244APW,118
+NETLABEL: Device_MISO  
+NETLABEL: Device_MOSI  
+NETLABEL: Device_SCLK  
+PWRPORT: GND  
+PWRPORT: 3V3  
+PORT: Device harness=SPI io=2
+NETLABEL: Device_MISO  
+NETLABEL: Device_MOSI  
+NETLABEL: Device_SCLK  
+PORT: Serial_Disable  io=2
+PORT: SPI_Disable  io=2
+PWRPORT: 3V3  
+PWRPORT: GND  
+PWRPORT: 3V3  
+PWRPORT: 3V3  
+PORT: Master harness=SPI io=2
+NETLABEL: Master_MISO  
+NETLABEL: Master_MOSI  
+NETLABEL: Master_SCLK  
+NETLABEL: Master_MOSI  
+NETLABEL: Master_SCLK  
+PORT: Master_Rx  io=1
+PORT: Device_Rx  io=1
+PORT: Device_Tx  io=2
+PORT: Master_Tx  io=2
+PWRPORT: 3V3  
+PWRPORT: 3V3  
+COMP CAP-NP-2 | Chip Capacitor, 100 nF, +/- 10%, 50 V, 0603 (1608 Metric)
+   Value=100nF
+   designator C8
+   Comment=Capacitor 100 nF +/-10% 50 V 0603
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=4.7k
+   designator R8
+   Comment=Resistor 1k +/-1% 0603 100 mW
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=4.7k
+   designator R9
+   Comment=Resistor 1k +/-1% 0603 100 mW
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=4.7k
+   designator R7
+   Comment=Resistor 1k +/-1% 0603 100 mW
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=4.7k
+   designator R6
+   Comment=Resistor 1k +/-1% 0603 100 mW
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=220
+   designator R10
+   Comment=Resistor 1k +/-1% 0603 100 mW
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=220
+   designator R12
+   Comment=Resistor 1k +/-1% 0603 100 mW
+COMP RES-2 | Chip Resistor, 120 Ohms, +/-5 %, 0.1 W, -55 to 155 degC, 0603
+   Value=220
+   designator R11
+   Comment=Resistor 120R +/-5 % 0603 0.1 W
+COMP RES-2 | Chip Resistor, 120 Ohms, +/-5 %, 0.1 W, -55 to 155 degC, 0603
+   Value=220
+   designator R13
+   Comment=Resistor 120R +/-5 % 0603 0.1 W
+COMP RES-2 | Chip Resistor, 120 Ohms, +/-5 %, 0.1 W, -55 to 155 degC, 0603
+   Value=220
+   designator R14
+   Comment=Resistor 120R +/-5 % 0603 0.1 W
+PWRPORT: GND  
+LABEL: '3.3V, 16mA'
+LABEL: 'Protect Shifter from AVR'
+LABEL: 'Protect Pi from Shifter'
+LABEL: '5V, 24mA'
+==================== Main.SchDoc
+SHEETENTRY: GPIO5  
+SHEETENTRY: GPIO8  
+SHEETENTRY: GPIO14  
+SHEETENTRY: GPIO15  
+SHEETENTRY: GPIO19  
+SHEETENTRY: GPIO13  
+SHEETENTRY: GPIO26  
+SHEETENTRY: GPIO9  
+SHEETENTRY: GPIO10  
+SHEETENTRY: GPIO11  
+SHEETENTRY: GPIO3  
+SHEETENTRY: GPIO27  
+SHEETENTRY: GPIO18  
+SHEETENTRY: GPIO4  
+SHEETENTRY: GPIO17  
+SHEETENTRY: GPIO2  
+SHEETNAME: Pi  
+SHEETFILE: RPi-HAT_Conn-EE  
+SHEETENTRY: Reset  io=2
+SHEETENTRY: SPI harness=SPI io=3
+SHEETENTRY: HWB  
+SHEETENTRY: Rx  io=2
+SHEETENTRY: Tx  io=1
+SHEETENTRY: LED  
+SHEETENTRY: VCC  io=2
+SHEETENTRY: UVCC  io=2
+SHEETENTRY: Clock  io=2
+SHEETNAME: AVR  
+SHEETFILE: AVR  
+SHEETENTRY: Device harness=SPI io=3
+SHEETENTRY: Device_Tx  io=2
+SHEETENTRY: Device_Rx  io=1
+SHEETENTRY: Serial_Disable  io=2
+SHEETENTRY: Master_Rx  io=1
+SHEETENTRY: Master harness=SPI 
+SHEETENTRY: SPI_Disable  io=2
+SHEETENTRY: Master_Tx  io=2
+SHEETNAME: LogicLevel  
+SHEETFILE: Logic Buffer  
+LABEL: 'SPI0_MOSI'
+LABEL: 'SPI0_MISO'
+LABEL: 'SPI0_SCLK'
+LABEL: 'UART0_RXD'
+LABEL: 'UART0_TXD'
+SHEETENTRY: Reset  io=1
+SHEETENTRY: Input  io=2
+SHEETNAME: Reset  
+SHEETFILE: Reset  
+PWRPORT: GND  
+LABEL: 'Pi Activity Indicator'
+COMP LTST-C230KFKT | Orange 605nm LED Indication - Discrete 2V 1206 (3216 Metric)
+   Value=*
+   designator D3
+   Comment=LTST-C230KFKT
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=1k
+   designator R23
+   Comment=Resistor 1k +/-1% 0603 100 mW
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=4.7k
+   designator R20
+   Comment=Resistor 1k +/-1% 0603 100 mW
+NETLABEL: AVR Rx  
+NETLABEL: AVR Tx  
+NETLABEL: Pi Tx  
+NETLABEL: Pi Rx  
+NETLABEL: Pi SCLK  
+NETLABEL: Pi MOSI  
+NETLABEL: Pi MISO  
+NETLABEL: Serial Disable  
+NETLABEL: HWB Control  
+NETLABEL: HWB  
+NETLABEL: Reset  
+NETLABEL: Reset Control  
+NETLABEL: Reset Default  
+NETLABEL: Pi Activity  
+NETLABEL: Pi Activity  
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=4.7k
+   designator R19
+   Comment=Resistor 1k +/-1% 0603 100 mW
+NETLABEL: HWB Default  
+PWRPORT: GND  
+LABEL: 'AVR Activity Indicator'
+COMP LTST-C230KFKT | Orange 605nm LED Indication - Discrete 2V 1206 (3216 Metric)
+   Value=*
+   designator D4
+   Comment=LTST-C230KFKT
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=1k
+   designator R24
+   Comment=Resistor 1k +/-1% 0603 100 mW
+NETLABEL: AVR Activity  
+NETLABEL: AVR Activity  
+NETLABEL: ISP Disable  
+NETLABEL: AVR VCC Enable  
+NETLABEL: AVR USB Enable  
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=4.7k
+   designator R22
+   Comment=Resistor 1k +/-1% 0603 100 mW
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=4.7k
+   designator R21
+   Comment=Resistor 1k +/-1% 0603 100 mW
+PWRPORT: GND  
+SHEETENTRY: Enable  io=2
+SHEETENTRY: Input  io=2
+SHEETENTRY: Output  io=1
+SHEETNAME: Clock Override  
+SHEETFILE: Clock Buffer  
+NETLABEL: Clock Override  
+NETLABEL: Clock Override Enable  
+NETLABEL: AVR Clock  
+==================== Power Switch.SchDoc
+PWRPORT: 5V  
+COMP PEMOS-GSD-3 | P-Channel Plastic Encapsulate MOSFET, 12 V, 4.1 A, 3-Pin SOT23, Tape and Reel
+   Manufacturer=Jiangsu Changjiang Electronics Technology
+   designator Q3
+   Comment=CJ2305
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=1k
+   designator R25
+   Comment=Resistor 1k +/-1% 0603 100 mW
+PWRPORT: 5V  
+COMP NEMOS-GSD-3 | N-channel Trench MOSFET, 60 V, 300 mA, -65 to 150 degC, 3-Pin SOT-23 (TO-236AB), RoHS, Tape and Reel
+   Manufacturer=NXP Semiconductors
+   designator Q4
+   Comment=2N7002,215
+PWRPORT: GND  
+PORT: Load  io=1
+PORT: Enable  io=2
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=1k
+   designator R26
+   Comment=Resistor 1k +/-1% 0603 100 mW
+PWRPORT: GND  
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=4.7k
+   designator R27
+   Comment=Resistor 1k +/-1% 0603 100 mW
+PWRPORT: GND  
+==================== RPi-HAT_Conn-EE.SchDoc
+LABEL: 'Title'
+LABEL: 'Size:'
+LABEL: 'Number:'
+LABEL: 'Date:'
+LABEL: 'File:'
+LABEL: 'Revision:'
+LABEL: 'Sheet'
+LABEL: 'of'
+LABEL: 'Time:'
+LABEL: 'A4'
+PWRPORT: 3V3  
+PWRPORT: GND  
+PWRPORT: GND  
+PWRPORT: 5V  
+NETLABEL: ID_SD  
+NETLABEL: ID_SC  
+NETLABEL: GPIO2  
+NETLABEL: GPIO3  
+NETLABEL: GPIO4  
+NETLABEL: GPIO5  
+NETLABEL: GPIO6  
+NETLABEL: GPIO7  
+NETLABEL: GPIO8  
+NETLABEL: GPIO9  
+NETLABEL: GPIO10  
+NETLABEL: GPIO11  
+NETLABEL: GPIO12  
+NETLABEL: GPIO13  
+NETLABEL: GPIO14  
+NETLABEL: GPIO15  
+NETLABEL: GPIO16  
+NETLABEL: GPIO17  
+NETLABEL: GPIO18  
+NETLABEL: GPIO19  
+NETLABEL: GPIO20  
+NETLABEL: GPIO21  
+NETLABEL: GPIO22  
+NETLABEL: GPIO23  
+NETLABEL: GPIO24  
+NETLABEL: GPIO25  
+NETLABEL: GPIO26  
+NETLABEL: GPIO27  
+PORT: GPIO2  
+PORT: GPIO3  
+PORT: GPIO4  
+PORT: GPIO5  
+PORT: GPIO6  
+PORT: GPIO7  
+PORT: GPIO8  
+PORT: GPIO9  
+PORT: GPIO10  
+PORT: GPIO11  
+PORT: GPIO12  
+PORT: GPIO13  
+PORT: GPIO14  
+PORT: GPIO15  
+PORT: GPIO16  
+PORT: GPIO17  
+PORT: GPIO18  
+PORT: GPIO19  
+PORT: GPIO20  
+PORT: GPIO21  
+PORT: GPIO22  
+PORT: GPIO23  
+PORT: GPIO24  
+PORT: GPIO25  
+PORT: GPIO26  
+PORT: GPIO27  
+LABEL: 'SDA1 I2C'
+LABEL: 'SCL1 I2C'
+LABEL: 'SPI0_CE0_N'
+LABEL: 'SPI0_CE1_N'
+LABEL: 'PCM_CLK'
+COMP CMP-2482621-3 | Headers & Wire Housings 20+20 DIL VERTICAL SOCKET TIN
+   designator J1
+   Comment=Harwin M20-7832046
+SHEETENTRY: I2C harness=I2C io=3
+SHEETNAME: EEPROM  
+SHEETFILE: EEPROM  
+SHEETENTRY: I2C harness=I2C io=3
+SHEETNAME: PullUps  
+SHEETFILE: I2C-PullUps  
+NETLABEL: ID_SC  
+NETLABEL: ID_SD  
+COMP PPPC022LFBN-RC | 4 Position Header Connector 0.100 (2.54mm) Through Hole Gold
+   Value=*
+   designator J2
+   Comment=PPPC022LFBN-RC
+==================== Reset.SchDoc
+PORT: Reset  io=1
+PORT: Input  io=2
+PWRPORT: 5V  
+COMP NEMOS-GSD-3 | N-channel Trench MOSFET, 60 V, 300 mA, -65 to 150 degC, 3-Pin SOT-23 (TO-236AB), RoHS, Tape and Reel
+   Manufacturer=NXP Semiconductors
+   designator Q1
+   Comment=2N7002,215
+COMP NEMOS-GSD-3 | N-channel Trench MOSFET, 60 V, 300 mA, -65 to 150 degC, 3-Pin SOT-23 (TO-236AB), RoHS, Tape and Reel
+   Manufacturer=NXP Semiconductors
+   designator Q2
+   Comment=2N7002,215
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=1k
+   designator R16
+   Comment=Resistor 1k +/-1% 0603 100 mW
+PWRPORT: 5V  
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=1k
+   designator R15
+   Comment=Resistor 1k +/-1% 0603 100 mW
+PWRPORT: GND  
+PWRPORT: GND  
+PWRPORT: 3V3  
+LABEL: 'Reset Active Indicator'
+COMP LTST-C230KFKT | Orange 605nm LED Indication - Discrete 2V 1206 (3216 Metric)
+   Value=*
+   designator D2
+   Comment=LTST-C230KFKT
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=1k
+   designator R18
+   Comment=Resistor 1k +/-1% 0603 100 mW
+PWRPORT: 3V3  
+LABEL: 'Not Reset Indicator'
+COMP LTST-C230KFKT | Orange 605nm LED Indication - Discrete 2V 1206 (3216 Metric)
+   Value=*
+   designator D1
+   Comment=LTST-C230KFKT
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=1k
+   designator R17
+   Comment=Resistor 1k +/-1% 0603 100 mW
+LABEL: 'Non-inverting Control of Reset'
+==================== USB-C.SchDoc
+PWRPORT: GND  
+PORT: USB harness=USB 
+NETLABEL: D_N  
+NETLABEL: D_P  
+NETLABEL: D_N  
+NETLABEL: D_P  
+COMP USB4105-GF-A | No Description Available
+   designator J6
+   Comment=USB4105-GF-A
+PORT: VBUS  io=3
+PORT: CC1  io=3
+PORT: CC2  io=3
+==================== USB.SchDoc
+PORT: USB harness=USB 
+SHEETENTRY: USB harness=USB 
+SHEETNAME: USB-C  
+SHEETFILE: USB-C  
+SHEETENTRY: VBUS  io=3
+SHEETENTRY: CC1  io=3
+SHEETENTRY: CC2  io=3
+SHEETNAME: PWR  
+SHEETFILE: USB-C  
+SHEETENTRY: USB harness=USB 
+SHEETNAME: micro  
+SHEETFILE: microUSB  
+PWRPORT: 5V  
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=5.1k
+   designator R29
+   Comment=Resistor 1k +/-1% 0603 100 mW
+PWRPORT: GND  
+COMP RES-2 | Chip Resistor, 1 KOhm, +/-1%, 0.1 W, -55 to 155 degC, 0603 (1608 Metric)
+   Value=5.1k
+   designator R30
+   Comment=Resistor 1k +/-1% 0603 100 mW
+PWRPORT: GND  
+==================== microUSB.SchDoc
+PORT: USB harness=USB 
+PWRPORT: GND  
+COMP 10118193-0001LF | Micro USB 2.0, Input Output Connectors, B TYPE RECEPTACLE
+   Value=*
+   designator J7
+   Comment=10118193-0001LF
+PORT: VBUS  io=3

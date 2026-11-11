@@ -14,4 +14,5 @@ in stock, so boards can be ordered fully assembled from JLCPCB.
 
 ## Status
 
-Planning. See [plans/v2-design.md](plans/v2-design.md).
+Planning. See [plans/v2-design.md](plans/v2-design.md), the
+[v1 design review](docs/v1-review.md) and the [v2 requirements draft](docs/v2-requirements.md).
