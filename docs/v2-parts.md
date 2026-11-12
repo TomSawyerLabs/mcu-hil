@@ -7,8 +7,8 @@ before ordering, because stock moves.
 **Lib** is JLC's library type. **Basic** parts are always loaded on the machines. **Ext** (extended) parts
 each add a one-time loading fee per order (about $3 per unique part). Prices are per unit at qty 1, in USD.
 
-Covers the 16U2 board, both variants (CM carrier and HAT). **The DUT runs at 3.3 V** (user, 2026-11-12),
-and switches to 5 V only for HVPP. Schematic work may still change values;
+Covers the 16U2 board, both variants (CM carrier and HAT). **The DUT runs at 5 V** (user, 2026-11-12, after a
+detour through 3.3 V). Schematic work may still change values;
 the passives listed are the common Basic ones.
 
 ## Target and its support
@@ -16,39 +16,40 @@ the passives listed are the common Basic ones.
 | Function | Part | LCSC | Lib | Stock | $ | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | DUT | ATmega16U2-AU (TQFP-32) | C59019 | Ext | **84** | 5.50 | **Thin stock**, see risks. QFN: C507117 (84), C17317 (20). TQFP is easier to probe and rework. |
-| DUT crystal | **8 MHz** 3225, CL 12 pF (1C208000BC0R) | C57131 | Ext | 20.9k | 0.42 | 3.3 V operation caps the 16U2 at about 10.7 MHz. Load caps 18 pF C1549 (Basic). No Basic 8 MHz 3225 exists. (16 MHz Basic C13738 if a board runs at 5 V.) |
+| DUT crystal | 16 MHz 3225, CL 9 pF (X322516MLB4SI) | C13738 | Basic | 283k | 0.09 | 16 MHz is the 16U2's top speed at 4.5–5.5 V. Load caps 12 pF C1547 (Basic): 2 × (9 pF − ~3 pF stray). |
 | USB series R | 22 Ω 0402 | C25092 | Basic | 5.0M | — | 16U2 D+/D- |
 
-## Pi ↔ DUT signals and clock
+## Level translation and clock (Pi 3.3 V ↔ DUT 5 V)
 
-**No level translators in this version** (user, 2026-11-12). ISP (SCK, MOSI, MISO) and UART (TX, RX) run
-straight from the Pi to the DUT through **4.7 kΩ series resistors** (C25900, Basic). Both sides are 3.3 V.
-The resistors limit current when one side is unpowered or at 5 V (HVPP), see risk 6.
+Both translators run their B side from the **switched** DUT rail, so they go Hi-Z with the DUT off (Ioff and
+supply isolation), and the Pi never feeds an unpowered DUT.
 
 | Function | Part | LCSC | Lib | Stock | $ | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| ISP and UART series R | 4.7 kΩ 0402 ×5 | C25900 | Basic | — | — | The value can change per line at schematic time (1k–4.7k). 4.7k with ~15 pF is ~70 ns, fine for ISP SCK up to 1–2 MHz (8 MHz DUT clock / 4 = 2 MHz max). |
-| Clock buffer → XTAL1 | SN74LV1T126DBVR (SOT-23-5) | C2440228 | Ext | 8747 | 0.33 | Kept: drives XTAL1 hard enough to override the crystal, and GPIO 18 gates it. Runs on the DUT rail with TTL-level inputs, so 3.3 V drives it at 5 V. OE, Ioff. Replaces v1's 74AHCT (5 V only). |
-| Clock generator (optional) | Si5351A-B-GTR (MSOP-10) | C504891 | Ext | 12.4k | 1.18 | 3 outputs on I2C. Can be left unfitted; GPCLK0 is still there. |
+| ISP translator | TXU0304PWR (TSSOP-14) | C4364118 | Ext | 4667 | 0.64 | 3 lines Pi→DUT (MOSI, SCK, +1 spare) and 1 line DUT→Pi (MISO). Fixed direction, OE (Hi-Z), Ioff, 1.08–5.5 V each side. UQFN version: C2959768. |
+| UART translator | TXU0202DCUR (VSSOP-8) | C5186957 | Ext | 8370 | 0.90 | TX out, RX in, OE, Ioff |
+| Clock buffer → XTAL1 (**clock override option**) | SN74LV1T126DBVR (SOT-23-5) | C2440228 | Ext | 8747 | 0.33 | Runs on the DUT rail with TTL-level inputs, so 3.3 V drives it at 5 V. OE (GPIO 18), Ioff. Replaces v1's 74AHCT. Left off in the "no clock override" variant; XTAL1 then sees only the crystal. |
+| Clock generator (optional, within the clock option) | Si5351A-B-GTR (MSOP-10) | C504891 | Ext | 12.4k | 1.18 | 3 outputs on I2C. Can be left unfitted; GPCLK0 is still there. |
 | Si5351 crystal | 25 MHz 3225, CL 10 pF (NX3225SA) | C448646 | Ext | 6271 | 0.46 | The Si5351 wants an 8/10 pF crystal. The Basic 25 MHz (C9006) is 12 pF. |
 
-If translators come back in a later version (5 V DUTs, real Hi-Z), the pick was **TXU0304PWR** C4364118 (ISP, 3 out
-and 1 in) and **TXU0202DCUR** C5186957 (UART): fixed direction, OE, Ioff, 1.08–5.5 V. Rejected then:
-**SN74AXC4T774** is 3.6 V max. **SN74LVC2T45/LXC2T45** have no OE. **SN74LVC8T245** has one DIR for all 8 bits.
+Rejected: **SN74AXC4T774** is 3.6 V max, so it can't drive a 5 V AVR. **SN74LVC2T45/LXC2T45** have no OE, so they
+can't go Hi-Z. **SN74LVC8T245** has one DIR for all 8 bits, but ISP needs both directions. Plain series resistors
+(tried briefly on 2026-11-12) back-feed an unpowered DUT and push 5 V into the Pi's pins.
 
 ## Power, switching and measurement
 
 | Function | Part | LCSC | Lib | Stock | $ | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| DUT VCC switch | TPS22918DBVR (SOT-23-6) | C131941 | Ext | 68k | 0.34 | Load switch with set slew and **quick output discharge**, so power cycles are clean. Off by default. The 16U2's HVPP has no tight timing, so the switch doesn't need to be fast. |
-| DUT rail select 3.3 / 5 V (HV option) | TPS2116DRLR (SOT-583) | C3235557 | Ext | 65.1k | 0.38 | Power mux, Pi-selected, 3.3 V by default. Feeds the TPS22918. The "no HV" variant replaces it with a 0 Ω link to 3.3 V. |
+| DUT VCC switch | TPS22918DBVR (SOT-23-6) | C131941 | Ext | 68k | 0.34 | Load switch from 5 V, with set slew and **quick output discharge**, so power cycles are clean. Off by default (GPIO 22). |
 | DUT USB VBUS switch | SY6280AAC (SOT-23-5) | C55136 | Ext | 97.9k | 0.09 | Current limit set by resistor, active-high enable |
 | Power meter | INA228AIDGSR (VSSOP-10) | C2887910 | Ext | **316** | 6.78 | 20-bit. 0.5 Ω shunt: ±163.84 mV range → 200 mA full scale with ~0.6 µA steps, ±40.96 mV range → ~80 mA with ~0.16 µA steps. |
 | (alt) power meter | INA226AIDGSR | C49851 | Ext | 53k | 0.66 | 16-bit, ~6 µA steps with the same shunt. Fallback if the INA228 runs out. |
 | Shunt | 0.5 Ω 0603 1% 100 ppm | C414986 | Ext | 10.9k | 0.04 | |
-| 3.3 V rail (DUT + board logic) | ME6211C33M5G-N (SOT-23-5) | C82942 | Ext | 315k | 0.06 | 500 mA LDO from 5 V |
+| 3.3 V rail (board logic, translator A sides) | ME6211C33M5G-N (SOT-23-5) | C82942 | Ext | 315k | 0.06 | 500 mA LDO from 5 V |
 
 ## High-voltage programming (optional block, "no HV" variant leaves these unfitted)
+
+The HV option also needs the clock-override buffer (SN74LV1T126) fitted, because HVPP pulses XTAL1 through it.
 
 | Function | Part | LCSC | Lib | Stock | $ | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -95,23 +96,14 @@ and 1 in) and **TXU0202DCUR** C5186957 (UART): fixed direction, OE, Ioff, 1.08�
 1. **ATmega16U2 stock is thin:** 84 TQFP at JLC (plus 84 + 20 QFN), and the whole xU2 family is similar
    (32U2: 55, 8U2: 16). That's enough for a few boards, but it can run out. Options if it does: JLC's
    global-sourcing pre-order (it showed 81 more pre-orderable), or consigned parts.
-2. **Extended parts:** about 23 unique extended parts, so roughly $75 of loading fees per order. Fine for
+2. **Extended parts:** about 24 unique extended parts, so roughly $75 of loading fees per order. Fine for
    prototypes. Later, swap to Basic parts where one fits.
 3. **Fit (CM carrier):** with a 1.5 mm stack, the module covers the whole top side, so nearly all parts go on
    the bottom. Through-hole pins (RJ45, USB-C shell) poke into the CM side and have to land where the module's
    underside is clear. The layout fit check needs the CM4/CM5 keep-out drawings. If it doesn't fit, the fallback
    is the 3 mm connector, which has no stock now.
 4. **INA228 stock** (316) is fine for prototypes. The fallback is the INA226 (lower resolution). Check its pinout before relying on that.
-5. **To verify in datasheets during schematic work:** SN74LV1T126 V_IH at 5 V
-   (should be TTL-level); TCA6416A port behaviour when VCCP is off; the 16U2's HVPP pin mapping
-   (Table 25-11); GPCLK0 on GPIO4 under RP1; TPS2116 switchover behaviour (no back-feed from 5 V into 3.3 V).
-   Already checked in the 16U2 datasheet: the speed grade at 3.3 V, 3.3 V USB wiring (fig. 20-6), and HVPP entry (§25.7.1).
-6. **Series resistors instead of translators.** What the software has to do instead:
-   - **DUT off:** keep the Pi's ISP and UART pins as inputs. A Pi pin driven high into an unpowered DUT feeds it
-     through its clamp diode: about 0.6 mA per pin at 4.7k, enough to half-power it and to skew the power meter.
-     SPI0 and UART0 drive their pins whenever they're in their alt function, so switch the pins back to inputs
-     (pinctrl) when not in use.
-   - **HVPP at 5 V:** the DUT's PB1–PB3 (ISP pins) are HVPP data lines, and the DUT drives them at 5 V on reads.
-     PD2/PD3 (UART pins) are HVPP OE/WR, driven at 5 V by the expander. Each one pushes about 0.3 mA through
-     4.7k into the Pi's clamp diode. That's small, but the Pi doesn't specify an injection limit, so keep these at
-     4.7k, not 1k.
+5. **To verify in datasheets during schematic work:** the TXU0304 direction pin-out; SN74LV1T126 V_IH at 5 V
+   (should be TTL-level); TCA6416A port behaviour when VCCP is off; GPCLK0 on GPIO4 under RP1.
+   Already checked in the 16U2 datasheet: HVPP entry (§25.7.1, VCC 4.5–5.5 V) and the HVPP pin mapping
+   (Table 25-9: PB0–7 data, PD1 RDY/BSY, PD2 OE, PD3 WR, PD4 BS1, PD5 XA0, PD6 XA1, PD7 PAGEL, PC6 BS2).

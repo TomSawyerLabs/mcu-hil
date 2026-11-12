@@ -18,20 +18,21 @@ Decisions and open items live in [plans/v2-design.md](../plans/v2-design.md).
 
 - Pi-controlled DUT power switching, off by default. Separate VCC and USB rails for USB AVRs.
 - Reset control: open-drain, asserted by default, plus a reset-state LED.
-- ISP over Pi SPI0, and UART between Pi and DUT. **This version uses series resistors, not buffers**
-  (user, 2026-11-12, see the target voltage section). The Pi lets go of the lines by setting its pins to inputs.
+- ISP over Pi SPI0 through a translator the Pi can disable, so the Pi lets go of the lines when not programming.
+- UART between Pi and DUT, also through a translator that can be disabled.
 - HWB (DFU entry) control for USB AVRs. **Fix:** move it off GPIO2/3 so I2C1 is free.
-- Clock override from GPCLK0 into XTAL1, through a buffer powered from the target rail.
+- Clock override from GPCLK0 into XTAL1, through a buffer powered from the target rail. **Optional** (user,
+  2026-11-12): a "no clock override" build leaves the buffer off.
 - HAT ID EEPROM with a WP jumper (HAT variant; the carrier gets one too if useful).
 - Activity LEDs.
 
 ## Fix
 
 - Every resistor value matches its part number, and every part has an LCSC number (the v1 BOM/schematic mismatch).
-- No 3.3 V buffer driving 5 V inputs. This version runs the DUT at 3.3 V, so no translation is needed.
-  A future 5 V board needs real translators (TXU0304/TXU0202 were the pick, see the parts list).
-- No back-powering a switched-off DUT through its I/O pins: series resistors limit it, software keeps the Pi pins
-  as inputs while the DUT is off, and pull-ups go to the switched target rail.
+- Level translation in both directions, referenced to the target's VCC (TXU0304/TXU0202),
+  not a 3.3 V buffer driving 5 V inputs.
+- No back-powering a switched-off DUT through its I/O pins: translators default to Hi-Z, their DUT side runs from
+  the switched rail (Ioff), and pull-ups go to the switched target rail.
 - USB-C done properly: 5.1k Rd on any sink port, and no two supplies tied together without an ideal diode.
 - No parallel USB connectors stubbing D+/D-.
 - Footprints from KiCad's standard library or JLC/EasyEDA, with plated slots where the datasheet asks for them.
@@ -40,16 +41,13 @@ Decisions and open items live in [plans/v2-design.md](../plans/v2-design.md).
 
 ## Add
 
-- **Target voltage: 3.3 V for now** (user, 2026-11-12), for every MCU. That matches the Pi's I/O, XMEGA and UC3.
-  - The 16U2 at 3.3 V is limited to about 10.7 MHz (linear from 8 MHz at 2.7 V to 16 MHz at 4.5 V,
-    datasheet §26.3), so its crystal is **8 MHz**. USB still works, because the PLL takes 8 or 16 MHz.
-  - USB at 3.3 V follows the datasheet's fig. 20-6: UVCC, AVCC and VCC all on the 3.3 V rail, 1 µF on UCAP,
-    and firmware sets REGCR.REGDIS. The same wiring works at 5 V with the regulator enabled (its reset default).
-  - **The DUT rail can still switch to 5 V, for HVPP only** (§25.7.1 requires VCC 4.5–5.5 V). That's part of
-    the HV option. Without HV, the rail is fixed at 3.3 V.
-  - **No level translators in this version** (user, 2026-11-12): ISP and UART go through 4.7 kΩ series
-    resistors. The resistors limit back-feed into an unpowered DUT and the 5 V injection into the Pi during HVPP.
-    The clock buffer stays, to drive XTAL1 hard and gate it.
+- **Target voltage: 5 V** (user, 2026-11-12). Every classic AVR needs 5 V for HV programming anyway (see below),
+  so the DUT rail is a fixed 5 V behind a load switch (TPS22918), with no 3.3/5 V mux.
+  - The 16U2 runs at 16 MHz, its full speed at 4.5–5.5 V.
+  - USB uses the 16U2's internal 3.3 V regulator (its reset default), with 1 µF on UCAP.
+  - Level translators (TXU0304 for ISP, TXU0202 for UART) between the Pi's 3.3 V and the DUT's 5 V.
+  - A short detour on 2026-11-12 tried 3.3 V (8 MHz, series resistors instead of translators). It was dropped
+    because HVPP needs 5 V regardless.
 - **Power meter per DUT rail**, sized for AVR currents: from µA in sleep to ~100–200 mA running. Covering that
   range likely takes a high-resolution monitor (INA228-class) or switchable shunts. To be chosen in part selection.
 - **DUT USB:** one USB port per MCU, with a current-limited VBUS switch the Pi controls (virtual unplug).
@@ -79,8 +77,7 @@ marks those parts DNP. The board must stay fully safe and working either way.
 - **Protect the RESET net from 12 V:** the open-drain reset FET must be rated well above 12 V (e.g. 2N7002
   at 60 V). The RESET pull-up must not feed 12 V into the DUT rail (a diode in series or a switched pull-up).
   The ISP lines must never touch RESET.
-- **VCC for HVPP is 4.5–5.5 V**, so HV mode switches the DUT rail from 3.3 V to 5 V (power mux, Pi-selected,
-  3.3 V by default).
+- **VCC for HVPP is 4.5–5.5 V.** The DUT rail is always 5 V, so HV mode needs no extra supply switching.
 - **Which AVRs need 5 V VCC for HV** (checked 2026-11-12):
   - Classic ATmega HVPP (16U2: §25.7.1, Table 26-9 "VCC = 5V ± 10%") and classic ATtiny HVSP
     (ATtiny25/45/85 DS2586: "Apply 4.5 - 5.5V between VCC and GND", then 12 V 20–60 µs later): **yes**.
@@ -89,7 +86,7 @@ marks those parts DNP. The board must stay fully safe and working either way.
     100 µs–1 ms) at any operating VDD; no VDD condition is stated.
   - AVR DA/DB have a dedicated UPDI pin, so no HV. Newer DD/EA-class parts use a lower HV level; check per part.
   - XMEGA and UC3 have no HV mode.
-  So the mux stays in the shared HV block: every classic AVR needs it.
+  That's why the DUT rail is 5 V.
 - **Entry timing (corrected 2026-11-12):** the 16U2's HVPP entry (§25.7.1) has **no tight window**:
   1. VCC on.
   2. RESET low, and toggle XTAL1 at least 6 times.
@@ -100,7 +97,8 @@ marks those parts DNP. The board must stay fully safe and working either way.
   The Pi can do all of that from Linux. The 20–60 µs window belongs to ATtiny **HVSP**. A future ATtiny board
   would need a hardware-timed entry (an RC delay from VCC to the 12 V switch). The 16U2 board doesn't.
 - **Pins:** 16 HVPP data and control lines through an I2C GPIO expander (Hi-Z by default, no back-powering an off DUT:
-  pick a part with Ioff or power it from the DUT rail). XTAL1 is pulsed through the existing clock buffer.
+  pick a part with Ioff or power it from the DUT rail). XTAL1 is pulsed through the clock buffer, so **the HV option
+  needs the clock-override buffer fitted** (the Si5351 stays optional).
   The pin map is in [v2-pinmap.md](v2-pinmap.md#high-voltage-programming).
 - **CM carrier:** microSD slot (CM4/CM5 Lite; network boot is the plan, so no storage should be needed),
   Ethernet jack for network boot, and a USB-C port for backup power and rpiboot firmware flashing.

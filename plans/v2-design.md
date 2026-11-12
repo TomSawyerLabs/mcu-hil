@@ -67,11 +67,12 @@ work on arrival.
 - **v1 history:** a v1 was built, PCB dated 2023-01-10. Its USB-C footprints J6A/J6B are **not populated**,
   and J6B is an alternate footprint for J7 micro-USB, which is fitted (user, 2026-11-11).
   The Altium files were committed 2023-01-14 (tag `v1`), so they very likely match the built board.
-- **DUT voltage: 3.3 V for now** (user, 2026-11-12). The 16U2 gets an 8 MHz crystal (about 10.7 MHz max at 3.3 V).
-  The rail switches to 5 V only for HVPP (TPS2116 mux, part of the HV option).
-- **No level translators in v2's first version** (user, 2026-11-12): ISP and UART go through 1k–4.7k series
-  resistors (4.7k picked). The clock buffer stays. GPIO 16/17 (translator enables) are spare. Software keeps
-  the Pi pins as inputs while the DUT is off.
+- **DUT voltage: 5 V, fixed** (user, 2026-11-12, final: "power the chips at 5V"). Reason: every classic AVR
+  needs VCC 4.5–5.5 V for HV programming. 16U2 at 16 MHz (C13738, Basic). TPS22918 load switch, no 3.3/5 V mux.
+  (Same day, the design briefly went to 3.3 V with series resistors instead of translators. Both reverted.)
+- **Level translators are in** (user, 2026-11-12): TXU0304 (ISP) and TXU0202 (UART), enables on GPIO 16/17.
+- **Clock override is optional** (user, 2026-11-12): a "no clock override" variant leaves the SN74LV1T126 off.
+  The HV option depends on it (HVPP pulses XTAL1 through it).
 - **High-voltage programming: required, as an optional block** (user, 2026-11-11): builders can
   leave it out (KiCad 10 variant with those parts DNP). It covers HVPP for the 16U2 and the 12 V needs of
   later boards (HVSP, TPI, UPDI). Details are in `docs/v2-requirements.md`.
@@ -113,8 +114,8 @@ work on arrival.
     16U2 HVPP: VCC 4.5–5.5 V, XTAL1 ×6, Prog_enable 0000, then 12 V (datasheet doc7799 §25.7.1). Linux can sequence it.
   - **HVPP needs VCC 4.5–5.5 V**, not just 12 V on RESET: §25.7.1 step 1 and Table 26-9 ("VCC = 5V ± 10%").
     The user asked whether 5 V is needed (2026-11-12); the answer is yes by spec. HVPP at 3.3 V is outside the spec.
-  - With series resistors instead of translators, HVPP at 5 V pushes ~0.3 mA per line through 4.7k into the Pi's
-    clamp diodes (PB1–PB3 are HVPP data, PD2/PD3 are OE/WR). Keep those resistors at 4.7k, not 1k.
+  - Checked across families (details in `docs/v2-requirements.md`): classic ATmega HVPP and ATtiny HVSP need 5 V.
+    ATtiny4/5/9/10 need 5 V for any programming. tinyAVR 0/1/2 UPDI HV works at any VDD.
   - `tools/jlc_search.py` needs `sys.stdout.reconfigure(encoding="utf-8")` on Windows, because descriptions contain ℃.
 
 - v1 source is Altium. KiCad 10.0.6 `kicad-cli pcb import --format altium` imports the
@@ -153,21 +154,16 @@ work on arrival.
 - [x] v2 pin map draft: `docs/v2-pinmap.md` (shared by CM and HAT; all defaults set by external resistors).
 - [x] v1 review corrected: J6A/J6B not populated, J6B is an alternate for J7 (verified in the board file).
 - [x] Part selection, first pass: `docs/v2-parts.md` (stock as of 2026-11-11 8:50 PM PST).
-- [x] Translators dropped for 4.7k series resistors (user, 2026-11-12).
-- [ ] User: keep 5 V for HVPP (in spec) or try HVPP at 3.3 V (no mux)? Asked 2026-11-12.
+- [x] DUT at 5 V with translators, load switch, optional clock override and optional HV (user, 2026-11-12).
 - [ ] User review of the parts list. Then schematic (step 5).
 - [ ] Fit check: CM connectors, RJ45, USB-C, microSD, MCU, USB switch and power meter on 55 × 40 mm (likely both sides).
 
 ## Open questions for the user
 
-1. **5 V during HVPP?** (asked 2026-11-12) The user would rather not need 5 V. The 16U2 datasheet requires
-   VCC 4.5–5.5 V for HVPP (§25.7.1, Table 26-9). Recommendation: keep the TPS2116 3.3/5 V mux in the HV option
-   (about $0.38 plus a $3 loading fee, and the "no HV" variant leaves it off). Alternative: drop it and try HVPP
-   at 3.3 V, which is outside the spec and might not work.
-2. **Parts list review** (`docs/v2-parts.md`), including accepting the thin 16U2 stock (84 at JLC).
+1. **Parts list review** (`docs/v2-parts.md`), including accepting the thin 16U2 stock (84 at JLC).
 
 Answered 2026-11-11: name `mcu-hil`, USB switch instead of a hub, no PoE in this version,
-repo move approved (done), and the built v1 has USB-C. Answered 2026-11-12: DUT at 3.3 V, no translators.
+repo move approved (done), and the built v1 has USB-C. Answered 2026-11-12: DUT at 5 V, translators in, clock override and HV both optional.
 
 ## Things not to do
 
