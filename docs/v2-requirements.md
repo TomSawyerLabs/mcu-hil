@@ -81,6 +81,15 @@ marks those parts DNP. The board must stay fully safe and working either way.
   The ISP lines must never touch RESET.
 - **VCC for HVPP is 4.5–5.5 V**, so HV mode switches the DUT rail from 3.3 V to 5 V (power mux, Pi-selected,
   3.3 V by default).
+- **Which AVRs need 5 V VCC for HV** (checked 2026-11-12):
+  - Classic ATmega HVPP (16U2: §25.7.1, Table 26-9 "VCC = 5V ± 10%") and classic ATtiny HVSP
+    (ATtiny25/45/85 DS2586: "Apply 4.5 - 5.5V between VCC and GND", then 12 V 20–60 µs later): **yes**.
+  - ATtiny4/5/9/10 (TPI): their NVM can only be programmed at 5 V at all, HV or not (datasheet and errata).
+  - tinyAVR 0/1/2 UPDI HV (ATtiny1614 DS40002204A §33.3.2.1.3): **no**. A 12 V pulse on RESET (≥11.5 V,
+    100 µs–1 ms) at any operating VDD; no VDD condition is stated.
+  - AVR DA/DB have a dedicated UPDI pin, so no HV. Newer DD/EA-class parts use a lower HV level; check per part.
+  - XMEGA and UC3 have no HV mode.
+  So the mux stays in the shared HV block: every classic AVR needs it.
 - **Entry timing (corrected 2026-11-12):** the 16U2's HVPP entry (§25.7.1) has **no tight window**:
   1. VCC on.
   2. RESET low, and toggle XTAL1 at least 6 times.
