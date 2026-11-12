@@ -90,12 +90,21 @@ work on arrival.
    The repo is public with no committed workflows, so pushes start no paid CI.
 3. ~~GPIO map~~: draft in `docs/v2-pinmap.md` (2026-11-11). User: sharing it between variants is low
    priority and a new v2 map is fine. Sharing turned out free, since GPIO 0–27 match on CM4/CM5/header.
-4. **(current)** Part selection with LCSC numbers + stock check (jlcpcb.com parts / JLC API).
+4. **(current: first pass done, waiting on user review)** Part selection with LCSC numbers + stock check:
+   `docs/v2-parts.md`. Stock comes from `tools/jlc_search.py` (JLC's own parts-search endpoint,
+   `selectSmtComponentList`; no account or key needed).
 5. Schematic (shared sheets for common circuitry, per-variant top sheets).
 6. Layout: CM4/CM5 carrier first, then HAT.
 7. DRC/ERC, JLC DFM check, BOM/CPL generation, order review with user.
 
 ## Findings / gotchas
+
+- Part selection (2026-11-11):
+  - **SN74AXC4T774 is 3.6 V max**, so it's unusable for 5 V AVRs. LVC2T45/LXC2T45 have no OE.
+    LVC8T245 has a single DIR for all bits. The fit is TI **TXU0304 / TXU0202**: fixed direction, OE, Ioff, 1.08–5.5 V.
+  - **ATmega16U2 stock at JLC is thin** (84 TQFP), and so is the whole xU2 family.
+  - **DF40HC(3.0) (3 mm stack) has 4 in stock.** Plan on DF40C (1.5 mm), which means the CM covers the whole top side.
+  - `tools/jlc_search.py` needs `sys.stdout.reconfigure(encoding="utf-8")` on Windows, because descriptions contain ℃.
 
 - v1 source is Altium. KiCad 10.0.6 `kicad-cli pcb import --format altium` imports the
   **board** (69 footprints, 155 vias, nets intact). The CLI **cannot** import Altium
@@ -132,7 +141,8 @@ work on arrival.
       description updated. Local `master` tracks `origin/master`.
 - [x] v2 pin map draft: `docs/v2-pinmap.md` (shared by CM and HAT; all defaults set by external resistors).
 - [x] v1 review corrected: J6A/J6B not populated, J6B is an alternate for J7 (verified in the board file).
-- [ ] Part selection with LCSC numbers (step 4).
+- [x] Part selection, first pass: `docs/v2-parts.md` (stock as of 2026-11-11 8:50 PM PST).
+- [ ] User review of the parts list. Then schematic (step 5).
 - [ ] Fit check: CM connectors, RJ45, USB-C, microSD, MCU, USB switch and power meter on 55 × 40 mm (likely both sides).
 
 ## Open questions for the user

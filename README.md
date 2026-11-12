@@ -23,7 +23,7 @@ ordered fully assembled from JLCPCB.
 
 v2 is being designed. See [plans/v2-design.md](plans/v2-design.md), the
 [v1 design review](docs/v1-review.md), the [v2 requirements draft](docs/v2-requirements.md),
-and the [v2 pin map](docs/v2-pinmap.md).
+the [v2 pin map](docs/v2-pinmap.md) and the [parts list](docs/v2-parts.md).
 
 ## v1 (AVR Test HAT)
 
