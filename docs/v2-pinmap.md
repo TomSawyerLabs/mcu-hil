@@ -17,8 +17,11 @@ This is a single-MCU board. Per-DUT signals for a board with more MCUs are cover
 - Enables are **active-high with pull-downs**, on GPIO 9–27. The SoC's own power-on pulls are down on that bank,
   so they agree with the external ones.
 - I2C1 (GPIO 2/3) stays I2C. v1 used it for HWB.
-- SPI0 runs without chip selects (`dtoverlay=spi0-0cs`). ISP doesn't use CS, since RESET is a separate pin.
-  That frees GPIO 7/8 as plain GPIOs.
+- SPI0 runs without chip selects. AVR ISP has no chip select: the target is "selected" by holding RESET low
+  for the whole session, and that's a plain GPIO (12). In `config.txt`, `dtoverlay=spi0-0cs` keeps
+  `/dev/spidev0.0` but claims no CS pin. avrdude's `linuxspi` programmer uses that spidev plus a GPIO for
+  reset (`-P /dev/spidev0.0:/dev/gpiochip0`, with `reset = 12` in its programmer entry). That frees GPIO 7/8
+  as plain GPIOs. If a real SPI peripheral is ever added, `spi0-1cs` gives back one CS.
 
 ## Map
 
@@ -41,9 +44,12 @@ This is a single-MCU board. Per-DUT signals for a board with more MCUs are cover
 | 22 | 15 | — | DUT VCC enable | pull-down → off |
 | 23 | 16 | — | DUT USB VBUS enable (virtual plug) | pull-down → off |
 | 24 | 18 | — | Status LED | — |
-| 25, 26, 27 | 22, 37, 13 | — | Spare | — |
+| 25 | 22 | — | HV arm: the next VCC turn-on also puts 12 V on RESET after a fixed hardware delay | pull-down → off |
+| 26 | 37 | — | HV supply (12 V boost) enable | pull-down → off |
+| 27 | 13 | — | Spare | — |
 
-That leaves 7 spare GPIOs (5, 6, 7, 8, 25, 26, 27), plus I2C for anything slow.
+That leaves 5 spare GPIOs (5, 6, 7, 8, 27), plus I2C for anything slow. On a board built without the
+HV option, 25 and 26 are unconnected spares.
 
 ### Notes
 
@@ -55,6 +61,19 @@ That leaves 7 spare GPIOs (5, 6, 7, 8, 25, 26, 27), plus I2C for anything slow.
 - **Clock:** if the programmable clock generator goes in (Si5351-class on I2C), it feeds the same buffer as
   GPCLK0 does. GPIO 18 still gates it.
 - **To check during part selection:** GPCLK0 on GPIO4 under RP1 (Pi 5/CM5). I expect it's there, as on BCM2711.
+
+## High-voltage programming
+
+See [v2-requirements.md](v2-requirements.md#high-voltage-programming).
+
+- **HVPP data and control** go through a 16-bit I2C GPIO expander (TCA9535-class), 16 lines.
+  On the 16U2 these are 8 data lines (PB0–PB7) plus PAGEL, XA0, XA1, BS1, BS2, WR, OE and RDY/BSY
+  (the exact pins come from the datasheet during schematic work).
+  Speed doesn't matter here, because HVPP is for recovery (fuses, lock bits, RSTDISBL) rather than everyday flashing.
+  The expander stays Hi-Z unless HV mode is active, so it doubles as general test I/O to DUT pins that v1 left unconnected.
+- **XTAL1 pulses** for HVPP come from GPIO 4 used as a plain GPIO through the existing clock buffer.
+- **Entry timing** is done in hardware, because Linux can't hold a 20–60 µs window. GPIO 25 arms it, then
+  GPIO 22 turns VCC on, and an RC delay turns the 12 V switch on inside the window.
 
 ## Spare pins and future programming interfaces
 

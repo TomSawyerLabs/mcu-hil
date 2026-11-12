@@ -54,6 +54,30 @@ Decisions and open items live in [plans/v2-design.md](../plans/v2-design.md).
 - **Clock control:** keep GPCLK0 → XTAL1 override per DUT. Consider a programmable clock generator
   (Si5351-class, 3 outputs) for arbitrary and overclock frequencies.
 - **More programming interfaces** as DUT families need them: PDI (XMEGA), aWire/JTAG (UC3), UPDI, TPI, debugWIRE.
+- **High-voltage programming** (see below), as a population option.
+
+### High-voltage programming
+
+Needed to recover AVRs whose fuses lock out ISP: RSTDISBL set, SPIEN cleared, or a bad clock fuse.
+**It's an optional block.** Builders can leave it off with the KiCad 10 design variant "no HV", which
+marks those parts DNP. The board must stay fully safe and working either way.
+
+- **Modes:** HVPP for the 16U2 (and other ATmegas). The same block covers later boards' 12 V needs:
+  HVSP (8/14-pin ATtiny, 4 signals), TPI with 12 V on RESET (ATtiny4/5/9/10), and the UPDI 12 V
+  enable pulse (tinyAVR 0/1/2). XMEGA and UC3 have no HV mode.
+- **12 V source:** a small boost from 5 V (11.5–12.5 V at RESET, a few mA). It's enabled by the Pi and off by default.
+- **12 V switch onto RESET:** off by default. With the HV parts left off, RESET works exactly as without HV.
+  A solder jumper or 0 Ω also lets a built board disable HV.
+- **Protect the RESET net from 12 V:** the open-drain reset FET must be rated well above 12 V (e.g. 2N7002
+  at 60 V). The RESET pull-up must not feed 12 V into the DUT rail (a diode in series or a switched pull-up).
+  The ISP translator must never touch RESET.
+- **Entry timing in hardware:** HVPP entry wants VCC up (above 1.8 V within 20 µs), then 12 V on RESET
+  20–60 µs later (16U2 datasheet; re-check during schematic work). So:
+  - the Pi arms HV, then switches VCC on, and an RC delay applies 12 V inside the window
+  - the VCC switch must be fast in HV mode, so it can't have a slow soft-start there
+- **Pins:** 16 HVPP data and control lines through an I2C GPIO expander (Hi-Z by default, no back-powering an off DUT:
+  pick a part with Ioff or power it from the DUT rail). XTAL1 is pulsed through the existing clock buffer.
+  The pin map is in [v2-pinmap.md](v2-pinmap.md#high-voltage-programming).
 - **CM carrier:** microSD slot (CM4/CM5 Lite; network boot is the plan, so no storage should be needed),
   Ethernet jack for network boot, and a USB-C port for backup power and rpiboot firmware flashing.
   On CM4 the single USB 2.0 port is shared by rpiboot and the DUT, which the USB switch above handles.

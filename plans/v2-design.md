@@ -67,6 +67,11 @@ work on arrival.
 - **v1 history:** a v1 was built, PCB dated 2023-01-10. Its USB-C footprints J6A/J6B are **not populated**,
   and J6B is an alternate footprint for J7 micro-USB, which is fitted (user, 2026-11-11).
   The Altium files were committed 2023-01-14 (tag `v1`), so they very likely match the built board.
+- **High-voltage programming: required, as an optional block** (user, 2026-11-11): builders can
+  leave it out (KiCad 10 variant with those parts DNP). It covers HVPP for the 16U2 and the 12 V needs of
+  later boards (HVSP, TPI, UPDI). Details are in `docs/v2-requirements.md`.
+- **SPI without CS** (user asked how): `dtoverlay=spi0-0cs` plus avrdude `linuxspi` with reset on a GPIO.
+  ISP needs no CS.
 - **Pin map:** v2 gets a new map, with no v1 compatibility needed. Sharing it between the CM and HAT
   variants is low priority ("only if easy"). It is easy, so the draft shares it.
 - **Repo:** rename the existing `TomSawyerLabs/avr-test-hat` to **`TomSawyerLabs/mcu-hil`**
