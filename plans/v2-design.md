@@ -72,7 +72,8 @@ work on arrival.
   (Same day, the design briefly went to 3.3 V with series resistors instead of translators. Both reverted.)
 - **Level translators are in** (user, 2026-11-12): TXU0304 (ISP) and TXU0202 (UART), enables on GPIO 16/17.
 - **Clock override is optional** (user, 2026-11-12): a "no clock override" variant leaves the SN74LV1T126 off.
-  The HV option depends on it (HVPP pulses XTAL1 through it).
+  The HV option depends on it (HVPP pulses XTAL1 through it, for entry and as the load strobe, Table 25-12).
+  User OK'd sharing the one buffer (2026-11-12), rather than a second buffer in the HV block.
 - **High-voltage programming: required, as an optional block** (user, 2026-11-11): builders can
   leave it out (KiCad 10 variant with those parts DNP). It covers HVPP for the 16U2 and the 12 V needs of
   later boards (HVSP, TPI, UPDI). Details are in `docs/v2-requirements.md`.
