@@ -1,0 +1,13 @@
+
+programmer parent "linuxspi"
+    id       = "avr-test-hat";
+    desc     = "linuxspi on the AVR Test HAT" ;
+    # baudrate = <num> ;                        # baudrate for avr910-programmer
+    # vcc      = <pin1> [, <pin2> ... ] ;       # pin number(s)
+    # buff     = <pin1> [, <pin2> ... ] ;       # pin number(s)
+    reset    = 13 ;                        # pin number
+    # errled   = <pin> ;                        # pin number
+    # rdyled   = <pin> ;                        # pin number
+    # pgmled   = <pin> ;                        # pin number
+    # vfyled   = <pin> ;                        # pin number
+;

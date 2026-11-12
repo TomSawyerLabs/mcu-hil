@@ -1,0 +1,23 @@
+.include "./atmega8u2.inc"
+
+# Turn on LED on PC7
+sbi DDRC, 7
+sbi PORTC, 7
+
+# Jump to bootloader
+jmp 0x1000
+
+.data
+
+# An identification string
+.ascii "Hello DFU!"
+
+
+#!/bin/bash -e
+
+# cd to the directory of this script
+cd "$(dirname "$0")"
+
+# build elf from test.S
+avr-gcc -mmcu=atmega328p -o test.elf test.S
+avr-objcopy -O ihex test.elf test.hex

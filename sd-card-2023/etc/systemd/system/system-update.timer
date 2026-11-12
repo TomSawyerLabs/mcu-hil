@@ -1,0 +1,9 @@
+[Unit]
+Description=Runs system update weekly on Sunday morning
+
+[Timer]
+Unit=system-update.service
+OnCalendar=Sun *-*-* 04:00:00
+
+[Install]
+WantedBy=timers.target

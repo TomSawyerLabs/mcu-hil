@@ -1,0 +1,20 @@
+[Unit]
+Description=GitHub Actions Runner
+After=network.target
+
+[Service]
+Type=simple
+User=action
+WorkingDirectory=/home/action/runner
+ExecStart=/home/action/runner/run.sh
+Restart=always
+RestartSec=5
+
+Environment=ACTIONS_RUNNER_HOOK_JOB_STARTED=/opt/action-scripts/before.sh
+Environment=ACTIONS_RUNNER_HOOK_JOB_COMPLETED=/opt/action-scripts/after.sh
+
+Environment=AVRDUDE=/opt/avrdude.sh
+Environment=TARGET=atmega8u2
+
+[Install]
+WantedBy=multi-user.target

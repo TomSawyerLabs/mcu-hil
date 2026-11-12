@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# Make sure we're running as user pi
+if [ "$(id -un)" != "pi" ]
+then
+    echo "This script must be run as user pi" 1>&2
+    exit 1
+fi
+
+set -e
+
+# if --debug, set -x
+if [ "$1" == "--debug" ]
+then
+    set -x
+fi
+
+# Disable overlayfs
+# sudo systemctl disable overlayfs
+
+function cleanup() {
+    # Enable overlayfs
+    # sudo systemctl enable overlayfs
+    :
+}
+trap cleanup EXIT
+
+# System updates
+echo "Updating System..."
+sudo apt-get update -qq
+sudo apt-get upgrade -yqq
+sudo apt-get dist-upgrade -yqq
+sudo apt-get autoremove -yqq
+sudo apt-get autoclean -yqq
+
+# Update pip packages
+echo "Updating pip packages..."
+sudo pip install --quiet --upgrade cpp-coveralls
+
+# AVRDUDE update
+pushd /opt/avrdude > /dev/null
+git fetch
+if [ "$(git rev-parse HEAD)" == "$(git rev-parse @{u})" ]
+then
+    echo "AVRDUDE already up to date."
+else
+    echo "Updating AVRDUDE..."
+    git merge --ff-only @{u}
+    cmake --build build_linux
+    sudo cmake --build build_linux --target install
+fi
+popd > /dev/null
+
+# GitHub Actions Runner update
+LATEST_STORE=/opt/latest-action-runner-tarball.url
+LATEST_TARBALL=$(curl -s https://api.github.com/repos/actions/runner/releases/latest | grep '"browser_download_url":' | cut -d\" -f4 | egrep 'linux-arm64-[0-9.]+tar.gz$')
+if [ -f ${LATEST_STORE} ] && [ "$(cat ${LATEST_STORE})" == "$LATEST_TARBALL" ]
+then
+    echo "GitHub Actions Runner already up to date."
+else
+    echo "Updating GitHub Actions Runner..."
+    BACKUP_LOCATION=/opt/backup/runner
+    rm -f ${LATEST_STORE}
+    sudo rm -rf ${BACKUP_LOCATION}
+    sudo systemctl stop actions-runner.service
+    sudo mv /home/action/runner ${BACKUP_LOCATION}
+    sudo -u action mkdir /home/action/runner
+    curl -sL ${LATEST_TARBALL} | sudo -u action tar -xz -C /home/action/runner
+    cat /opt/action-runner.credentials.tar.gz | sudo -u action tar -xzp -C /home/action/runner
+    echo "$LATEST_TARBALL" > ${LATEST_STORE}
+    sudo systemctl start actions-runner.service
+fi

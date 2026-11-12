@@ -1,0 +1,12 @@
+[Unit]
+Description=Update the system
+
+[Service]
+ExecStart=/opt/update-system
+User=pi
+Group=pi
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
