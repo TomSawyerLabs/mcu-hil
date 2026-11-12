@@ -64,8 +64,11 @@ work on arrival.
 - **CM boards:** a microSD slot on the carrier. Network boot is the plan, so CM4/CM5 Lite with no
   storage *should* work. A USB-C port is required, for backup power and firmware flashing (rpiboot).
   Network boot implies an Ethernet jack.
-- **v1 history:** a v1 was built. It has USB-C (user, 2026-11-11), with the PCB dated 2023-01-10.
+- **v1 history:** a v1 was built, PCB dated 2023-01-10. Its USB-C footprints J6A/J6B are **not populated**,
+  and J6B is an alternate footprint for J7 micro-USB, which is fitted (user, 2026-11-11).
   The Altium files were committed 2023-01-14 (tag `v1`), so they very likely match the built board.
+- **Pin map:** v2 gets a new map, with no v1 compatibility needed. Sharing it between the CM and HAT
+  variants is low priority ("only if easy"). It is easy, so the draft shares it.
 - **Repo:** rename the existing `TomSawyerLabs/avr-test-hat` to **`TomSawyerLabs/mcu-hil`**
   (picked 2026-11-11; the name was free), make an archive branch `v1-archive` and a tag `v1` of the
   old version, and do the v2 rewrite there (not in a new repo). **Delete the Altium files from
@@ -80,8 +83,9 @@ work on arrival.
    histories, so v1's history is kept), Altium removal `ec8def9`, pushed to `master` as a fast-forward
    (no force). `v1-archive` branch + annotated `v1` tag at `4560cfe`. Description updated.
    The repo is public with no committed workflows, so pushes start no paid CI.
-3. **(current)** GPIO map shared by both variants (CM4 vs CM5 differences, HAT 40-pin limits).
-4. Part selection with LCSC numbers + stock check (jlcpcb.com parts / JLC API).
+3. ~~GPIO map~~: draft in `docs/v2-pinmap.md` (2026-11-11). User: sharing it between variants is low
+   priority and a new v2 map is fine. Sharing turned out free, since GPIO 0–27 match on CM4/CM5/header.
+4. **(current)** Part selection with LCSC numbers + stock check (jlcpcb.com parts / JLC API).
 5. Schematic (shared sheets for common circuitry, per-variant top sheets).
 6. Layout: CM4/CM5 carrier first, then HAT.
 7. DRC/ERC, JLC DFM check, BOM/CPL generation, order review with user.
@@ -121,6 +125,9 @@ work on arrival.
 - [x] Repo move GitHub steps (2026-11-11): renamed to https://github.com/TomSawyerLabs/mcu-hil,
       `v1-archive` branch and annotated `v1` tag at `4560cfe`, `master` fast-forwarded to the merged history,
       description updated. Local `master` tracks `origin/master`.
+- [x] v2 pin map draft: `docs/v2-pinmap.md` (shared by CM and HAT; all defaults set by external resistors).
+- [x] v1 review corrected: J6A/J6B not populated, J6B is an alternate for J7 (verified in the board file).
+- [ ] Part selection with LCSC numbers (step 4).
 - [ ] Fit check: CM connectors, RJ45, USB-C, microSD, MCU, USB switch and power meter on 55 × 40 mm (likely both sides).
 
 ## Open questions for the user

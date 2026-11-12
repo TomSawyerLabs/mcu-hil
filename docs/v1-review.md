@@ -18,8 +18,11 @@ comes from parsing the `.SchDoc` records directly. Connectivity comes from the b
 
 **Which revision is this?** Probably the built one. The built v1 board does have USB-C on its edge
 (user, 2026-11-11), and its PCB is dated 2023-01-10. The Altium files were committed 2023-01-14, four
-days later, so they are that design or a slightly later edit of it. (This design has two USB-C connectors,
-J6A and J6B. The count on the built board isn't recorded yet.)
+days later, so they are that design or a slightly later edit of it.
+**The USB-C footprints J6A and J6B are not populated** on the built board (user, 2026-11-11). J6B is an
+alternate footprint for J7 (micro-USB): both are centred at x = 127.20 mm, 0.97 mm apart, so only one
+can be fitted. The built board's DUT USB is J7, and it has no USB power input. That makes findings
+1 (CC resistors), 3 (J6A back-feed) and 4 (stub) moot for the built hardware; they're design-file issues only.
 
 ## Images
 
@@ -63,7 +66,7 @@ Nothing on v1 carries an LCSC part number, and the Altium design holds no suppli
 | `Logic Buffer` | U3 74LVC244APW on 3V3, C8, R6–R9 pull-ups, R10–R14 series resistors | Two gated, one-directional buffers between the Pi and the DUT. Bank 1 is UART, enabled by GPIO8. Bank 2 is SPI, enabled by GPIO5. Both are pulled up, so disabled by default. MISO and AVR TX come back through the 5V-tolerant inputs. |
 | `Clock Buffer` | U4 74AHCT1G126 on 5V, C9, R28 OE pull-down | Drives the Pi's GPCLK0 (GPIO4) onto XTAL1 at 5V levels when GPIO17 is high. Handy for recovering chips fused to an external clock, or for slow or odd clocks. |
 | `EEPROM` + `I2C-PullUps` | U2 CAT24C32 (0x50), J5 WP jumper, R4/R5 pull-ups, C7 | Standard HAT ID EEPROM on ID_SD/ID_SC. Fit J5 to write-protect it. |
-| `USB`, `USB-C` (×2), `microUSB` | J6A USB4105 (power in), J6B USB4105 (data), J7 Amphenol 10118193 micro-B, R29/R30 CC resistors | J6A is a **power input**: VBUS goes to the HAT/Pi 5V, and CC1/CC2 have Rd to GND. Its D+/D- are unconnected. J6B and J7 sit **in parallel** on the AVR's USB D+/D-. Neither has VBUS or CC connected. |
+| `USB`, `USB-C` (×2), `microUSB` | J6A USB4105 (power in), J6B USB4105 (data), J7 Amphenol 10118193 micro-B, R29/R30 CC resistors | J6A is a **power input**: VBUS goes to the HAT/Pi 5V, and CC1/CC2 have Rd to GND. Its D+/D- are unconnected. J6B and J7 are **alternate footprints** on the same spot, both on the AVR's USB D+/D-; neither has VBUS or CC connected. Built board: J7 fitted, J6A/J6B not. |
 | `Main` | D3 Pi activity LED (GPIO26), D4 AVR activity LED (PC7), R19–R22 | The glue: HWB and reset default/control resistor networks. |
 | `RPi-HAT_Conn-EE` | J1 Harwin M20-7832046 (2×20 female), J2 Sullins PPPC022LFBN-RC (2×2 female) | Pi header. J2 has **no electrical connections**. It sits where the Pi 3B+/4 PoE header is, so it probably just gives the PoE pins somewhere to go. |
 
@@ -112,14 +115,16 @@ These shape the v2 requirements.
      I/O clamp diodes: R8 (pull-up to 3V3 on AVR TX/PD3), HWB/PD7 (pulled up through R20 by the Pi's 1.8k on GPIO2),
      and U3/U4 outputs if their enables are left on. RESET is *not* a path: AVR RESET pins have no clamp to VCC
      (they take 12 V for high-voltage programming), so R16's pull-up to the always-on 5V is harmless there.
-4. **USB to the DUT.** J6B (USB-C) has no CC Rd, so C-to-C cables won't attach; only A-to-C cables work.
-   J6B and J7 hang in parallel on the same D+/D-, which leaves a stub. VBUS from the host isn't used at all.
+4. **USB to the DUT.** J6B (USB-C) has no CC Rd, so C-to-C cables wouldn't attach; only A-to-C cables would work.
+   J6B and J7 are alternate footprints on the same spot (only one fitted; the built board has J7), so there is
+   no real stub. VBUS from the host isn't used at all.
 5. **I2C1 is lost.** GPIO2/3 drive HWB. The Pi's 1.8k on-board pull-ups on those pins set the HWB default.
 6. **SPI0_CE0 (GPIO8) is used as a plain GPIO** (UART buffer enable), so the kernel spidev chip select has to be disabled or moved.
 7. **Footprints.** The J6A/J6B USB4105 shell tabs are SMD oval pads with unplated 0.61 mm holes, not the
    plated slots in GCT's recommended footprint, so they're mechanically weak. All parts are on the bottom
    layer apart from J4 and J5. J3 (bottom) and J4 (top) are **alternate ISP footprints that share three holes**:
-   pins 2/4/6 of each sit on the same spots and nets, so only one can be fitted.
+   pins 2/4/6 of each sit on the same spots and nets, so only one can be fitted. J6B (USB-C) and J7
+   (micro-USB) are alternates in the same way.
 8. **DRC was not clean.** The PcbDoc stores unresolved violations: 6 short-circuit, 7 hole-to-hole
    ("Pad/Via Touching Holes"; at least 3 are the shared J3/J4 holes), 13 clearance and 2 net-antennae.
 
