@@ -32,12 +32,12 @@ This is a single-MCU board. Per-DUT signals for a board with more MCUs are cover
 | 4 | 7 | GPCLK0 | Clock out → clock buffer → DUT XTAL1 | — |
 | 5, 6 | 29, 31 | — | Spare | — |
 | 7, 8 | 26, 24 | (SPI0 CE1/CE0) | Spare (no CS with `spi0-0cs`) | — |
-| 9 / 10 / 11 | 21 / 19 / 23 | SPI0 MISO / MOSI / SCLK | ISP through the level translator | — |
+| 9 / 10 / 11 | 21 / 19 / 23 | SPI0 MISO / MOSI / SCLK | ISP, through 4.7 kΩ series resistors | — |
 | 12 | 32 | — | DUT reset release (high = released) | pull-down → **reset asserted** |
 | 13 | 33 | — | HWB assert (high = HWB pulled low → DFU on next reset) | pull-down → released |
-| 14 / 15 | 8 / 10 | UART0 TXD / RXD | DUT UART through the level translator | — |
-| 16 | 36 | — | ISP translator enable | pull-down → Hi-Z |
-| 17 | 11 | — | UART translator enable | pull-down → Hi-Z |
+| 14 / 15 | 8 / 10 | UART0 TXD / RXD | DUT UART, through 4.7 kΩ series resistors | — |
+| 16 | 36 | — | Spare (was the ISP translator enable; no translators in this version) | — |
+| 17 | 11 | — | Spare (was the UART translator enable) | — |
 | 18 | 12 | — | Clock override enable (drive XTAL1) | pull-down → off |
 | 19 | 35 | — | Power meter ALERT (input, open-drain from the meter) | pull-up |
 | 20 / 21 | 38 / 40 | — | USB switch select S0 / S1 | pull-downs → USB-C (rpiboot) on the carrier |
@@ -48,7 +48,7 @@ This is a single-MCU board. Per-DUT signals for a board with more MCUs are cover
 | 26 | 37 | — | HV supply (12 V boost) enable | pull-down → off |
 | 27 | 13 | — | DUT rail select: high = 5 V (HVPP only) | pull-down → **3.3 V** |
 
-That leaves 4 spare GPIOs (5, 6, 7, 8), plus I2C for anything slow. On a board built without the
+That leaves 6 spare GPIOs (5, 6, 7, 8, 16, 17), plus I2C for anything slow. On a board built without the
 HV option, the DUT rail is fixed at 3.3 V, and 25, 26 and 27 are unconnected spares.
 
 ### Notes
@@ -57,6 +57,9 @@ HV option, the DUT rail is fixed at 3.3 V, and 25, 26 and 27 are unconnected spa
   On the HAT, S0 alone picks between hardware and software USB on the loopback cable, and S1 is unused.
   The carrier default has to be USB-C, because rpiboot happens before Linux can drive any pin.
 - **DUT voltage:** 3.3 V for now, so DUT logic levels match the Pi. Only HVPP raises the rail to 5 V.
+- **No translators** (user, 2026-11-12): ISP and UART go Pi → 4.7 kΩ → DUT. With no buffer to disable,
+  "Hi-Z" means software sets the Pi pins back to inputs whenever the DUT is off or not being talked to.
+  See [v2-parts.md risk 6](v2-parts.md#risks-and-notes).
 - **Reset:** open-drain to the DUT. The Pi only lets it go. The pull-up is to the switched DUT rail, so a DUT that's
   powered off isn't back-fed (an AVR's RESET has no clamp anyway).
 - **Clock:** if the programmable clock generator goes in (Si5351-class on I2C), it feeds the same buffer as
@@ -79,7 +82,9 @@ See [v2-requirements.md](v2-requirements.md#high-voltage-programming).
 ## Spare pins and future programming interfaces
 
 - **UPDI / TPI / PDI / debugWIRE** run over one or two wires. They can reuse UART0 (UPDI, debugWIRE as
-  half-duplex UART) or spare GPIOs (PDI clock and data, TPI), each through a level translator.
-- **Multi-MCU boards:** each extra DUT needs its own reset, VCC enable, VBUS enable, HWB and translator
-  enables (about 6 slow signals). Put them on an I2C GPIO expander (TCA9535-class) and keep the fast or
-  shared lines (SPI, UART, clock) on Pi GPIO, muxed by the translator enables.
+  half-duplex UART) or spare GPIOs (PDI clock and data, TPI), through series resistors (a translator for 5 V parts).
+- **Multi-MCU boards:** each extra DUT needs its own reset, VCC enable, VBUS enable and HWB
+  (about 4 slow signals). Put them on an I2C GPIO expander (TCA9535-class) and keep the fast or
+  shared lines (SPI, UART, clock) on Pi GPIO. Shared SPI works through the series resistors, because an AVR
+  held in reset leaves its pins Hi-Z, so only the DUT released from reset answers. UART sharing needs
+  a mux or per-DUT translators with enables.
