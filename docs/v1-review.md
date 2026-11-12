@@ -16,8 +16,10 @@ Recovered data lives in [`reference/v1-import/`](../reference/v1-import/):
 KiCad 10's CLI cannot import Altium *schematics* (only the GUI can), so schematic intent
 comes from parsing the `.SchDoc` records directly. Connectivity comes from the board netlist.
 
-**Which revision is this?** Unconfirmed. This Altium design has two USB-C connectors on the board edge.
-The user will check whether the built v1 board has them too (first look missed the edge).
+**Which revision is this?** Probably the built one. The built v1 board does have USB-C on its edge
+(user, 2026-11-11), and its PCB is dated 2023-01-10. The Altium files were committed 2023-01-14, four
+days later, so they are that design or a slightly later edit of it. (This design has two USB-C connectors,
+J6A and J6B. The count on the built board isn't recorded yet.)
 
 ## Images
 

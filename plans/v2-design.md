@@ -9,11 +9,10 @@ work on arrival.
 
 ## Environment / context
 
-- This repo: `C:\Users\camer\git\Personal Projects\avr-tester-v2`. Remote `v1` =
-  `https://github.com/TomSawyerLabs/avr-test-hat.git` (fetch only so far; becomes `origin` →
-  `mcu-hil` after the rename). Repo-move work is on local branch `mcu-hil-merge` (step 2b).
-- v1 design: `C:\Users\camer\git\Personal Projects\avr-test-hat`
-  (remote `https://github.com/TomSawyerLabs/avr-test-hat`).
+- This repo: `C:\Users\camer\git\Personal Projects\avr-tester-v2`, remote `origin` =
+  https://github.com/TomSawyerLabs/mcu-hil (formerly `avr-test-hat`; GitHub redirects the old URL).
+- v1 design: tag `v1` / branch `v1-archive` (`4560cfe`) in this repo's history. Old checkout
+  `C:\Users\camer\git\Personal Projects\avr-test-hat` still exists (left untouched; remote works via redirect).
   - v1 is **Altium**, not Ultiboard/Multisim: `HAT/AVR-Tester.PrjPcb`,
     `HAT/AVR Test Hat.PcbDoc`, and sheets `Main`, `AVR`, `Clock Buffer`,
     `EEPROM`, `I2C-PullUps`, `Logic Buffer`, `Power Switch`, `Reset`,
@@ -65,8 +64,8 @@ work on arrival.
 - **CM boards:** a microSD slot on the carrier. Network boot is the plan, so CM4/CM5 Lite with no
   storage *should* work. A USB-C port is required, for backup power and firmware flashing (rpiboot).
   Network boot implies an Ethernet jack.
-- **v1 history:** a v1 was built, but it may not match the Altium files. Whether it has USB-C is
-  unconfirmed (the user will check the board edge).
+- **v1 history:** a v1 was built. It has USB-C (user, 2026-11-11), with the PCB dated 2023-01-10.
+  The Altium files were committed 2023-01-14 (tag `v1`), so they very likely match the built board.
 - **Repo:** rename the existing `TomSawyerLabs/avr-test-hat` to **`TomSawyerLabs/mcu-hil`**
   (picked 2026-11-11; the name was free), make an archive branch `v1-archive` and a tag `v1` of the
   old version, and do the v2 rewrite there (not in a new repo). **Delete the Altium files from
@@ -77,22 +76,11 @@ work on arrival.
 1. ~~Import v1 Altium project into KiCad and write up v1's circuits.~~ Done:
    `docs/v1-review.md`, with recovered data in `reference/v1-import/` (reference only).
 2. ~~Requirements for v2~~: `docs/v2-requirements.md`, all questions answered (2026-11-11).
-2b. **(current: waiting on the user's yes for the GitHub steps)** Repo move to `mcu-hil`.
-   Local prep is done: in this repo, remote `v1` = the GitHub repo, and local branch
-   `mcu-hil-merge` holds the merge (`05395e7`, unrelated histories, README rewritten), then
-   Altium removal (`ec8def9`) and a `.gitignore` commit. Its first parent is our `master`, second is
-   v1 `4560cfe`, so pushing it to GitHub `master` is a **fast-forward** (no force).
-   GitHub steps, each needing its own yes:
-   1. `gh repo rename mcu-hil -R TomSawyerLabs/avr-test-hat --yes` (GitHub redirects the old URL).
-   2. `git push v1 4560cfe:refs/heads/v1-archive` and `git tag -a v1 4560cfe -m "v1: Altium AVR Test HAT"`
-      then `git push v1 refs/tags/v1`.
-   3. `git push v1 mcu-hil-merge:master` (fast-forward), then locally rename remote `v1` → `origin`
-      with URL `https://github.com/TomSawyerLabs/mcu-hil.git`, fast-forward local `master`,
-      delete `mcu-hil-merge`.
-   4. `gh repo edit TomSawyerLabs/mcu-hil --description "..."` (new description).
-   The v1 checkout `..\avr-test-hat` is left alone (its remote keeps working through the redirect).
+2b. ~~Repo move to `mcu-hil`~~: done 2026-11-11 with the user's yes. Merge `05395e7` (unrelated
+   histories, so v1's history is kept), Altium removal `ec8def9`, pushed to `master` as a fast-forward
+   (no force). `v1-archive` branch + annotated `v1` tag at `4560cfe`. Description updated.
    The repo is public with no committed workflows, so pushes start no paid CI.
-3. GPIO map shared by both variants (CM4 vs CM5 differences, HAT 40-pin limits).
+3. **(current)** GPIO map shared by both variants (CM4 vs CM5 differences, HAT 40-pin limits).
 4. Part selection with LCSC numbers + stock check (jlcpcb.com parts / JLC API).
 5. Schematic (shared sheets for common circuitry, per-variant top sheets).
 6. Layout: CM4/CM5 carrier first, then HAT.
@@ -130,15 +118,15 @@ work on arrival.
 - [x] v1 board and schematic images: `docs/v1-images/` (rendered from files, no KiCad runtime).
 - [x] v2 requirements: `docs/v2-requirements.md`, open questions answered (2026-11-11).
 - [x] Repo move local prep: branch `mcu-hil-merge` (merge, Altium removal, new README).
-- [ ] Repo move GitHub steps (rename, `v1-archive` + `v1`, push `master`), waiting on the user's yes.
+- [x] Repo move GitHub steps (2026-11-11): renamed to https://github.com/TomSawyerLabs/mcu-hil,
+      `v1-archive` branch and annotated `v1` tag at `4560cfe`, `master` fast-forwarded to the merged history,
+      description updated. Local `master` tracks `origin/master`.
 - [ ] Fit check: CM connectors, RJ45, USB-C, microSD, MCU, USB switch and power meter on 55 × 40 mm (likely both sides).
 
 ## Open questions for the user
 
-1. **Go-ahead for the repo-move GitHub steps** listed in step 2b (each needs a yes).
-2. Whether the built v1 board has USB-C (user checks the board edge 2026-11-12).
-
-Answered 2026-11-11: name `mcu-hil`; USB switch instead of a hub; no PoE this version.
+None open. Answered 2026-11-11: name `mcu-hil`, USB switch instead of a hub, no PoE in this version,
+repo move approved (done), and the built v1 has USB-C.
 
 ## Things not to do
 
