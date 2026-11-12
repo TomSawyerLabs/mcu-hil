@@ -67,6 +67,8 @@ work on arrival.
 - **v1 history:** a v1 was built, PCB dated 2023-01-10. Its USB-C footprints J6A/J6B are **not populated**,
   and J6B is an alternate footprint for J7 micro-USB, which is fitted (user, 2026-11-11).
   The Altium files were committed 2023-01-14 (tag `v1`), so they very likely match the built board.
+- **DUT voltage: 3.3 V for now** (user, 2026-11-12). The 16U2 gets an 8 MHz crystal (about 10.7 MHz max at 3.3 V).
+  The rail switches to 5 V only for HVPP (TPS2116 mux, part of the HV option). Translators stay, for isolation.
 - **High-voltage programming: required, as an optional block** (user, 2026-11-11): builders can
   leave it out (KiCad 10 variant with those parts DNP). It covers HVPP for the 16U2 and the 12 V needs of
   later boards (HVSP, TPI, UPDI). Details are in `docs/v2-requirements.md`.
@@ -104,6 +106,8 @@ work on arrival.
     LVC8T245 has a single DIR for all bits. The fit is TI **TXU0304 / TXU0202**: fixed direction, OE, Ioff, 1.08–5.5 V.
   - **ATmega16U2 stock at JLC is thin** (84 TQFP), and so is the whole xU2 family.
   - **DF40HC(3.0) (3 mm stack) has 4 in stock.** Plan on DF40C (1.5 mm), which means the CM covers the whole top side.
+  - **Correction (2026-11-12):** the 16U2's HVPP entry has no 20–60 µs window. That window is ATtiny HVSP.
+    16U2 HVPP: VCC 4.5–5.5 V, XTAL1 ×6, Prog_enable 0000, then 12 V (datasheet doc7799 §25.7.1). Linux can sequence it.
   - `tools/jlc_search.py` needs `sys.stdout.reconfigure(encoding="utf-8")` on Windows, because descriptions contain ℃.
 
 - v1 source is Altium. KiCad 10.0.6 `kicad-cli pcb import --format altium` imports the

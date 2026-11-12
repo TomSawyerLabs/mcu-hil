@@ -40,8 +40,15 @@ Decisions and open items live in [plans/v2-design.md](../plans/v2-design.md).
 
 ## Add
 
-- **Target voltage:** whatever is easiest per DUT. Each DUT gets the rail its standard operating mode needs
-  (5 V for 16U2 at 16 MHz, 3.3 V for XMEGA/UC3). The base supplies 5 V and 3.3 V, and the DUT side picks.
+- **Target voltage: 3.3 V for now** (user, 2026-11-12), for every MCU. That matches the Pi's I/O, XMEGA and UC3.
+  - The 16U2 at 3.3 V is limited to about 10.7 MHz (linear from 8 MHz at 2.7 V to 16 MHz at 4.5 V,
+    datasheet §26.3), so its crystal is **8 MHz**. USB still works, because the PLL takes 8 or 16 MHz.
+  - USB at 3.3 V follows the datasheet's fig. 20-6: UVCC, AVCC and VCC all on the 3.3 V rail, 1 µF on UCAP,
+    and firmware sets REGCR.REGDIS. The same wiring works at 5 V with the regulator enabled (its reset default).
+  - **The DUT rail can still switch to 5 V, for HVPP only** (§25.7.1 requires VCC 4.5–5.5 V). That's part of
+    the HV option. Without HV, the rail is fixed at 3.3 V.
+  - The translators and buffers stay. They give Hi-Z and Ioff isolation, which is still needed at 3.3 V.
+    They also cover the 5 V HV mode and any later 5 V boards.
 - **Power meter per DUT rail**, sized for AVR currents: from µA in sleep to ~100–200 mA running. Covering that
   range likely takes a high-resolution monitor (INA228-class) or switchable shunts. To be chosen in part selection.
 - **DUT USB:** one USB port per MCU, with a current-limited VBUS switch the Pi controls (virtual unplug).
@@ -71,10 +78,17 @@ marks those parts DNP. The board must stay fully safe and working either way.
 - **Protect the RESET net from 12 V:** the open-drain reset FET must be rated well above 12 V (e.g. 2N7002
   at 60 V). The RESET pull-up must not feed 12 V into the DUT rail (a diode in series or a switched pull-up).
   The ISP translator must never touch RESET.
-- **Entry timing in hardware:** HVPP entry wants VCC up (above 1.8 V within 20 µs), then 12 V on RESET
-  20–60 µs later (16U2 datasheet; re-check during schematic work). So:
-  - the Pi arms HV, then switches VCC on, and an RC delay applies 12 V inside the window
-  - the VCC switch must be fast in HV mode, so it can't have a slow soft-start there
+- **VCC for HVPP is 4.5–5.5 V**, so HV mode switches the DUT rail from 3.3 V to 5 V (power mux, Pi-selected,
+  3.3 V by default).
+- **Entry timing (corrected 2026-11-12):** the 16U2's HVPP entry (§25.7.1) has **no tight window**:
+  1. VCC on.
+  2. RESET low, and toggle XTAL1 at least 6 times.
+  3. Prog_enable = 0000, then wait at least 100 ns.
+  4. Apply 12 V to RESET, with no Prog_enable activity for 100 ns.
+  5. Wait at least 50 µs.
+
+  The Pi can do all of that from Linux. The 20–60 µs window belongs to ATtiny **HVSP**. A future ATtiny board
+  would need a hardware-timed entry (an RC delay from VCC to the 12 V switch). The 16U2 board doesn't.
 - **Pins:** 16 HVPP data and control lines through an I2C GPIO expander (Hi-Z by default, no back-powering an off DUT:
   pick a part with Ioff or power it from the DUT rail). XTAL1 is pulsed through the existing clock buffer.
   The pin map is in [v2-pinmap.md](v2-pinmap.md#high-voltage-programming).

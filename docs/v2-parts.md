@@ -7,7 +7,8 @@ before ordering, because stock moves.
 **Lib** is JLC's library type. **Basic** parts are always loaded on the machines. **Ext** (extended) parts
 each add a one-time loading fee per order (about $3 per unique part). Prices are per unit at qty 1, in USD.
 
-Covers the 16U2 board, both variants (CM carrier and HAT). Schematic work may still change values;
+Covers the 16U2 board, both variants (CM carrier and HAT). **The DUT runs at 3.3 V** (user, 2026-11-12),
+and switches to 5 V only for HVPP. Schematic work may still change values;
 the passives listed are the common Basic ones.
 
 ## Target and its support
@@ -15,7 +16,7 @@ the passives listed are the common Basic ones.
 | Function | Part | LCSC | Lib | Stock | $ | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | DUT | ATmega16U2-AU (TQFP-32) | C59019 | Ext | **84** | 5.50 | **Thin stock**, see risks. QFN: C507117 (84), C17317 (20). TQFP is easier to probe and rework. |
-| DUT crystal | 16 MHz 3225, CL 9 pF | C13738 | Basic | 305k | 0.09 | Load caps 12 pF C1547 (Basic) |
+| DUT crystal | **8 MHz** 3225, CL 12 pF (1C208000BC0R) | C57131 | Ext | 20.9k | 0.42 | 3.3 V operation caps the 16U2 at about 10.7 MHz. Load caps 18 pF C1549 (Basic). No Basic 8 MHz 3225 exists. (16 MHz Basic C13738 if a board runs at 5 V.) |
 | USB series R | 22 Ω 0402 | C25092 | Basic | 5.0M | — | 16U2 D+/D- |
 
 ## Level translation and clock (Pi 3.3 V ↔ DUT rail)
@@ -35,8 +36,8 @@ Rejected: **SN74AXC4T774** is 3.6 V max, so it can't drive a 5 V AVR. **SN74LVC2
 
 | Function | Part | LCSC | Lib | Stock | $ | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| DUT VCC switch | AO3401A P-FET + 2N7002 driver | C15127 + C8545 | Basic | 1.6M / 6.1M | 0.08 | Discrete and fast, as HV entry needs (VCC > 1.8 V within 20 µs). Off by default. |
-| (alt) DUT VCC load switch | TPS22918DBVR | C131941 | Ext | 68k | 0.34 | Adjustable slew, but probably too slow for HVPP entry. Kept as a fallback. |
+| DUT VCC switch | TPS22918DBVR (SOT-23-6) | C131941 | Ext | 68k | 0.34 | Load switch with set slew and **quick output discharge**, so power cycles are clean. Off by default. The 16U2's HVPP has no tight timing, so the switch doesn't need to be fast. |
+| DUT rail select 3.3 / 5 V (HV option) | TPS2116DRLR (SOT-583) | C3235557 | Ext | 65.1k | 0.38 | Power mux, Pi-selected, 3.3 V by default. Feeds the TPS22918. The "no HV" variant replaces it with a 0 Ω link to 3.3 V. |
 | DUT USB VBUS switch | SY6280AAC (SOT-23-5) | C55136 | Ext | 97.9k | 0.09 | Current limit set by resistor, active-high enable |
 | Power meter | INA228AIDGSR (VSSOP-10) | C2887910 | Ext | **316** | 6.78 | 20-bit. 0.5 Ω shunt: ±163.84 mV range → 200 mA full scale with ~0.6 µA steps, ±40.96 mV range → ~80 mA with ~0.16 µA steps. |
 | (alt) power meter | INA226AIDGSR | C49851 | Ext | 53k | 0.66 | 16-bit, ~6 µA steps with the same shunt. Fallback if the INA228 runs out. |
@@ -50,7 +51,7 @@ Rejected: **SN74AXC4T774** is 3.6 V max, so it can't drive a 5 V AVR. **SN74LVC2
 | 12 V boost | MT3608 (SOT-23-6) | C84817 | Ext | 26.1k | 0.10 | Pi-enabled, off by default |
 | Boost inductor | 10 µH 4×4 mm (SWPA4030S100MT) | C38117 | Ext | 44.3k | 0.06 | |
 | Boost diode | B5819W (SOD-123) | C8598 | Basic | 377k | 0.03 | |
-| 12 V → RESET switch | AO3401A + 2N7002 | C15127 + C8545 | Basic | — | — | RC-delayed from VCC turn-on when armed |
+| 12 V → RESET switch | AO3401A + 2N7002 | C15127 + C8545 | Basic | 1.6M / 6.1M | 0.08 | Pi-driven (GPIO 25). An RC-timed entry is only needed on future ATtiny (HVSP) boards. |
 | Pull-up isolation | 1N4148W | C81598 | Basic | 3.4M | 0.01 | Stops 12 V on RESET from back-feeding the DUT rail |
 | HVPP I/O (16 lines) | TCA6416ARTWR (WQFN-24) | C182336 | Ext | 33k | 0.82 | Separate supplies for the I2C side and the port side, so it level-shifts by itself. Ports run from the DUT rail. TSSOP: C130203 (2152). |
 
@@ -98,5 +99,6 @@ Rejected: **SN74AXC4T774** is 3.6 V max, so it can't drive a 5 V AVR. **SN74LVC2
    is the 3 mm connector, which has no stock now.
 4. **INA228 stock** (316) is fine for prototypes. The fallback is the INA226 (lower resolution). Check its pinout before relying on that.
 5. **To verify in datasheets during schematic work:** the TXU0304 direction pin-out; SN74LV1T126 V_IH at 5 V
-   (should be TTL-level); TCA6416A port behaviour when VCCP is off; HVPP entry timing and the 16U2's
-   HVPP pin mapping; GPCLK0 on GPIO4 under RP1.
+   (should be TTL-level); TCA6416A port behaviour when VCCP is off; the 16U2's HVPP pin mapping
+   (Table 25-11); GPCLK0 on GPIO4 under RP1; TPS2116 switchover behaviour (no back-feed from 5 V into 3.3 V).
+   Already checked in the 16U2 datasheet: the speed grade at 3.3 V, 3.3 V USB wiring (fig. 20-6), and HVPP entry (§25.7.1).

@@ -44,18 +44,19 @@ This is a single-MCU board. Per-DUT signals for a board with more MCUs are cover
 | 22 | 15 | — | DUT VCC enable | pull-down → off |
 | 23 | 16 | — | DUT USB VBUS enable (virtual plug) | pull-down → off |
 | 24 | 18 | — | Status LED | — |
-| 25 | 22 | — | HV arm: the next VCC turn-on also puts 12 V on RESET after a fixed hardware delay | pull-down → off |
+| 25 | 22 | — | HV apply: 12 V onto RESET | pull-down → off |
 | 26 | 37 | — | HV supply (12 V boost) enable | pull-down → off |
-| 27 | 13 | — | Spare | — |
+| 27 | 13 | — | DUT rail select: high = 5 V (HVPP only) | pull-down → **3.3 V** |
 
-That leaves 5 spare GPIOs (5, 6, 7, 8, 27), plus I2C for anything slow. On a board built without the
-HV option, 25 and 26 are unconnected spares.
+That leaves 4 spare GPIOs (5, 6, 7, 8), plus I2C for anything slow. On a board built without the
+HV option, the DUT rail is fixed at 3.3 V, and 25, 26 and 27 are unconnected spares.
 
 ### Notes
 
 - **USB switch select:** carrier: 00 = USB-C (rpiboot), 01 = MCU hardware USB, 10 = software-USB pins.
   On the HAT, S0 alone picks between hardware and software USB on the loopback cable, and S1 is unused.
   The carrier default has to be USB-C, because rpiboot happens before Linux can drive any pin.
+- **DUT voltage:** 3.3 V for now, so DUT logic levels match the Pi. Only HVPP raises the rail to 5 V.
 - **Reset:** open-drain to the DUT. The Pi only lets it go. The pull-up is to the switched DUT rail, so a DUT that's
   powered off isn't back-fed (an AVR's RESET has no clamp anyway).
 - **Clock:** if the programmable clock generator goes in (Si5351-class on I2C), it feeds the same buffer as
@@ -72,8 +73,8 @@ See [v2-requirements.md](v2-requirements.md#high-voltage-programming).
   Speed doesn't matter here, because HVPP is for recovery (fuses, lock bits, RSTDISBL) rather than everyday flashing.
   The expander stays Hi-Z unless HV mode is active, so it doubles as general test I/O to DUT pins that v1 left unconnected.
 - **XTAL1 pulses** for HVPP come from GPIO 4 used as a plain GPIO through the existing clock buffer.
-- **Entry timing** is done in hardware, because Linux can't hold a 20–60 µs window. GPIO 25 arms it, then
-  GPIO 22 turns VCC on, and an RC delay turns the 12 V switch on inside the window.
+- **Entry:** GPIO 27 selects 5 V, then 22 turns VCC on, XTAL1 is toggled, the expander sets Prog_enable,
+  26 is already on, and 25 applies 12 V. The 16U2 has no tight timing window, so software handles it.
 
 ## Spare pins and future programming interfaces
 
