@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "filename": "mcu-hil-hat.kicad_pro",
+    "version": 3
+  },
+  "schematic": {
+    "variants": [
+      {
+        "name": "no HV",
+        "description": "Leaves unfitted: HV"
+      },
+      {
+        "name": "minimal",
+        "description": "Leaves unfitted: CLK, HV, SI"
+      }
+    ]
+  },
+  "sheets": [
+    [
+      "7eec5f2a-be90-57bb-95b2-344d9ee2a147",
+      "Root"
+    ],
+    [
+      "cd7028a7-1970-5f22-8e81-6c1557c86f21",
+      "DUT: ATmega16U2"
+    ],
+    [
+      "325dcf62-ad5d-5d4d-9600-edf82e706a1f",
+      "Pi to DUT: level translators, reset, HWB"
+    ],
+    [
+      "97c1fd3f-1ce1-5c52-969b-e6b8bd8cfcad",
+      "Clock override (option CLK) and Si5351 (option SI)"
+    ],
+    [
+      "1854cc38-da84-5fbf-b8e8-e2e882a387b1",
+      "DUT power switch and power meter"
+    ],
+    [
+      "7121621a-f6d3-57a7-9e70-a1ee679b68d2",
+      "High-voltage programming (option HV)"
+    ],
+    [
+      "ae58b000-54da-53b7-a272-92c16c04926a",
+      "USB path switch"
+    ],
+    [
+      "54c8a662-f395-50cb-aec5-2150a31d0f58",
+      "HAT: 40-pin header, ID EEPROM, USB-C loopback, LED"
+    ]
+  ]
+}

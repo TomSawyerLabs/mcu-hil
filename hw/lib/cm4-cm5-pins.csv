@@ -1,0 +1,201 @@
+connector,pin,cm4_name,cm5_name,notes
+J1A,1,GND,GND,module pin 1. Connect all grounds.
+J1A,2,GND,GND,module pin 2. Connect all grounds.
+J1A,3,Ethernet_Pair3_P,Ethernet_Pair3_P,module pin 3. Ethernet MDI to 1:1 magjack; 100R diff pair; CM4IO/CM5IO add TPD4EUSB30 ESD.
+J1A,4,Ethernet_Pair1_P,Ethernet_Pair1_P,module pin 4. Ethernet MDI to 1:1 magjack; 100R diff pair; CM4IO/CM5IO add TPD4EUSB30 ESD.
+J1A,5,Ethernet_Pair3_N,Ethernet_Pair3_N,module pin 5. Ethernet MDI to 1:1 magjack; 100R diff pair; CM4IO/CM5IO add TPD4EUSB30 ESD.
+J1A,6,Ethernet_Pair1_N,Ethernet_Pair1_N,module pin 6. Ethernet MDI to 1:1 magjack; 100R diff pair; CM4IO/CM5IO add TPD4EUSB30 ESD.
+J1A,7,GND,GND,module pin 7. Connect all grounds.
+J1A,8,GND,GND,module pin 8. Connect all grounds.
+J1A,9,Ethernet_Pair2_N,Ethernet_Pair2_N,module pin 9. Ethernet MDI to 1:1 magjack; 100R diff pair; CM4IO/CM5IO add TPD4EUSB30 ESD.
+J1A,10,Ethernet_Pair0_N,Ethernet_Pair0_N,module pin 10. Ethernet MDI to 1:1 magjack; 100R diff pair; CM4IO/CM5IO add TPD4EUSB30 ESD.
+J1A,11,Ethernet_Pair2_P,Ethernet_Pair2_P,module pin 11. Ethernet MDI to 1:1 magjack; 100R diff pair; CM4IO/CM5IO add TPD4EUSB30 ESD.
+J1A,12,Ethernet_Pair0_P,Ethernet_Pair0_P,module pin 12. Ethernet MDI to 1:1 magjack; 100R diff pair; CM4IO/CM5IO add TPD4EUSB30 ESD.
+J1A,13,GND,GND,module pin 13. Connect all grounds.
+J1A,14,GND,GND,module pin 14. Connect all grounds.
+J1A,15,Ethernet_nLED3,Ethernet_nLED3,"module pin 15. Active-low Eth activity LED (3.3V, IOL 8mA). IO boards: magjack LED cathode via 470R (net ETH_LEDY), anode +3.3V."
+J1A,16,Ethernet_SYNC_IN,Fan_Tacho,module pin 16. DIFFERS: CM4 IEEE1588 SYNC_IN (datasheet says 3.3V signal; CM4IO symbol says 1.8V). CM5 Fan_Tacho input with 1.8k pull-up to CM5_3.3V (RP1 GPIO29).
+J1A,17,Ethernet_nLED2,Ethernet_nLED2,"module pin 17. Active-low Eth speed LED (3.3V, IOL 8mA). IO boards: magjack LED cathode via 470R (net ETH_LEDG), anode +3.3V."
+J1A,18,Ethernet_SYNC_OUT,Ethernet_SYNC_OUT,module pin 18. IEEE1588 SYNC_OUT (3.3V per datasheets; CM4IO symbol says 1.8V). CM5: can be configured as input.
+J1A,19,Ethernet_nLED1,Fan_PWM,module pin 19. DIFFERS: CM4 Ethernet_nLED1 (left NC on CM4IO). CM5 Fan_PWM open-drain output (CM5IO adds 10k pull-up to 3.3V).
+J1A,20,EEPROM_nWP,EEPROM_nWP,module pin 20. Leave floating (100k internal pull-up to 3.3V) or ground to write-protect boot EEPROM; must be low before power-up to take effect.
+J1A,21,Pi_nLED_Activity,LED_nACT,"module pin 21. Name differs only. Active-low activity LED sink, 20mA max, 5V tolerant. IO boards: +3.3V-LED green-1k-pin."
+J1A,22,GND,GND,module pin 22. Connect all grounds.
+J1A,23,GND,GND,module pin 23. Connect all grounds.
+J1A,24,GPIO26,GPIO26,module pin 24.
+J1A,25,GPIO21,GPIO21,module pin 25.
+J1A,26,GPIO19,GPIO19,module pin 26.
+J1A,27,GPIO20,GPIO20,module pin 27.
+J1A,28,GPIO13,GPIO13,module pin 28.
+J1A,29,GPIO16,GPIO16,module pin 29.
+J1A,30,GPIO6,GPIO6,module pin 30.
+J1A,31,GPIO12,GPIO12,module pin 31.
+J1A,32,GND,GND,module pin 32. Connect all grounds.
+J1A,33,GND,GND,module pin 33. Connect all grounds.
+J1A,34,GPIO5,GPIO5,module pin 34.
+J1A,35,ID_SC,ID_SC,"module pin 35. ID_SC = SoC GPIO1 (CM4 BCM2711 / CM5 RP1). HAT EEPROM I2C; on CM4 also CSI0/DSI0 control, on CM5 MIPI1 control."
+J1A,36,ID_SD,ID_SD,module pin 36. ID_SD = SoC GPIO0. See pin 35.
+J1A,37,GPIO7,GPIO7,module pin 37.
+J1A,38,GPIO11,GPIO11,module pin 38.
+J1A,39,GPIO8,GPIO8,module pin 39.
+J1A,40,GPIO9,GPIO9,module pin 40.
+J1A,41,GPIO25,GPIO25,module pin 41.
+J1A,42,GND,GND,module pin 42. Connect all grounds.
+J1A,43,GND,GND,module pin 43. Connect all grounds.
+J1A,44,GPIO10,GPIO10,module pin 44.
+J1A,45,GPIO24,GPIO24,module pin 45.
+J1A,46,GPIO22,GPIO22,module pin 46.
+J1A,47,GPIO23,GPIO23,module pin 47.
+J1A,48,GPIO27,GPIO27,module pin 48.
+J1A,49,GPIO18,GPIO18,module pin 49.
+J1A,50,GPIO17,GPIO17,module pin 50.
+J1A,51,GPIO15,GPIO15,module pin 51.
+J1A,52,GND,GND,module pin 52. Connect all grounds.
+J1A,53,GND,GND,module pin 53. Connect all grounds.
+J1A,54,GPIO4,GPIO4,module pin 54.
+J1A,55,GPIO14,GPIO14,module pin 55.
+J1A,56,GPIO3,GPIO3,module pin 56. Internal 1.8k pull-up to GPIO_VREF.
+J1A,57,SD_CLK,SD_CLK,"module pin 57. Lite modules only (SD card/eMMC). IO boards wire straight to microSD, no series R or external pull-ups."
+J1A,58,GPIO2,GPIO2,module pin 58. Internal 1.8k pull-up to GPIO_VREF.
+J1A,59,GND,GND,module pin 59. Connect all grounds.
+J1A,60,GND,GND,module pin 60. Connect all grounds.
+J1A,61,SD_DAT3,SD_DAT3,"module pin 61. Lite modules only (SD card/eMMC). IO boards wire straight to microSD, no series R or external pull-ups."
+J1A,62,SD_CMD,SD_CMD,"module pin 62. Lite modules only (SD card/eMMC). IO boards wire straight to microSD, no series R or external pull-ups."
+J1A,63,SD_DAT0,SD_DAT0,"module pin 63. Lite modules only (SD card/eMMC). IO boards wire straight to microSD, no series R or external pull-ups."
+J1A,64,SD_DAT5,SD_DAT5,module pin 64. Lite only; eMMC 8-bit data; NC for microSD.
+J1A,65,GND,GND,module pin 65. Connect all grounds.
+J1A,66,GND,GND,module pin 66. Connect all grounds.
+J1A,67,SD_DAT1,SD_DAT1,"module pin 67. Lite modules only (SD card/eMMC). IO boards wire straight to microSD, no series R or external pull-ups."
+J1A,68,SD_DAT4,SD_DAT4,module pin 68. Lite only; eMMC 8-bit data; NC for microSD.
+J1A,69,SD_DAT2,SD_DAT2,"module pin 69. Lite modules only (SD card/eMMC). IO boards wire straight to microSD, no series R or external pull-ups."
+J1A,70,SD_DAT7,SD_DAT7,module pin 70. Lite only; eMMC 8-bit data; NC for microSD.
+J1A,71,GND,GND,module pin 71. Connect all grounds.
+J1A,72,SD_DAT6,SD_DAT6,module pin 72. Lite only; eMMC 8-bit data; NC for microSD.
+J1A,73,SD_VDD_OVERRIDE,SD_VDD_OVERRIDE,module pin 73. Tie to 3.3V only for external 1.8V eMMC; otherwise leave unconnected (NC on both IO boards).
+J1A,74,GND,GND,module pin 74. Connect all grounds.
+J1A,75,SD_PWR_ON,SD_PWR_ON,module pin 75. Lite only. High = turn SD power on; drives load-switch EN. CM4: external pull-up REQUIRED for SD boot (CM4IO 12k). CM5: internal 4.53k pull-up (CM5IO still fits 10k).
+J1A,76,Reserved,VBAT,"module pin 76. DIFFERS: CM4 Reserved, do not connect. CM5 VBAT RTC battery input 2.5-3.5V."
+J1A,77,+5V (Input),5V (Input),"module pin 77. Main 5V input, 4.75-5.25V. Connect all six."
+J1A,78,GPIO_VREF,GPIO_VREF,module pin 78. GPIO_VREF: must connect to 3.3V out (pins 84/86) or 1.8V out (88/90); never float or GND. IO boards: R5 0R from +3.3V.
+J1A,79,+5V (Input),5V (Input),"module pin 79. Main 5V input, 4.75-5.25V. Connect all six."
+J1A,80,SCL0,SCL0,"module pin 80. I2C SCL0, internal 1.8k pull-up to 3.3V. CM4 BCM2711 GPIO45 (CSI1/DSI1 bus); CM5 RP1 GPIO39 (MIPI0 bus)."
+J1A,81,+5V (Input),5V (Input),"module pin 81. Main 5V input, 4.75-5.25V. Connect all six."
+J1A,82,SDA0,SDA0,"module pin 82. I2C SDA0, internal 1.8k pull-up to 3.3V. CM4 BCM2711 GPIO44; CM5 RP1 GPIO38."
+J1A,83,+5V (Input),5V (Input),"module pin 83. Main 5V input, 4.75-5.25V. Connect all six."
+J1A,84,CM4_3.3V (Output),CM5_3.3V (Output),"module pin 84. 3.3V output, 300mA/pin, 600mA total. Tolerance CM4 +/-2.5%, CM5 +/-5%. Off when GLOBAL_EN/PMIC_EN low."
+J1A,85,+5V (Input),5V (Input),"module pin 85. Main 5V input, 4.75-5.25V. Connect all six."
+J1A,86,CM4_3.3V (Output),CM5_3.3V (Output),"module pin 86. 3.3V output, 300mA/pin, 600mA total. Tolerance CM4 +/-2.5%, CM5 +/-5%. Off when GLOBAL_EN/PMIC_EN low."
+J1A,87,+5V (Input),5V (Input),"module pin 87. Main 5V input, 4.75-5.25V. Connect all six."
+J1A,88,CM4_1.8V (Output),CM5_1.8V (Output),"module pin 88. 1.8V output, 300mA/pin, 600mA total. Off when GLOBAL_EN/PMIC_EN low."
+J1A,89,WL_nDisable,WL_nDisable,"module pin 89. Leave floating (1.8k pull-up to 3.3V) or pull low to disable WiFi. Reserved on modules without wireless. CM5: drive low only, never high."
+J1A,90,CM4_1.8V (Output),CM5_1.8V (Output),"module pin 90. 1.8V output, 300mA/pin, 600mA total. Off when GLOBAL_EN/PMIC_EN low."
+J1A,91,BT_nDisable,BT_nDisable,module pin 91. Leave floating (1.8k pull-up to 3.3V) or pull low to disable Bluetooth. Reserved on non-wireless modules. CM5: drive low only.
+J1A,92,RUN_PG,PWR_Button,"module pin 92. DIFFERS: CM4 RUN_PG bidirectional, 10k pull-up to 3.3V; high = running; drive low (via 220R) to reset. CM5 PWR_Button, 10k pull-up to 5V(!): short low = power on/off request, >5s low = force off. Use open-drain/button only."
+J1A,93,nRPIBOOT,nRPIBOOT,module pin 93. nRPIBOOT: 10k internal pull-up to 3.3V. Low during boot = USB (rpiboot) boot. Must be low within 2ms of 5V rising. IO boards: jumper to GND only.
+J1A,94,AnalogIP1,CC1,"module pin 94. DIFFERS: CM4 AnalogIP1 (MXL7704 ADC input, 100nF on module). CM5 CC1 of USB-C power connector (5V/5A PD negotiation)."
+J1A,95,PI_LED_nPWR,LED_nPWR,"module pin 95. Active-low power LED output, must be buffered per both datasheets. CM4IO: 74LVC1G07 buffer. CM5IO Rev2: LED+1k direct from +3.3V (buffer removed)."
+J1A,96,AnalogIP0,CC2,module pin 96. DIFFERS: CM4 AnalogIP0 (MXL7704 ADC input). CM5 CC2 of USB-C power connector.
+J1A,97,Camera_GPIO,CAM_GPIO0,"module pin 97. Name differs. Camera power-down GPIO, 3.3V. CM5 = RP1 GPIO34."
+J1A,98,GND,GND,module pin 98. Connect all grounds.
+J1A,99,GLOBAL_EN,PMIC_Enable,"module pin 99. Same function, renamed. Input, 100k internal pull-up to +5V. Low = lowest-power off state. Pull low >1ms after shutdown to restart (CM4). Drive open-drain only."
+J1A,100,nEXTRST,CAM_GPIO1,"module pin 100. DIFFERS: CM4 nEXTRST output (low in reset, high once CPU boots; CM4IO drives USB hub RESET_N). CM5 CAM_GPIO1 (RP1 GPIO35), 15k pull-up, driven low during boot to emulate nEXTRST."
+J1B,1,USB_OTG_ID,USB_OTG_ID,"module pin 101. USB_OTG_ID input, internally pulled up (=device). Ground = host. CM4IO: 2.2k pull-down, 2.2k pull-up from micro-USB VBUS. CM5IO: to J2 pin 10 (jumper to GND pin 9)."
+J1B,2,PCIe_CLK_nREQ,PCIe_CLK_nREQ,"module pin 102. PCIe CLKREQ#, internal pull-up; must be driven low (connected) for clock output."
+J1B,3,USB_N,USB_N,module pin 103. USB 2.0 D- (OTG/rpiboot port). 90R diff. CM5 cannot P/N swap USB2.
+J1B,4,Reserved,PCIE_nWAKE,"module pin 104. DIFFERS: CM4 Reserved, do not connect. CM5 PCIe WAKE# input, 8.2k pull-up (Appendix B name PCIE_DET_nWAKE); unsupported in software."
+J1B,5,USB_P,USB_P,module pin 105. USB 2.0 D+ (OTG/rpiboot port).
+J1B,6,Reserved,PCIE_PWR_EN,"module pin 106. DIFFERS: CM4 Reserved, do not connect. CM5 PCIE_PWR_EN output, active high."
+J1B,7,GND,GND,module pin 107. Connect all grounds.
+J1B,8,GND,GND,module pin 108. Connect all grounds.
+J1B,9,PCIe_nRST,PCIe_nRST,"module pin 109. PCIe PERST#, 3.3V output."
+J1B,10,PCIe_CLK_P,PCIe_CLK_P,module pin 110. PCIe 100MHz refclk. CM4 has AC coupling caps on module; CM5 does NOT (Appendix B.1.2).
+J1B,11,VDAC_COMP,VBUS_EN,"module pin 111. DIFFERS: CM4 VDAC_COMP (composite TV out). CM5 VBUS_EN output (RP1 GPIO42), high = power USB3 ports."
+J1B,12,PCIe_CLK_N,PCIe_CLK_N,module pin 112. PCIe 100MHz refclk. CM4 has AC coupling caps on module; CM5 does NOT (Appendix B.1.2).
+J1B,13,GND,GND,module pin 113. Connect all grounds.
+J1B,14,GND,GND,module pin 114. Connect all grounds.
+J1B,15,CAM1_D0_N,MIPI0_D0_N,"module pin 115. CM4 CAM1 (4-lane CSI) -> CM5 MIPI0 (4-lane, CSI or DSI)."
+J1B,16,PCIe_RX_P,PCIe_RX_P,module pin 116. PCIe RX: external AC coupling caps required near the device TX.
+J1B,17,CAM1_D0_P,MIPI0_D0_P,"module pin 117. CM4 CAM1 (4-lane CSI) -> CM5 MIPI0 (4-lane, CSI or DSI)."
+J1B,18,PCIe_RX_N,PCIe_RX_N,module pin 118. PCIe RX: external AC coupling caps required near the device TX.
+J1B,19,GND,GND,module pin 119. Connect all grounds.
+J1B,20,GND,GND,module pin 120. Connect all grounds.
+J1B,21,CAM1_D1_N,MIPI0_D1_N,"module pin 121. CM4 CAM1 (4-lane CSI) -> CM5 MIPI0 (4-lane, CSI or DSI)."
+J1B,22,PCIe_TX_P,PCIe_TX_P,"module pin 122. PCIe TX: AC coupling caps on module. (Both datasheets describe pin 124 as ""positive"", a typo.)"
+J1B,23,CAM1_D1_P,MIPI0_D1_P,"module pin 123. CM4 CAM1 (4-lane CSI) -> CM5 MIPI0 (4-lane, CSI or DSI)."
+J1B,24,PCIe_TX_N,PCIe_TX_N,"module pin 124. PCIe TX: AC coupling caps on module. (Both datasheets describe pin 124 as ""positive"", a typo.)"
+J1B,25,GND,GND,module pin 125. Connect all grounds.
+J1B,26,GND,GND,module pin 126. Connect all grounds.
+J1B,27,CAM1_C_N,MIPI0_C_N,"module pin 127. CM4 CAM1 (4-lane CSI) -> CM5 MIPI0 (4-lane, CSI or DSI)."
+J1B,28,CAM0_D0_N,USB3-0-RX_N,module pin 128. DIFFERS: CM4 CAM0 CSI -> CM5 USB3 port 0 SuperSpeed (TX has AC caps on module; P/N swap allowed).
+J1B,29,CAM1_C_P,MIPI0_C_P,"module pin 129. CM4 CAM1 (4-lane CSI) -> CM5 MIPI0 (4-lane, CSI or DSI)."
+J1B,30,CAM0_D0_P,USB3-0-RX_P,module pin 130. DIFFERS: CM4 CAM0 CSI -> CM5 USB3 port 0 SuperSpeed (TX has AC caps on module; P/N swap allowed).
+J1B,31,GND,GND,module pin 131. Connect all grounds.
+J1B,32,GND,GND,module pin 132. Connect all grounds.
+J1B,33,CAM1_D2_N,MIPI0_D2_N,"module pin 133. CM4 CAM1 (4-lane CSI) -> CM5 MIPI0 (4-lane, CSI or DSI)."
+J1B,34,CAM0_D1_N,USB3-0-DP,"module pin 134. DIFFERS: CM4 CAM0 lane -> CM5 USB3 port 0 USB2.0 D+/D- (DP=134, DM=136)."
+J1B,35,CAM1_D2_P,MIPI0_D2_P,"module pin 135. CM4 CAM1 (4-lane CSI) -> CM5 MIPI0 (4-lane, CSI or DSI)."
+J1B,36,CAM0_D1_P,USB3-0-DM,"module pin 136. DIFFERS: CM4 CAM0 lane -> CM5 USB3 port 0 USB2.0 D+/D- (DP=134, DM=136)."
+J1B,37,GND,GND,module pin 137. Connect all grounds.
+J1B,38,GND,GND,module pin 138. Connect all grounds.
+J1B,39,CAM1_D3_N,MIPI0_D3_N,"module pin 139. CM4 CAM1 (4-lane CSI) -> CM5 MIPI0 (4-lane, CSI or DSI)."
+J1B,40,CAM0_C_N,USB3-0-TX_N,module pin 140. DIFFERS: CM4 CAM0 CSI -> CM5 USB3 port 0 SuperSpeed (TX has AC caps on module; P/N swap allowed).
+J1B,41,CAM1_D3_P,MIPI0_D3_P,"module pin 141. CM4 CAM1 (4-lane CSI) -> CM5 MIPI0 (4-lane, CSI or DSI)."
+J1B,42,CAM0_C_P,USB3-0-TX_P,module pin 142. DIFFERS: CM4 CAM0 CSI -> CM5 USB3 port 0 SuperSpeed (TX has AC caps on module; P/N swap allowed).
+J1B,43,HDMI1_HOTPLUG,HDMI1_HOTPLUG,"module pin 143. HDMI HPD, 100k internal pull-down, 5V tolerant. CM4 has on-module ESD (HDMI05-CL02F3); CM5 does not."
+J1B,44,GND,GND,module pin 144. Connect all grounds.
+J1B,45,HDMI1_SDA,HDMI1_SDA,"module pin 145. HDMI DDC, 1.8k internal pull-up, 5V tolerant. CM5 removes on-module ESD."
+J1B,46,HDMI1_TX2_P,HDMI1_TX2_P,module pin 146.
+J1B,47,HDMI1_SCL,HDMI1_SCL,"module pin 147. HDMI DDC, 1.8k internal pull-up, 5V tolerant. CM5 removes on-module ESD."
+J1B,48,HDMI1_TX2_N,HDMI1_TX2_N,module pin 148.
+J1B,49,HDMI1_CEC,HDMI1_CEC,"module pin 149. HDMI CEC, 27k internal pull-up, 5V tolerant."
+J1B,50,GND,GND,module pin 150. Connect all grounds.
+J1B,51,HDMI0_CEC,HDMI0_CEC,"module pin 151. HDMI CEC, 27k internal pull-up, 5V tolerant."
+J1B,52,HDMI1_TX1_P,HDMI1_TX1_P,module pin 152.
+J1B,53,HDMI0_HOTPLUG,HDMI0_HOTPLUG,"module pin 153. HDMI HPD, 100k internal pull-down, 5V tolerant. CM4 has on-module ESD (HDMI05-CL02F3); CM5 does not."
+J1B,54,HDMI1_TX1_N,HDMI1_TX1_N,module pin 154.
+J1B,55,GND,GND,module pin 155. Connect all grounds.
+J1B,56,GND,GND,module pin 156. Connect all grounds.
+J1B,57,DSI0_D0_N,USB3-1-RX_N,module pin 157. DIFFERS: CM4 DSI0 -> CM5 USB3 port 1 SuperSpeed.
+J1B,58,HDMI1_TX0_P,HDMI1_TX0_P,module pin 158.
+J1B,59,DSI0_D0_P,USB3-1-RX_P,module pin 159. DIFFERS: CM4 DSI0 -> CM5 USB3 port 1 SuperSpeed.
+J1B,60,HDMI1_TX0_N,HDMI1_TX0_N,module pin 160.
+J1B,61,GND,GND,module pin 161. Connect all grounds.
+J1B,62,GND,GND,module pin 162. Connect all grounds.
+J1B,63,DSI0_D1_N,USB3-1-DP,module pin 163. DIFFERS: CM4 DSI0 lane -> CM5 USB3 port 1 USB2.0 D+/D-.
+J1B,64,HDMI1_CLK_P,HDMI1_CLK_P,module pin 164.
+J1B,65,DSI0_D1_P,USB3-1-DM,module pin 165. DIFFERS: CM4 DSI0 lane -> CM5 USB3 port 1 USB2.0 D+/D-.
+J1B,66,HDMI1_CLK_N,HDMI1_CLK_N,module pin 166.
+J1B,67,GND,GND,module pin 167. Connect all grounds.
+J1B,68,GND,GND,module pin 168. Connect all grounds.
+J1B,69,DSI0_C_N,USB3-1-TX_N,module pin 169. DIFFERS: CM4 DSI0 -> CM5 USB3 port 1 SuperSpeed.
+J1B,70,HDMI0_TX2_P,HDMI0_TX2_P,module pin 170.
+J1B,71,DSI0_C_P,USB3-1-TX_P,module pin 171. DIFFERS: CM4 DSI0 -> CM5 USB3 port 1 SuperSpeed.
+J1B,72,HDMI0_TX2_N,HDMI0_TX2_N,module pin 172.
+J1B,73,GND,GND,module pin 173. Connect all grounds.
+J1B,74,GND,GND,module pin 174. Connect all grounds.
+J1B,75,DSI1_D0_N,MIPI1_D0_N,"module pin 175. CM4 DSI1 (4-lane) -> CM5 MIPI1 (4-lane, CSI or DSI)."
+J1B,76,HDMI0_TX1_P,HDMI0_TX1_P,module pin 176.
+J1B,77,DSI1_D0_P,MIPI1_D0_P,"module pin 177. CM4 DSI1 (4-lane) -> CM5 MIPI1 (4-lane, CSI or DSI)."
+J1B,78,HDMI0_TX1_N,HDMI0_TX1_N,module pin 178.
+J1B,79,GND,GND,module pin 179. Connect all grounds.
+J1B,80,GND,GND,module pin 180. Connect all grounds.
+J1B,81,DSI1_D1_N,MIPI1_D1_N,"module pin 181. CM4 DSI1 (4-lane) -> CM5 MIPI1 (4-lane, CSI or DSI)."
+J1B,82,HDMI0_TX0_P,HDMI0_TX0_P,module pin 182.
+J1B,83,DSI1_D1_P,MIPI1_D1_P,"module pin 183. CM4 DSI1 (4-lane) -> CM5 MIPI1 (4-lane, CSI or DSI)."
+J1B,84,HDMI0_TX0_N,HDMI0_TX0_N,module pin 184.
+J1B,85,GND,GND,module pin 185. Connect all grounds.
+J1B,86,GND,GND,module pin 186. Connect all grounds.
+J1B,87,DSI1_C_N,MIPI1_C_N,"module pin 187. CM4 DSI1 (4-lane) -> CM5 MIPI1 (4-lane, CSI or DSI)."
+J1B,88,HDMI0_CLK_P,HDMI0_CLK_P,module pin 188.
+J1B,89,DSI1_C_P,MIPI1_C_P,"module pin 189. CM4 DSI1 (4-lane) -> CM5 MIPI1 (4-lane, CSI or DSI)."
+J1B,90,HDMI0_CLK_N,HDMI0_CLK_N,module pin 190.
+J1B,91,GND,GND,module pin 191. Connect all grounds.
+J1B,92,GND,GND,module pin 192. Connect all grounds.
+J1B,93,DSI1_D2_N,MIPI1_D2_N,"module pin 193. CM4 DSI1 (4-lane) -> CM5 MIPI1 (4-lane, CSI or DSI)."
+J1B,94,DSI1_D3_N,MIPI1_D3_N,"module pin 194. CM4 DSI1 (4-lane) -> CM5 MIPI1 (4-lane, CSI or DSI)."
+J1B,95,DSI1_D2_P,MIPI1_D2_P,"module pin 195. CM4 DSI1 (4-lane) -> CM5 MIPI1 (4-lane, CSI or DSI)."
+J1B,96,DSI1_D3_P,MIPI1_D3_P,"module pin 196. CM4 DSI1 (4-lane) -> CM5 MIPI1 (4-lane, CSI or DSI)."
+J1B,97,GND,GND,module pin 197. Connect all grounds.
+J1B,98,GND,GND,module pin 198. Connect all grounds.
+J1B,99,HDMI0_SDA,HDMI0_SDA,"module pin 199. HDMI DDC, 1.8k internal pull-up, 5V tolerant. CM5 removes on-module ESD."
+J1B,100,HDMI0_SCL,HDMI0_SCL,"module pin 200. HDMI DDC, 1.8k internal pull-up, 5V tolerant. CM5 removes on-module ESD."

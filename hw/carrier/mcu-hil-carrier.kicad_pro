@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "filename": "mcu-hil-carrier.kicad_pro",
+    "version": 3
+  },
+  "schematic": {
+    "variants": [
+      {
+        "name": "no HV",
+        "description": "Leaves unfitted: HV"
+      },
+      {
+        "name": "minimal",
+        "description": "Leaves unfitted: CLK, HV, SI"
+      }
+    ]
+  },
+  "sheets": [
+    [
+      "4233f4d4-47f9-5f64-8c60-d5f89bcb515c",
+      "Root"
+    ],
+    [
+      "52e237e7-0d5f-5178-9aba-bf01b5facdab",
+      "DUT: ATmega16U2"
+    ],
+    [
+      "2e8dfc5e-c83b-567c-a5ca-95c51a964b02",
+      "Pi to DUT: level translators, reset, HWB"
+    ],
+    [
+      "a2d66f8d-2907-53a9-93ba-c66aaf5622f8",
+      "Clock override (option CLK) and Si5351 (option SI)"
+    ],
+    [
+      "a44d0ece-662e-5298-a279-c611086e1710",
+      "DUT power switch and power meter"
+    ],
+    [
+      "3073f67f-3655-501c-aa50-b4f58b91c42c",
+      "High-voltage programming (option HV)"
+    ],
+    [
+      "6178ae7d-3574-538d-b9f7-ab82323359d3",
+      "USB path switch"
+    ],
+    [
+      "12427cad-b942-583b-8711-ad6681327ebf",
+      "Compute Module 4/5 connectors"
+    ],
+    [
+      "8c6782f7-d448-5fba-9776-9c1b51ae3177",
+      "Carrier: USB-C power and rpiboot, Ethernet, microSD, LEDs"
+    ]
+  ]
+}

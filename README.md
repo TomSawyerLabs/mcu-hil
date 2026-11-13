@@ -23,7 +23,11 @@ ordered fully assembled from JLCPCB.
 
 v2 is being designed. See [plans/v2-design.md](plans/v2-design.md), the
 [v1 design review](docs/v1-review.md), the [v2 requirements draft](docs/v2-requirements.md),
-the [v2 pin map](docs/v2-pinmap.md) and the [parts list](docs/v2-parts.md).
+the [v2 pin map](docs/v2-pinmap.md), the [parts list](docs/v2-parts.md) and the
+[schematic notes](docs/v2-schematic.md).
+
+The KiCad 10 projects are in `hw/carrier/` and `hw/hat/`. Their schematics are generated from
+[`tools/schgen/design.py`](tools/schgen/design.py) (`cd tools && python -m schgen`).
 
 ## v1 (AVR Test HAT)
 

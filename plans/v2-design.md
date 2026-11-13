@@ -114,6 +114,8 @@ work on arrival.
      HV (optional), USB switch. Variant-only sheets: CM connectors, Ethernet, microSD, USB-C power (carrier);
      40-pin header, ID EEPROM, USB-C loopback (HAT).
    - Checks: my own netlist check in the generator. KiCad's ERC needs the user's OK to run `kicad-cli`.
+   - **Status (2026-11-13):** first full draft generated for both boards (`hw/carrier`, `hw/hat`; notes in
+     `docs/v2-schematic.md`). Next: KiCad ERC + PDF export (waiting on the user's OK to run `kicad-cli`), then review.
 6. Layout: CM4/CM5 carrier first, then HAT.
 7. DRC/ERC, JLC DFM check, BOM/CPL generation, order review with user.
 
@@ -130,6 +132,24 @@ work on arrival.
     The user asked whether 5 V is needed (2026-11-12); the answer is yes by spec. HVPP at 3.3 V is outside the spec.
   - Checked across families (details in `docs/v2-requirements.md`): classic ATmega HVPP and ATtiny HVSP need 5 V.
     ATtiny4/5/9/10 need 5 V for any programming. tinyAVR 0/1/2 UPDI HV works at any VDD.
+  - Schematic work (2026-11-13):
+    - **INA228 went to 0 stock** at JLC (all variants; INA229/INA238 too). INA226 fitted (same pinout and footprint).
+      Shunt raised to 1 Ω (Basic C22936): 81.9 mA full scale, 2.5 µA steps.
+    - **The 16U2 has no VBUS pin**, so the SY6280 VBUS switch was dropped. Virtual unplug = USB switch.
+    - **TCA6416A wants VCCP up before VCCI** (TI §10.1), or SDA can stick low and hang the I2C bus. VCCP on +5V,
+      ~RESET pulled up to DUT_5V (ports held Hi-Z while the DUT is off).
+    - **CM5 pins 94/96 are USB-C CC1/CC2** for its PMIC's 5 A PD; on CM4 they're ADC inputs with 100 nF. Left open,
+      with 5.1k Rd on the carrier's USB-C (works with both; CM5 runs without 5 A PD).
+    - CM USB_OTG_ID: internal pull-up = device; grounded = host. Driven from USB_S0 through a 2N7002.
+    - HAT+ spec: 3.9k pull-ups on ID_SD/ID_SC only; EEPROM WP 1k pull-up; must be safe in STANDBY (5 V without 3.3 V).
+    - LCSC's datasheet links need a browser (curl gets an HTML shell). `easyeda2kicad` fetches JLC symbols and
+      footprints directly; used for TS3USB221A (RSE), HR911130C and the SWPA4030 inductor. HR911130C LED pins were
+      decoded from the JLC symbol's drawing.
+    - KiCad 10 schematic format: version 20260306. Variants live in each symbol instance:
+      `(path ... (reference ..) (unit 1) (variant (name "no HV") (dnp yes)))`, and in the project file under
+      `schematic.variants` (from KiCad's `sch_io_kicad_sexpr.cpp` and `schematic_settings.cpp`, 10.0 branch).
+    - KiCad 10 ships a CM5 carrier demo (`demos/cm5_minima`, CERN-OHL-S). Used only as a reference, nothing copied.
+    - Two research subagents died on API auth errors (HTTP 403); the work was redone inline.
   - `tools/jlc_search.py` needs `sys.stdout.reconfigure(encoding="utf-8")` on Windows, because descriptions contain ℃.
 
 - v1 source is Altium. KiCad 10.0.6 `kicad-cli pcb import --format altium` imports the
@@ -169,12 +189,16 @@ work on arrival.
 - [x] v1 review corrected: J6A/J6B not populated, J6B is an alternate for J7 (verified in the board file).
 - [x] Part selection, first pass: `docs/v2-parts.md` (stock as of 2026-11-11 8:50 PM PST).
 - [x] DUT at 5 V with translators, load switch, optional clock override and optional HV (user, 2026-11-12).
-- [ ] User review of the parts list. Then schematic (step 5).
+- [x] User review of the parts list ("parts seem fine", 2026-11-13).
+- [x] Schematic generator (`tools/schgen/`) and first full draft of both boards (2026-11-13).
+- [ ] KiCad ERC and PDF review of the generated schematics (needs OK to run `kicad-cli`).
+- [ ] User review of the schematic.
 - [ ] Fit check: CM connectors, RJ45, USB-C, microSD, MCU, USB switch and power meter on 55 × 40 mm (likely both sides).
 
 ## Open questions for the user
 
-1. **Parts list review** (`docs/v2-parts.md`), including accepting the thin 16U2 stock (84 at JLC).
+1. **OK to run `kicad-cli`** (ERC + PDF export of the generated schematics, hidden window)? Asked 2026-11-13.
+2. ~~Parts list review~~ (approved 2026-11-13). Was: (`docs/v2-parts.md`), including accepting the thin 16U2 stock (84 at JLC).
 
 Answered 2026-11-11: name `mcu-hil`, USB switch instead of a hub, no PoE in this version,
 repo move approved (done), and the built v1 has USB-C. Answered 2026-11-12: DUT at 5 V, translators in, clock override and HV both optional.

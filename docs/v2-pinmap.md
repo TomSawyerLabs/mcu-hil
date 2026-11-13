@@ -40,20 +40,21 @@ This is a single-MCU board. Per-DUT signals for a board with more MCUs are cover
 | 17 | 11 | — | UART translator enable | pull-down → Hi-Z |
 | 18 | 12 | — | Clock override enable (drive XTAL1). Clock override option. | pull-down → off |
 | 19 | 35 | — | Power meter ALERT (input, open-drain from the meter) | pull-up |
-| 20 / 21 | 38 / 40 | — | USB switch select S0 / S1 | pull-downs → USB-C (rpiboot) on the carrier |
+| 20 / 21 | 38 / 40 | — | USB switch select S0 / S1. On the carrier S0 also switches the CM to USB host | pull-downs → USB-C (rpiboot) on the carrier |
 | 22 | 15 | — | DUT VCC enable | pull-down → off |
-| 23 | 16 | — | DUT USB VBUS enable (virtual plug) | pull-down → off |
+| 23 | 16 | — | Spare (the 16U2 has no VBUS pin, so no VBUS switch; unplug = the USB switch) | — |
 | 24 | 18 | — | Status LED | — |
 | 25 | 22 | — | HV apply: 12 V onto RESET | pull-down → off |
 | 26 | 37 | — | HV supply (12 V boost) enable | pull-down → off |
-| 27 | 13 | — | Spare | — |
+| 27 | 13 | — | Si5351 clock buffer enable (drive XTAL1 from Si5351 CLK0). Si5351 option | pull-down → off |
 
-That leaves 5 spare GPIOs (5, 6, 7, 8, 27), plus I2C for anything slow. On a board built without the
-HV option, 25 and 26 are unconnected too. Without the clock override option, so is 18 (and 4 is free).
+That leaves 5 spare GPIOs (5, 6, 7, 8, 23), plus I2C for anything slow. On a board built without the
+HV option, 25 and 26 are unconnected too. Without the clock override option, so is 18 (and 4 is free). Without the Si5351, so is 27.
 
 ### Notes
 
-- **USB switch select:** carrier: 00 = USB-C (rpiboot), 01 = MCU hardware USB, 10 = software-USB pins.
+- **USB switch select:** carrier: S0 low = USB-C (rpiboot, CM is a USB device). S0 high = the DUT side, and a FET
+  pulls the CM's USB_OTG_ID low so it becomes the host. Then S1 low = 16U2 hardware USB, S1 high = software-USB pins.
   On the HAT, S0 alone picks between hardware and software USB on the loopback cable, and S1 is unused.
   The carrier default has to be USB-C, because rpiboot happens before Linux can drive any pin.
 - **DUT voltage:** 5 V (user, 2026-11-12), so every Pi ↔ DUT signal goes through a translator or an
@@ -81,7 +82,7 @@ See [v2-requirements.md](v2-requirements.md#high-voltage-programming).
 
 - **UPDI / TPI / PDI / debugWIRE** run over one or two wires. They can reuse UART0 (UPDI, debugWIRE as
   half-duplex UART) or spare GPIOs (PDI clock and data, TPI), each through a level translator.
-- **Multi-MCU boards:** each extra DUT needs its own reset, VCC enable, VBUS enable and HWB
+- **Multi-MCU boards:** each extra DUT needs its own reset, VCC enable, HWB (and VBUS enable for MCUs with a VBUS pin)
   (about 4 slow signals). Put them on an I2C GPIO expander (TCA9535-class) and keep the fast or
   shared lines (SPI, UART, clock) on Pi GPIO. Each DUT gets its own translators, and their enables pick
   which DUT the shared SPI and UART reach.

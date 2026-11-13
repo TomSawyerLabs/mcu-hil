@@ -48,9 +48,10 @@ Decisions and open items live in [plans/v2-design.md](../plans/v2-design.md).
   - Level translators (TXU0304 for ISP, TXU0202 for UART) between the Pi's 3.3 V and the DUT's 5 V.
   - A short detour on 2026-11-12 tried 3.3 V (8 MHz, series resistors instead of translators). It was dropped
     because HVPP needs 5 V regardless.
-- **Power meter per DUT rail**, sized for AVR currents: from µA in sleep to ~100–200 mA running. Covering that
-  range likely takes a high-resolution monitor (INA228-class) or switchable shunts. To be chosen in part selection.
-- **DUT USB:** one USB port per MCU, with a current-limited VBUS switch the Pi controls (virtual unplug).
+- **Power meter per DUT rail**, sized for AVR currents: from µA in sleep to tens of mA running. The 16U2 board uses an
+  INA226 (16-bit) with a 1 Ω shunt: 81.9 mA full scale, 2.5 µA steps. INA228 (20-bit) is a drop-in upgrade when in stock.
+- **DUT USB:** one USB port per MCU. Virtual unplug is the USB switch (it disconnects D+/D-). MCUs with a VBUS pin
+  also get a current-limited VBUS switch; the 16U2 has no VBUS pin, so its board has none.
   Software-USB testing routes MCU GPIO to a D+/D- pair.
 - **USB switch, no hub:** only one USB path is needed at a time. The host's USB 2.0 port goes through a
   high-speed analog USB switch to one of: USB-C (rpiboot, the default), the MCU's hardware USB, or the
