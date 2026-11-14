@@ -83,6 +83,8 @@ HV needs CLK, because HVPP clocks XTAL1 through the GPCLK0 buffer (user OK'd, 20
 
 ## Still to check
 
-- KiCad ERC, and a visual review of the generated sheets (needs `kicad-cli`; asked before running).
+- ~~KiCad ERC~~: clean on both boards (kicad-cli 10.0.6, 2026-11-13), and KiCad's netlists match the generator's.
+  PDFs: [carrier](../hw/carrier/mcu-hil-carrier.pdf), [HAT](../hw/hat/mcu-hil-hat.pdf).
+- Tidier sheet layout (the generated placement is functional but sparse).
 - HR911130C LED colours, and its footprint against HanRun's drawing.
 - The DF40 footprint's pin-1 orientation against the CM4/CM5 mechanical drawings (layout step).

@@ -115,7 +115,9 @@ work on arrival.
      40-pin header, ID EEPROM, USB-C loopback (HAT).
    - Checks: my own netlist check in the generator. KiCad's ERC needs the user's OK to run `kicad-cli`.
    - **Status (2026-11-13):** first full draft generated for both boards (`hw/carrier`, `hw/hat`; notes in
-     `docs/v2-schematic.md`). Next: KiCad ERC + PDF export (waiting on the user's OK to run `kicad-cli`), then review.
+     `docs/v2-schematic.md`). kicad-cli ERC: 0 errors/0 warnings on both; KiCad netlists match the generator's.
+     PDFs: `hw/carrier/mcu-hil-carrier.pdf`, `hw/hat/mcu-hil-hat.pdf`. **Waiting on the user's schematic review.**
+     Cosmetic follow-up: generated layout is sparse and power symbols on adjacent pins crowd each other.
 6. Layout: CM4/CM5 carrier first, then HAT.
 7. DRC/ERC, JLC DFM check, BOM/CPL generation, order review with user.
 
@@ -191,13 +193,15 @@ work on arrival.
 - [x] DUT at 5 V with translators, load switch, optional clock override and optional HV (user, 2026-11-12).
 - [x] User review of the parts list ("parts seem fine", 2026-11-13).
 - [x] Schematic generator (`tools/schgen/`) and first full draft of both boards (2026-11-13).
-- [ ] KiCad ERC and PDF review of the generated schematics (needs OK to run `kicad-cli`).
+- [x] KiCad ERC (clean) and PDF export (user OK'd kicad-cli, 2026-11-13). kicad-cli writes `.kicad_prl`; now gitignored.
 - [ ] User review of the schematic.
 - [ ] Fit check: CM connectors, RJ45, USB-C, microSD, MCU, USB switch and power meter on 55 × 40 mm (likely both sides).
 
 ## Open questions for the user
 
-1. **OK to run `kicad-cli`** (ERC + PDF export of the generated schematics, hidden window)? Asked 2026-11-13.
+1. **Schematic review** (`hw/carrier/mcu-hil-carrier.pdf`, `hw/hat/mcu-hil-hat.pdf`, notes in `docs/v2-schematic.md`).
+   Also: OK with INA226 for now (INA228 out of stock), and with all-red LEDs (Basic part, no fees)?
+   (kicad-cli OK'd 2026-11-13.)
 2. ~~Parts list review~~ (approved 2026-11-13). Was: (`docs/v2-parts.md`), including accepting the thin 16U2 stock (84 at JLC).
 
 Answered 2026-11-11: name `mcu-hil`, USB switch instead of a hub, no PoE in this version,
