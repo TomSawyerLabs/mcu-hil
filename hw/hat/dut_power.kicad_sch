@@ -259,174 +259,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Power_Management:TPS22917DBV"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U"
-				(at -6.35 6.35 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font (size 1.27 1.27))
-				)
-			)
-			(property "Value" "TPS22917DBV"
-				(at 2.54 6.35 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font (size 1.27 1.27))
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
-				(at 0 12.7 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font (size 1.27 1.27))
-				)
-			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tps22917.pdf"
-				(at 1.27 -17.78 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font (size 1.27 1.27))
-				)
-			)
-			(property "Description" "1V to 5.5V, 2A, 80mΩ Ultra-Low Leakage Load Switch, SOT23-6"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font (size 1.27 1.27))
-				)
-			)
-			(property "ki_keywords" "high-side power distribution switch"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font (size 1.27 1.27))
-				)
-			)
-			(property "ki_fp_filters" "SOT?23*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font (size 1.27 1.27))
-				)
-			)
-			(symbol "TPS22917DBV_0_1"
-				(rectangle
-					(start -7.62 5.08)
-					(end 7.62 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "TPS22917DBV_1_1"
-				(pin power_in line
-					(at -10.16 2.54 0)
-					(length 2.54)
-					(name "VIN"
-						(effects
-							(font (size 1.27 1.27))
-						)
-					)
-					(number "1"
-						(effects
-							(font (size 1.27 1.27))
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font (size 1.27 1.27))
-						)
-					)
-					(number "2"
-						(effects
-							(font (size 1.27 1.27))
-						)
-					)
-				)
-				(pin input line
-					(at -10.16 -2.54 0)
-					(length 2.54)
-					(name "ON"
-						(effects
-							(font (size 1.27 1.27))
-						)
-					)
-					(number "3"
-						(effects
-							(font (size 1.27 1.27))
-						)
-					)
-				)
-				(pin output line
-					(at -10.16 0 0)
-					(length 2.54)
-					(name "CT"
-						(effects
-							(font (size 1.27 1.27))
-						)
-					)
-					(number "4"
-						(effects
-							(font (size 1.27 1.27))
-						)
-					)
-				)
-				(pin open_collector line
-					(at 10.16 -2.54 180)
-					(length 2.54)
-					(name "QOD"
-						(effects
-							(font (size 1.27 1.27))
-						)
-					)
-					(number "5"
-						(effects
-							(font (size 1.27 1.27))
-						)
-					)
-				)
-				(pin power_out line
-					(at 10.16 2.54 180)
-					(length 2.54)
-					(name "VOUT"
-						(effects
-							(font (size 1.27 1.27))
-						)
-					)
-					(number "6"
-						(effects
-							(font (size 1.27 1.27))
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Sensor_Energy:INA226"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -650,6 +482,152 @@
 				)
 			)
 			(embedded_fonts no)
+		)
+		(symbol "mcu-hil:TPS22918DBV"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at -5.08 6.35 0)
+				(effects
+					(font (size 1.27 1.27))
+					(justify left)
+				)
+			)
+			(property "Value" "TPS22918DBV"
+				(at -5.08 -6.35 0)
+				(effects
+					(font (size 1.27 1.27))
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+				(at 0 0 0)
+				(effects
+					(font (size 1.27 1.27))
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps22918.pdf"
+				(at 0 0 0)
+				(effects
+					(font (size 1.27 1.27))
+					(hide yes)
+				)
+			)
+			(property "Description" "5.5 V 2 A load switch with adjustable rise time (CT) and quick output discharge (QOD)"
+				(at 0 0 0)
+				(effects
+					(font (size 1.27 1.27))
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "load switch"
+				(at 0 0 0)
+				(effects
+					(font (size 1.27 1.27))
+					(hide yes)
+				)
+			)
+			(symbol "TPS22918DBV_0_1"
+				(rectangle
+					(start -5.08 5.08)
+					(end 5.08 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "TPS22918DBV_1_1"
+				(pin power_in line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "VIN"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+					(number "1"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "ON"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+					(number "3"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+				)
+				(pin passive line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "CT"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+					(number "4"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+				)
+				(pin power_out line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "VOUT"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+					(number "6"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "QOD"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+					(number "5"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+				)
+				(pin power_in line
+					(at 7.62 -2.54 180)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+					(number "2"
+						(effects
+							(font (size 1.27 1.27))
+						)
+					)
+				)
+			)
 		)
 		(symbol "power:+3V3"
 			(power global)
@@ -1132,8 +1110,8 @@
 		(uuid "9926d778-8c65-5c1b-be6a-5dfb9aeb816c")
 	)
 	(symbol
-		(lib_id "Power_Management:TPS22917DBV")
-		(at 43.18 38.1 0)
+		(lib_id "mcu-hil:TPS22918DBV")
+		(at 40.64 38.1 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1141,47 +1119,40 @@
 		(dnp no)
 		(uuid "ad73042c-f4bc-53f2-89ea-4c58e9bf6db0")
 		(property "Reference" "U7"
-			(at 36.83 31.75 0)
+			(at 35.56 31.75 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "TPS22918DBVR"
-			(at 45.72 31.75 0)
+			(at 35.56 44.45 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
+			(at 33.02 45.72 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps22918.pdf"
 			(at 33.02 48.26 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tps22917.pdf"
+		(property "Description" "5.5 V 2 A load switch with adjustable rise time (CT) and quick output discharge (QOD)"
 			(at 33.02 50.8 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Description" "1V to 5.5V, 2A, 80mΩ Ultra-Low Leakage Load Switch, SOT23-6"
-			(at 33.02 53.34 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
 		(property "LCSC" "C131941"
-			(at 33.02 55.88 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Note" "TPS22917 symbol: same DBV pinout as TPS22918"
-			(at 33.02 58.42 0)
+			(at 33.02 53.34 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1190,20 +1161,20 @@
 		(pin "1"
 			(uuid "045cfa46-a805-582e-802b-f27f60588169")
 		)
-		(pin "2"
-			(uuid "47ef844c-e038-5e42-b7f6-09c54e882bb6")
-		)
 		(pin "3"
 			(uuid "0d898b3e-888c-533b-906a-7e9094b5aaaf")
 		)
 		(pin "4"
 			(uuid "67e4c31c-d43b-5e28-a2c1-d0fd07770436")
 		)
+		(pin "6"
+			(uuid "af728a4a-6306-5601-8dbf-7d47d88cb91e")
+		)
 		(pin "5"
 			(uuid "23aa1a1c-dd2a-5db7-9a05-c21d1f05c719")
 		)
-		(pin "6"
-			(uuid "af728a4a-6306-5601-8dbf-7d47d88cb91e")
+		(pin "2"
+			(uuid "47ef844c-e038-5e42-b7f6-09c54e882bb6")
 		)
 		(instances
 			(project "mcu-hil-hat"
@@ -1262,9 +1233,71 @@
 			)
 		)
 	)
+	(global_label "DUT_PWR_EN"
+		(shape bidirectional)
+		(at 33.02 38.1 180)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify right)
+		)
+		(uuid "8795c38e-10d9-55a5-88fc-525713d97547")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 33.02 38.1 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+				(justify right)
+			)
+		)
+	)
+	(label "DUT_PWR_CT"
+		(at 33.02 40.64 180)
+		(effects
+			(font (size 1.27 1.27))
+			(justify right bottom)
+		)
+		(uuid "50d03229-238c-5243-843c-9447f1d55650")
+	)
+	(global_label "DUT_5V"
+		(shape bidirectional)
+		(at 48.26 35.56 0)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left)
+		)
+		(uuid "8ecaafc4-4e95-5c18-9944-f262da3fad71")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 48.26 35.56 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+				(justify left)
+			)
+		)
+	)
+	(global_label "DUT_5V"
+		(shape bidirectional)
+		(at 48.26 38.1 0)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left)
+		)
+		(uuid "bc651cc8-f41f-56b4-891a-be5dcade51b1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 48.26 38.1 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+				(justify left)
+			)
+		)
+	)
 	(symbol
 		(lib_id "power:GND")
-		(at 43.18 45.72 0)
+		(at 48.26 40.64 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1272,27 +1305,27 @@
 		(dnp no)
 		(uuid "df6d864b-c623-5ba0-9c45-c8928e0bd8d6")
 		(property "Reference" "#PWR0051"
-			(at 43.18 45.72 0)
+			(at 48.26 40.64 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 43.18 50.8 0)
+			(at 55.88 40.64 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 43.18 45.72 0)
+			(at 48.26 40.64 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 43.18 45.72 0)
+			(at 48.26 40.64 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1310,71 +1343,9 @@
 			)
 		)
 	)
-	(global_label "DUT_PWR_EN"
-		(shape bidirectional)
-		(at 33.02 40.64 180)
-		(fields_autoplaced yes)
-		(effects
-			(font (size 1.27 1.27))
-			(justify right)
-		)
-		(uuid "8795c38e-10d9-55a5-88fc-525713d97547")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 33.02 40.64 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
-	)
-	(label "DUT_PWR_CT"
-		(at 33.02 38.1 180)
-		(effects
-			(font (size 1.27 1.27))
-			(justify right bottom)
-		)
-		(uuid "50d03229-238c-5243-843c-9447f1d55650")
-	)
-	(global_label "DUT_5V"
-		(shape bidirectional)
-		(at 53.34 40.64 0)
-		(fields_autoplaced yes)
-		(effects
-			(font (size 1.27 1.27))
-			(justify left)
-		)
-		(uuid "bc651cc8-f41f-56b4-891a-be5dcade51b1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 53.34 40.64 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
-	)
-	(global_label "DUT_5V"
-		(shape bidirectional)
-		(at 53.34 35.56 0)
-		(fields_autoplaced yes)
-		(effects
-			(font (size 1.27 1.27))
-			(justify left)
-		)
-		(uuid "8ecaafc4-4e95-5c18-9944-f262da3fad71")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 53.34 35.56 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
-	)
 	(symbol
 		(lib_id "Device:C")
-		(at 78.74 43.18 0)
+		(at 73.66 43.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1382,40 +1353,40 @@
 		(dnp no)
 		(uuid "d8d3607a-f132-5342-9c3c-d31e1106334f")
 		(property "Reference" "C16"
-			(at 79.375 40.64 0)
+			(at 74.295 40.64 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "1µF"
-			(at 79.375 45.72 0)
+			(at 74.295 45.72 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 76.708 49.53 0)
+			(at 71.628 49.53 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 76.708 52.07 0)
+			(at 71.628 52.07 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 76.708 54.61 0)
+			(at 71.628 54.61 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "LCSC" "C52923"
-			(at 76.708 57.15 0)
+			(at 71.628 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1438,7 +1409,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 78.74 39.37 0)
+		(at 73.66 39.37 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1446,27 +1417,27 @@
 		(dnp no)
 		(uuid "59cf1f46-1cf8-5587-86a6-1cdf84141a0b")
 		(property "Reference" "#PWR0052"
-			(at 78.74 39.37 0)
+			(at 73.66 39.37 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "+5V"
-			(at 78.74 34.29 0)
+			(at 73.66 34.29 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 78.74 39.37 0)
+			(at 73.66 39.37 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 78.74 39.37 0)
+			(at 73.66 39.37 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1486,7 +1457,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 78.74 46.99 0)
+		(at 73.66 46.99 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1494,27 +1465,27 @@
 		(dnp no)
 		(uuid "03742912-879b-5761-a720-87c20fb76f94")
 		(property "Reference" "#PWR0053"
-			(at 78.74 46.99 0)
+			(at 73.66 46.99 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 78.74 52.07 0)
+			(at 73.66 52.07 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 78.74 46.99 0)
+			(at 73.66 46.99 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 78.74 46.99 0)
+			(at 73.66 46.99 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1534,7 +1505,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 91.44 48.26 0)
+		(at 86.36 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1542,47 +1513,47 @@
 		(dnp no)
 		(uuid "e1b58635-812a-534c-a8f0-b19790182f76")
 		(property "Reference" "C17"
-			(at 92.075 45.72 0)
+			(at 86.995 45.72 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "1nF"
-			(at 92.075 50.8 0)
+			(at 86.995 50.8 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 89.408 54.61 0)
+			(at 84.328 54.61 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 89.408 57.15 0)
+			(at 84.328 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 89.408 59.69 0)
+			(at 84.328 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "LCSC" "C1523"
-			(at 89.408 62.23 0)
+			(at 84.328 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Note" "Rise-time control"
-			(at 89.408 64.77 0)
+			(at 84.328 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1604,7 +1575,7 @@
 		)
 	)
 	(label "DUT_PWR_CT"
-		(at 91.44 44.45 90)
+		(at 86.36 44.45 90)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -1613,7 +1584,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 91.44 52.07 0)
+		(at 86.36 52.07 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1621,27 +1592,27 @@
 		(dnp no)
 		(uuid "2a2a9956-5e7f-57c0-9130-d263bdeeed44")
 		(property "Reference" "#PWR0054"
-			(at 91.44 52.07 0)
+			(at 86.36 52.07 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 91.44 57.15 0)
+			(at 86.36 57.15 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 91.44 52.07 0)
+			(at 86.36 52.07 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 91.44 52.07 0)
+			(at 86.36 52.07 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1661,7 +1632,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 106.68 48.26 0)
+		(at 101.6 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1669,40 +1640,40 @@
 		(dnp no)
 		(uuid "df753a52-d247-5293-910e-344bc0776796")
 		(property "Reference" "C18"
-			(at 107.315 45.72 0)
+			(at 102.235 45.72 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "1µF"
-			(at 107.315 50.8 0)
+			(at 102.235 50.8 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 104.648 54.61 0)
+			(at 99.568 54.61 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 104.648 57.15 0)
+			(at 99.568 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 104.648 59.69 0)
+			(at 99.568 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "LCSC" "C52923"
-			(at 104.648 62.23 0)
+			(at 99.568 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1725,7 +1696,7 @@
 	)
 	(global_label "DUT_5V"
 		(shape bidirectional)
-		(at 106.68 44.45 90)
+		(at 101.6 44.45 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -1733,7 +1704,7 @@
 		)
 		(uuid "c7185680-eb6d-50f2-b463-0207553f7567")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 106.68 44.45 0)
+			(at 101.6 44.45 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1743,7 +1714,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 106.68 52.07 0)
+		(at 101.6 52.07 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1751,27 +1722,27 @@
 		(dnp no)
 		(uuid "22e2f59a-de8b-5d45-a43a-c0d4ed0adbd7")
 		(property "Reference" "#PWR0055"
-			(at 106.68 52.07 0)
+			(at 101.6 52.07 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 106.68 57.15 0)
+			(at 101.6 57.15 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 106.68 52.07 0)
+			(at 101.6 52.07 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 52.07 0)
+			(at 101.6 52.07 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1791,7 +1762,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 119.38 53.34 0)
+		(at 114.3 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1799,40 +1770,40 @@
 		(dnp no)
 		(uuid "79ea6d5d-76f1-571b-8fac-aecd8650f8a2")
 		(property "Reference" "R24"
-			(at 121.412 53.34 0)
+			(at 116.332 53.34 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "100kΩ"
-			(at 119.38 53.34 0)
+			(at 114.3 53.34 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 118.364 59.69 0)
+			(at 113.284 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 118.364 62.23 0)
+			(at 113.284 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Description" "Resistor"
-			(at 118.364 64.77 0)
+			(at 113.284 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "LCSC" "C25741"
-			(at 118.364 67.31 0)
+			(at 113.284 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1855,7 +1826,7 @@
 	)
 	(global_label "DUT_PWR_EN"
 		(shape bidirectional)
-		(at 119.38 49.53 90)
+		(at 114.3 49.53 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -1863,7 +1834,7 @@
 		)
 		(uuid "50f0faa5-52f0-5e7d-ab0c-d04e51980bef")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 119.38 49.53 0)
+			(at 114.3 49.53 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1873,7 +1844,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 119.38 57.15 0)
+		(at 114.3 57.15 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1881,27 +1852,27 @@
 		(dnp no)
 		(uuid "fd7b50af-e802-5d36-b0e4-92f1e20227d3")
 		(property "Reference" "#PWR0056"
-			(at 119.38 57.15 0)
+			(at 114.3 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 119.38 62.23 0)
+			(at 114.3 62.23 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 119.38 57.15 0)
+			(at 114.3 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 119.38 57.15 0)
+			(at 114.3 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1921,7 +1892,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 132.08 48.26 0)
+		(at 127 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1929,54 +1900,54 @@
 		(dnp no)
 		(uuid "f6466264-e9d8-50ff-aedb-be81fa4806da")
 		(property "Reference" "R25"
-			(at 134.112 48.26 0)
+			(at 129.032 48.26 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "1Ω"
-			(at 132.08 48.26 0)
+			(at 127 48.26 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 131.064 54.61 0)
+			(at 125.984 54.61 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 131.064 57.15 0)
+			(at 125.984 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Description" "Resistor"
-			(at 131.064 59.69 0)
+			(at 125.984 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "LCSC" "C22936"
-			(at 131.064 62.23 0)
+			(at 125.984 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "MPN" "0603WAF100KT5E"
-			(at 131.064 64.77 0)
+			(at 125.984 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Note" "Shunt, 1%"
-			(at 131.064 67.31 0)
+			(at 125.984 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1999,7 +1970,7 @@
 	)
 	(global_label "DUT_5V"
 		(shape bidirectional)
-		(at 132.08 44.45 90)
+		(at 127 44.45 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2007,7 +1978,7 @@
 		)
 		(uuid "cebe2534-4719-5f64-9812-b45d49ad235b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 132.08 44.45 0)
+			(at 127 44.45 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2017,7 +1988,7 @@
 	)
 	(global_label "DUT_VCC"
 		(shape bidirectional)
-		(at 132.08 52.07 270)
+		(at 127 52.07 270)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2025,7 +1996,7 @@
 		)
 		(uuid "827c1321-43a4-5a11-a5ba-6d2eec1ab641")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 132.08 52.07 0)
+			(at 127 52.07 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2035,7 +2006,7 @@
 	)
 	(symbol
 		(lib_id "Sensor_Energy:INA226")
-		(at 167.64 53.34 0)
+		(at 162.56 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2043,47 +2014,47 @@
 		(dnp no)
 		(uuid "193483c8-f84d-57ca-868f-17588bfc7aee")
 		(property "Reference" "U8"
-			(at 161.29 41.91 0)
+			(at 156.21 41.91 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "INA226AIDGSR"
-			(at 171.45 41.91 0)
+			(at 166.37 41.91 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Package_SO:MSOP-10_3x3mm_P0.5mm"
-			(at 157.48 68.58 0)
+			(at 152.4 68.58 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/ina226.pdf"
-			(at 157.48 71.12 0)
+			(at 152.4 71.12 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Description" "High-Side or Low-Side Measurement, Bi-Directional Current and Power Monitor (0-36V) with I2C Compatible Interface, TSSOP-10 (Texas DGS0010A / VSSOP)"
-			(at 157.48 73.66 0)
+			(at 152.4 73.66 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "LCSC" "C49851"
-			(at 157.48 76.2 0)
+			(at 152.4 76.2 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Note" "I2C address 0x40"
-			(at 157.48 78.74 0)
+			(at 152.4 78.74 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2130,7 +2101,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 177.8 45.72 90)
+		(at 172.72 45.72 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2138,27 +2109,27 @@
 		(dnp no)
 		(uuid "03c3e6b4-4956-5ecb-8d75-1ab4badbb61b")
 		(property "Reference" "#PWR0057"
-			(at 177.8 45.72 0)
+			(at 172.72 45.72 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 185.42 45.72 0)
+			(at 180.34 45.72 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 177.8 45.72 0)
+			(at 172.72 45.72 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 177.8 45.72 0)
+			(at 172.72 45.72 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2178,7 +2149,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 177.8 48.26 90)
+		(at 172.72 48.26 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2186,27 +2157,27 @@
 		(dnp no)
 		(uuid "530c52c0-6618-591b-9125-43127cedd0ce")
 		(property "Reference" "#PWR0058"
-			(at 177.8 48.26 0)
+			(at 172.72 48.26 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 185.42 48.26 0)
+			(at 180.34 48.26 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 177.8 48.26 0)
+			(at 172.72 48.26 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 177.8 48.26 0)
+			(at 172.72 48.26 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2226,7 +2197,7 @@
 	)
 	(global_label "PWR_ALERT"
 		(shape bidirectional)
-		(at 177.8 60.96 0)
+		(at 172.72 60.96 0)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2234,7 +2205,7 @@
 		)
 		(uuid "6d862131-16da-5a3b-9dbc-4e910def1d2c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 177.8 60.96 0)
+			(at 172.72 60.96 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2244,7 +2215,7 @@
 	)
 	(global_label "I2C_SDA"
 		(shape bidirectional)
-		(at 177.8 53.34 0)
+		(at 172.72 53.34 0)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2252,7 +2223,7 @@
 		)
 		(uuid "94caab93-8541-5cd4-91cb-3eb357eed884")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 177.8 53.34 0)
+			(at 172.72 53.34 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2262,7 +2233,7 @@
 	)
 	(global_label "I2C_SCL"
 		(shape bidirectional)
-		(at 177.8 55.88 0)
+		(at 172.72 55.88 0)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2270,7 +2241,7 @@
 		)
 		(uuid "c40ec695-dc96-5414-b770-9c00e8c8ba66")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 177.8 55.88 0)
+			(at 172.72 55.88 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2280,7 +2251,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 167.64 40.64 0)
+		(at 162.56 40.64 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2288,27 +2259,27 @@
 		(dnp no)
 		(uuid "307d9e79-8220-56df-977d-d72479977c44")
 		(property "Reference" "#PWR0059"
-			(at 167.64 40.64 0)
+			(at 162.56 40.64 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "+3V3"
-			(at 167.64 35.56 0)
+			(at 162.56 35.56 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 167.64 40.64 0)
+			(at 162.56 40.64 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 167.64 40.64 0)
+			(at 162.56 40.64 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2328,7 +2299,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 167.64 66.04 0)
+		(at 162.56 66.04 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2336,27 +2307,27 @@
 		(dnp no)
 		(uuid "eac2569b-77b3-5184-8f38-de51a5f7d3dc")
 		(property "Reference" "#PWR0060"
-			(at 167.64 66.04 0)
+			(at 162.56 66.04 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 167.64 71.12 0)
+			(at 162.56 71.12 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 167.64 66.04 0)
+			(at 162.56 66.04 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 167.64 66.04 0)
+			(at 162.56 66.04 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2376,7 +2347,7 @@
 	)
 	(global_label "DUT_VCC"
 		(shape bidirectional)
-		(at 157.48 45.72 180)
+		(at 152.4 45.72 180)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2384,7 +2355,7 @@
 		)
 		(uuid "86eff70c-d2d5-5422-85d3-8a714eb847c5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 157.48 45.72 0)
+			(at 152.4 45.72 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2394,7 +2365,7 @@
 	)
 	(global_label "DUT_VCC"
 		(shape bidirectional)
-		(at 157.48 58.42 180)
+		(at 152.4 58.42 180)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2402,7 +2373,7 @@
 		)
 		(uuid "86c434b8-874d-5207-9727-5962cb3bca3b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 157.48 58.42 0)
+			(at 152.4 58.42 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2412,7 +2383,7 @@
 	)
 	(global_label "DUT_5V"
 		(shape bidirectional)
-		(at 157.48 55.88 180)
+		(at 152.4 55.88 180)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2420,7 +2391,7 @@
 		)
 		(uuid "df48eed2-41cd-50ab-a9fd-35209cb594ed")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 157.48 55.88 0)
+			(at 152.4 55.88 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2430,7 +2401,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 203.2 43.18 0)
+		(at 198.12 43.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2438,40 +2409,40 @@
 		(dnp no)
 		(uuid "e561ea97-e9dc-5bbd-8719-04749081b859")
 		(property "Reference" "C19"
-			(at 203.835 40.64 0)
+			(at 198.755 40.64 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "100nF"
-			(at 203.835 45.72 0)
+			(at 198.755 45.72 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 201.168 49.53 0)
+			(at 196.088 49.53 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 201.168 52.07 0)
+			(at 196.088 52.07 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 201.168 54.61 0)
+			(at 196.088 54.61 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "LCSC" "C1525"
-			(at 201.168 57.15 0)
+			(at 196.088 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2494,7 +2465,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 203.2 39.37 0)
+		(at 198.12 39.37 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2502,27 +2473,27 @@
 		(dnp no)
 		(uuid "476b6afd-a7d9-59b1-a48f-3ac3abaa4bfb")
 		(property "Reference" "#PWR0061"
-			(at 203.2 39.37 0)
+			(at 198.12 39.37 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "+3V3"
-			(at 203.2 34.29 0)
+			(at 198.12 34.29 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 203.2 39.37 0)
+			(at 198.12 39.37 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 203.2 39.37 0)
+			(at 198.12 39.37 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2542,7 +2513,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 203.2 46.99 0)
+		(at 198.12 46.99 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2550,27 +2521,27 @@
 		(dnp no)
 		(uuid "2fe8bc8d-fe04-58bd-a460-1de0f6702f99")
 		(property "Reference" "#PWR0062"
-			(at 203.2 46.99 0)
+			(at 198.12 46.99 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 203.2 52.07 0)
+			(at 198.12 52.07 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 203.2 46.99 0)
+			(at 198.12 46.99 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 203.2 46.99 0)
+			(at 198.12 46.99 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2590,7 +2561,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 215.9 50.8 0)
+		(at 210.82 50.8 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2598,40 +2569,40 @@
 		(dnp no)
 		(uuid "a7a60052-f779-5b1d-b3bf-dedadb288ec9")
 		(property "Reference" "R26"
-			(at 217.932 50.8 0)
+			(at 212.852 50.8 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 215.9 50.8 0)
+			(at 210.82 50.8 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 214.884 57.15 0)
+			(at 209.804 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 214.884 59.69 0)
+			(at 209.804 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Description" "Resistor"
-			(at 214.884 62.23 0)
+			(at 209.804 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "LCSC" "C25744"
-			(at 214.884 64.77 0)
+			(at 209.804 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2654,7 +2625,7 @@
 	)
 	(global_label "PWR_ALERT"
 		(shape bidirectional)
-		(at 215.9 46.99 90)
+		(at 210.82 46.99 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2662,7 +2633,7 @@
 		)
 		(uuid "f3c1254f-2f41-5cf6-b15d-27beee62b52e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 215.9 46.99 0)
+			(at 210.82 46.99 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2672,7 +2643,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 215.9 54.61 180)
+		(at 210.82 54.61 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2680,27 +2651,27 @@
 		(dnp no)
 		(uuid "41308f1a-041c-5b15-824c-5114a754f6cb")
 		(property "Reference" "#PWR0063"
-			(at 215.9 54.61 0)
+			(at 210.82 54.61 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "+3V3"
-			(at 215.9 59.69 0)
+			(at 210.82 59.69 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 215.9 54.61 0)
+			(at 210.82 54.61 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 215.9 54.61 0)
+			(at 210.82 54.61 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2720,7 +2691,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 228.6 35.56 0)
+		(at 223.52 35.56 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -2728,33 +2699,33 @@
 		(dnp no)
 		(uuid "df466fd7-bec3-547e-b142-77013af601f5")
 		(property "Reference" "#FLG1"
-			(at 228.6 33.655 0)
+			(at 223.52 33.655 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 228.6 31.75 0)
+			(at 223.52 31.75 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 227.584 38.1 0)
+			(at 222.504 38.1 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 227.584 40.64 0)
+			(at 222.504 40.64 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 227.584 43.18 0)
+			(at 222.504 43.18 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2774,7 +2745,7 @@
 	)
 	(global_label "DUT_VCC"
 		(shape bidirectional)
-		(at 228.6 35.56 270)
+		(at 223.52 35.56 270)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2782,7 +2753,7 @@
 		)
 		(uuid "3c7973fb-fbd1-5a03-b230-f5299b6c126f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 228.6 35.56 0)
+			(at 223.52 35.56 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))

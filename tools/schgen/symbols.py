@@ -70,6 +70,18 @@ def ts3usb221a():
         keywords="USB switch mux")
 
 
+def tps22918():
+    # QOD is typed passive: the datasheet allows tying it straight to VOUT (QOD section).
+    return make_symbol(
+        "TPS22918DBV", "U",
+        left=[("1", "VIN", PW), ("3", "ON", I), ("4", "CT", P)],
+        right=[("6", "VOUT", PO), ("5", "QOD", P), ("2", "GND", PW)],
+        footprint="Package_TO_SOT_SMD:SOT-23-6",
+        datasheet="https://www.ti.com/lit/ds/symlink/tps22918.pdf",
+        description="5.5 V 2 A load switch with adjustable rise time (CT) and quick output discharge (QOD)",
+        keywords="load switch")
+
+
 def hr911130c():
     return make_symbol(
         "HR911130C", "J",
@@ -91,6 +103,7 @@ def cm_connectors(csv_path: Path):
     for conn, label in (("J1A", "A"), ("J1B", "B")):
         pins = [r for r in rows if r["connector"] == conn]
         left, right = [], []
+        seen_out = set()
         for r in sorted(pins, key=lambda r: int(r["pin"])):
             n = int(r["pin"])
             name = r["cm4_name"]
@@ -98,6 +111,10 @@ def cm_connectors(csv_path: Path):
                 name = f"{name}/{r['cm5_name']}"
             name = name.replace(" (Input)", "").replace(" (Output)", "")
             etype = _cm_type(name)
+            if etype == PO:
+                # One power-output pin per rail; the rest are passive, so ERC sees a single driver.
+                etype = P if name in seen_out else PO
+                seen_out.add(name)
             (left if n % 2 else right).append((str(n), name, etype))
         syms.append(make_symbol(
             f"CM4_CM5_{conn}", "J",
@@ -126,6 +143,7 @@ def _cm_type(name: str) -> str:
 
 
 def build(out_lib: Path, csv_path: Path):
-    symbols = [txu0304(), txu0202(), tca6416a_rtw(), ts3usb221a(), hr911130c(), *cm_connectors(csv_path)]
+    symbols = [txu0304(), txu0202(), tca6416a_rtw(), ts3usb221a(), tps22918(), hr911130c(),
+               *cm_connectors(csv_path)]
     write_library(out_lib, symbols)
     return symbols

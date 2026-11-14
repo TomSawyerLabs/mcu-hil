@@ -1461,7 +1461,7 @@
 						)
 					)
 				)
-				(pin power_out line
+				(pin passive line
 					(at 33.02 -43.18 180)
 					(length 2.54)
 					(name "CM4_3.3V"
@@ -1489,7 +1489,7 @@
 						)
 					)
 				)
-				(pin power_out line
+				(pin passive line
 					(at 33.02 -48.26 180)
 					(length 2.54)
 					(name "CM4_1.8V"

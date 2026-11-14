@@ -181,9 +181,9 @@ def sheet_dut_power() -> Sheet:
         "INA226 measures DUT_VCC (the MCU only) across the 1 ohm shunt: 81.9 mA full scale, 2.5 uA steps.",
         "INA228 (20-bit, same footprint and pinout) is a drop-in upgrade when JLC has stock: 164 mA, 0.3 uA steps.",
     ]
-    sh.add(Part("Power_Management:TPS22917DBV", "TPS22918DBVR", {
+    sh.add(Part("mcu-hil:TPS22918DBV", "TPS22918DBVR", {
         "VIN": "+5V", "GND": "GND", "ON": "DUT_PWR_EN", "CT": "DUT_PWR_CT", "QOD": "DUT_5V", "VOUT": "DUT_5V",
-    }, lcsc="C131941", note="TPS22917 symbol: same DBV pinout as TPS22918"))
+    }, lcsc="C131941"))
     C(sh, "1u", "+5V")
     C(sh, "1n", "DUT_PWR_CT", note="Rise-time control")
     C(sh, "1u", "DUT_5V")
@@ -354,7 +354,7 @@ def sheet_carrier_io() -> Sheet:
     R(sh, "470R", "ETH_LED1_K", "ETH_nLED_ACT")
     R(sh, "470R", "ETH_LED2_K", "ETH_nLED_SPEED")
     # microSD.
-    sh.add(Part("Power_Management:TPS22917DBV", "TPS22918DBVR", {
+    sh.add(Part("mcu-hil:TPS22918DBV", "TPS22918DBVR", {
         "VIN": "+3V3", "GND": "GND", "ON": "SD_PWR_ON", "CT": NC, "QOD": "SD_VDD", "VOUT": "SD_VDD",
     }, lcsc="C131941"))
     R(sh, "10k", "SD_PWR_ON", "+3V3", note="Needed by CM4 to boot from SD")
