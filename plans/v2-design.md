@@ -218,7 +218,8 @@ work on arrival.
    - ~~microSD~~: optional, option `SD` with a "no SD" carrier variant (user, 2026-11-16; plans to network-boot).
    - ~~PDFs~~: replaced by KiCanvas links (user, 2026-11-16).
    - TCA6416A own power switch? Recommended: no (user asked what "HV" meant; answered 2026-11-16).
-   - Si5351: user asked why the Pi's GPCLK0 can't make arbitrary clocks (answered 2026-11-16). Keep it as option SI?
+   - ~~Si5351~~: optional (option SI, new "no Si5351" variant, 2026-11-16). HV optional (option HV, "no HV").
+     The 16 MHz crystal is always fitted; "minimal" = crystal only.
 3. **Dynamic BOM** design and timing: `plans/dynamic-bom.md`.
 2. ~~Parts list review~~ (approved 2026-11-13). Was: (`docs/v2-parts.md`), including accepting the thin 16U2 stock (84 at JLC).
 

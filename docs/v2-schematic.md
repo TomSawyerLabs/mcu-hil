@@ -43,9 +43,14 @@ Optional parts carry an `Option` field: `CLK` (clock override buffer), `SI` (Si5
 the carrier `SD` (microSD slot, its power switch and pull-up; network boot needs no card).
 The KiCad projects define these design variants besides the default (everything fitted):
 
+- **no Si5351**: SI parts DNP (GPCLK0 override and HV stay).
 - **no HV**: HV parts DNP.
 - **no SD** (carrier): microSD parts DNP.
-- **minimal**: HV, CLK, SI (and SD on the carrier) parts DNP.
+- **minimal**: HV, CLK, SI (and SD on the carrier) parts DNP: crystal only.
+
+The 16 MHz crystal and its load caps are fitted in every variant. The clock buffers only drive XTAL1 when enabled,
+so with both off (the default) the DUT runs from its crystal; to run from a driven clock the DUT's fuses select
+external clock.
 
 HV needs CLK, because HVPP clocks XTAL1 through the GPCLK0 buffer (user OK'd, 2026-11-12).
 

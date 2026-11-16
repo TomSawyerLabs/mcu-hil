@@ -1912,6 +1912,10 @@
 					(reference "U5")
 					(unit 1)
 					(variant
+						(name "no Si5351")
+						(dnp yes)
+					)
+					(variant
 						(name "minimal")
 						(dnp yes)
 					)
@@ -2086,6 +2090,10 @@
 					(reference "C13")
 					(unit 1)
 					(variant
+						(name "no Si5351")
+						(dnp yes)
+					)
+					(variant
 						(name "minimal")
 						(dnp yes)
 					)
@@ -2226,6 +2234,10 @@
 					(reference "R21")
 					(unit 1)
 					(variant
+						(name "no Si5351")
+						(dnp yes)
+					)
+					(variant
 						(name "minimal")
 						(dnp yes)
 					)
@@ -2325,6 +2337,10 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/97c1fd3f-1ce1-5c52-969b-e6b8bd8cfcad"
 					(reference "R22")
 					(unit 1)
+					(variant
+						(name "no Si5351")
+						(dnp yes)
+					)
 					(variant
 						(name "minimal")
 						(dnp yes)
@@ -2637,6 +2653,10 @@
 					(reference "U6")
 					(unit 1)
 					(variant
+						(name "no Si5351")
+						(dnp yes)
+					)
+					(variant
 						(name "minimal")
 						(dnp yes)
 					)
@@ -2931,6 +2951,10 @@
 					(reference "C14")
 					(unit 1)
 					(variant
+						(name "no Si5351")
+						(dnp yes)
+					)
+					(variant
 						(name "minimal")
 						(dnp yes)
 					)
@@ -3100,6 +3124,10 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/97c1fd3f-1ce1-5c52-969b-e6b8bd8cfcad"
 					(reference "C15")
 					(unit 1)
+					(variant
+						(name "no Si5351")
+						(dnp yes)
+					)
 					(variant
 						(name "minimal")
 						(dnp yes)
@@ -3290,6 +3318,10 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/97c1fd3f-1ce1-5c52-969b-e6b8bd8cfcad"
 					(reference "Y2")
 					(unit 1)
+					(variant
+						(name "no Si5351")
+						(dnp yes)
+					)
 					(variant
 						(name "minimal")
 						(dnp yes)

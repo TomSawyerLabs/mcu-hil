@@ -6,6 +6,10 @@
   "schematic": {
     "variants": [
       {
+        "name": "no Si5351",
+        "description": "Leaves unfitted: SI"
+      },
+      {
         "name": "no HV",
         "description": "Leaves unfitted: HV"
       },

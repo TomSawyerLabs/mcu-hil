@@ -438,6 +438,7 @@ def shared_sheets(carrier: bool) -> list[Sheet]:
     return [sheet_dut(), sheet_pi_io(), sheet_clock(), sheet_dut_power(), sheet_hv(), sheet_usb(carrier)]
 
 
-VARIANTS = {"no HV": {"HV"}, "minimal": {"HV", "CLK", "SI"}}
+# Presets of unfitted options. The 16 MHz crystal is always fitted; CLK/SI only add drivers onto XTAL1.
+VARIANTS = {"no Si5351": {"SI"}, "no HV": {"HV"}, "minimal": {"HV", "CLK", "SI"}}
 # Carrier only: microSD is optional (network boot needs no card).
-CARRIER_VARIANTS = {"no HV": {"HV"}, "no SD": {"SD"}, "minimal": {"HV", "CLK", "SI", "SD"}}
+CARRIER_VARIANTS = {"no Si5351": {"SI"}, "no HV": {"HV"}, "no SD": {"SD"}, "minimal": {"HV", "CLK", "SI", "SD"}}
