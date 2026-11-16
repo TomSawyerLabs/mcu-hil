@@ -61,6 +61,9 @@ work on arrival.
   behind the loopback cable.
 - **Clock:** the Pi can optionally drive the DUT clock directly (v1's GPCLK0 override, kept and
   possibly extended with a programmable clock generator).
+- **Schematic review answers (user, 2026-11-15):** equivalent replacement parts are fine (INA226 OK); dropping the
+  VBUS switch and the LDO, all-red LEDs, 75 Ω software-USB resistors, the carrier USB scheme (GPIO 20) and the
+  cosmetic tidy-later plan are all OK. The user wants stock swaps to be automatic: see `plans/dynamic-bom.md`.
 - **CM boards:** a microSD slot on the carrier. Network boot is the plan, so CM4/CM5 Lite with no
   storage *should* work. A USB-C port is required, for backup power and firmware flashing (rpiboot).
   Network boot implies an Ethernet jack.
@@ -142,6 +145,14 @@ work on arrival.
       ~RESET pulled up to DUT_5V (ports held Hi-Z while the DUT is off).
     - **CM5 pins 94/96 are USB-C CC1/CC2** for its PMIC's 5 A PD; on CM4 they're ADC inputs with 100 nF. Left open,
       with 5.1k Rd on the carrier's USB-C (works with both; CM5 runs without 5 A PD).
+      Checked 2026-11-15: the CM5 IO board wires CC1/CC2 straight to the CM5 with **no** Rd on the board, so the CM5
+      presents its own Rd. Wiring CC to the module *and* fitting 5.1k would put two Rd in parallel (about 2.5k, outside
+      the 4.1–6.1k USB-C range). Wiring CC to the module *without* Rd would leave a CM4 with no Rd, so a USB-C supply
+      would never turn on. The CM4 datasheet says its pins 94/96 are "typically connected to CC pin of Type C power
+      connector" (as on the Pi 4, which also has its own Rd), so CC on those pins is harmless to a CM4.
+      Without PD the CM5 still runs (it needs up to 2.5 A, per its datasheet §B.3); Raspberry Pi's firmware then caps
+      the module's USB peripheral current and warns, and `PSU_MAX_CURRENT=5000` in the EEPROM config silences that.
+      This board's CM USB only feeds the DUT, so the cap doesn't matter. A 3 A USB-C supply is enough.
     - CM USB_OTG_ID: internal pull-up = device; grounded = host. Driven from USB_S0 through a 2N7002.
     - HAT+ spec: 3.9k pull-ups on ID_SD/ID_SC only; EEPROM WP 1k pull-up; must be safe in STANDBY (5 V without 3.3 V).
     - LCSC's datasheet links need a browser (curl gets an HTML shell). `easyeda2kicad` fetches JLC symbols and
@@ -200,8 +211,15 @@ work on arrival.
 ## Open questions for the user
 
 1. **Schematic review** (`hw/carrier/mcu-hil-carrier.pdf`, `hw/hat/mcu-hil-hat.pdf`, notes in `docs/v2-schematic.md`).
-   Also: OK with INA226 for now (INA228 out of stock), and with all-red LEDs (Basic part, no fees)?
-   (kicad-cli OK'd 2026-11-13.)
+   Partly answered 2026-11-15 (see Decisions). Still open:
+   - Keep the CM5 CC pins open with 5.1k Rd (works with both modules, no 5 A PD)? Recommended: yes. Alternative: a
+     "CM5 PD" population option (0R links to pins 94/96 fitted, Rd not fitted).
+   - TCA6416A own power switch? Recommended: no. Its reset already floats its pins while the DUT is off, and it
+     draws about 1 µA idle.
+   - microSD slot (the user's own 2026-11-11 requirement, for CM Lite modules with no eMMC): keep, or make it optional?
+   - Why PDFs: they're a rendered preview for reading without KiCad; the `.kicad_sch` files are the source.
+     Options: keep, drop from git, or an in-browser KiCad viewer (KiCanvas).
+3. **Dynamic BOM** design and timing: `plans/dynamic-bom.md`.
 2. ~~Parts list review~~ (approved 2026-11-13). Was: (`docs/v2-parts.md`), including accepting the thin 16U2 stock (84 at JLC).
 
 Answered 2026-11-11: name `mcu-hil`, USB switch instead of a hub, no PoE in this version,
