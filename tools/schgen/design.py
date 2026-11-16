@@ -353,17 +353,17 @@ def sheet_carrier_io() -> Sheet:
     C(sh, "100n", "ETH_TCT")
     R(sh, "470R", "ETH_LED1_K", "ETH_nLED_ACT")
     R(sh, "470R", "ETH_LED2_K", "ETH_nLED_SPEED")
-    # microSD.
+    # microSD (option SD: only CM Lite modules booting from a card need it; network boot doesn't).
     sh.add(Part("mcu-hil:TPS22918DBV", "TPS22918DBVR", {
         "VIN": "+3V3", "GND": "GND", "ON": "SD_PWR_ON", "CT": NC, "QOD": "SD_VDD", "VOUT": "SD_VDD",
-    }, lcsc="C131941"))
-    R(sh, "10k", "SD_PWR_ON", "+3V3", note="Needed by CM4 to boot from SD")
-    C(sh, "10u", "SD_VDD")
-    C(sh, "100n", "SD_VDD")
+    }, lcsc="C131941", option="SD"))
+    R(sh, "10k", "SD_PWR_ON", "+3V3", option="SD", note="Needed by CM4 to boot from SD")
+    C(sh, "10u", "SD_VDD", option="SD")
+    C(sh, "100n", "SD_VDD", option="SD")
     sh.add(Part("Connector:Micro_SD_Card_Det_Hirose_DM3AT", "DM3AT-SF-PEJM5", {
         "DAT2": "SD_DAT2", "DAT3/CD": "SD_DAT3", "CMD": "SD_CMD", "VDD": "SD_VDD", "CLK": "SD_CLK",
         "VSS": "GND", "DAT0": "SD_DAT0", "DAT1": "SD_DAT1", "DET_A": NC, "DET_B": NC, "SHIELD": "GND",
-    }, footprint="Connector_Card:microSD_HC_Hirose_DM3AT-SF-PEJM5", lcsc="C114218"))
+    }, footprint="Connector_Card:microSD_HC_Hirose_DM3AT-SF-PEJM5", lcsc="C114218", option="SD"))
     # rpiboot button and LEDs.
     sh.add(Part("Switch:SW_Push", "TS-1187A-B-A-B", {"1": "nRPIBOOT", "2": "GND"},
                 footprint="Button_Switch_SMD:SW_Push_1P1T_XKB_TS-1187A", lcsc="C318884",
@@ -439,3 +439,5 @@ def shared_sheets(carrier: bool) -> list[Sheet]:
 
 
 VARIANTS = {"no HV": {"HV"}, "minimal": {"HV", "CLK", "SI"}}
+# Carrier only: microSD is optional (network boot needs no card).
+CARRIER_VARIANTS = {"no HV": {"HV"}, "no SD": {"SD"}, "minimal": {"HV", "CLK", "SI", "SD"}}

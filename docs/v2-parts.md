@@ -75,7 +75,7 @@ The HV option also needs the clock-override buffer (SN74LV1T126) fitted, because
 | --- | --- | --- | --- | --- | --- | --- |
 | CM connectors | Hirose DF40C-100DS-0.4V(51) | C597931 | Ext | 174 (2026-11-13) | 0.97 | ×2. 1.5 mm stack height. The 3 mm version DF40HC(3.0) has only 4 in stock. |
 | Ethernet | HanRun HR911130C (gigabit magjack, LEDs) | C50933 | Ext | 7694 | 2.86 | 10/100 alternative: HR911105A C12074 (50.6k) |
-| microSD | Hirose DM3AT-SF-PEJM5 | C114218 | Ext | 14.8k | 1.39 | Same family the Pi uses |
+| microSD | Hirose DM3AT-SF-PEJM5 | C114218 | Ext | 14.8k | 1.39 | Same family the Pi uses. Optional (option `SD`, "no SD" variant): network boot needs no card. |
 | rpiboot button | TS-1187A-B-A-B | C318884 | Basic | 829k | 0.02 | nRPIBOOT |
 
 ## HAT only

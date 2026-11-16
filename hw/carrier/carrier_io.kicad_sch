@@ -5281,6 +5281,12 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Option" "SD"
+			(at 302.26 55.88 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "9437aa63-f1e2-5ae9-b1aa-354e0a75e748")
 		)
@@ -5304,6 +5310,14 @@
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/8c6782f7-d448-5fba-9776-9c1b51ae3177"
 					(reference "U14")
 					(unit 1)
+					(variant
+						(name "no SD")
+						(dnp yes)
+					)
+					(variant
+						(name "minimal")
+						(dnp yes)
+					)
 				)
 			)
 		)
@@ -5491,8 +5505,14 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Needed by CM4 to boot from SD"
+		(property "Option" "SD"
 			(at 336.804 67.31 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Needed by CM4 to boot from SD"
+			(at 336.804 69.85 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5509,6 +5529,14 @@
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/8c6782f7-d448-5fba-9776-9c1b51ae3177"
 					(reference "R42")
 					(unit 1)
+					(variant
+						(name "no SD")
+						(dnp yes)
+					)
+					(variant
+						(name "minimal")
+						(dnp yes)
+					)
 				)
 			)
 		)
@@ -5628,6 +5656,12 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Option" "SD"
+			(at 348.488 62.23 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "62357670-d48b-566d-a325-49adf352141f")
 		)
@@ -5639,6 +5673,14 @@
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/8c6782f7-d448-5fba-9776-9c1b51ae3177"
 					(reference "C30")
 					(unit 1)
+					(variant
+						(name "no SD")
+						(dnp yes)
+					)
+					(variant
+						(name "minimal")
+						(dnp yes)
+					)
 				)
 			)
 		)
@@ -5748,6 +5790,12 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Option" "SD"
+			(at 363.728 62.23 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "8b5ac014-69c5-5f36-a915-91f2d25fd65e")
 		)
@@ -5759,6 +5807,14 @@
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/8c6782f7-d448-5fba-9776-9c1b51ae3177"
 					(reference "C31")
 					(unit 1)
+					(variant
+						(name "no SD")
+						(dnp yes)
+					)
+					(variant
+						(name "minimal")
+						(dnp yes)
+					)
 				)
 			)
 		)
@@ -5868,6 +5924,12 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Option" "SD"
+			(at 30.48 135.89 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "ec8ce9b0-e3cb-5b16-b386-b48017d56a16")
 		)
@@ -5906,6 +5968,14 @@
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/8c6782f7-d448-5fba-9776-9c1b51ae3177"
 					(reference "J5")
 					(unit 1)
+					(variant
+						(name "no SD")
+						(dnp yes)
+					)
+					(variant
+						(name "minimal")
+						(dnp yes)
+					)
 				)
 			)
 		)

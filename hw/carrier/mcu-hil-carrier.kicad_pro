@@ -10,8 +10,12 @@
         "description": "Leaves unfitted: HV"
       },
       {
+        "name": "no SD",
+        "description": "Leaves unfitted: SD"
+      },
+      {
         "name": "minimal",
-        "description": "Leaves unfitted: CLK, HV, SI"
+        "description": "Leaves unfitted: CLK, HV, SD, SI"
       }
     ]
   },

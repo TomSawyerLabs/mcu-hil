@@ -119,7 +119,9 @@ work on arrival.
    - Checks: my own netlist check in the generator. KiCad's ERC needs the user's OK to run `kicad-cli`.
    - **Status (2026-11-13):** first full draft generated for both boards (`hw/carrier`, `hw/hat`; notes in
      `docs/v2-schematic.md`). kicad-cli ERC: 0 errors/0 warnings on both; KiCad netlists match the generator's.
-     PDFs: `hw/carrier/mcu-hil-carrier.pdf`, `hw/hat/mcu-hil-hat.pdf`. **Waiting on the user's schematic review.**
+     Viewing: KiCanvas in the browser (https://kicanvas.org/?github=https://github.com/TomSawyerLabs/mcu-hil/tree/master/hw/carrier, …/hat); the PDFs were dropped
+     2026-11-16 (user picked the browser viewer). KiCanvas reads KiCad 10 files fine (checked 2026-11-16).
+     **Waiting on the user's schematic review.**
      Cosmetic follow-up: generated layout is sparse and power symbols on adjacent pins crowd each other.
 6. Layout: CM4/CM5 carrier first, then HAT.
 7. DRC/ERC, JLC DFM check, BOM/CPL generation, order review with user.
@@ -210,15 +212,13 @@ work on arrival.
 
 ## Open questions for the user
 
-1. **Schematic review** (`hw/carrier/mcu-hil-carrier.pdf`, `hw/hat/mcu-hil-hat.pdf`, notes in `docs/v2-schematic.md`).
+1. **Schematic review** (KiCanvas links in `README.md`, notes in `docs/v2-schematic.md`).
    Partly answered 2026-11-15 (see Decisions). Still open:
-   - Keep the CM5 CC pins open with 5.1k Rd (works with both modules, no 5 A PD)? Recommended: yes. Alternative: a
-     "CM5 PD" population option (0R links to pins 94/96 fitted, Rd not fitted).
-   - TCA6416A own power switch? Recommended: no. Its reset already floats its pins while the DUT is off, and it
-     draws about 1 µA idle.
-   - microSD slot (the user's own 2026-11-11 requirement, for CM Lite modules with no eMMC): keep, or make it optional?
-   - Why PDFs: they're a rendered preview for reading without KiCad; the `.kicad_sch` files are the source.
-     Options: keep, drop from git, or an in-browser KiCad viewer (KiCanvas).
+   - ~~CM5 CC pins~~: keep open with 5.1k Rd (user: "good plan", 2026-11-16). A "CM5 PD" option can come later.
+   - ~~microSD~~: optional, option `SD` with a "no SD" carrier variant (user, 2026-11-16; plans to network-boot).
+   - ~~PDFs~~: replaced by KiCanvas links (user, 2026-11-16).
+   - TCA6416A own power switch? Recommended: no (user asked what "HV" meant; answered 2026-11-16).
+   - Si5351: user asked why the Pi's GPCLK0 can't make arbitrary clocks (answered 2026-11-16). Keep it as option SI?
 3. **Dynamic BOM** design and timing: `plans/dynamic-bom.md`.
 2. ~~Parts list review~~ (approved 2026-11-13). Was: (`docs/v2-parts.md`), including accepting the thin 16U2 stock (84 at JLC).
 

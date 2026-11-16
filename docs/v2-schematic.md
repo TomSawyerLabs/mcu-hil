@@ -39,11 +39,13 @@ ID EEPROM, USB-C loopback port, LED, mounting holes).
 
 ## Population options and variants
 
-Optional parts carry an `Option` field: `CLK` (clock override buffer), `SI` (Si5351 and its buffer) and `HV`.
-The KiCad projects define two design variants besides the default (everything fitted):
+Optional parts carry an `Option` field: `CLK` (clock override buffer), `SI` (Si5351 and its buffer), `HV`, and on
+the carrier `SD` (microSD slot, its power switch and pull-up; network boot needs no card).
+The KiCad projects define these design variants besides the default (everything fitted):
 
 - **no HV**: HV parts DNP.
-- **minimal**: HV, CLK and SI parts DNP.
+- **no SD** (carrier): microSD parts DNP.
+- **minimal**: HV, CLK, SI (and SD on the carrier) parts DNP.
 
 HV needs CLK, because HVPP clocks XTAL1 through the GPCLK0 buffer (user OK'd, 2026-11-12).
 
@@ -84,7 +86,7 @@ HV needs CLK, because HVPP clocks XTAL1 through the GPCLK0 buffer (user OK'd, 20
 ## Still to check
 
 - ~~KiCad ERC~~: clean on both boards (kicad-cli 10.0.6, 2026-11-13), and KiCad's netlists match the generator's.
-  PDFs: [carrier](../hw/carrier/mcu-hil-carrier.pdf), [HAT](../hw/hat/mcu-hil-hat.pdf).
+  View in the browser (KiCanvas, reads `master` on GitHub): [carrier](https://kicanvas.org/?github=https://github.com/TomSawyerLabs/mcu-hil/tree/master/hw/carrier), [HAT](https://kicanvas.org/?github=https://github.com/TomSawyerLabs/mcu-hil/tree/master/hw/hat).
 - Tidier sheet layout (the generated placement is functional but sparse).
 - HR911130C LED colours, and its footprint against HanRun's drawing.
 - The DF40 footprint's pin-1 orientation against the CM4/CM5 mechanical drawings (layout step).

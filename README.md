@@ -28,6 +28,7 @@ the [v2 pin map](docs/v2-pinmap.md), the [parts list](docs/v2-parts.md) and the
 
 The KiCad 10 projects are in `hw/carrier/` and `hw/hat/`. Their schematics are generated from
 [`tools/schgen/design.py`](tools/schgen/design.py) (`cd tools && python -m schgen`).
+View them in the browser with KiCanvas: [carrier](https://kicanvas.org/?github=https://github.com/TomSawyerLabs/mcu-hil/tree/master/hw/carrier), [HAT](https://kicanvas.org/?github=https://github.com/TomSawyerLabs/mcu-hil/tree/master/hw/hat).
 
 ## v1 (AVR Test HAT)
 
