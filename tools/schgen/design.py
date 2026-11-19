@@ -66,6 +66,8 @@ def sheet_dut() -> Sheet:
         "ATmega16U2 at 5 V, 16 MHz. DUT_VCC is measured by the power meter; DUT_5V (before the shunt) feeds pull-ups.",
         "Software USB (V-USB): D+ = PC7 (INT4), D- = PC4. 75R series and 3.6 V zeners keep the lines at USB levels.",
         "Reset: the Pi side holds RESET low by default (pi_io sheet). The diode keeps 12 V (HVPP) off DUT_5V.",
+        "Crystal (option XTAL) joins XTAL1 through an analog switch (option XSW): GPIO23 high disconnects it, so a",
+        "driven clock sees a bare XTAL1. Without XSW, the 0R bypass is fitted instead (crystal always connected).",
     ]
     sh.add(Part("MCU_Microchip_ATmega:ATmega16U2-A", "ATmega16U2-AU", {
         "XTAL1": "DUT_XTAL1", "2": "DUT_XTAL2", "GND": "GND", "UGND": "GND",
@@ -82,10 +84,22 @@ def sheet_dut() -> Sheet:
         C(sh, "100n", "DUT_VCC")
     C(sh, "10u", "DUT_VCC")
     C(sh, "1u", "DUT_UCAP", note="UCAP: USB regulator output")
-    sh.add(Part("Device:Crystal_GND24", "16MHz", {"1": "DUT_XTAL1", "3": "DUT_XTAL2", "2": "GND", "4": "GND"},
-                footprint="Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm", lcsc="C13738", mpn="X322516MLB4SI"))
-    C(sh, "12p", "DUT_XTAL1")
-    C(sh, "12p", "DUT_XTAL2")
+    sh.add(Part("Device:Crystal_GND24", "16MHz", {"1": "XTAL_SW", "3": "DUT_XTAL2", "2": "GND", "4": "GND"},
+                footprint="Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm", lcsc="C13738", mpn="X322516MLB4SI",
+                option="XTAL"))
+    C(sh, "12p", "XTAL_SW", option="XTAL", note="On the crystal side of the switch, so it disconnects too")
+    C(sh, "12p", "DUT_XTAL2", option="XTAL")
+    # Crystal disconnect switch (option XSW). Control high = closed; pulled up so the crystal is connected by
+    # default. The Pi (3.3 V) opens it through a 2N7002, since the switch's 5 V input threshold is 3.5 V.
+    sh.add(Part("mcu-hil:SN74LVC1G66", "SN74LVC1G66DBVR", {
+        "1": "DUT_XTAL1", "2": "XTAL_SW", "4": "XSW_CTRL", "5": "DUT_5V", "3": "GND",  # DBV: 1 A, 2 B, 3 GND, 4 C, 5 VCC
+    }, footprint="Package_TO_SOT_SMD:SOT-23-5", lcsc="C133643", option="XSW",
+        note="About 5.5 ohm on, 13 pF: in series with the crystal"))
+    C(sh, "100n", "DUT_5V", option="XSW")
+    R(sh, "10k", "XSW_CTRL", "DUT_5V", option="XSW")
+    NMOS(sh, "XSW_CTRL", "XTAL_DISCONNECT", option="XSW")
+    R(sh, "100k", "XTAL_DISCONNECT", "GND", option="XSW", note="GPIO23 low/input: crystal connected")
+    R(sh, "0R", "DUT_XTAL1", "XTAL_SW", option="!XSW", note="Bypass: fitted only when XSW is left off")
     R(sh, "22R", "DUT_DP_PIN", "DUT_USB_DP")
     R(sh, "22R", "DUT_DM_PIN", "DUT_USB_DM")
     # Software USB.
@@ -112,7 +126,7 @@ def sheet_pi_io() -> Sheet:
     sh.notes = [
         "Translators: A side on +3V3 (Pi), B side on DUT_5V, so they go Hi-Z (Ioff) whenever the DUT is off.",
         "Every enable defaults off through an external pull-down (docs/v2-pinmap.md).",
-        "RESET: Q2 off (GPIO12 low, default) lets RST_GATE rise with DUT_5V, so Q1 holds RESET low.",
+        "RESET: the release FET is off (GPIO12 low, default), so RST_GATE rises with DUT_5V and the reset FET holds RESET low.",
     ]
     sh.add(Part("mcu-hil:TXU0304", "TXU0304PWR", {
         "VCCA": "+3V3", "VCCB": "DUT_5V", "GND": "GND", "OE": "ISP_OE",
@@ -134,7 +148,7 @@ def sheet_pi_io() -> Sheet:
     R(sh, "100k", "DUT_PB3", "GND")
     R(sh, "100k", "PI_TXD", "+3V3", note="UART idle high")
     R(sh, "100k", "DUT_PD3", "DUT_5V", note="UART idle high")
-    # Reset: Q1 pulls RESET low unless the Pi releases it.
+    # Reset: the reset FET pulls RESET low unless the Pi releases it.
     NMOS(sh, "DUT_RESET", "RST_GATE", note="Rated 60 V, safe with 12 V on RESET")
     R(sh, "100k", "RST_GATE", "DUT_5V")
     NMOS(sh, "RST_GATE", "RESET_RELEASE")
@@ -280,7 +294,7 @@ CM_GPIO = {
     "GPIO2": "I2C_SDA", "GPIO3": "I2C_SCL", "GPIO4": "GPCLK0", "GPIO9": "ISP_MISO", "GPIO10": "ISP_MOSI",
     "GPIO11": "ISP_SCK", "GPIO12": "RESET_RELEASE", "GPIO13": "HWB_ASSERT", "GPIO14": "PI_TXD",
     "GPIO15": "PI_RXD", "GPIO16": "ISP_OE", "GPIO17": "UART_OE", "GPIO18": "CLK_OE", "GPIO19": "PWR_ALERT",
-    "GPIO20": "USB_S0", "GPIO21": "USB_S1", "GPIO22": "DUT_PWR_EN", "GPIO24": "STATUS_LED",
+    "GPIO20": "USB_S0", "GPIO21": "USB_S1", "GPIO22": "DUT_PWR_EN", "GPIO23": "XTAL_DISCONNECT", "GPIO24": "STATUS_LED",
     "GPIO25": "HV_APPLY", "GPIO26": "HV_BOOST_EN", "GPIO27": "SI_CLK_OE",
 }
 
@@ -384,7 +398,7 @@ def sheet_carrier_io() -> Sheet:
 HAT_HEADER = {  # 40-pin header pin -> net
     1: "+3V3", 2: "+5V", 3: "I2C_SDA", 4: "+5V", 5: "I2C_SCL", 6: "GND", 7: "GPCLK0", 8: "PI_TXD",
     9: "GND", 10: "PI_RXD", 11: "UART_OE", 12: "CLK_OE", 13: "SI_CLK_OE", 14: "GND", 15: "DUT_PWR_EN",
-    16: NC, 17: "+3V3", 18: "STATUS_LED", 19: "ISP_MOSI", 20: "GND", 21: "ISP_MISO", 22: "HV_APPLY",
+    16: "XTAL_DISCONNECT", 17: "+3V3", 18: "STATUS_LED", 19: "ISP_MOSI", 20: "GND", 21: "ISP_MISO", 22: "HV_APPLY",
     23: "ISP_SCK", 24: NC, 25: "GND", 26: NC, 27: "ID_SD", 28: "ID_SC", 29: NC, 30: "GND", 31: NC,
     32: "RESET_RELEASE", 33: "HWB_ASSERT", 34: "GND", 35: "PWR_ALERT", 36: "ISP_OE", 37: "HV_BOOST_EN",
     38: "USB_S0", 39: "GND", 40: NC,
@@ -438,7 +452,13 @@ def shared_sheets(carrier: bool) -> list[Sheet]:
     return [sheet_dut(), sheet_pi_io(), sheet_clock(), sheet_dut_power(), sheet_hv(), sheet_usb(carrier)]
 
 
-# Presets of unfitted options. The 16 MHz crystal is always fitted; CLK/SI only add drivers onto XTAL1.
-VARIANTS = {"no Si5351": {"SI"}, "no HV": {"HV"}, "minimal": {"HV", "CLK", "SI"}}
+# Presets of unfitted options. XTAL = crystal and load caps, XSW = the Pi-controlled crystal switch (else 0R bypass).
+VARIANTS = {
+    "no Si5351": {"SI"},
+    "no HV": {"HV"},
+    "no crystal switch": {"XSW"},
+    "ext clock only": {"XTAL", "XSW"},
+    "minimal": {"HV", "CLK", "SI", "XSW"},
+}
 # Carrier only: microSD is optional (network boot needs no card).
-CARRIER_VARIANTS = {"no Si5351": {"SI"}, "no HV": {"HV"}, "no SD": {"SD"}, "minimal": {"HV", "CLK", "SI", "SD"}}
+CARRIER_VARIANTS = {**VARIANTS, "no SD": {"SD"}, "minimal": VARIANTS["minimal"] | {"SD"}}

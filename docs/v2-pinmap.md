@@ -42,13 +42,13 @@ This is a single-MCU board. Per-DUT signals for a board with more MCUs are cover
 | 19 | 35 | — | Power meter ALERT (input, open-drain from the meter) | pull-up |
 | 20 / 21 | 38 / 40 | — | USB switch select S0 / S1. On the carrier S0 also switches the CM to USB host | pull-downs → USB-C (rpiboot) on the carrier |
 | 22 | 15 | — | DUT VCC enable | pull-down → off |
-| 23 | 16 | — | Spare (the 16U2 has no VBUS pin, so no VBUS switch; unplug = the USB switch) | — |
+| 23 | 16 | — | Crystal disconnect (high = crystal off XTAL1; option XSW) | 100k pull-down (crystal connected) |
 | 24 | 18 | — | Status LED | — |
 | 25 | 22 | — | HV apply: 12 V onto RESET | pull-down → off |
 | 26 | 37 | — | HV supply (12 V boost) enable | pull-down → off |
 | 27 | 13 | — | Si5351 clock buffer enable (drive XTAL1 from Si5351 CLK0). Si5351 option | pull-down → off |
 
-That leaves 5 spare GPIOs (5, 6, 7, 8, 23), plus I2C for anything slow. On a board built without the
+That leaves 4 spare GPIOs (5, 6, 7, 8), plus I2C for anything slow. On a board built without the
 HV option, 25 and 26 are unconnected too. Without the clock override option, so is 18 (and 4 is free). Without the Si5351, so is 27.
 
 ### Notes

@@ -14,8 +14,16 @@
         "description": "Leaves unfitted: HV"
       },
       {
+        "name": "no crystal switch",
+        "description": "Leaves unfitted: XSW"
+      },
+      {
+        "name": "ext clock only",
+        "description": "Leaves unfitted: XSW, XTAL"
+      },
+      {
         "name": "minimal",
-        "description": "Leaves unfitted: CLK, HV, SI"
+        "description": "Leaves unfitted: CLK, HV, SI, XSW"
       }
     ]
   },

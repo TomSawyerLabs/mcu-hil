@@ -30,6 +30,7 @@ supply isolation), and the Pi never feeds an unpowered DUT.
 | UART translator | TXU0202DCUR (VSSOP-8) | C5186957 | Ext | 8370 | 0.90 | TX out, RX in, OE, Ioff |
 | Clock buffer → XTAL1 (**clock override option**) | SN74LV1T126DBVR (SOT-23-5) | C2440228 | Ext | 8747 | 0.33 | Runs on the DUT rail with TTL-level inputs, so 3.3 V drives it at 5 V. OE (GPIO 18), Ioff. Replaces v1's 74AHCT. Left off in the "no clock override" variant; XTAL1 then sees only the crystal. |
 | Clock generator (optional, within the clock option) | Si5351A-B-GTR (MSOP-10) | C504891 | Ext | 12.4k | 1.18 | 3 outputs on I2C. Can be left unfitted; GPCLK0 is still there. |
+| Crystal disconnect switch (option XSW) | SN74LVC1G66DBVR (SOT-23-5) | C133643 | Ext | 75.3k | 0.14 | Pi (GPIO23) can take the 16 MHz crystal off XTAL1. 5.5 Ω on, 13 pF. Without it, a 0R bypass. Checked 2026-11-18. |
 | Si5351 crystal | 25 MHz 3225, CL 10 pF (NX3225SA) | C448646 | Ext | 6271 | 0.46 | The Si5351 wants an 8/10 pF crystal. The Basic 25 MHz (C9006) is 12 pF. |
 
 Rejected: **SN74AXC4T774** is 3.6 V max, so it can't drive a 5 V AVR. **SN74LVC2T45/LXC2T45** have no OE, so they

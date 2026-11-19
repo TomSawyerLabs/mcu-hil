@@ -4,6 +4,7 @@ Pin tables come from the manufacturers' datasheets (checked 2026-11-13):
 - TXU0304 (TI SCES919, table 6-1, PW package) and TXU0202 (TI, table 6-1, DCU package).
 - TCA6416A (TI SCPS194F, figure 5-2, RTW package).
 - TS3USB221A (TI, table 4-1, RSE package).
+- SN74LVC1G66 (TI, DBV package: 1 A, 2 B, 3 GND, 4 C, 5 VCC).
 - HR911130C (HanRun): pin functions decoded from JLC/EasyEDA's symbol for C50933, see docs/v2-schematic.md.
 - Raspberry Pi CM4/CM5 connectors: hw/lib/cm4-cm5-pins.csv, from the CM4 and CM5 datasheets' pinout tables.
 """
@@ -82,6 +83,18 @@ def tps22918():
         keywords="load switch")
 
 
+def sn74lvc1g66():
+    # KiCad's 74LVC1G66 puts power in a second unit; the generator places single-unit parts.
+    return make_symbol(
+        "SN74LVC1G66", "U",
+        left=[("5", "VCC", PW), ("4", "C", I), None, ("1", "A", B)],
+        right=[None, None, None, ("2", "B", B), None, ("3", "GND", PW)],
+        footprint="Package_TO_SOT_SMD:SOT-23-5",
+        datasheet="https://www.ti.com/lit/ds/symlink/sn74lvc1g66.pdf",
+        description="Single bilateral analog switch, C high = A-B connected, 1.65-5.5 V",
+        keywords="analog switch")
+
+
 def hr911130c():
     return make_symbol(
         "HR911130C", "J",
@@ -143,7 +156,7 @@ def _cm_type(name: str) -> str:
 
 
 def build(out_lib: Path, csv_path: Path):
-    symbols = [txu0304(), txu0202(), tca6416a_rtw(), ts3usb221a(), tps22918(), hr911130c(),
+    symbols = [txu0304(), txu0202(), tca6416a_rtw(), ts3usb221a(), tps22918(), sn74lvc1g66(), hr911130c(),
                *cm_connectors(csv_path)]
     write_library(out_lib, symbols)
     return symbols

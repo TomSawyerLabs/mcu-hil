@@ -48,7 +48,7 @@ class Part:
     datasheet: str = ""
     description: str = ""
     ref_prefix: str = ""
-    option: str = ""                  # population option: "", "HV" or "CLK"
+    option: str = ""                  # population option ("HV", "CLK", ...); "!X" = fitted only when X is not
     dnp: bool = False
     in_bom: bool = True
     on_board: bool = True
@@ -278,7 +278,7 @@ class Project:
         out = []
         node = [Sym("symbol"), [Sym("lib_id"), p.lib_id], [Sym("at"), X, Y, 0], [Sym("unit"), p.unit],
                 [Sym("exclude_from_sim"), Sym("no")], [Sym("in_bom"), Sym("yes" if p.in_bom else "no")],
-                [Sym("on_board"), Sym("yes" if p.on_board else "no")], [Sym("dnp"), Sym("yes" if p.dnp else "no")],
+                [Sym("on_board"), Sym("yes" if p.on_board else "no")], [Sym("dnp"), Sym("yes" if p.dnp or p.option.startswith("!") else "no")],
                 [Sym("uuid"), uid]]
         fields = [("Reference", p.ref, False), ("Value", p.value, False),
                   ("Footprint", p.footprint, True), ("Datasheet", p.datasheet or sym.prop_value("Datasheet"), True),
@@ -303,7 +303,12 @@ class Project:
             node.append([Sym("pin"), q.number, [Sym("uuid"), stable_uuid(self.name, p.key, "pin", q.number)]])
         inst = [Sym("path"), path, [Sym("reference"), p.ref], [Sym("unit"), p.unit]]
         for vname, unfitted in self.variants.items():
-            if p.option and p.option in unfitted and not p.dnp:
+            if p.dnp or not p.option:
+                continue
+            if p.option.startswith("!"):
+                if p.option[1:] in unfitted:     # bypass part: fitted when its option is left off
+                    inst.append([Sym("variant"), [Sym("name"), vname], [Sym("dnp"), Sym("no")]])
+            elif p.option in unfitted:
                 inst.append([Sym("variant"), [Sym("name"), vname], [Sym("dnp"), Sym("yes")]])
         node.append([Sym("instances"), [Sym("project"), self.name, inst]])
         out.append(node)

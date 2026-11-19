@@ -219,7 +219,10 @@ work on arrival.
    - ~~PDFs~~: replaced by KiCanvas links (user, 2026-11-16).
    - TCA6416A own power switch? Recommended: no (user asked what "HV" meant; answered 2026-11-16).
    - ~~Si5351~~: optional (option SI, new "no Si5351" variant, 2026-11-16). HV optional (option HV, "no HV").
-     The 16 MHz crystal is always fitted; "minimal" = crystal only.
+     2026-11-18 (user): crystal is now option XTAL too, plus a Pi-controlled crystal switch (option XSW,
+     SN74LVC1G66 on the XTAL1 side, GPIO23 high = disconnected) with a 0R bypass fitted when XSW is off.
+     The generator gained "!X" options (fitted only when X is unfitted). Builds: no Si5351, no HV, no crystal switch,
+     ext clock only, minimal (+ no SD on the carrier).
 3. **Dynamic BOM** design and timing: `plans/dynamic-bom.md`.
 2. ~~Parts list review~~ (approved 2026-11-13). Was: (`docs/v2-parts.md`), including accepting the thin 16U2 stock (84 at JLC).
 

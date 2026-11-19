@@ -1118,7 +1118,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c1a9e582-5d3f-5e84-9b09-5826f69e906b")
-		(property "Reference" "U7"
+		(property "Reference" "U8"
 			(at 35.56 31.75 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -1179,7 +1179,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "U7")
+					(reference "U8")
 					(unit 1)
 				)
 			)
@@ -1194,7 +1194,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a30c0b4e-0ee9-5aba-8c5c-a74f3f5e55a4")
-		(property "Reference" "#PWR0050"
+		(property "Reference" "#PWR0054"
 			(at 33.02 35.56 0)
 			(hide yes)
 			(effects
@@ -1227,7 +1227,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0050")
+					(reference "#PWR0054")
 					(unit 1)
 				)
 			)
@@ -1304,7 +1304,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5dfe2cb8-517f-5120-bb10-dd7da1b0069e")
-		(property "Reference" "#PWR0051"
+		(property "Reference" "#PWR0055"
 			(at 48.26 40.64 0)
 			(hide yes)
 			(effects
@@ -1337,7 +1337,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0051")
+					(reference "#PWR0055")
 					(unit 1)
 				)
 			)
@@ -1352,7 +1352,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "833213ad-be72-5f4e-b08b-b22169bab411")
-		(property "Reference" "C16"
+		(property "Reference" "C17"
 			(at 74.295 40.64 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -1401,7 +1401,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "C16")
+					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -1416,7 +1416,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "684586e6-dd20-5481-a8af-ab5abcdf7327")
-		(property "Reference" "#PWR0052"
+		(property "Reference" "#PWR0056"
 			(at 73.66 39.37 0)
 			(hide yes)
 			(effects
@@ -1449,7 +1449,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0052")
+					(reference "#PWR0056")
 					(unit 1)
 				)
 			)
@@ -1464,7 +1464,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d6dda930-c866-502b-adf9-6e1f7fe11780")
-		(property "Reference" "#PWR0053"
+		(property "Reference" "#PWR0057"
 			(at 73.66 46.99 0)
 			(hide yes)
 			(effects
@@ -1497,7 +1497,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0053")
+					(reference "#PWR0057")
 					(unit 1)
 				)
 			)
@@ -1512,7 +1512,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "739c21aa-6dec-5a65-9444-52dd2f69bf16")
-		(property "Reference" "C17"
+		(property "Reference" "C18"
 			(at 86.995 45.72 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -1568,7 +1568,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "C17")
+					(reference "C18")
 					(unit 1)
 				)
 			)
@@ -1591,7 +1591,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bc762bb6-f04b-5e5c-b42e-023ef1e8d921")
-		(property "Reference" "#PWR0054"
+		(property "Reference" "#PWR0058"
 			(at 86.36 52.07 0)
 			(hide yes)
 			(effects
@@ -1624,7 +1624,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0054")
+					(reference "#PWR0058")
 					(unit 1)
 				)
 			)
@@ -1639,7 +1639,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6c4c7e61-844f-5fea-bf68-ccd7316ad1e7")
-		(property "Reference" "C18"
+		(property "Reference" "C19"
 			(at 102.235 45.72 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -1688,7 +1688,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "C18")
+					(reference "C19")
 					(unit 1)
 				)
 			)
@@ -1721,7 +1721,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f38a41b8-8266-5c71-9389-1bb293b2538f")
-		(property "Reference" "#PWR0055"
+		(property "Reference" "#PWR0059"
 			(at 101.6 52.07 0)
 			(hide yes)
 			(effects
@@ -1754,7 +1754,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0055")
+					(reference "#PWR0059")
 					(unit 1)
 				)
 			)
@@ -1769,7 +1769,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1bb7f1b8-1d19-5965-9c46-13bd958170fb")
-		(property "Reference" "R24"
+		(property "Reference" "R27"
 			(at 116.332 53.34 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -1818,7 +1818,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "R24")
+					(reference "R27")
 					(unit 1)
 				)
 			)
@@ -1851,7 +1851,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "68aaf1d3-0ea6-512f-a013-79ddc88d9c73")
-		(property "Reference" "#PWR0056"
+		(property "Reference" "#PWR0060"
 			(at 114.3 57.15 0)
 			(hide yes)
 			(effects
@@ -1884,7 +1884,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0056")
+					(reference "#PWR0060")
 					(unit 1)
 				)
 			)
@@ -1899,7 +1899,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1551df51-7086-5577-9e1d-eee482b91a53")
-		(property "Reference" "R25"
+		(property "Reference" "R28"
 			(at 129.032 48.26 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -1962,7 +1962,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "R25")
+					(reference "R28")
 					(unit 1)
 				)
 			)
@@ -2013,7 +2013,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "db368e71-551b-52ca-ab0d-850bbe6459b5")
-		(property "Reference" "U8"
+		(property "Reference" "U9"
 			(at 156.21 41.91 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -2093,7 +2093,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "U8")
+					(reference "U9")
 					(unit 1)
 				)
 			)
@@ -2108,7 +2108,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7de8619f-d23d-5c87-ab4e-c95fb2f7b1ea")
-		(property "Reference" "#PWR0057"
+		(property "Reference" "#PWR0061"
 			(at 172.72 45.72 0)
 			(hide yes)
 			(effects
@@ -2141,7 +2141,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0057")
+					(reference "#PWR0061")
 					(unit 1)
 				)
 			)
@@ -2156,7 +2156,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "468fd0c1-e6b6-5e2b-a852-a3eabb4cd4da")
-		(property "Reference" "#PWR0058"
+		(property "Reference" "#PWR0062"
 			(at 172.72 48.26 0)
 			(hide yes)
 			(effects
@@ -2189,7 +2189,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0058")
+					(reference "#PWR0062")
 					(unit 1)
 				)
 			)
@@ -2258,7 +2258,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "34041122-cee8-5ea1-8474-d5b00c851817")
-		(property "Reference" "#PWR0059"
+		(property "Reference" "#PWR0063"
 			(at 162.56 40.64 0)
 			(hide yes)
 			(effects
@@ -2291,7 +2291,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0059")
+					(reference "#PWR0063")
 					(unit 1)
 				)
 			)
@@ -2306,7 +2306,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "82dbfc51-625d-553d-a77b-866b6604e52e")
-		(property "Reference" "#PWR0060"
+		(property "Reference" "#PWR0064"
 			(at 162.56 66.04 0)
 			(hide yes)
 			(effects
@@ -2339,7 +2339,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0060")
+					(reference "#PWR0064")
 					(unit 1)
 				)
 			)
@@ -2408,7 +2408,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "14868e1d-cf02-5dac-9007-12785e3f0471")
-		(property "Reference" "C19"
+		(property "Reference" "C20"
 			(at 198.755 40.64 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -2457,7 +2457,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "C19")
+					(reference "C20")
 					(unit 1)
 				)
 			)
@@ -2472,7 +2472,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a30b76f1-2ec4-5a3e-bb3e-dd62d2b51715")
-		(property "Reference" "#PWR0061"
+		(property "Reference" "#PWR0065"
 			(at 198.12 39.37 0)
 			(hide yes)
 			(effects
@@ -2505,7 +2505,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0061")
+					(reference "#PWR0065")
 					(unit 1)
 				)
 			)
@@ -2520,7 +2520,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "dbcdf581-294f-550a-a7df-9d436e50043a")
-		(property "Reference" "#PWR0062"
+		(property "Reference" "#PWR0066"
 			(at 198.12 46.99 0)
 			(hide yes)
 			(effects
@@ -2553,7 +2553,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0062")
+					(reference "#PWR0066")
 					(unit 1)
 				)
 			)
@@ -2568,7 +2568,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a4b281e8-c5f0-51bb-b159-fc09bfe9a502")
-		(property "Reference" "R26"
+		(property "Reference" "R29"
 			(at 212.852 50.8 0)
 			(effects
 				(font (size 1.27 1.27))
@@ -2617,7 +2617,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "R26")
+					(reference "R29")
 					(unit 1)
 				)
 			)
@@ -2650,7 +2650,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9f490492-5c00-5f6c-8746-2fc6fe89da5f")
-		(property "Reference" "#PWR0063"
+		(property "Reference" "#PWR0067"
 			(at 210.82 54.61 0)
 			(hide yes)
 			(effects
@@ -2683,7 +2683,7 @@
 		(instances
 			(project "mcu-hil-carrier"
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/a44d0ece-662e-5298-a279-c611086e1710"
-					(reference "#PWR0063")
+					(reference "#PWR0067")
 					(unit 1)
 				)
 			)

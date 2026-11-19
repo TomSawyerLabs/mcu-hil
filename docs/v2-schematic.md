@@ -39,29 +39,39 @@ ID EEPROM, USB-C loopback port, LED, mounting holes).
 
 ## Population options and variants
 
-Optional parts carry an `Option` field: `CLK` (clock override buffer), `SI` (Si5351 and its buffer), `HV`, and on
-the carrier `SD` (microSD slot, its power switch and pull-up; network boot needs no card).
+Optional parts carry an `Option` field: `XTAL` (16 MHz crystal and load caps), `XSW` (Pi-controlled crystal switch),
+`CLK` (clock override buffer), `SI` (Si5351 and its buffer), `HV`, and on the carrier `SD` (microSD slot, its power
+switch and pull-up; network boot needs no card).
 The KiCad projects define these design variants besides the default (everything fitted):
 
 - **no Si5351**: SI parts DNP (GPCLK0 override and HV stay).
 - **no HV**: HV parts DNP.
 - **no SD** (carrier): microSD parts DNP.
-- **minimal**: HV, CLK, SI (and SD on the carrier) parts DNP: crystal only.
+- **no crystal switch**: XSW DNP, 0R bypass fitted (crystal always connected).
+- **ext clock only**: XTAL and XSW DNP (no crystal; the DUT needs a driven clock and external-clock fuses).
+- **minimal**: HV, CLK, SI, XSW (and SD on the carrier) DNP: crystal only, hard-wired.
 
-The 16 MHz crystal and its load caps are fitted in every variant. The clock buffers only drive XTAL1 when enabled,
-so with both off (the default) the DUT runs from its crystal; to run from a driven clock the DUT's fuses select
-external clock.
+An option written `!X` marks a bypass part that is fitted only when option X is left off. With both clock buffers
+off (the default) the DUT runs from its crystal; to run from a driven clock, set its fuses to external clock (and
+open the crystal switch, if fitted).
 
 HV needs CLK, because HVPP clocks XTAL1 through the GPCLK0 buffer (user OK'd, 2026-11-12).
 
 ## Design notes
 
-- **Reset.** Q1 (2N7002) holds RESET low whenever DUT_5V is up, unless the Pi sets GPIO12 high (Q2 then pulls Q1's
-  gate low). The pull-up path is DUT_5V → 1N4148W → 10k → RESET, so 12 V on RESET can't reach DUT_5V. The reset
+- **Reset.** A 2N7002 holds RESET low whenever DUT_5V is up, unless the Pi sets GPIO12 high (a second 2N7002 then
+  pulls the first one's gate low). The pull-up path is DUT_5V → 1N4148W → 10k → RESET, so 12 V on RESET can't reach DUT_5V. The reset
   LED sits in a parallel branch (LED + 1k) and lights only while RESET is pulled low.
 - **12 V.** MT3608 with a 100k/5.1k divider (12.36 V nominal). The AO3401A switch has a 10k/10k gate divider
   (VGS −6 V; its limit is ±12 V). A 1k series resistor into RESET limits fault current; at the 250 µA HVPP
   current it drops 0.25 V, so RESET sees about 11.9–12.4 V (spec 11.5–12.5 V).
+- **Crystal and its switch.** The 16 MHz crystal and load caps are option `XTAL`. Its XTAL1 side joins the MCU through
+  an SN74LVC1G66 analog switch (option `XSW`, C133643): GPIO23 high opens it, so a driven clock (GPCLK0, Si5351, or the
+  HVPP strobe) sees a bare XTAL1. The switch's control is pulled up to DUT_5V (crystal connected by default) and the
+  Pi pulls it low through a 2N7002, because the switch's 5 V input-high threshold (3.5 V) is above 3.3 V. Its
+  XTAL1-side load cap sits on the crystal side, so it disconnects too. The switch adds about 5.5 Ω in series with the
+  crystal (ESR is tens of ohms) and 13 pF to XTAL1. Without `XSW`, a 0R bypass (option `!XSW`, fitted only when XSW
+  is not) wires the crystal straight to XTAL1.
 - **TCA6416A power order.** TI recommends VCCP up before VCCI, or SDA can stick low (datasheet §10.1).
   VCCP is on +5V, which always comes up before +3V3. Its ~RESET is pulled up to DUT_5V, so the ports are held as
   inputs (Hi-Z) whenever the DUT is off and can't back-power it.
