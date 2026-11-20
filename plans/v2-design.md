@@ -244,9 +244,10 @@ repo move approved (done), and the built v1 has USB-C. Answered 2026-11-12: DUT 
   that land on the user's screen and block until dismissed. That happened ~16 times on
   2026-11-11 around 12:20–12:22 AM PST (08:20–08:22Z). Default to reading
   `.kicad_pcb`/`.kicad_sch` as S-expression text and Altium files with olefile.
-  If the runtime is truly needed, ask first, then use **both** of these:
-  1. `import wx; wx.Log.SetActiveTarget(wx.LogStderr())` before any load (KiCad Python).
-  2. The hidden-desktop harness, which reports any windows it creates:
-     `C:\Users\camer\AppData\Local\Temp\claude\0205f6f58e3459de\7d71a0b8-4c7a-477c-a12b-b9f1ae632030\scratchpad\kicad-popup\hidden-run.ps1`.
-     It's a backstop, not a replacement for the LogStderr fix.
+  If the runtime is truly needed, ask first, then run it on a hidden desktop
+  (CreateDesktop + CreateProcess with `lpDesktop`), which also reports any windows it creates.
+- **Never use the SWIG `pcbnew` Python module.** It's deprecated and removed on KiCad master
+  (11.x). Use the modern routes only: `kicad-cli` for headless work, the `.kicad_*` files as
+  text, or the IPC API (`kicad-python`) when a running KiCad is acceptable. Always prefer the
+  current, supported tooling over legacy APIs.
 - Don't re-run the Altium PCB import; reuse `reference/v1-import/v1.kicad_pcb`.
