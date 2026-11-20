@@ -28,7 +28,7 @@ supply isolation), and the Pi never feeds an unpowered DUT.
 | --- | --- | --- | --- | --- | --- | --- |
 | ISP translator | TXU0304PWR (TSSOP-14) | C4364118 | Ext | 4667 | 0.64 | 3 lines Pi→DUT (MOSI, SCK, +1 spare) and 1 line DUT→Pi (MISO). Fixed direction, OE (Hi-Z), Ioff, 1.08–5.5 V each side. UQFN version: C2959768. |
 | UART translator | TXU0202DCUR (VSSOP-8) | C5186957 | Ext | 8370 | 0.90 | TX out, RX in, OE, Ioff |
-| Clock buffer → XTAL1 (**clock override option**) | SN74LV1T126DBVR (SOT-23-5) | C2440228 | Ext | 8747 | 0.33 | Runs on the DUT rail with TTL-level inputs, so 3.3 V drives it at 5 V. OE (GPIO 18), Ioff. Replaces v1's 74AHCT. Left off in the "no clock override" variant; XTAL1 then sees only the crystal. |
+| Clock buffer → XTAL1 (**clock override option**) | SN74LV1T126DBVR (SOT-23-5) | C2440228 | Ext | 8747 | 0.33 | Runs on the DUT rail with TTL-level inputs, so 3.3 V drives it at 5 V. OE (GPIO 18), Ioff. Replaces v1's 74AHCT. Option `CLK`; without it XTAL1 sees only the crystal. |
 | Clock generator (optional, within the clock option) | Si5351A-B-GTR (MSOP-10) | C504891 | Ext | 12.4k | 1.18 | 3 outputs on I2C. Can be left unfitted; GPCLK0 is still there. |
 | Crystal disconnect switch (option XSW) | SN74LVC1G66DBVR (SOT-23-5) | C133643 | Ext | 75.3k | 0.14 | Pi (GPIO23) can take the 16 MHz crystal off XTAL1. 5.5 Ω on, 13 pF. Without it, a 0R bypass. Checked 2026-11-18. |
 | Si5351 crystal | 25 MHz 3225, CL 10 pF (NX3225SA) | C448646 | Ext | 6271 | 0.46 | The Si5351 wants an 8/10 pF crystal. The Basic 25 MHz (C9006) is 12 pF. |
@@ -49,7 +49,7 @@ can't go Hi-Z. **SN74LVC8T245** has one DIR for all 8 bits, but ISP needs both d
 Dropped during schematic work (2026-11-13): the **SY6280 VBUS switch** (the 16U2 has no VBUS pin; virtual unplug is
 the USB switch) and the **ME6211 LDO** (3.3 V comes from the Pi or the CM, which also sets the GPIO level).
 
-## High-voltage programming (optional block, "no HV" variant leaves these unfitted)
+## High-voltage programming (optional block: option `HV`)
 
 The HV option also needs the clock-override buffer (SN74LV1T126) fitted, because HVPP pulses XTAL1 through it.
 
@@ -76,7 +76,7 @@ The HV option also needs the clock-override buffer (SN74LV1T126) fitted, because
 | --- | --- | --- | --- | --- | --- | --- |
 | CM connectors | Hirose DF40C-100DS-0.4V(51) | C597931 | Ext | 174 (2026-11-13) | 0.97 | ×2. 1.5 mm stack height. The 3 mm version DF40HC(3.0) has only 4 in stock. |
 | Ethernet | HanRun HR911130C (gigabit magjack, LEDs) | C50933 | Ext | 7694 | 2.86 | 10/100 alternative: HR911105A C12074 (50.6k) |
-| microSD | Hirose DM3AT-SF-PEJM5 | C114218 | Ext | 14.8k | 1.39 | Same family the Pi uses. Optional (option `SD`, "no SD" variant): network boot needs no card. |
+| microSD | Hirose DM3AT-SF-PEJM5 | C114218 | Ext | 14.8k | 1.39 | Same family the Pi uses. Optional (option `SD`): network boot needs no card. |
 | rpiboot button | TS-1187A-B-A-B | C318884 | Basic | 829k | 0.02 | nRPIBOOT |
 
 ## HAT only

@@ -66,8 +66,8 @@ Decisions and open items live in [plans/v2-design.md](../plans/v2-design.md).
 ### High-voltage programming
 
 Needed to recover AVRs whose fuses lock out ISP: RSTDISBL set, SPIEN cleared, or a bad clock fuse.
-**It's an optional block.** Builders can leave it off with the KiCad 10 design variant "no HV", which
-marks those parts DNP. The board must stay fully safe and working either way.
+**It's an optional block.** Builders can leave it off by building without option `HV` (`python -m bom <board> --without HV`),
+which leaves those parts unfitted. The board must stay fully safe and working either way.
 
 - **Modes:** HVPP for the 16U2 (and other ATmegas). The same block covers later boards' 12 V needs:
   HVSP (8/14-pin ATtiny, 4 signals), TPI with 12 V on RESET (ATtiny4/5/9/10), and the UPDI 12 V

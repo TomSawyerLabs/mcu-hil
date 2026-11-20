@@ -1,0 +1,25 @@
+# Population options: independent on/off choices made per build.
+# A part's KiCad "Option" field is a condition: space-separated terms that must all hold.
+# "X" = fitted when option X is on, "!X" = fitted when it is off. No field = always fitted.
+# Make a build's BOM with tools/bom (python -m bom --help, run from tools/).
+
+[options.CLK]
+description = "Clock override: GPCLK0 buffer driving XTAL1"
+
+[options.SI]
+description = "Si5351 clock generator and its XTAL1 buffer"
+
+[options.HV]
+description = "12 V high-voltage programming"
+needs = ["CLK"]  # HVPP clocks XTAL1 through the GPCLK0 buffer
+
+[options.XTAL]
+description = "16 MHz crystal and its load caps"
+
+[options.XSW]
+description = "Pi-controlled crystal disconnect switch (off: 0R bypass fitted)"
+needs = ["XTAL"]
+
+[options.SD]
+description = "microSD slot and its power switch"
+boards = ["carrier"]

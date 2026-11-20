@@ -48,7 +48,8 @@ class Part:
     datasheet: str = ""
     description: str = ""
     ref_prefix: str = ""
-    option: str = ""                  # population option ("HV", "CLK", ...); "!X" = fitted only when X is not
+    option: str = ""                  # population condition: space-separated terms, all must hold ("XTAL !XSW");
+                                      # "X" = fitted when option X is on, "!X" = fitted when it is off
     dnp: bool = False
     in_bom: bool = True
     on_board: bool = True
@@ -75,18 +76,22 @@ class Sheet:
         return part
 
 
+def default_fitted(option: str) -> bool:
+    """The schematic's own DNP shows the build with every option on. Other builds: tools/bom."""
+    return not any(t.startswith("!") for t in option.split())
+
+
 class DesignError(Exception):
     pass
 
 
 class Project:
     def __init__(self, name: str, title: str, sheets: list[Sheet], lib_dirs: list[Path],
-                 variants: dict[str, set[str]], fp_lib_dir_rel: str = "", sym_lib_rel: str = ""):
+                 fp_lib_dir_rel: str = "", sym_lib_rel: str = ""):
         self.name = name
         self.title = title
         self.sheets = sheets
         self.lib_dirs = lib_dirs
-        self.variants = variants       # variant name -> options left unfitted
         self.fp_lib_dir_rel = fp_lib_dir_rel
         self.sym_lib_rel = sym_lib_rel
         self.root_uuid = stable_uuid(name, "root")
@@ -187,10 +192,6 @@ class Project:
     def _project_file(self) -> str:
         pro = {
             "meta": {"filename": f"{self.name}.kicad_pro", "version": 3},
-            "schematic": {
-                "variants": [{"name": n, "description": "Leaves unfitted: " + ", ".join(sorted(o))}
-                             for n, o in self.variants.items()],
-            },
             "sheets": [[self.root_uuid, "Root"]] + [
                 [stable_uuid(self.name, "sheet", sh.name), sh.title] for sh in self.sheets],
         }
@@ -278,7 +279,7 @@ class Project:
         out = []
         node = [Sym("symbol"), [Sym("lib_id"), p.lib_id], [Sym("at"), X, Y, 0], [Sym("unit"), p.unit],
                 [Sym("exclude_from_sim"), Sym("no")], [Sym("in_bom"), Sym("yes" if p.in_bom else "no")],
-                [Sym("on_board"), Sym("yes" if p.on_board else "no")], [Sym("dnp"), Sym("yes" if p.dnp or p.option.startswith("!") else "no")],
+                [Sym("on_board"), Sym("yes" if p.on_board else "no")], [Sym("dnp"), Sym("yes" if p.dnp or not default_fitted(p.option) else "no")],
                 [Sym("uuid"), uid]]
         fields = [("Reference", p.ref, False), ("Value", p.value, False),
                   ("Footprint", p.footprint, True), ("Datasheet", p.datasheet or sym.prop_value("Datasheet"), True),
@@ -302,14 +303,6 @@ class Project:
         for q in pins:
             node.append([Sym("pin"), q.number, [Sym("uuid"), stable_uuid(self.name, p.key, "pin", q.number)]])
         inst = [Sym("path"), path, [Sym("reference"), p.ref], [Sym("unit"), p.unit]]
-        for vname, unfitted in self.variants.items():
-            if p.dnp or not p.option:
-                continue
-            if p.option.startswith("!"):
-                if p.option[1:] in unfitted:     # bypass part: fitted when its option is left off
-                    inst.append([Sym("variant"), [Sym("name"), vname], [Sym("dnp"), Sym("no")]])
-            elif p.option in unfitted:
-                inst.append([Sym("variant"), [Sym("name"), vname], [Sym("dnp"), Sym("yes")]])
         node.append([Sym("instances"), [Sym("project"), self.name, inst]])
         out.append(node)
         # Labels on pin ends. Stacked pins (same point, often hidden) get one label.

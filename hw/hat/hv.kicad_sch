@@ -2458,14 +2458,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "U10")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -2677,14 +2669,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "L1")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -2811,14 +2795,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "D5")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -2905,14 +2881,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "R30")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -2999,14 +2967,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "R31")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -3133,14 +3093,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "C21")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -3307,14 +3259,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "C22")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -3441,14 +3385,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "C23")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -3575,14 +3511,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "R32")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -3729,14 +3657,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "Q5")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -3831,14 +3751,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "R33")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -3925,14 +3837,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "R34")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -4022,14 +3926,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "Q6")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -4174,14 +4070,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "R35")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -4318,14 +4206,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "R36")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -4553,14 +4433,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "U11")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -5211,14 +5083,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "C24")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -5385,14 +5249,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "C25")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -5559,14 +5415,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "R37")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -5663,14 +5511,6 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/7121621a-f6d3-57a7-9e70-a1ee679b68d2"
 					(reference "R38")
 					(unit 1)
-					(variant
-						(name "no HV")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)

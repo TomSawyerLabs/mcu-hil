@@ -74,11 +74,11 @@ work on arrival.
   needs VCC 4.5–5.5 V for HV programming. 16U2 at 16 MHz (C13738, Basic). TPS22918 load switch, no 3.3/5 V mux.
   (Same day, the design briefly went to 3.3 V with series resistors instead of translators. Both reverted.)
 - **Level translators are in** (user, 2026-11-12): TXU0304 (ISP) and TXU0202 (UART), enables on GPIO 16/17.
-- **Clock override is optional** (user, 2026-11-12): a "no clock override" variant leaves the SN74LV1T126 off.
+- **Clock override is optional** (user, 2026-11-12): option `CLK` (the SN74LV1T126).
   The HV option depends on it (HVPP pulses XTAL1 through it, for entry and as the load strobe, Table 25-12).
   User OK'd sharing the one buffer (2026-11-12), rather than a second buffer in the HV block.
 - **High-voltage programming: required, as an optional block** (user, 2026-11-11): builders can
-  leave it out (KiCad 10 variant with those parts DNP). It covers HVPP for the 16U2 and the 12 V needs of
+  leave it out (option `HV`). It covers HVPP for the 16U2 and the 12 V needs of
   later boards (HVSP, TPI, UPDI). Details are in `docs/v2-requirements.md`.
 - **SPI without CS** (user asked how): `dtoverlay=spi0-0cs` plus avrdude `linuxspi` with reset on a GPIO.
   ISP needs no CS.
@@ -160,7 +160,8 @@ work on arrival.
     - LCSC's datasheet links need a browser (curl gets an HTML shell). `easyeda2kicad` fetches JLC symbols and
       footprints directly; used for TS3USB221A (RSE), HR911130C and the SWPA4030 inductor. HR911130C LED pins were
       decoded from the JLC symbol's drawing.
-    - KiCad 10 schematic format: version 20260306. Variants live in each symbol instance:
+    - KiCad 10 schematic format: version 20260306. (No longer used: options replaced variants, 2026-11-20.)
+      Variants live in each symbol instance:
       `(path ... (reference ..) (unit 1) (variant (name "no HV") (dnp yes)))`, and in the project file under
       `schematic.variants` (from KiCad's `sch_io_kicad_sexpr.cpp` and `schematic_settings.cpp`, 10.0 branch).
     - KiCad 10 ships a CM5 carrier demo (`demos/cm5_minima`, CERN-OHL-S). Used only as a reference, nothing copied.
@@ -215,14 +216,18 @@ work on arrival.
 1. **Schematic review** (KiCanvas links in `README.md`, notes in `docs/v2-schematic.md`).
    Partly answered 2026-11-15 (see Decisions). Still open:
    - ~~CM5 CC pins~~: keep open with 5.1k Rd (user: "good plan", 2026-11-16). A "CM5 PD" option can come later.
-   - ~~microSD~~: optional, option `SD` with a "no SD" carrier variant (user, 2026-11-16; plans to network-boot).
+   - ~~microSD~~: optional, option `SD` (user, 2026-11-16; plans to network-boot).
    - ~~PDFs~~: replaced by KiCanvas links (user, 2026-11-16).
    - TCA6416A own power switch? Recommended: no (user asked what "HV" meant; answered 2026-11-16).
-   - ~~Si5351~~: optional (option SI, new "no Si5351" variant, 2026-11-16). HV optional (option HV, "no HV").
+   - ~~Si5351~~: optional (option SI, 2026-11-16). HV optional (option HV).
      2026-11-18 (user): crystal is now option XTAL too, plus a Pi-controlled crystal switch (option XSW,
      SN74LVC1G66 on the XTAL1 side, GPIO23 high = disconnected) with a 0R bypass fitted when XSW is off.
-     The generator gained "!X" options (fitted only when X is unfitted). Builds: no Si5351, no HV, no crystal switch,
-     ext clock only, minimal (+ no SD on the carrier).
+     The generator gained "!X" options (fitted only when X is unfitted).
+     2026-11-20 (user): no explicit variants; options are independent booleans, and a script makes each build
+     ("I'm ok with a script that needs to run to generate each build based on the chosen boolean options").
+     Done: KiCad variants removed; options and rules in `hw/options.toml`; Option fields are conditions
+     ("XTAL !XSW"); `tools/bom` (`python -m bom <board> --without ...`) writes the JLC BOM for any mix.
+     Also (user: "do it"): the XTAL1-side 12 pF cap is fitted only without XSW, since the switch's ~13 pF replaces it.
 3. **Dynamic BOM** design and timing: `plans/dynamic-bom.md`.
 2. ~~Parts list review~~ (approved 2026-11-13). Was: (`docs/v2-parts.md`), including accepting the thin 16U2 stock (84 at JLC).
 

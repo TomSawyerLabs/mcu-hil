@@ -5310,14 +5310,6 @@
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/8c6782f7-d448-5fba-9776-9c1b51ae3177"
 					(reference "U15")
 					(unit 1)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
-					(variant
-						(name "no SD")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -5529,14 +5521,6 @@
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/8c6782f7-d448-5fba-9776-9c1b51ae3177"
 					(reference "R45")
 					(unit 1)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
-					(variant
-						(name "no SD")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -5673,14 +5657,6 @@
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/8c6782f7-d448-5fba-9776-9c1b51ae3177"
 					(reference "C31")
 					(unit 1)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
-					(variant
-						(name "no SD")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -5807,14 +5783,6 @@
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/8c6782f7-d448-5fba-9776-9c1b51ae3177"
 					(reference "C32")
 					(unit 1)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
-					(variant
-						(name "no SD")
-						(dnp yes)
-					)
 				)
 			)
 		)
@@ -5968,14 +5936,6 @@
 				(path "/4233f4d4-47f9-5f64-8c60-d5f89bcb515c/8c6782f7-d448-5fba-9776-9c1b51ae3177"
 					(reference "J5")
 					(unit 1)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
-					(variant
-						(name "no SD")
-						(dnp yes)
-					)
 				)
 			)
 		)

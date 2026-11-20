@@ -6,3 +6,4 @@ __pycache__/
 fp-info-cache
 *.lck
 _autosave-*
+hw/*/out/

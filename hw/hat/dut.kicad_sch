@@ -2242,9 +2242,27 @@
 		)
 		(uuid "6a917780-b89d-5967-9c5e-30fe05e072cc")
 	)
+	(text "Load: the switch's ~13 pF on-capacitance stands in for the XTAL1-side 12 pF cap, so that cap is fitted only"
+		(exclude_from_sim no)
+		(at 15.24 25.4 0)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left bottom)
+		)
+		(uuid "fa240989-9785-594c-aa11-7683c2bc45da")
+	)
+	(text "without the switch. CL = 13*12/25 + ~3 pF stray = 9.2 pF (crystal wants 9 pF)."
+		(exclude_from_sim no)
+		(at 15.24 27.94 0)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left bottom)
+		)
+		(uuid "02297e75-b610-5578-9392-397df7f65d2e")
+	)
 	(symbol
 		(lib_id "MCU_Microchip_ATmega:ATmega16U2-A")
-		(at 50.8 86.36 0)
+		(at 50.8 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2252,47 +2270,47 @@
 		(dnp no)
 		(uuid "379c0f7e-6035-5574-8b84-f90aafa6a2e5")
 		(property "Reference" "U1"
-			(at 35.56 52.07 0)
+			(at 35.56 57.15 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "ATmega16U2-AU"
-			(at 53.34 120.65 0)
+			(at 53.34 125.73 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Package_QFP:TQFP-32_7x7mm_P0.8mm"
-			(at 33.02 124.46 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/doc7799.pdf"
-			(at 33.02 127 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "16MHz, 16kB Flash, 512B SRAM, 512B EEPROM, TQFP-32"
 			(at 33.02 129.54 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C59019"
+		(property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/doc7799.pdf"
 			(at 33.02 132.08 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "MPN" "ATMEGA16U2-AU"
+		(property "Description" "16MHz, 16kB Flash, 512B SRAM, 512B EEPROM, TQFP-32"
 			(at 33.02 134.62 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C59019"
+			(at 33.02 137.16 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "MPN" "ATMEGA16U2-AU"
+			(at 33.02 139.7 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2405,7 +2423,7 @@
 	)
 	(global_label "DUT_XTAL1"
 		(shape bidirectional)
-		(at 33.02 63.5 180)
+		(at 33.02 68.58 180)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2413,7 +2431,7 @@
 		)
 		(uuid "b4e1e8da-2a75-58c3-b908-7a7ea60bf7c6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 33.02 63.5 0)
+			(at 33.02 68.58 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2422,7 +2440,7 @@
 		)
 	)
 	(label "DUT_XTAL2"
-		(at 33.02 68.58 180)
+		(at 33.02 73.66 180)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right bottom)
@@ -2431,7 +2449,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 50.8 121.92 0)
+		(at 50.8 127 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2439,27 +2457,27 @@
 		(dnp no)
 		(uuid "481add94-7dcb-5b73-a010-51a94d64cb17")
 		(property "Reference" "#PWR0001"
-			(at 50.8 121.92 0)
+			(at 50.8 127 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 50.8 127 0)
+			(at 50.8 132.08 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 50.8 121.92 0)
+			(at 50.8 127 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 50.8 121.92 0)
+			(at 50.8 127 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2479,7 +2497,7 @@
 	)
 	(global_label "DUT_VCC"
 		(shape bidirectional)
-		(at 50.8 50.8 90)
+		(at 50.8 55.88 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2487,7 +2505,7 @@
 		)
 		(uuid "1ee197a9-b1f4-54b8-83c5-b562d64d5eb7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 50.8 50.8 0)
+			(at 50.8 55.88 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2496,7 +2514,7 @@
 		)
 	)
 	(label "DUT_PC2"
-		(at 68.58 81.28 0)
+		(at 68.58 86.36 0)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -2504,7 +2522,7 @@
 		(uuid "fc20c072-8df1-54c4-9682-86971ee88d52")
 	)
 	(label "DUT_PD0"
-		(at 68.58 96.52 0)
+		(at 68.58 101.6 0)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -2513,49 +2531,13 @@
 	)
 	(global_label "DUT_PD1"
 		(shape bidirectional)
-		(at 68.58 99.06 0)
-		(fields_autoplaced yes)
-		(effects
-			(font (size 1.27 1.27))
-			(justify left)
-		)
-		(uuid "1756ba0d-e25b-5912-883d-0fe868076631")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 68.58 99.06 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
-	)
-	(global_label "DUT_PD2"
-		(shape bidirectional)
-		(at 68.58 101.6 0)
-		(fields_autoplaced yes)
-		(effects
-			(font (size 1.27 1.27))
-			(justify left)
-		)
-		(uuid "5581d240-f844-54cc-854d-6c506a721953")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 68.58 101.6 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
-	)
-	(global_label "DUT_PD3"
-		(shape bidirectional)
 		(at 68.58 104.14 0)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "2c5f7d46-558a-56cd-b52f-795ed2f688dc")
+		(uuid "1756ba0d-e25b-5912-883d-0fe868076631")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 68.58 104.14 0)
 			(hide yes)
@@ -2565,7 +2547,7 @@
 			)
 		)
 	)
-	(global_label "DUT_PD4"
+	(global_label "DUT_PD2"
 		(shape bidirectional)
 		(at 68.58 106.68 0)
 		(fields_autoplaced yes)
@@ -2573,7 +2555,7 @@
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "d8f22d8d-8a87-56d5-8f9c-b4757c1c01c9")
+		(uuid "5581d240-f844-54cc-854d-6c506a721953")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 68.58 106.68 0)
 			(hide yes)
@@ -2583,7 +2565,7 @@
 			)
 		)
 	)
-	(global_label "DUT_PD5"
+	(global_label "DUT_PD3"
 		(shape bidirectional)
 		(at 68.58 109.22 0)
 		(fields_autoplaced yes)
@@ -2591,7 +2573,7 @@
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "b6d10a49-a08c-58ad-80dd-450d8e8c7adb")
+		(uuid "2c5f7d46-558a-56cd-b52f-795ed2f688dc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 68.58 109.22 0)
 			(hide yes)
@@ -2601,7 +2583,7 @@
 			)
 		)
 	)
-	(global_label "DUT_PD6"
+	(global_label "DUT_PD4"
 		(shape bidirectional)
 		(at 68.58 111.76 0)
 		(fields_autoplaced yes)
@@ -2609,7 +2591,7 @@
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "b05d8881-affa-5cef-83a3-7fc0d6200c85")
+		(uuid "d8f22d8d-8a87-56d5-8f9c-b4757c1c01c9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 68.58 111.76 0)
 			(hide yes)
@@ -2619,7 +2601,7 @@
 			)
 		)
 	)
-	(global_label "DUT_PD7"
+	(global_label "DUT_PD5"
 		(shape bidirectional)
 		(at 68.58 114.3 0)
 		(fields_autoplaced yes)
@@ -2627,7 +2609,7 @@
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "27bd8c24-8cdb-5a30-bca9-19badf05ba64")
+		(uuid "b6d10a49-a08c-58ad-80dd-450d8e8c7adb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 68.58 114.3 0)
 			(hide yes)
@@ -2637,43 +2619,43 @@
 			)
 		)
 	)
+	(global_label "DUT_PD6"
+		(shape bidirectional)
+		(at 68.58 116.84 0)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left)
+		)
+		(uuid "b05d8881-affa-5cef-83a3-7fc0d6200c85")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 68.58 116.84 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+				(justify left)
+			)
+		)
+	)
+	(global_label "DUT_PD7"
+		(shape bidirectional)
+		(at 68.58 119.38 0)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left)
+		)
+		(uuid "27bd8c24-8cdb-5a30-bca9-19badf05ba64")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 68.58 119.38 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+				(justify left)
+			)
+		)
+	)
 	(global_label "DUT_PB0"
-		(shape bidirectional)
-		(at 68.58 58.42 0)
-		(fields_autoplaced yes)
-		(effects
-			(font (size 1.27 1.27))
-			(justify left)
-		)
-		(uuid "37cc9292-b355-5297-a1a3-fac35d0e1960")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 68.58 58.42 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
-	)
-	(global_label "DUT_PB1"
-		(shape bidirectional)
-		(at 68.58 60.96 0)
-		(fields_autoplaced yes)
-		(effects
-			(font (size 1.27 1.27))
-			(justify left)
-		)
-		(uuid "f991028b-3ec7-539f-84f4-6039b7e7bdc0")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 68.58 60.96 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
-	)
-	(global_label "DUT_PB2"
 		(shape bidirectional)
 		(at 68.58 63.5 0)
 		(fields_autoplaced yes)
@@ -2681,7 +2663,7 @@
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "63bd0f45-3973-55f6-a7ca-0162cc6c9734")
+		(uuid "37cc9292-b355-5297-a1a3-fac35d0e1960")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 68.58 63.5 0)
 			(hide yes)
@@ -2691,7 +2673,7 @@
 			)
 		)
 	)
-	(global_label "DUT_PB3"
+	(global_label "DUT_PB1"
 		(shape bidirectional)
 		(at 68.58 66.04 0)
 		(fields_autoplaced yes)
@@ -2699,7 +2681,7 @@
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "ea67bab9-a718-5057-a931-17d4acc7392f")
+		(uuid "f991028b-3ec7-539f-84f4-6039b7e7bdc0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 68.58 66.04 0)
 			(hide yes)
@@ -2709,7 +2691,7 @@
 			)
 		)
 	)
-	(global_label "DUT_PB4"
+	(global_label "DUT_PB2"
 		(shape bidirectional)
 		(at 68.58 68.58 0)
 		(fields_autoplaced yes)
@@ -2717,7 +2699,7 @@
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "16b8a2ae-e94e-58ab-8791-b15e6482b25a")
+		(uuid "63bd0f45-3973-55f6-a7ca-0162cc6c9734")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 68.58 68.58 0)
 			(hide yes)
@@ -2727,7 +2709,7 @@
 			)
 		)
 	)
-	(global_label "DUT_PB5"
+	(global_label "DUT_PB3"
 		(shape bidirectional)
 		(at 68.58 71.12 0)
 		(fields_autoplaced yes)
@@ -2735,7 +2717,7 @@
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "1a171112-6880-5bcf-a107-d06e556c4768")
+		(uuid "ea67bab9-a718-5057-a931-17d4acc7392f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 68.58 71.12 0)
 			(hide yes)
@@ -2745,7 +2727,7 @@
 			)
 		)
 	)
-	(global_label "DUT_PB6"
+	(global_label "DUT_PB4"
 		(shape bidirectional)
 		(at 68.58 73.66 0)
 		(fields_autoplaced yes)
@@ -2753,7 +2735,7 @@
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "7117f054-40c5-5051-b93b-0ab7e825a37c")
+		(uuid "16b8a2ae-e94e-58ab-8791-b15e6482b25a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 68.58 73.66 0)
 			(hide yes)
@@ -2763,7 +2745,7 @@
 			)
 		)
 	)
-	(global_label "DUT_PB7"
+	(global_label "DUT_PB5"
 		(shape bidirectional)
 		(at 68.58 76.2 0)
 		(fields_autoplaced yes)
@@ -2771,7 +2753,7 @@
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "507c9d8f-e48a-5faf-aa84-194c27e7b51f")
+		(uuid "1a171112-6880-5bcf-a107-d06e556c4768")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 68.58 76.2 0)
 			(hide yes)
@@ -2781,8 +2763,44 @@
 			)
 		)
 	)
+	(global_label "DUT_PB6"
+		(shape bidirectional)
+		(at 68.58 78.74 0)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left)
+		)
+		(uuid "7117f054-40c5-5051-b93b-0ab7e825a37c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 68.58 78.74 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+				(justify left)
+			)
+		)
+	)
+	(global_label "DUT_PB7"
+		(shape bidirectional)
+		(at 68.58 81.28 0)
+		(fields_autoplaced yes)
+		(effects
+			(font (size 1.27 1.27))
+			(justify left)
+		)
+		(uuid "507c9d8f-e48a-5faf-aa84-194c27e7b51f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 68.58 81.28 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+				(justify left)
+			)
+		)
+	)
 	(label "SWUSB_DP_PIN"
-		(at 68.58 91.44 0)
+		(at 68.58 96.52 0)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -2791,7 +2809,7 @@
 	)
 	(global_label "DUT_PC6"
 		(shape bidirectional)
-		(at 68.58 88.9 0)
+		(at 68.58 93.98 0)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2799,7 +2817,7 @@
 		)
 		(uuid "809d8c33-4d40-5d50-9dfd-17bc201e1cfc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 68.58 88.9 0)
+			(at 68.58 93.98 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2809,7 +2827,7 @@
 	)
 	(global_label "DUT_RESET"
 		(shape bidirectional)
-		(at 33.02 58.42 180)
+		(at 33.02 63.5 180)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2817,7 +2835,7 @@
 		)
 		(uuid "3b495747-def6-5666-8338-4859b08fd2ae")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 33.02 58.42 0)
+			(at 33.02 63.5 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2826,7 +2844,7 @@
 		)
 	)
 	(label "DUT_PC5"
-		(at 68.58 86.36 0)
+		(at 68.58 91.44 0)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -2834,7 +2852,7 @@
 		(uuid "2b01837a-a674-57e4-8b17-af25215a391e")
 	)
 	(label "SWUSB_DM_PIN"
-		(at 68.58 83.82 0)
+		(at 68.58 88.9 0)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -2842,7 +2860,7 @@
 		(uuid "534be90f-313a-5f57-ac0f-5ad9c96ecdd3")
 	)
 	(label "DUT_UCAP"
-		(at 33.02 81.28 180)
+		(at 33.02 86.36 180)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right bottom)
@@ -2851,7 +2869,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 48.26 121.92 0)
+		(at 48.26 127 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2859,27 +2877,27 @@
 		(dnp no)
 		(uuid "69ce0fad-8c3a-5e0c-be46-29abb13a2b66")
 		(property "Reference" "#PWR0002"
-			(at 48.26 121.92 0)
+			(at 48.26 127 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 48.26 127 0)
+			(at 48.26 132.08 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 48.26 121.92 0)
+			(at 48.26 127 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 48.26 121.92 0)
+			(at 48.26 127 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2898,7 +2916,7 @@
 		)
 	)
 	(label "DUT_DP_PIN"
-		(at 33.02 73.66 180)
+		(at 33.02 78.74 180)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right bottom)
@@ -2906,7 +2924,7 @@
 		(uuid "8807601b-9ff1-50ae-a48b-a2adc0ddee04")
 	)
 	(label "DUT_DM_PIN"
-		(at 33.02 76.2 180)
+		(at 33.02 81.28 180)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right bottom)
@@ -2915,7 +2933,7 @@
 	)
 	(global_label "DUT_VCC"
 		(shape bidirectional)
-		(at 48.26 50.8 90)
+		(at 48.26 55.88 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2923,7 +2941,7 @@
 		)
 		(uuid "ea6e0656-04ee-560e-9ebb-8f10a795feb3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 48.26 50.8 0)
+			(at 48.26 55.88 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2933,7 +2951,7 @@
 	)
 	(global_label "DUT_VCC"
 		(shape bidirectional)
-		(at 53.34 50.8 90)
+		(at 53.34 55.88 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -2941,7 +2959,7 @@
 		)
 		(uuid "6c5cc7eb-3dcf-5496-b287-2b9b739b8ccd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 53.34 50.8 0)
+			(at 53.34 55.88 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2951,7 +2969,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 93.98 55.88 0)
+		(at 93.98 60.96 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2959,40 +2977,40 @@
 		(dnp no)
 		(uuid "c141d1c7-0577-574d-a029-99c12b7050fd")
 		(property "Reference" "C1"
-			(at 94.615 53.34 0)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Value" "100nF"
 			(at 94.615 58.42 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Value" "100nF"
+			(at 94.615 63.5 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 91.948 62.23 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 91.948 64.77 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
 			(at 91.948 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C1525"
+		(property "Datasheet" ""
 			(at 91.948 69.85 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 91.948 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 91.948 74.93 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3015,7 +3033,7 @@
 	)
 	(global_label "DUT_VCC"
 		(shape bidirectional)
-		(at 93.98 52.07 90)
+		(at 93.98 57.15 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -3023,7 +3041,7 @@
 		)
 		(uuid "542ecbf9-7683-55d8-945f-e552ea1ef711")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 93.98 52.07 0)
+			(at 93.98 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3033,7 +3051,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 93.98 59.69 0)
+		(at 93.98 64.77 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3041,27 +3059,27 @@
 		(dnp no)
 		(uuid "ea3a718e-1779-5bf1-a738-722a8acc4a18")
 		(property "Reference" "#PWR0003"
-			(at 93.98 59.69 0)
+			(at 93.98 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 93.98 64.77 0)
+			(at 93.98 69.85 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 93.98 59.69 0)
+			(at 93.98 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 93.98 59.69 0)
+			(at 93.98 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3081,7 +3099,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 109.22 55.88 0)
+		(at 109.22 60.96 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3089,40 +3107,40 @@
 		(dnp no)
 		(uuid "740aea19-7491-58bb-ac3f-4135e87d47b5")
 		(property "Reference" "C2"
-			(at 109.855 53.34 0)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Value" "100nF"
 			(at 109.855 58.42 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Value" "100nF"
+			(at 109.855 63.5 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 107.188 62.23 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 107.188 64.77 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
 			(at 107.188 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C1525"
+		(property "Datasheet" ""
 			(at 107.188 69.85 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 107.188 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 107.188 74.93 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3145,7 +3163,7 @@
 	)
 	(global_label "DUT_VCC"
 		(shape bidirectional)
-		(at 109.22 52.07 90)
+		(at 109.22 57.15 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -3153,7 +3171,7 @@
 		)
 		(uuid "92301616-6528-5078-9f09-15b88da7241b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.22 52.07 0)
+			(at 109.22 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3163,7 +3181,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 109.22 59.69 0)
+		(at 109.22 64.77 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3171,27 +3189,27 @@
 		(dnp no)
 		(uuid "317665e5-bf75-5e2b-b389-23f4e1ff1340")
 		(property "Reference" "#PWR0004"
-			(at 109.22 59.69 0)
+			(at 109.22 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 109.22 64.77 0)
+			(at 109.22 69.85 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 109.22 59.69 0)
+			(at 109.22 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 109.22 59.69 0)
+			(at 109.22 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3211,7 +3229,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 121.92 55.88 0)
+		(at 121.92 60.96 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3219,40 +3237,40 @@
 		(dnp no)
 		(uuid "53bab0dd-094b-51fd-a47f-d3aa2ee24712")
 		(property "Reference" "C3"
-			(at 122.555 53.34 0)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Value" "100nF"
 			(at 122.555 58.42 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Value" "100nF"
+			(at 122.555 63.5 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 119.888 62.23 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 119.888 64.77 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
 			(at 119.888 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C1525"
+		(property "Datasheet" ""
 			(at 119.888 69.85 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 119.888 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 119.888 74.93 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3275,7 +3293,7 @@
 	)
 	(global_label "DUT_VCC"
 		(shape bidirectional)
-		(at 121.92 52.07 90)
+		(at 121.92 57.15 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -3283,7 +3301,7 @@
 		)
 		(uuid "94a7e725-d097-5ca3-bef3-8a8b3ef30387")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 121.92 52.07 0)
+			(at 121.92 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3293,7 +3311,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 121.92 59.69 0)
+		(at 121.92 64.77 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3301,27 +3319,27 @@
 		(dnp no)
 		(uuid "435c0d5a-43c2-5a16-8d83-d4f8c9e6c148")
 		(property "Reference" "#PWR0005"
-			(at 121.92 59.69 0)
+			(at 121.92 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 121.92 64.77 0)
+			(at 121.92 69.85 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 121.92 59.69 0)
+			(at 121.92 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 121.92 59.69 0)
+			(at 121.92 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3341,7 +3359,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 137.16 55.88 0)
+		(at 137.16 60.96 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3349,40 +3367,40 @@
 		(dnp no)
 		(uuid "1881d7fd-01ab-5b25-befb-526e0d4efef2")
 		(property "Reference" "C4"
-			(at 137.795 53.34 0)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Value" "10µF"
 			(at 137.795 58.42 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Value" "10µF"
+			(at 137.795 63.5 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 135.128 62.23 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 135.128 64.77 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
 			(at 135.128 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C19702"
+		(property "Datasheet" ""
 			(at 135.128 69.85 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 135.128 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C19702"
+			(at 135.128 74.93 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3405,7 +3423,7 @@
 	)
 	(global_label "DUT_VCC"
 		(shape bidirectional)
-		(at 137.16 52.07 90)
+		(at 137.16 57.15 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -3413,7 +3431,7 @@
 		)
 		(uuid "bc8a7cd1-0180-55e1-8615-48b40e8c6185")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 137.16 52.07 0)
+			(at 137.16 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3423,7 +3441,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 137.16 59.69 0)
+		(at 137.16 64.77 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3431,27 +3449,27 @@
 		(dnp no)
 		(uuid "fee6cfd1-3e8b-58ef-a6b9-7e73da2b9988")
 		(property "Reference" "#PWR0006"
-			(at 137.16 59.69 0)
+			(at 137.16 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 137.16 64.77 0)
+			(at 137.16 69.85 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 137.16 59.69 0)
+			(at 137.16 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 137.16 59.69 0)
+			(at 137.16 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3471,7 +3489,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 152.4 50.8 0)
+		(at 152.4 55.88 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3479,47 +3497,47 @@
 		(dnp no)
 		(uuid "024ced84-ba5c-5212-90e6-53cfddf7f745")
 		(property "Reference" "C5"
-			(at 153.035 48.26 0)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Value" "1µF"
 			(at 153.035 53.34 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Value" "1µF"
+			(at 153.035 58.42 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 150.368 57.15 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 150.368 59.69 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
 			(at 150.368 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C52923"
+		(property "Datasheet" ""
 			(at 150.368 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "UCAP: USB regulator output"
+		(property "Description" "Unpolarized capacitor"
 			(at 150.368 67.31 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C52923"
+			(at 150.368 69.85 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "UCAP: USB regulator output"
+			(at 150.368 72.39 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3541,7 +3559,7 @@
 		)
 	)
 	(label "DUT_UCAP"
-		(at 152.4 46.99 90)
+		(at 152.4 52.07 90)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -3550,7 +3568,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 152.4 54.61 0)
+		(at 152.4 59.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3558,27 +3576,27 @@
 		(dnp no)
 		(uuid "7e09ec88-2b07-589c-b989-763b4eca893d")
 		(property "Reference" "#PWR0007"
-			(at 152.4 54.61 0)
+			(at 152.4 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 152.4 59.69 0)
+			(at 152.4 64.77 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 152.4 54.61 0)
+			(at 152.4 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 152.4 54.61 0)
+			(at 152.4 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3598,7 +3616,7 @@
 	)
 	(symbol
 		(lib_id "Device:Crystal_GND24")
-		(at 177.8 40.64 0)
+		(at 177.8 45.72 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3606,54 +3624,54 @@
 		(dnp no)
 		(uuid "95db55c2-77b0-57d3-8e00-6185bddd36c1")
 		(property "Reference" "Y1"
-			(at 180.975 35.56 0)
+			(at 180.975 40.64 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "16MHz"
-			(at 180.975 37.465 0)
+			(at 180.975 42.545 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm"
-			(at 173.99 48.26 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 173.99 50.8 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Four pin crystal, GND on pins 2 and 4"
 			(at 173.99 53.34 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C13738"
+		(property "Datasheet" ""
 			(at 173.99 55.88 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "MPN" "X322516MLB4SI"
+		(property "Description" "Four pin crystal, GND on pins 2 and 4"
 			(at 173.99 58.42 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XTAL"
+		(property "LCSC" "C13738"
 			(at 173.99 60.96 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "MPN" "X322516MLB4SI"
+			(at 173.99 63.5 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XTAL"
+			(at 173.99 66.04 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -3675,16 +3693,12 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/cd7028a7-1970-5f22-8e81-6c1557c86f21"
 					(reference "Y1")
 					(unit 1)
-					(variant
-						(name "ext clock only")
-						(dnp yes)
-					)
 				)
 			)
 		)
 	)
 	(label "XTAL_SW"
-		(at 173.99 40.64 180)
+		(at 173.99 45.72 180)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right bottom)
@@ -3693,7 +3707,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 177.8 45.72 0)
+		(at 177.8 50.8 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3701,27 +3715,27 @@
 		(dnp no)
 		(uuid "eb0848a5-f7dc-5b69-bb14-c68848a40b38")
 		(property "Reference" "#PWR0008"
-			(at 177.8 45.72 0)
+			(at 177.8 50.8 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 177.8 50.8 0)
+			(at 177.8 55.88 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 177.8 45.72 0)
+			(at 177.8 50.8 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 177.8 45.72 0)
+			(at 177.8 50.8 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3740,7 +3754,7 @@
 		)
 	)
 	(label "DUT_XTAL2"
-		(at 181.61 40.64 0)
+		(at 181.61 45.72 0)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -3749,61 +3763,61 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 203.2 50.8 0)
+		(at 203.2 55.88 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "7e0b7469-6b55-5902-b7a2-7311616f9003")
 		(property "Reference" "C6"
-			(at 203.835 48.26 0)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Value" "12pF"
 			(at 203.835 53.34 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Value" "12pF"
+			(at 203.835 58.42 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 201.168 57.15 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 201.168 59.69 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
 			(at 201.168 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C1547"
+		(property "Datasheet" ""
 			(at 201.168 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XTAL"
+		(property "Description" "Unpolarized capacitor"
 			(at 201.168 67.31 0)
+			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "On the crystal side of the switch, so it disconnects too"
+		(property "LCSC" "C1547"
 			(at 201.168 69.85 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XTAL !XSW"
+			(at 201.168 72.39 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Only without the switch: its ~13 pF on-capacitance takes this cap's place. Footprint kept for tuning"
+			(at 201.168 74.93 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3820,16 +3834,12 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/cd7028a7-1970-5f22-8e81-6c1557c86f21"
 					(reference "C6")
 					(unit 1)
-					(variant
-						(name "ext clock only")
-						(dnp yes)
-					)
 				)
 			)
 		)
 	)
 	(label "XTAL_SW"
-		(at 203.2 46.99 90)
+		(at 203.2 52.07 90)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -3838,7 +3848,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 203.2 54.61 0)
+		(at 203.2 59.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3846,27 +3856,27 @@
 		(dnp no)
 		(uuid "9992782f-02a7-53b0-b27a-430f4af4b0c2")
 		(property "Reference" "#PWR0009"
-			(at 203.2 54.61 0)
+			(at 203.2 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 203.2 59.69 0)
+			(at 203.2 64.77 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 203.2 54.61 0)
+			(at 203.2 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 203.2 54.61 0)
+			(at 203.2 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3886,7 +3896,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 218.44 53.34 0)
+		(at 218.44 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3894,47 +3904,47 @@
 		(dnp no)
 		(uuid "4e323059-ff08-5902-85e6-c3d0a41915fb")
 		(property "Reference" "C7"
-			(at 219.075 50.8 0)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Value" "12pF"
 			(at 219.075 55.88 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Value" "12pF"
+			(at 219.075 60.96 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 216.408 59.69 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 216.408 62.23 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
 			(at 216.408 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C1547"
+		(property "Datasheet" ""
 			(at 216.408 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XTAL"
+		(property "Description" "Unpolarized capacitor"
 			(at 216.408 69.85 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C1547"
+			(at 216.408 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XTAL"
+			(at 216.408 74.93 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -3950,16 +3960,12 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/cd7028a7-1970-5f22-8e81-6c1557c86f21"
 					(reference "C7")
 					(unit 1)
-					(variant
-						(name "ext clock only")
-						(dnp yes)
-					)
 				)
 			)
 		)
 	)
 	(label "DUT_XTAL2"
-		(at 218.44 49.53 90)
+		(at 218.44 54.61 90)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -3968,7 +3974,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 218.44 57.15 0)
+		(at 218.44 62.23 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3976,27 +3982,27 @@
 		(dnp no)
 		(uuid "d1d9507b-3caa-5c2c-89ee-17a835b65947")
 		(property "Reference" "#PWR0010"
-			(at 218.44 57.15 0)
+			(at 218.44 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 218.44 62.23 0)
+			(at 218.44 67.31 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 218.44 57.15 0)
+			(at 218.44 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 218.44 57.15 0)
+			(at 218.44 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4016,7 +4022,7 @@
 	)
 	(symbol
 		(lib_id "mcu-hil:SN74LVC1G66")
-		(at 251.46 48.26 0)
+		(at 251.46 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4024,53 +4030,53 @@
 		(dnp no)
 		(uuid "06fbf194-af36-5634-a55f-3c8dcb9f3533")
 		(property "Reference" "U2"
-			(at 246.38 36.83 0)
+			(at 246.38 41.91 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "SN74LVC1G66DBVR"
-			(at 246.38 59.69 0)
+			(at 246.38 64.77 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
-			(at 243.84 60.96 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/sn74lvc1g66.pdf"
-			(at 243.84 63.5 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Single bilateral analog switch, C high = A-B connected, 1.65-5.5 V"
 			(at 243.84 66.04 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C133643"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/sn74lvc1g66.pdf"
 			(at 243.84 68.58 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XSW"
+		(property "Description" "Single bilateral analog switch, C high = A-B connected, 1.65-5.5 V"
 			(at 243.84 71.12 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C133643"
+			(at 243.84 73.66 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XSW"
+			(at 243.84 76.2 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Note" "About 5.5 ohm on, 13 pF: in series with the crystal"
-			(at 243.84 73.66 0)
+			(at 243.84 78.74 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4096,25 +4102,13 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/cd7028a7-1970-5f22-8e81-6c1557c86f21"
 					(reference "U2")
 					(unit 1)
-					(variant
-						(name "no crystal switch")
-						(dnp yes)
-					)
-					(variant
-						(name "ext clock only")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
 	)
 	(global_label "DUT_5V"
 		(shape bidirectional)
-		(at 243.84 40.64 180)
+		(at 243.84 45.72 180)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -4122,7 +4116,7 @@
 		)
 		(uuid "5a80bd33-2694-57df-b5e1-545a6238e936")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 243.84 40.64 0)
+			(at 243.84 45.72 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4131,7 +4125,7 @@
 		)
 	)
 	(label "XSW_CTRL"
-		(at 243.84 43.18 180)
+		(at 243.84 48.26 180)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right bottom)
@@ -4140,7 +4134,7 @@
 	)
 	(global_label "DUT_XTAL1"
 		(shape bidirectional)
-		(at 243.84 48.26 180)
+		(at 243.84 53.34 180)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -4148,7 +4142,7 @@
 		)
 		(uuid "3613ac6a-08d1-5d6e-aab4-fd4782661370")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 243.84 48.26 0)
+			(at 243.84 53.34 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4157,7 +4151,7 @@
 		)
 	)
 	(label "XTAL_SW"
-		(at 259.08 48.26 0)
+		(at 259.08 53.34 0)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -4166,7 +4160,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 259.08 53.34 90)
+		(at 259.08 58.42 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4174,27 +4168,27 @@
 		(dnp no)
 		(uuid "1b543340-4898-597b-9cbf-ca7ffe16cb8f")
 		(property "Reference" "#PWR0011"
-			(at 259.08 53.34 0)
+			(at 259.08 58.42 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 266.7 53.34 0)
+			(at 266.7 58.42 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 259.08 53.34 0)
+			(at 259.08 58.42 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 259.08 53.34 0)
+			(at 259.08 58.42 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4214,7 +4208,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 281.94 53.34 0)
+		(at 281.94 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4222,47 +4216,47 @@
 		(dnp no)
 		(uuid "62537c87-74ac-5974-9501-eef2eaee15c0")
 		(property "Reference" "C8"
-			(at 282.575 50.8 0)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Value" "100nF"
 			(at 282.575 55.88 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Value" "100nF"
+			(at 282.575 60.96 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 279.908 59.69 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 279.908 62.23 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
 			(at 279.908 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C1525"
+		(property "Datasheet" ""
 			(at 279.908 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XSW"
+		(property "Description" "Unpolarized capacitor"
 			(at 279.908 69.85 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 279.908 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XSW"
+			(at 279.908 74.93 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -4278,25 +4272,13 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/cd7028a7-1970-5f22-8e81-6c1557c86f21"
 					(reference "C8")
 					(unit 1)
-					(variant
-						(name "no crystal switch")
-						(dnp yes)
-					)
-					(variant
-						(name "ext clock only")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
 	)
 	(global_label "DUT_5V"
 		(shape bidirectional)
-		(at 281.94 49.53 90)
+		(at 281.94 54.61 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -4304,7 +4286,7 @@
 		)
 		(uuid "e5516b70-ccb5-5e46-8a86-bf5816bb123f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 281.94 49.53 0)
+			(at 281.94 54.61 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4314,7 +4296,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 281.94 57.15 0)
+		(at 281.94 62.23 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4322,27 +4304,27 @@
 		(dnp no)
 		(uuid "3408c32e-8e55-538d-b338-78c6ac85c520")
 		(property "Reference" "#PWR0012"
-			(at 281.94 57.15 0)
+			(at 281.94 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 281.94 62.23 0)
+			(at 281.94 67.31 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 281.94 57.15 0)
+			(at 281.94 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 281.94 57.15 0)
+			(at 281.94 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4362,7 +4344,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 294.64 50.8 0)
+		(at 294.64 55.88 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4370,47 +4352,47 @@
 		(dnp no)
 		(uuid "8b00466c-fdcd-54aa-8635-139bfcb05d64")
 		(property "Reference" "R1"
-			(at 296.672 50.8 0)
+			(at 296.672 55.88 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 294.64 50.8 0)
+			(at 294.64 55.88 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 293.624 57.15 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 293.624 59.69 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Resistor"
 			(at 293.624 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C25744"
+		(property "Datasheet" ""
 			(at 293.624 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XSW"
+		(property "Description" "Resistor"
 			(at 293.624 67.31 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 293.624 69.85 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XSW"
+			(at 293.624 72.39 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -4426,24 +4408,12 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/cd7028a7-1970-5f22-8e81-6c1557c86f21"
 					(reference "R1")
 					(unit 1)
-					(variant
-						(name "no crystal switch")
-						(dnp yes)
-					)
-					(variant
-						(name "ext clock only")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
 	)
 	(label "XSW_CTRL"
-		(at 294.64 46.99 90)
+		(at 294.64 52.07 90)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -4452,7 +4422,7 @@
 	)
 	(global_label "DUT_5V"
 		(shape bidirectional)
-		(at 294.64 54.61 270)
+		(at 294.64 59.69 270)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -4460,7 +4430,7 @@
 		)
 		(uuid "4a1c20b7-e91a-5948-94ef-74ed88ce8095")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 294.64 54.61 0)
+			(at 294.64 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4470,7 +4440,7 @@
 	)
 	(symbol
 		(lib_id "Transistor_FET:2N7002")
-		(at 332.74 53.34 0)
+		(at 332.74 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4478,47 +4448,47 @@
 		(dnp no)
 		(uuid "eedc7856-9af7-5c56-86a6-066c8dc0536f")
 		(property "Reference" "Q1"
-			(at 337.82 51.435 0)
+			(at 337.82 56.515 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "2N7002"
-			(at 337.82 53.34 0)
+			(at 337.82 58.42 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 327.66 60.96 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF"
-			(at 327.66 63.5 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"
 			(at 327.66 66.04 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C8545"
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF"
 			(at 327.66 68.58 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XSW"
+		(property "Description" "0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"
 			(at 327.66 71.12 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C8545"
+			(at 327.66 73.66 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XSW"
+			(at 327.66 76.2 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -4537,25 +4507,13 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/cd7028a7-1970-5f22-8e81-6c1557c86f21"
 					(reference "Q1")
 					(unit 1)
-					(variant
-						(name "no crystal switch")
-						(dnp yes)
-					)
-					(variant
-						(name "ext clock only")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
 	)
 	(global_label "XTAL_DISCONNECT"
 		(shape bidirectional)
-		(at 327.66 53.34 180)
+		(at 327.66 58.42 180)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -4563,7 +4521,7 @@
 		)
 		(uuid "930c0fd6-d219-5fe5-ab9f-217372caf689")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 327.66 53.34 0)
+			(at 327.66 58.42 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4573,7 +4531,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 335.28 58.42 0)
+		(at 335.28 63.5 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4581,27 +4539,27 @@
 		(dnp no)
 		(uuid "b7e0155c-07b4-5da8-aafa-692c6f971dc3")
 		(property "Reference" "#PWR0013"
-			(at 335.28 58.42 0)
+			(at 335.28 63.5 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 335.28 63.5 0)
+			(at 335.28 68.58 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 335.28 58.42 0)
+			(at 335.28 63.5 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 335.28 58.42 0)
+			(at 335.28 63.5 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4620,7 +4578,7 @@
 		)
 	)
 	(label "XSW_CTRL"
-		(at 335.28 48.26 90)
+		(at 335.28 53.34 90)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -4629,7 +4587,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 345.44 63.5 0)
+		(at 345.44 68.58 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4637,53 +4595,53 @@
 		(dnp no)
 		(uuid "e697701b-b4a9-5ae7-bb3d-bc6d0f46ee3e")
 		(property "Reference" "R2"
-			(at 347.472 63.5 0)
+			(at 347.472 68.58 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "100kΩ"
-			(at 345.44 63.5 0)
+			(at 345.44 68.58 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 344.424 69.85 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 344.424 72.39 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Resistor"
 			(at 344.424 74.93 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C25741"
+		(property "Datasheet" ""
 			(at 344.424 77.47 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XSW"
+		(property "Description" "Resistor"
 			(at 344.424 80.01 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C25741"
+			(at 344.424 82.55 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XSW"
+			(at 344.424 85.09 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Note" "GPIO23 low/input: crystal connected"
-			(at 344.424 82.55 0)
+			(at 344.424 87.63 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4700,25 +4658,13 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/cd7028a7-1970-5f22-8e81-6c1557c86f21"
 					(reference "R2")
 					(unit 1)
-					(variant
-						(name "no crystal switch")
-						(dnp yes)
-					)
-					(variant
-						(name "ext clock only")
-						(dnp yes)
-					)
-					(variant
-						(name "minimal")
-						(dnp yes)
-					)
 				)
 			)
 		)
 	)
 	(global_label "XTAL_DISCONNECT"
 		(shape bidirectional)
-		(at 345.44 59.69 90)
+		(at 345.44 64.77 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -4726,7 +4672,7 @@
 		)
 		(uuid "6b085b9a-5ad2-58ef-a854-4c12bf49dfc6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 345.44 59.69 0)
+			(at 345.44 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4736,7 +4682,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 345.44 67.31 0)
+		(at 345.44 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4744,27 +4690,27 @@
 		(dnp no)
 		(uuid "3ee86127-84fb-5711-81da-3db91dd14f6c")
 		(property "Reference" "#PWR0014"
-			(at 345.44 67.31 0)
+			(at 345.44 72.39 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 345.44 72.39 0)
+			(at 345.44 77.47 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 345.44 67.31 0)
+			(at 345.44 72.39 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 345.44 67.31 0)
+			(at 345.44 72.39 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4784,7 +4730,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 358.14 55.88 0)
+		(at 358.14 60.96 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4792,53 +4738,53 @@
 		(dnp yes)
 		(uuid "22cf08c0-5864-53f1-929e-6863f6f85715")
 		(property "Reference" "R3"
-			(at 360.172 55.88 0)
+			(at 360.172 60.96 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "0Ω"
-			(at 358.14 55.88 0)
+			(at 358.14 60.96 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 357.124 62.23 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 357.124 64.77 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Resistor"
 			(at 357.124 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C17168"
+		(property "Datasheet" ""
 			(at 357.124 69.85 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "!XSW"
+		(property "Description" "Resistor"
 			(at 357.124 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C17168"
+			(at 357.124 74.93 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "!XSW"
+			(at 357.124 77.47 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Note" "Bypass: fitted only when XSW is left off"
-			(at 357.124 74.93 0)
+			(at 357.124 80.01 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4855,25 +4801,13 @@
 				(path "/7eec5f2a-be90-57bb-95b2-344d9ee2a147/cd7028a7-1970-5f22-8e81-6c1557c86f21"
 					(reference "R3")
 					(unit 1)
-					(variant
-						(name "no crystal switch")
-						(dnp no)
-					)
-					(variant
-						(name "ext clock only")
-						(dnp no)
-					)
-					(variant
-						(name "minimal")
-						(dnp no)
-					)
 				)
 			)
 		)
 	)
 	(global_label "DUT_XTAL1"
 		(shape bidirectional)
-		(at 358.14 52.07 90)
+		(at 358.14 57.15 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -4881,7 +4815,7 @@
 		)
 		(uuid "99f2417b-6ccf-5b42-b4ea-5f9db676f4b9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 358.14 52.07 0)
+			(at 358.14 57.15 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4890,7 +4824,7 @@
 		)
 	)
 	(label "XTAL_SW"
-		(at 358.14 59.69 270)
+		(at 358.14 64.77 270)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right bottom)
@@ -4899,7 +4833,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 370.84 53.34 0)
+		(at 370.84 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4907,40 +4841,40 @@
 		(dnp no)
 		(uuid "93dbb788-9ad6-525c-999f-db55d8cc85a5")
 		(property "Reference" "R4"
-			(at 372.872 53.34 0)
+			(at 372.872 58.42 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "22Ω"
-			(at 370.84 53.34 0)
+			(at 370.84 58.42 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 369.824 59.69 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 369.824 62.23 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Resistor"
 			(at 369.824 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C25092"
+		(property "Datasheet" ""
 			(at 369.824 67.31 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Description" "Resistor"
+			(at 369.824 69.85 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C25092"
+			(at 369.824 72.39 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4962,7 +4896,7 @@
 		)
 	)
 	(label "DUT_DP_PIN"
-		(at 370.84 49.53 90)
+		(at 370.84 54.61 90)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -4971,7 +4905,7 @@
 	)
 	(global_label "DUT_USB_DP"
 		(shape bidirectional)
-		(at 370.84 57.15 270)
+		(at 370.84 62.23 270)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -4979,7 +4913,7 @@
 		)
 		(uuid "bb219151-f652-5461-b1d8-03871c2991d6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 370.84 57.15 0)
+			(at 370.84 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4989,7 +4923,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 383.54 53.34 0)
+		(at 383.54 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4997,40 +4931,40 @@
 		(dnp no)
 		(uuid "99058725-219a-5d71-99b6-91c95f606e7e")
 		(property "Reference" "R5"
-			(at 385.572 53.34 0)
+			(at 385.572 58.42 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "22Ω"
-			(at 383.54 53.34 0)
+			(at 383.54 58.42 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 382.524 59.69 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 382.524 62.23 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Resistor"
 			(at 382.524 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C25092"
+		(property "Datasheet" ""
 			(at 382.524 67.31 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Description" "Resistor"
+			(at 382.524 69.85 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C25092"
+			(at 382.524 72.39 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5052,7 +4986,7 @@
 		)
 	)
 	(label "DUT_DM_PIN"
-		(at 383.54 49.53 90)
+		(at 383.54 54.61 90)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -5061,7 +4995,7 @@
 	)
 	(global_label "DUT_USB_DM"
 		(shape bidirectional)
-		(at 383.54 57.15 270)
+		(at 383.54 62.23 270)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -5069,7 +5003,7 @@
 		)
 		(uuid "449cf59e-402b-5fab-88ec-94199dc59520")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 383.54 57.15 0)
+			(at 383.54 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5079,7 +5013,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 396.24 55.88 0)
+		(at 396.24 60.96 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5087,47 +5021,47 @@
 		(dnp no)
 		(uuid "292d9bb7-6308-5e06-a09c-b4218731208f")
 		(property "Reference" "R6"
-			(at 398.272 55.88 0)
+			(at 398.272 60.96 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "75Ω"
-			(at 396.24 55.88 0)
+			(at 396.24 60.96 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 395.224 62.23 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 395.224 64.77 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Resistor"
 			(at 395.224 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C25133"
+		(property "Datasheet" ""
 			(at 395.224 69.85 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "V-USB series resistor (68R in the reference; 75R is a no-fee JLC part)"
+		(property "Description" "Resistor"
 			(at 395.224 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C25133"
+			(at 395.224 74.93 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "V-USB series resistor (68R in the reference; 75R is a no-fee JLC part)"
+			(at 395.224 77.47 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5149,7 +5083,7 @@
 		)
 	)
 	(label "SWUSB_DP_PIN"
-		(at 396.24 52.07 90)
+		(at 396.24 57.15 90)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -5158,7 +5092,7 @@
 	)
 	(global_label "SWUSB_DP"
 		(shape bidirectional)
-		(at 396.24 59.69 270)
+		(at 396.24 64.77 270)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -5166,7 +5100,7 @@
 		)
 		(uuid "217d041e-6052-5ab2-b43a-8ebc96a83dca")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 396.24 59.69 0)
+			(at 396.24 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5176,7 +5110,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 17.78 157.48 0)
+		(at 17.78 162.56 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5184,40 +5118,40 @@
 		(dnp no)
 		(uuid "1823476c-4f9e-59bd-8c79-6eb39a65bf64")
 		(property "Reference" "R7"
-			(at 19.812 157.48 0)
+			(at 19.812 162.56 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "75Ω"
-			(at 17.78 157.48 0)
+			(at 17.78 162.56 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 16.764 163.83 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 16.764 166.37 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Resistor"
 			(at 16.764 168.91 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C25133"
+		(property "Datasheet" ""
 			(at 16.764 171.45 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Description" "Resistor"
+			(at 16.764 173.99 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C25133"
+			(at 16.764 176.53 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5239,7 +5173,7 @@
 		)
 	)
 	(label "SWUSB_DM_PIN"
-		(at 17.78 153.67 90)
+		(at 17.78 158.75 90)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -5248,7 +5182,7 @@
 	)
 	(global_label "SWUSB_DM"
 		(shape bidirectional)
-		(at 17.78 161.29 270)
+		(at 17.78 166.37 270)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -5256,7 +5190,7 @@
 		)
 		(uuid "06c75703-bb0d-58db-8e83-da9e398f3596")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 17.78 161.29 0)
+			(at 17.78 166.37 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5266,7 +5200,7 @@
 	)
 	(symbol
 		(lib_id "Device:D_Zener")
-		(at 48.26 142.24 0)
+		(at 48.26 147.32 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5274,47 +5208,47 @@
 		(dnp no)
 		(uuid "9aa1b83b-9b31-5382-8c77-7b00b6f79675")
 		(property "Reference" "D1"
-			(at 48.26 139.7 0)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Value" "3.6V"
 			(at 48.26 144.78 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Value" "3.6V"
+			(at 48.26 149.86 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(property "Footprint" "Diode_SMD:D_SOD-123"
-			(at 44.45 146.05 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 44.45 148.59 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Zener diode"
 			(at 44.45 151.13 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C173412"
+		(property "Datasheet" ""
 			(at 44.45 153.67 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "MPN" "BZT52C3V6"
+		(property "Description" "Zener diode"
 			(at 44.45 156.21 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C173412"
+			(at 44.45 158.75 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "MPN" "BZT52C3V6"
+			(at 44.45 161.29 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5337,7 +5271,7 @@
 	)
 	(global_label "SWUSB_DP"
 		(shape bidirectional)
-		(at 44.45 142.24 180)
+		(at 44.45 147.32 180)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -5345,7 +5279,7 @@
 		)
 		(uuid "11746dbf-d9ca-5408-9728-1c1d835f2266")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 44.45 142.24 0)
+			(at 44.45 147.32 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5355,7 +5289,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 52.07 142.24 90)
+		(at 52.07 147.32 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5363,27 +5297,27 @@
 		(dnp no)
 		(uuid "4e2f48c4-5273-5f06-a0fe-8ed9f483eb7e")
 		(property "Reference" "#PWR0015"
-			(at 52.07 142.24 0)
+			(at 52.07 147.32 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 59.69 142.24 0)
+			(at 59.69 147.32 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 52.07 142.24 0)
+			(at 52.07 147.32 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 52.07 142.24 0)
+			(at 52.07 147.32 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5403,7 +5337,7 @@
 	)
 	(symbol
 		(lib_id "Device:D_Zener")
-		(at 86.36 142.24 0)
+		(at 86.36 147.32 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5411,47 +5345,47 @@
 		(dnp no)
 		(uuid "daa456f1-4688-5d2f-89ac-9c409a0f0851")
 		(property "Reference" "D2"
-			(at 86.36 139.7 0)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Value" "3.6V"
 			(at 86.36 144.78 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Value" "3.6V"
+			(at 86.36 149.86 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(property "Footprint" "Diode_SMD:D_SOD-123"
-			(at 82.55 146.05 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 82.55 148.59 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Zener diode"
 			(at 82.55 151.13 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C173412"
+		(property "Datasheet" ""
 			(at 82.55 153.67 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "MPN" "BZT52C3V6"
+		(property "Description" "Zener diode"
 			(at 82.55 156.21 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C173412"
+			(at 82.55 158.75 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "MPN" "BZT52C3V6"
+			(at 82.55 161.29 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5474,7 +5408,7 @@
 	)
 	(global_label "SWUSB_DM"
 		(shape bidirectional)
-		(at 82.55 142.24 180)
+		(at 82.55 147.32 180)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -5482,7 +5416,7 @@
 		)
 		(uuid "66bef939-7bda-54fe-ac10-1ca720b3dd05")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 82.55 142.24 0)
+			(at 82.55 147.32 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5492,7 +5426,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 90.17 142.24 90)
+		(at 90.17 147.32 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5500,27 +5434,27 @@
 		(dnp no)
 		(uuid "ef446c3f-402a-553f-b6a8-995cd8dfd80e")
 		(property "Reference" "#PWR0016"
-			(at 90.17 142.24 0)
+			(at 90.17 147.32 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "GND"
-			(at 97.79 142.24 0)
+			(at 97.79 147.32 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" ""
-			(at 90.17 142.24 0)
+			(at 90.17 147.32 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Datasheet" ""
-			(at 90.17 142.24 0)
+			(at 90.17 147.32 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5540,7 +5474,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 109.22 157.48 0)
+		(at 109.22 162.56 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5548,47 +5482,47 @@
 		(dnp no)
 		(uuid "80239713-a5fb-59d8-9f49-7f47edb74f70")
 		(property "Reference" "R8"
-			(at 111.252 157.48 0)
+			(at 111.252 162.56 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "1.5kΩ"
-			(at 109.22 157.48 0)
+			(at 109.22 162.56 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 108.204 163.83 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 108.204 166.37 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Resistor"
 			(at 108.204 168.91 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C25867"
+		(property "Datasheet" ""
 			(at 108.204 171.45 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Low-speed attach pull-up on D-"
+		(property "Description" "Resistor"
 			(at 108.204 173.99 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C25867"
+			(at 108.204 176.53 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Low-speed attach pull-up on D-"
+			(at 108.204 179.07 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5611,7 +5545,7 @@
 	)
 	(global_label "SWUSB_DM"
 		(shape bidirectional)
-		(at 109.22 153.67 90)
+		(at 109.22 158.75 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -5619,7 +5553,7 @@
 		)
 		(uuid "d034ab9f-b756-503b-8e48-87da145c70b6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.22 153.67 0)
+			(at 109.22 158.75 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5629,7 +5563,7 @@
 	)
 	(global_label "DUT_5V"
 		(shape bidirectional)
-		(at 109.22 161.29 270)
+		(at 109.22 166.37 270)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -5637,7 +5571,7 @@
 		)
 		(uuid "f0be5128-bb0c-5c67-be02-7a9b77fe02de")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.22 161.29 0)
+			(at 109.22 166.37 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5647,7 +5581,7 @@
 	)
 	(symbol
 		(lib_id "Diode:1N4148W")
-		(at 132.08 142.24 0)
+		(at 132.08 147.32 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5655,47 +5589,47 @@
 		(dnp no)
 		(uuid "da4e52b5-8049-5b89-a1fa-6af0d96b86f6")
 		(property "Reference" "D3"
-			(at 132.08 139.7 0)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Value" "1N4148W"
 			(at 132.08 144.78 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Value" "1N4148W"
+			(at 132.08 149.86 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(property "Footprint" "Diode_SMD:D_SOD-123"
-			(at 128.27 146.05 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/85748/1n4148w.pdf"
-			(at 128.27 148.59 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "75V 0.15A Fast Switching Diode, SOD-123"
 			(at 128.27 151.13 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C81598"
+		(property "Datasheet" "https://www.vishay.com/docs/85748/1n4148w.pdf"
 			(at 128.27 153.67 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Blocks 12 V on RESET from DUT_5V"
+		(property "Description" "75V 0.15A Fast Switching Diode, SOD-123"
 			(at 128.27 156.21 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C81598"
+			(at 128.27 158.75 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Blocks 12 V on RESET from DUT_5V"
+			(at 128.27 161.29 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5717,7 +5651,7 @@
 		)
 	)
 	(label "RST_PU"
-		(at 128.27 142.24 180)
+		(at 128.27 147.32 180)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right bottom)
@@ -5726,7 +5660,7 @@
 	)
 	(global_label "DUT_5V"
 		(shape bidirectional)
-		(at 135.89 142.24 0)
+		(at 135.89 147.32 0)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -5734,7 +5668,7 @@
 		)
 		(uuid "09632a4a-caf9-5e21-a5e1-1aa2b09787f4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 135.89 142.24 0)
+			(at 135.89 147.32 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5744,7 +5678,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 160.02 152.4 0)
+		(at 160.02 157.48 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5752,40 +5686,40 @@
 		(dnp no)
 		(uuid "95c01a98-cb38-5808-bda5-40a5da1eee87")
 		(property "Reference" "R9"
-			(at 162.052 152.4 0)
+			(at 162.052 157.48 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 160.02 152.4 0)
+			(at 160.02 157.48 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 159.004 158.75 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 159.004 161.29 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Resistor"
 			(at 159.004 163.83 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C25744"
+		(property "Datasheet" ""
 			(at 159.004 166.37 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Description" "Resistor"
+			(at 159.004 168.91 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 159.004 171.45 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5807,7 +5741,7 @@
 		)
 	)
 	(label "RST_PU"
-		(at 160.02 148.59 90)
+		(at 160.02 153.67 90)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -5816,7 +5750,7 @@
 	)
 	(global_label "DUT_RESET"
 		(shape bidirectional)
-		(at 160.02 156.21 270)
+		(at 160.02 161.29 270)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -5824,7 +5758,7 @@
 		)
 		(uuid "f326b38d-249b-510b-adf1-3d3e78bd3008")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 160.02 156.21 0)
+			(at 160.02 161.29 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5834,7 +5768,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 187.96 142.24 0)
+		(at 187.96 147.32 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5842,54 +5776,54 @@
 		(dnp no)
 		(uuid "4f58d826-6c2c-5286-96e6-3d40d223cf9e")
 		(property "Reference" "D4"
-			(at 187.96 139.7 0)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Value" "Red"
 			(at 187.96 144.78 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Value" "Red"
+			(at 187.96 149.86 0)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 183.388 147.066 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 183.388 149.606 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Light emitting diode"
 			(at 183.388 152.146 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C2286"
+		(property "Datasheet" ""
 			(at 183.388 154.686 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "MPN" "KT-0603R"
+		(property "Description" "Light emitting diode"
 			(at 183.388 157.226 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Reset asserted"
+		(property "LCSC" "C2286"
 			(at 183.388 159.766 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "MPN" "KT-0603R"
+			(at 183.388 162.306 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Reset asserted"
+			(at 183.388 164.846 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5911,7 +5845,7 @@
 		)
 	)
 	(label "RST_LED_K"
-		(at 184.15 142.24 180)
+		(at 184.15 147.32 180)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right bottom)
@@ -5919,7 +5853,7 @@
 		(uuid "cb82d5ae-00e9-5c5c-a856-6617ab19b788")
 	)
 	(label "RST_PU"
-		(at 191.77 142.24 0)
+		(at 191.77 147.32 0)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -5928,7 +5862,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 210.82 154.94 0)
+		(at 210.82 160.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5936,40 +5870,40 @@
 		(dnp no)
 		(uuid "4ff41c94-9686-598a-a666-6df1be91531b")
 		(property "Reference" "R10"
-			(at 212.852 154.94 0)
+			(at 212.852 160.02 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "1kΩ"
-			(at 210.82 154.94 0)
+			(at 210.82 160.02 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 209.804 161.29 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 209.804 163.83 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Resistor"
 			(at 209.804 166.37 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C11702"
+		(property "Datasheet" ""
 			(at 209.804 168.91 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Description" "Resistor"
+			(at 209.804 171.45 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C11702"
+			(at 209.804 173.99 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5991,7 +5925,7 @@
 		)
 	)
 	(label "RST_LED_K"
-		(at 210.82 151.13 90)
+		(at 210.82 156.21 90)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left bottom)
@@ -6000,7 +5934,7 @@
 	)
 	(global_label "DUT_RESET"
 		(shape bidirectional)
-		(at 210.82 158.75 270)
+		(at 210.82 163.83 270)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -6008,7 +5942,7 @@
 		)
 		(uuid "64a84cb5-59a6-5325-ac96-39e3f8d9dfaa")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 210.82 158.75 0)
+			(at 210.82 163.83 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -6018,7 +5952,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 223.52 157.48 0)
+		(at 223.52 162.56 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6026,47 +5960,47 @@
 		(dnp no)
 		(uuid "4a1dfd29-d29f-5e3f-97e6-dcebfd9aa57a")
 		(property "Reference" "R11"
-			(at 225.552 157.48 0)
+			(at 225.552 162.56 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 223.52 157.48 0)
+			(at 223.52 162.56 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 222.504 163.83 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 222.504 166.37 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "Resistor"
 			(at 222.504 168.91 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "LCSC" "C25744"
+		(property "Datasheet" ""
 			(at 222.504 171.45 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "HWB idle high: no DFU unless the Pi asserts HWB"
+		(property "Description" "Resistor"
 			(at 222.504 173.99 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 222.504 176.53 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "HWB idle high: no DFU unless the Pi asserts HWB"
+			(at 222.504 179.07 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -6089,7 +6023,7 @@
 	)
 	(global_label "DUT_PD7"
 		(shape bidirectional)
-		(at 223.52 153.67 90)
+		(at 223.52 158.75 90)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -6097,7 +6031,7 @@
 		)
 		(uuid "08858c55-c591-5cab-bb0a-a3a4abbb311f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 223.52 153.67 0)
+			(at 223.52 158.75 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -6107,7 +6041,7 @@
 	)
 	(global_label "DUT_5V"
 		(shape bidirectional)
-		(at 223.52 161.29 270)
+		(at 223.52 166.37 270)
 		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
@@ -6115,7 +6049,7 @@
 		)
 		(uuid "bd2b7738-a516-5bcd-89e9-4afaaffb6586")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 223.52 161.29 0)
+			(at 223.52 166.37 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -6125,7 +6059,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 233.68 142.24 0)
+		(at 233.68 147.32 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -6133,40 +6067,40 @@
 		(dnp no)
 		(uuid "7e1022d6-c440-5320-9c92-df8d3c4d6fdd")
 		(property "Reference" "TP1"
-			(at 233.68 135.382 0)
+			(at 233.68 140.462 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "DUT_PC2"
-			(at 233.68 137.16 0)
+			(at 233.68 142.24 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 233.68 144.78 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 233.68 147.32 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "test point"
 			(at 233.68 149.86 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Spare DUT pin"
+		(property "Datasheet" ""
 			(at 233.68 152.4 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Description" "test point"
+			(at 233.68 154.94 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Spare DUT pin"
+			(at 233.68 157.48 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -6185,7 +6119,7 @@
 		)
 	)
 	(label "DUT_PC2"
-		(at 233.68 142.24 270)
+		(at 233.68 147.32 270)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right bottom)
@@ -6194,7 +6128,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 243.84 142.24 0)
+		(at 243.84 147.32 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -6202,40 +6136,40 @@
 		(dnp no)
 		(uuid "b79c56e5-f477-5d15-8b75-502a4d873ff8")
 		(property "Reference" "TP2"
-			(at 243.84 135.382 0)
+			(at 243.84 140.462 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "DUT_PC5"
-			(at 243.84 137.16 0)
+			(at 243.84 142.24 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 243.84 144.78 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 243.84 147.32 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "test point"
 			(at 243.84 149.86 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Spare DUT pin"
+		(property "Datasheet" ""
 			(at 243.84 152.4 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Description" "test point"
+			(at 243.84 154.94 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Spare DUT pin"
+			(at 243.84 157.48 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -6254,7 +6188,7 @@
 		)
 	)
 	(label "DUT_PC5"
-		(at 243.84 142.24 270)
+		(at 243.84 147.32 270)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right bottom)
@@ -6263,7 +6197,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 254 142.24 0)
+		(at 254 147.32 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -6271,40 +6205,40 @@
 		(dnp no)
 		(uuid "4d238c50-3d89-5ceb-acf3-7ef63d9c42e3")
 		(property "Reference" "TP3"
-			(at 254 135.382 0)
+			(at 254 140.462 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Value" "DUT_PD0"
-			(at 254 137.16 0)
+			(at 254 142.24 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 254 144.78 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Datasheet" ""
-			(at 254 147.32 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-			)
-		)
-		(property "Description" "test point"
 			(at 254 149.86 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Spare DUT pin"
+		(property "Datasheet" ""
 			(at 254 152.4 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Description" "test point"
+			(at 254 154.94 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Spare DUT pin"
+			(at 254 157.48 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -6323,7 +6257,7 @@
 		)
 	)
 	(label "DUT_PD0"
-		(at 254 142.24 270)
+		(at 254 147.32 270)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right bottom)

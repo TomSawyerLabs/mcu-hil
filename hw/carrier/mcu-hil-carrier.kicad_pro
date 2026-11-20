@@ -3,34 +3,6 @@
     "filename": "mcu-hil-carrier.kicad_pro",
     "version": 3
   },
-  "schematic": {
-    "variants": [
-      {
-        "name": "no Si5351",
-        "description": "Leaves unfitted: SI"
-      },
-      {
-        "name": "no HV",
-        "description": "Leaves unfitted: HV"
-      },
-      {
-        "name": "no crystal switch",
-        "description": "Leaves unfitted: XSW"
-      },
-      {
-        "name": "ext clock only",
-        "description": "Leaves unfitted: XSW, XTAL"
-      },
-      {
-        "name": "minimal",
-        "description": "Leaves unfitted: CLK, HV, SD, SI, XSW"
-      },
-      {
-        "name": "no SD",
-        "description": "Leaves unfitted: SD"
-      }
-    ]
-  },
   "sheets": [
     [
       "4233f4d4-47f9-5f64-8c60-d5f89bcb515c",

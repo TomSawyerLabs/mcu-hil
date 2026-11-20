@@ -4,8 +4,9 @@ Net names: Pi-side signals are named for their job (GPIO in docs/v2-pinmap.md); 
 named for the 16U2 pin (DUT_PB1, DUT_PD7, ...). Power: +5V (board 5 V), +3V3 (Pi/CM 3.3 V),
 DUT_5V (switched DUT supply, before the shunt), DUT_VCC (after the shunt: the MCU only).
 
-Population options: "CLK" clock override, "SI" Si5351 clock generator, "HV" high-voltage programming.
-HV needs CLK (HVPP clocks XTAL1 through the clock buffer).
+Population options (independent on/off choices per build, defined with their rules in hw/options.toml): CLK, SI,
+HV, XTAL, XSW, SD. A part's option is a condition: space-separated terms that must all hold, "!X" meaning option X
+is off. The schematic's DNP flags show the build with every option on; tools/bom makes the BOM for any other mix.
 """
 
 from __future__ import annotations
@@ -68,6 +69,8 @@ def sheet_dut() -> Sheet:
         "Reset: the Pi side holds RESET low by default (pi_io sheet). The diode keeps 12 V (HVPP) off DUT_5V.",
         "Crystal (option XTAL) joins XTAL1 through an analog switch (option XSW): GPIO23 high disconnects it, so a",
         "driven clock sees a bare XTAL1. Without XSW, the 0R bypass is fitted instead (crystal always connected).",
+        "Load: the switch's ~13 pF on-capacitance stands in for the XTAL1-side 12 pF cap, so that cap is fitted only",
+        "without the switch. CL = 13*12/25 + ~3 pF stray = 9.2 pF (crystal wants 9 pF).",
     ]
     sh.add(Part("MCU_Microchip_ATmega:ATmega16U2-A", "ATmega16U2-AU", {
         "XTAL1": "DUT_XTAL1", "2": "DUT_XTAL2", "GND": "GND", "UGND": "GND",
@@ -87,7 +90,8 @@ def sheet_dut() -> Sheet:
     sh.add(Part("Device:Crystal_GND24", "16MHz", {"1": "XTAL_SW", "3": "DUT_XTAL2", "2": "GND", "4": "GND"},
                 footprint="Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm", lcsc="C13738", mpn="X322516MLB4SI",
                 option="XTAL"))
-    C(sh, "12p", "XTAL_SW", option="XTAL", note="On the crystal side of the switch, so it disconnects too")
+    C(sh, "12p", "XTAL_SW", option="XTAL !XSW",
+      note="Only without the switch: its ~13 pF on-capacitance takes this cap's place. Footprint kept for tuning")
     C(sh, "12p", "DUT_XTAL2", option="XTAL")
     # Crystal disconnect switch (option XSW). Control high = closed; pulled up so the crystal is connected by
     # default. The Pi (3.3 V) opens it through a 2N7002, since the switch's 5 V input threshold is 3.5 V.
@@ -450,15 +454,3 @@ def sheet_hat_io() -> Sheet:
 
 def shared_sheets(carrier: bool) -> list[Sheet]:
     return [sheet_dut(), sheet_pi_io(), sheet_clock(), sheet_dut_power(), sheet_hv(), sheet_usb(carrier)]
-
-
-# Presets of unfitted options. XTAL = crystal and load caps, XSW = the Pi-controlled crystal switch (else 0R bypass).
-VARIANTS = {
-    "no Si5351": {"SI"},
-    "no HV": {"HV"},
-    "no crystal switch": {"XSW"},
-    "ext clock only": {"XTAL", "XSW"},
-    "minimal": {"HV", "CLK", "SI", "XSW"},
-}
-# Carrier only: microSD is optional (network boot needs no card).
-CARRIER_VARIANTS = {**VARIANTS, "no SD": {"SD"}, "minimal": VARIANTS["minimal"] | {"SD"}}

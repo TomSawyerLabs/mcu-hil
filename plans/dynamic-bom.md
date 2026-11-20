@@ -46,9 +46,10 @@ Trigger: the INA228 went to 0 stock during schematic work, and the INA226 was sw
    locked part has dropped below the order quantity.
 5. **Any mix of population options** (user, 2026-11-20: "I want to be able to say like 'no SD, yes crystal and yes
    clock generator'"). Every symbol already carries an `Option` field (CLK, SI, HV, SD, XTAL, XSW, or `!X` for a
-   bypass part), so the tool takes the options per order, e.g. `--without SD,HV`, and works out what is fitted. The
-   named KiCad variants stay as a few presets for viewing in KiCad. Six options give 64 mixes, too many to list as
-   variants. Rules the tool enforces: XSW needs XTAL.
+   bypass part), so the tool takes the options per order, e.g. `--without SD,HV`, and works out what is fitted.
+   The user wants no explicit variants (2026-11-20), so the KiCad variants are gone. **Built 2026-11-20:**
+   `tools/bom` reads the KiCad files and `hw/options.toml` (options, `needs` rules, board limits) and writes the
+   JLC BOM for any mix. No stock lookup or substitution yet; that is phase 1 proper.
 6. **Outputs:** JLC BOM CSV and CPL (with per-part rotation fixes), plus an assembly report: every substitution, why
    it was made, and every delta applied.
 
@@ -71,5 +72,5 @@ Trigger: the INA228 went to 0 stock during schematic work, and the INA226 was sw
 ## Progress log
 
 - [x] Plan written (2026-11-15).
-- [x] Added per-order option selection (2026-11-20).
+- [x] Per-order option selection: designed and built (`tools/bom`, 2026-11-20).
 - [ ] User review of the design.
