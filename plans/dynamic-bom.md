@@ -44,7 +44,12 @@ Trigger: the INA228 went to 0 stock during schematic work, and the INA226 was sw
 4. **Lock file** (`hw/<board>/bom.lock.json`, committed), like a package lock: the chosen LCSC number per reference,
    with the stock and time it was chosen. Builds are reproducible. `--update` re-resolves; `--check` fails when a
    locked part has dropped below the order quantity.
-5. **Outputs:** JLC BOM CSV and CPL (with per-part rotation fixes), plus an assembly report: every substitution, why
+5. **Any mix of population options** (user, 2026-11-20: "I want to be able to say like 'no SD, yes crystal and yes
+   clock generator'"). Every symbol already carries an `Option` field (CLK, SI, HV, SD, XTAL, XSW, or `!X` for a
+   bypass part), so the tool takes the options per order, e.g. `--without SD,HV`, and works out what is fitted. The
+   named KiCad variants stay as a few presets for viewing in KiCad. Six options give 64 mixes, too many to list as
+   variants. Rules the tool enforces: XSW needs XTAL.
+6. **Outputs:** JLC BOM CSV and CPL (with per-part rotation fixes), plus an assembly report: every substitution, why
    it was made, and every delta applied.
 
 ## Phases
@@ -66,4 +71,5 @@ Trigger: the INA228 went to 0 stock during schematic work, and the INA226 was sw
 ## Progress log
 
 - [x] Plan written (2026-11-15).
+- [x] Added per-order option selection (2026-11-20).
 - [ ] User review of the design.
