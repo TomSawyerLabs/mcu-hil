@@ -61,6 +61,16 @@ Trigger: the INA228 went to 0 stock during schematic work, and the INA226 was sw
 3. Deltas (value changes to other parts, DNP swaps), with design checks re-run after a swap (for example the divider
    output voltage).
 4. Maybe later: other suppliers, and global-sourcing pre-orders.
+5. **Order kit to cart** (user asked 2026-11-22: "can we go all the way to populating a JLCPCB order? how do we
+   minimize human involvement"). Proposed, not yet approved:
+   - `python -m order <board> --without ... --qty N`: `kicad-cli` exports Gerbers and drill files, the resolver
+     makes BOM + CPL (rotation fixes) and checks stock for N, then writes one folder per build with an order sheet
+     (board settings: layers, thickness, finish, assembly side).
+   - Claude in Chrome (the user's signed-in session, background tab) fills the JLC quote and assembly pages from
+     that folder and stops at the cart. The user checks JLC's placement preview and pays.
+   - JLC's official API (https://api.jlcpcb.com) is gated: applications are reviewed on past orders and business
+     size. The Ordering tier covers Gerber upload, pricing and PCB/stencil orders. No source confirms SMT assembly
+     ordering through it (checked 2026-11-22). Not worth applying for now; the browser route covers assembly.
 
 ## Open questions for the user
 
