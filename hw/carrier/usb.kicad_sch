@@ -1033,7 +1033,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "mcu-hil:TI_RSE_UQFN-10_1.5x2mm_P0.5mm"
 			(at 33.02 58.42 0)
 			(hide yes)
 			(effects
@@ -1531,7 +1531,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "mcu-hil:TI_RSE_UQFN-10_1.5x2mm_P0.5mm"
 			(at 101.6 58.42 0)
 			(hide yes)
 			(effects

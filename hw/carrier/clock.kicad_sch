@@ -2531,7 +2531,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:MSOP-10_3x3mm_P0.5mm"
 			(at 243.84 66.04 0)
 			(hide yes)
 			(effects

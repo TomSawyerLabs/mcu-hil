@@ -3671,7 +3671,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 104.14 55.88 0)
 			(hide yes)
 			(effects
@@ -4439,7 +4439,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "mcu-hil:RJ45_HanRun_HR911130C"
 			(at 203.2 66.04 0)
 			(hide yes)
 			(effects
@@ -5253,7 +5253,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 302.26 45.72 0)
 			(hide yes)
 			(effects

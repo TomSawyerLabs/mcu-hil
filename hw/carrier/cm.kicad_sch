@@ -3445,7 +3445,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Hirose_DF40:Hirose_DF40C-100DS-0.4V_2x50_P0.4mm"
 			(at 38.1 170.18 0)
 			(hide yes)
 			(effects
@@ -6112,7 +6112,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Hirose_DF40:Hirose_DF40C-100DS-0.4V_2x50_P0.4mm"
 			(at 149.86 170.18 0)
 			(hide yes)
 			(effects

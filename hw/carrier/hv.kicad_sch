@@ -2401,7 +2401,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 35.56 58.42 0)
 			(hide yes)
 			(effects
@@ -3602,7 +3602,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 200.66 63.5 0)
 			(hide yes)
 			(effects
@@ -4319,7 +4319,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_DFN_QFN:Texas_RTW_WQFN-24-1EP_4x4mm_P0.5mm_EP2.7x2.7mm"
 			(at 325.12 92.71 0)
 			(hide yes)
 			(effects

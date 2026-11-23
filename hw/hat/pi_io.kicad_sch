@@ -1272,7 +1272,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
 			(at 30.48 66.04 0)
 			(hide yes)
 			(effects
@@ -1962,7 +1962,7 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:VSSOP-8_2.3x2mm_P0.5mm"
 			(at 111.76 55.88 0)
 			(hide yes)
 			(effects

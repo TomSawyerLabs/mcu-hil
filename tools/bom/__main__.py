@@ -118,7 +118,7 @@ def main() -> int:
             w.writerow([value, ",".join(sorted(refs, key=key)), fp, lcsc])
     print(f"{a.board}: options on: {', '.join(o for o in options if o in on) or 'none'}")
     print(f"  {len(fit)} parts fitted ({len(groups)} lines), {len(dnp)} not fitted")
-    print(f"  wrote {out.relative_to(ROOT)}")
+    print(f"  wrote {out.resolve()}")
     if missing:
         print(f"error: fitted parts with no LCSC number: {', '.join(sorted(missing, key=key))}", file=sys.stderr)
         return 1

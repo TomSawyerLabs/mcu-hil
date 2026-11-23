@@ -282,7 +282,7 @@ class Project:
                 [Sym("on_board"), Sym("yes" if p.on_board else "no")], [Sym("dnp"), Sym("yes" if p.dnp or not default_fitted(p.option) else "no")],
                 [Sym("uuid"), uid]]
         fields = [("Reference", p.ref, False), ("Value", p.value, False),
-                  ("Footprint", p.footprint, True), ("Datasheet", p.datasheet or sym.prop_value("Datasheet"), True),
+                  ("Footprint", p.footprint or sym.prop_value("Footprint"), True), ("Datasheet", p.datasheet or sym.prop_value("Datasheet"), True),
                   ("Description", p.description or sym.prop_value("Description"), True)]
         extra = [("LCSC", p.lcsc), ("MPN", p.mpn), ("Option", p.option), ("Note", p.note)]
         for k, v in extra:
