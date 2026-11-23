@@ -32,7 +32,12 @@ The KiCad 10 projects are in `hw/carrier/` and `hw/hat/`. Their schematics are g
 Optional blocks (crystal, crystal switch, clock override, Si5351, HV programming, microSD) are independent
 on/off options, listed in [`hw/options.toml`](hw/options.toml). Make the JLC BOM for any mix with
 `cd tools && python -m bom carrier --without SD,HV` (`--list` shows the options). It writes
-`hw/<board>/out/<build>-bom.csv`.
+`hw/<board>/out/<build>-bom.csv` and a report.
+
+Parts come from a committed lock, `hw/<board>/bom.lock.json`. `python -m bom <board> --update --qty N` re-picks
+parts that are short for N boards: each symbol's `LCSC` field is the preferred part, and its `Spec` field
+(`R 10k 1% 0402`, `C 100n X5R+ 16V 0402`, `mpn 2N7002 SOT-23`, ...) says what may replace it. `--qty N` without
+`--update` re-checks the locked parts' stock live.
 View them in the browser with KiCanvas: [carrier](https://kicanvas.org/?github=https://github.com/TomSawyerLabs/mcu-hil/tree/master/hw/carrier), [HAT](https://kicanvas.org/?github=https://github.com/TomSawyerLabs/mcu-hil/tree/master/hw/hat).
 
 ## v1 (AVR Test HAT)

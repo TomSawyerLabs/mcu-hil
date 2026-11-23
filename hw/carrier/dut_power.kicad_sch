@@ -1392,6 +1392,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "C 1u X5R+ 16V 0402"
+			(at 71.628 59.69 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "28200046-2130-57c5-ba22-b3e19d3006aa")
 		)
@@ -1552,8 +1559,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Rise-time control"
+		(property "Spec" "C 1n X5R+ 50V 0402"
 			(at 84.328 64.77 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Rise-time control"
+			(at 84.328 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1674,6 +1688,13 @@
 		)
 		(property "LCSC" "C52923"
 			(at 99.568 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "C 1u X5R+ 16V 0402"
+			(at 99.568 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -1809,6 +1830,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 100k 1% 0402"
+			(at 113.284 69.85 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "704146c0-47d5-50d4-84c7-12261088024a")
 		)
@@ -1939,15 +1967,22 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "MPN" "0603WAF100KT5E"
+		(property "Spec" "R 1 1% 0603"
 			(at 125.984 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Shunt, 1%"
+		(property "MPN" "0603WAF100KT5E"
 			(at 125.984 67.31 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Shunt, 1%"
+			(at 125.984 69.85 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2448,6 +2483,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "C 100n X5R+ 16V 0402"
+			(at 196.088 59.69 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "52a26fc7-a9ea-5fab-adfc-314c0e9dc989")
 		)
@@ -2603,6 +2645,13 @@
 		)
 		(property "LCSC" "C25744"
 			(at 209.804 64.77 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "R 10k 1% 0402"
+			(at 209.804 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))

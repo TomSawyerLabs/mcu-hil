@@ -1399,6 +1399,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "C 100n X5R+ 16V 0402"
+			(at 76.708 57.15 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "31c67b7b-8016-56d8-9ff3-5b5a4ab41470")
 		)
@@ -1897,6 +1904,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "C 100n X5R+ 16V 0402"
+			(at 147.828 57.15 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "bc3ebde8-f44f-50c8-9865-fd021eaf1715")
 		)
@@ -2057,6 +2071,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 100k 1% 0402"
+			(at 164.084 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "1d238080-07ff-5d6c-9556-ea3ce307d6e1")
 		)
@@ -2182,6 +2203,13 @@
 		)
 		(property "LCSC" "C25741"
 			(at 174.244 59.69 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "R 100k 1% 0402"
+			(at 174.244 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2317,8 +2345,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Host mode whenever the DUT side is selected"
+		(property "Spec" "mpn 2N7002 SOT-23"
 			(at 200.66 71.12 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Host mode whenever the DUT side is selected"
+			(at 200.66 73.66 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))

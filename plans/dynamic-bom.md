@@ -24,7 +24,7 @@ Trigger: the INA228 went to 0 stock during schematic work, and the INA226 was sw
 - The schematic generator (`tools/schgen/`) retires once the board is hand-edited in KiCad. So the resolver must
   read the **KiCad files**, not `design.py`.
 
-## Design (draft, not yet reviewed by the user)
+## Design (approved by the user 2026-11-22: "sounds good")
 
 1. **Requirements live in the schematic.** Each symbol carries a `Spec` field instead of (or beside) a fixed `LCSC`:
    - Generic parts: `R 10k 1% 0402`, `C 100n X7R/X5R >=16V 0402`, `L 10u Isat>=1.5A 4x4`, `D schottky 40V 1A SOD-123`,
@@ -55,14 +55,27 @@ Trigger: the INA228 went to 0 stock during schematic work, and the INA226 was sw
 
 ## Phases
 
-1. Generic passives and discretes (R, C, L, diodes, LEDs, MOSFETs, crystals), the lock file, and JLC BOM/CPL export.
-   This replaces the hand-made BOM step in `plans/v2-design.md` step 7.
+1. **(done 2026-11-22, except CPL)** Generic passives and discretes, the lock file, and JLC BOM export. Built:
+   - `Spec` field per symbol, written by the generator. Kinds (`tools/bom/spec.py`): `R`, `C` (dielectric grade
+     `X5R+` = X5R or better), `LED`, and `mpn <part number> [package]` = that part number from any maker (used for
+     2N7002, BZT52C3V6, 1N4148W, B5819W, AO3401A, MT3608, USBLC6-2SC6). No Spec = fixed part, stock-checked only
+     (ICs, connectors, crystals, the inductor). `L` and crystal specs wait for phase 2/3 (footprint- and
+     load-capacitance-dependent).
+   - The schematic's `LCSC` field is the preferred part; it must meet its own Spec (checked).
+   - Resolver order: locked choice if still good, else preferred, else search JLC (in-stock, 2 pages + a Basic-only
+     search) and rank Basic > Preferred > Extended, then already used on the board, then stock.
+   - Stock needed = positions × boards × 1.1 + JLC's attrition for that part.
+   - Lock `hw/<board>/bom.lock.json` (committed) covers every position any build can fit.
+   - Build output `hw/<board>/out/<build>-bom.csv` and `-report.md` (substitutions, Extended count); `out/` ignored.
+   - CPL needs the PCB: comes with layout (rotation fixes from the footprint/part pairs).
+   - Tested: `--qty 60000` swaps BZT52C3V6 and USBLC6-2SC6 to other makers' parts and names the fixed parts that run
+     short; a stale lock is refused.
 2. Functional groups with automatic pin-table checks (INA22x, TPS22918-class switches, single-gate logic, LDOs).
 3. Deltas (value changes to other parts, DNP swaps), with design checks re-run after a swap (for example the divider
    output voltage).
 4. Maybe later: other suppliers, and global-sourcing pre-orders.
 5. **Order kit to cart** (user asked 2026-11-22: "can we go all the way to populating a JLCPCB order? how do we
-   minimize human involvement"). Proposed, not yet approved:
+   minimize human involvement"). Approved as a plan 2026-11-22; built after layout.
    - `python -m order <board> --without ... --qty N`: `kicad-cli` exports Gerbers and drill files, the resolver
      makes BOM + CPL (rotation fixes) and checks stock for N, then writes one folder per build with an order sheet
      (board settings: layers, thickness, finish, assembly side).
@@ -74,13 +87,23 @@ Trigger: the INA228 went to 0 stock during schematic work, and the INA226 was sw
 
 ## Open questions for the user
 
-1. Is the design above the right shape? In particular: requirements in a KiCad `Spec` field plus a parts file, and a
-   committed lock file so an order is reproducible.
-2. When to build it: before layout (the BOM step needs it anyway; layout doesn't), or after the carrier layout?
-   Recommendation: phase 1 now, while the schematic gets its tidy-up, because it changes how parts are written down.
+None. (Answered 2026-11-22: design approved, phase 1 built now.)
+
+## Findings
+
+- JLC's search results carry each part's attributes (`attributes`: Resistance, Tolerance, Capacitance, Temperature
+  Coefficient, Voltage Rating, Illumination Color...), so specs match without a per-part detail call.
+- Request filters that work: `stockFlag: true` (in stock only), `componentLibraryType: "base"` (Basic only).
+- A 100-result search takes about 2.5 s, an exact-code lookup about 0.4 s. So the resolver searches only when the
+  locked and preferred parts are both unusable; a normal `--update` takes about 4 s per board.
 
 ## Progress log
 
 - [x] Plan written (2026-11-15).
 - [x] Per-order option selection: designed and built (`tools/bom`, 2026-11-20).
-- [ ] User review of the design.
+- [x] User review of the design (2026-11-22).
+- [x] Phase 1 without CPL (2026-11-22).
+- [ ] CPL export, with layout.
+- [ ] Phase 2: groups with pin-table checks.
+- [ ] Phase 3: deltas.
+- [ ] Phase 5: order kit to cart, after layout.

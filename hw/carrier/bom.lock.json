@@ -1,0 +1,697 @@
+{
+ "qty": 10,
+ "updated": "2026-11-23T02:16:51Z",
+ "lines": {
+  " | C114218": {
+   "spec": "",
+   "preferred": "C114218",
+   "lcsc": "C114218",
+   "model": "DM3AT-SF-PEJM5",
+   "brand": "HRS(Hirose)",
+   "library": "Extended",
+   "stock": 13708,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "J5"
+   ]
+  },
+  " | C128396": {
+   "spec": "",
+   "preferred": "C128396",
+   "lcsc": "C128396",
+   "model": "TS3USB221ARSER",
+   "brand": "Texas Instruments",
+   "library": "Extended",
+   "stock": 95706,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "U12",
+    "U13"
+   ]
+  },
+  " | C131941": {
+   "spec": "",
+   "preferred": "C131941",
+   "lcsc": "C131941",
+   "model": "TPS22918DBVR",
+   "brand": "Texas Instruments",
+   "library": "Extended",
+   "stock": 51573,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "U8",
+    "U15"
+   ]
+  },
+  " | C133643": {
+   "spec": "",
+   "preferred": "C133643",
+   "lcsc": "C133643",
+   "model": "SN74LVC1G66DBVR",
+   "brand": "Texas Instruments",
+   "library": "Extended",
+   "stock": 75196,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "U2"
+   ]
+  },
+  " | C13738": {
+   "spec": "",
+   "preferred": "C13738",
+   "lcsc": "C13738",
+   "model": "X322516MLB4SI",
+   "brand": "YXC Crystal Oscillators",
+   "library": "Basic",
+   "stock": 361681,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "Y1"
+   ]
+  },
+  " | C165948": {
+   "spec": "",
+   "preferred": "C165948",
+   "lcsc": "C165948",
+   "model": "TYPE-C-31-M-12",
+   "brand": "Korean Hroparts Elec",
+   "library": "Extended",
+   "stock": 477690,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "J3"
+   ]
+  },
+  " | C182336": {
+   "spec": "",
+   "preferred": "C182336",
+   "lcsc": "C182336",
+   "model": "TCA6416ARTWR",
+   "brand": "Texas Instruments",
+   "library": "Extended",
+   "stock": 28340,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "U11"
+   ]
+  },
+  " | C2440228": {
+   "spec": "",
+   "preferred": "C2440228",
+   "lcsc": "C2440228",
+   "model": "SN74LV1T126DBVR",
+   "brand": "Texas Instruments",
+   "library": "Extended",
+   "stock": 7889,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "U5",
+    "U6"
+   ]
+  },
+  " | C318884": {
+   "spec": "",
+   "preferred": "C318884",
+   "lcsc": "C318884",
+   "model": "TS-1187A-B-A-B",
+   "brand": "XKB Connection",
+   "library": "Basic",
+   "stock": 709729,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "SW1"
+   ]
+  },
+  " | C38117": {
+   "spec": "",
+   "preferred": "C38117",
+   "lcsc": "C38117",
+   "model": "SWPA4030S100MT",
+   "brand": "Sunlord",
+   "library": "Extended",
+   "stock": 17098,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "L1"
+   ]
+  },
+  " | C4364118": {
+   "spec": "",
+   "preferred": "C4364118",
+   "lcsc": "C4364118",
+   "model": "TXU0304PWR",
+   "brand": "Texas Instruments",
+   "library": "Extended",
+   "stock": 4215,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "U3"
+   ]
+  },
+  " | C448646": {
+   "spec": "",
+   "preferred": "C448646",
+   "lcsc": "C448646",
+   "model": "NX3225SA-25MHz-STD-CSR-6",
+   "brand": "NDK",
+   "library": "Extended",
+   "stock": 6211,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "Y2"
+   ]
+  },
+  " | C49851": {
+   "spec": "",
+   "preferred": "C49851",
+   "lcsc": "C49851",
+   "model": "INA226AIDGSR",
+   "brand": "Texas Instruments",
+   "library": "Extended",
+   "stock": 48074,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "U9"
+   ]
+  },
+  " | C504891": {
+   "spec": "",
+   "preferred": "C504891",
+   "lcsc": "C504891",
+   "model": "SI5351A-B-GTR",
+   "brand": "SKYWORKS/SILICON LABS",
+   "library": "Extended",
+   "stock": 8284,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "U7"
+   ]
+  },
+  " | C50933": {
+   "spec": "",
+   "preferred": "C50933",
+   "lcsc": "C50933",
+   "model": "HR911130C",
+   "brand": "HANRUN(Zhongshan HanRun Elec)",
+   "library": "Extended",
+   "stock": 5502,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "J4"
+   ]
+  },
+  " | C5186957": {
+   "spec": "",
+   "preferred": "C5186957",
+   "lcsc": "C5186957",
+   "model": "TXU0202DCUR",
+   "brand": "Texas Instruments",
+   "library": "Extended",
+   "stock": 11059,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "U4"
+   ]
+  },
+  " | C59019": {
+   "spec": "",
+   "preferred": "C59019",
+   "lcsc": "C59019",
+   "model": "ATMEGA16U2-AU",
+   "brand": "Microchip Tech",
+   "library": "Extended",
+   "stock": 84,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "U1"
+   ]
+  },
+  " | C597931": {
+   "spec": "",
+   "preferred": "C597931",
+   "lcsc": "C597931",
+   "model": "DF40C-100DS-0.4V(51)",
+   "brand": "HRS(Hirose)",
+   "library": "Extended",
+   "stock": 17232,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "J1",
+    "J2"
+   ]
+  },
+  "C 100n X5R+ 16V 0402 | C1525": {
+   "spec": "C 100n X5R+ 16V 0402",
+   "preferred": "C1525",
+   "lcsc": "C1525",
+   "model": "CL05B104KO5NNNC",
+   "brand": "Samsung Electro-Mechanics",
+   "library": "Basic",
+   "stock": 33125783,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "C1",
+    "C2",
+    "C3",
+    "C8",
+    "C9",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C16",
+    "C20",
+    "C24",
+    "C25",
+    "C26",
+    "C27",
+    "C30",
+    "C32"
+   ]
+  },
+  "C 10u X5R+ 10V 0603 | C19702": {
+   "spec": "C 10u X5R+ 10V 0603",
+   "preferred": "C19702",
+   "lcsc": "C19702",
+   "model": "CL10A106KP8NNNC",
+   "brand": "Samsung Electro-Mechanics",
+   "library": "Basic",
+   "stock": 9837058,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "C4",
+    "C21",
+    "C31"
+   ]
+  },
+  "C 10u X5R+ 25V 0805 | C15850": {
+   "spec": "C 10u X5R+ 25V 0805",
+   "preferred": "C15850",
+   "lcsc": "C15850",
+   "model": "CL21A106KAYNNNE",
+   "brand": "Samsung Electro-Mechanics",
+   "library": "Basic",
+   "stock": 9239837,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "C22",
+    "C23"
+   ]
+  },
+  "C 12p C0G 50V 0402 | C1547": {
+   "spec": "C 12p C0G 50V 0402",
+   "preferred": "C1547",
+   "lcsc": "C1547",
+   "model": "0402CG120J500NT",
+   "brand": "FH (Guangdong Fenghua Advanced Tech)",
+   "library": "Basic",
+   "stock": 1564063,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "C6",
+    "C7"
+   ]
+  },
+  "C 1n X5R+ 50V 0402 | C1523": {
+   "spec": "C 1n X5R+ 50V 0402",
+   "preferred": "C1523",
+   "lcsc": "C1523",
+   "model": "0402B102K500NT",
+   "brand": "FH (Guangdong Fenghua Advanced Tech)",
+   "library": "Basic",
+   "stock": 3826351,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "C18"
+   ]
+  },
+  "C 1u X5R+ 16V 0402 | C52923": {
+   "spec": "C 1u X5R+ 16V 0402",
+   "preferred": "C52923",
+   "lcsc": "C52923",
+   "model": "CL05A105KA5NQNC",
+   "brand": "Samsung Electro-Mechanics",
+   "library": "Basic",
+   "stock": 9122086,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "C5",
+    "C17",
+    "C19"
+   ]
+  },
+  "C 22u X5R+ 25V 0805 | C45783": {
+   "spec": "C 22u X5R+ 25V 0805",
+   "preferred": "C45783",
+   "lcsc": "C45783",
+   "model": "CL21A226MAQNNNE",
+   "brand": "Samsung Electro-Mechanics",
+   "library": "Basic",
+   "stock": 4366251,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "C28",
+    "C29"
+   ]
+  },
+  "LED red 0603 | C2286": {
+   "spec": "LED red 0603",
+   "preferred": "C2286",
+   "lcsc": "C2286",
+   "model": "KT-0603R",
+   "brand": "Hubei KENTO Elec",
+   "library": "Basic",
+   "stock": 8370282,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "D4",
+    "D6",
+    "D7",
+    "D8"
+   ]
+  },
+  "R 0 0402 | C17168": {
+   "spec": "R 0 0402",
+   "preferred": "C17168",
+   "lcsc": "C17168",
+   "model": "0402WGF0000TCE",
+   "brand": "UNI-ROYAL(Uniroyal Elec)",
+   "library": "Basic",
+   "stock": 13880559,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "R3"
+   ]
+  },
+  "R 1 1% 0603 | C22936": {
+   "spec": "R 1 1% 0603",
+   "preferred": "C22936",
+   "lcsc": "C22936",
+   "model": "0603WAF100KT5E",
+   "brand": "UNI-ROYAL(Uniroyal Elec)",
+   "library": "Basic",
+   "stock": 387098,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "R28"
+   ]
+  },
+  "R 1.5k 1% 0402 | C25867": {
+   "spec": "R 1.5k 1% 0402",
+   "preferred": "C25867",
+   "lcsc": "C25867",
+   "model": "0402WGF1501TCE",
+   "brand": "UNI-ROYAL(Uniroyal Elec)",
+   "library": "Basic",
+   "stock": 1463939,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "R8"
+   ]
+  },
+  "R 100k 1% 0402 | C25741": {
+   "spec": "R 100k 1% 0402",
+   "preferred": "C25741",
+   "lcsc": "C25741",
+   "model": "0402WGF1003TCE",
+   "brand": "UNI-ROYAL(Uniroyal Elec)",
+   "library": "Basic",
+   "stock": 11906966,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "R2",
+    "R12",
+    "R13",
+    "R14",
+    "R15",
+    "R16",
+    "R17",
+    "R18",
+    "R19",
+    "R20",
+    "R21",
+    "R23",
+    "R25",
+    "R26",
+    "R27",
+    "R30",
+    "R32",
+    "R35",
+    "R39",
+    "R40"
+   ]
+  },
+  "R 10k 1% 0402 | C25744": {
+   "spec": "R 10k 1% 0402",
+   "preferred": "C25744",
+   "lcsc": "C25744",
+   "model": "0402WGF1002TCE",
+   "brand": "UNI-ROYAL(Uniroyal Elec)",
+   "library": "Basic",
+   "stock": 34715892,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "R1",
+    "R9",
+    "R11",
+    "R29",
+    "R33",
+    "R34",
+    "R37",
+    "R38",
+    "R45"
+   ]
+  },
+  "R 1k 1% 0402 | C11702": {
+   "spec": "R 1k 1% 0402",
+   "preferred": "C11702",
+   "lcsc": "C11702",
+   "model": "0402WGF1001TCE",
+   "brand": "UNI-ROYAL(Uniroyal Elec)",
+   "library": "Basic",
+   "stock": 29343628,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "R10",
+    "R36",
+    "R46",
+    "R47",
+    "R48"
+   ]
+  },
+  "R 22 1% 0402 | C25092": {
+   "spec": "R 22 1% 0402",
+   "preferred": "C25092",
+   "lcsc": "C25092",
+   "model": "0402WGF220JTCE",
+   "brand": "UNI-ROYAL(Uniroyal Elec)",
+   "library": "Basic",
+   "stock": 7153629,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "R4",
+    "R5"
+   ]
+  },
+  "R 33 1% 0402 | C25105": {
+   "spec": "R 33 1% 0402",
+   "preferred": "C25105",
+   "lcsc": "C25105",
+   "model": "0402WGF330JTCE",
+   "brand": "UNI-ROYAL(Uniroyal Elec)",
+   "library": "Basic",
+   "stock": 4412917,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "R22",
+    "R24"
+   ]
+  },
+  "R 470 1% 0402 | C25117": {
+   "spec": "R 470 1% 0402",
+   "preferred": "C25117",
+   "lcsc": "C25117",
+   "model": "0402WGF4700TCE",
+   "brand": "UNI-ROYAL(Uniroyal Elec)",
+   "library": "Basic",
+   "stock": 2254638,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "R43",
+    "R44"
+   ]
+  },
+  "R 5.1k 1% 0402 | C25905": {
+   "spec": "R 5.1k 1% 0402",
+   "preferred": "C25905",
+   "lcsc": "C25905",
+   "model": "0402WGF5101TCE",
+   "brand": "UNI-ROYAL(Uniroyal Elec)",
+   "library": "Basic",
+   "stock": 3983668,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "R31",
+    "R41",
+    "R42"
+   ]
+  },
+  "R 75 1% 0402 | C25133": {
+   "spec": "R 75 1% 0402",
+   "preferred": "C25133",
+   "lcsc": "C25133",
+   "model": "0402WGF750JTCE",
+   "brand": "UNI-ROYAL(Uniroyal Elec)",
+   "library": "Preferred",
+   "stock": 991023,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "R6",
+    "R7"
+   ]
+  },
+  "mpn 1N4148W SOD-123 | C81598": {
+   "spec": "mpn 1N4148W SOD-123",
+   "preferred": "C81598",
+   "lcsc": "C81598",
+   "model": "1N4148W",
+   "brand": "ST(Semtech)",
+   "library": "Basic",
+   "stock": 4450935,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "D3"
+   ]
+  },
+  "mpn 2N7002 SOT-23 | C8545": {
+   "spec": "mpn 2N7002 SOT-23",
+   "preferred": "C8545",
+   "lcsc": "C8545",
+   "model": "2N7002",
+   "brand": "Jiangsu Changjing Electronics Technology Co., Ltd.",
+   "library": "Basic",
+   "stock": 6089713,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q6",
+    "Q7"
+   ]
+  },
+  "mpn AO3401A SOT-23 | C15127": {
+   "spec": "mpn AO3401A SOT-23",
+   "preferred": "C15127",
+   "lcsc": "C15127",
+   "model": "AO3401A",
+   "brand": "Alpha & Omega Semicon",
+   "library": "Basic",
+   "stock": 1170573,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "Q5"
+   ]
+  },
+  "mpn B5819W SOD-123 | C8598": {
+   "spec": "mpn B5819W SOD-123",
+   "preferred": "C8598",
+   "lcsc": "C8598",
+   "model": "B5819W SL",
+   "brand": "Jiangsu Changjing Electronics Technology Co., Ltd.",
+   "library": "Basic",
+   "stock": 962267,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "D5"
+   ]
+  },
+  "mpn BZT52C3V6 SOD-123 | C173412": {
+   "spec": "mpn BZT52C3V6 SOD-123",
+   "preferred": "C173412",
+   "lcsc": "C173412",
+   "model": "BZT52C3V6",
+   "brand": "MDD(Microdiode Semiconductor)",
+   "library": "Extended",
+   "stock": 46509,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "D1",
+    "D2"
+   ]
+  },
+  "mpn MT3608 | C84817": {
+   "spec": "mpn MT3608",
+   "preferred": "C84817",
+   "lcsc": "C84817",
+   "model": "MT3608",
+   "brand": "XI'AN Aerosemi Tech",
+   "library": "Extended",
+   "stock": 56117,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "U10"
+   ]
+  },
+  "mpn USBLC6-2SC6 | C7519": {
+   "spec": "mpn USBLC6-2SC6",
+   "preferred": "C7519",
+   "lcsc": "C7519",
+   "model": "USBLC6-2SC6",
+   "brand": "STMicroelectronics",
+   "library": "Extended",
+   "stock": 39798,
+   "checked": "2026-11-23T02:16:51Z",
+   "reason": "preferred",
+   "refs": [
+    "U14"
+   ]
+  }
+ }
+}

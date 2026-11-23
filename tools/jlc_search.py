@@ -7,32 +7,16 @@ Columns: LCSC code, library (Basic / Pref = preferred extended / Ext), JLC stock
 model, package, description. Sorted Basic first, then by stock.
 """
 import argparse
-import json
 import sys
-import urllib.request
 
-URL = "https://jlcpcb.com/api/overseas-pcb-order/v1/shoppingCart/smtGood/selectSmtComponentList"
+from bom.jlc import Jlc
 
-
-def search(keyword, n=8):
-    body = json.dumps({"keyword": keyword, "currentPage": 1, "pageSize": max(n, 10)}).encode()
-    req = urllib.request.Request(URL, data=body, headers={"Content-Type": "application/json", "User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        data = json.load(r)
-    return ((data.get("data") or {}).get("componentPageInfo") or {}).get("list") or []
-
-
-def lib(c):
-    if c.get("componentLibraryType") == "base":
-        return "Basic"
-    return "Pref" if c.get("preferredComponentFlag") else "Ext"
+SHORT = {"Basic": "Basic", "Preferred": "Pref", "Extended": "Ext"}
 
 
 def row(c):
-    price = (c.get("componentPrices") or [{}])[0].get("productPrice")
-    return (f"{c['componentCode']:<10} {lib(c):<5} {c.get('stockCount', 0):>8} "
-            f"{price if price is not None else '-':>8} {c.get('componentModelEn', '')[:28]:<28} "
-            f"{(c.get('componentSpecificationEn') or '')[:16]:<16} {(c.get('describe') or '')[:70]}")
+    return (f"{c.lcsc:<10} {SHORT[c.library]:<5} {c.stock:>8} {c.price:>8} {c.model[:28]:<28} "
+            f"{c.package[:16]:<16} {c.describe[:70]}")
 
 
 def main():
@@ -42,11 +26,12 @@ def main():
     ap.add_argument("--codes", action="store_true", help="treat arguments as exact LCSC codes")
     ap.add_argument("terms", nargs="+")
     a = ap.parse_args()
+    jlc = Jlc()
     for t in a.terms:
-        res = search(t, a.n)
+        res = jlc.search(t, page_size=max(a.n, 10))
         if a.codes:
-            res = [c for c in res if c["componentCode"] == t]
-        res.sort(key=lambda c: (lib(c) != "Basic", lib(c) != "Pref", -(c.get("stockCount") or 0)))
+            res = [c for c in res if c.lcsc == t]
+        res.sort(key=lambda c: (c.library != "Basic", c.library != "Preferred", -c.stock))
         print(f"== {t}")
         for c in res[: a.n]:
             print("  " + row(c))

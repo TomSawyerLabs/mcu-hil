@@ -1700,6 +1700,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "C 100n X5R+ 16V 0402"
+			(at 69.088 59.69 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "eb8f31f8-6d8f-50b1-ba23-10dd30ad76d8")
 		)
@@ -1855,6 +1862,13 @@
 		)
 		(property "LCSC" "C1525"
 			(at 84.328 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "C 100n X5R+ 16V 0402"
+			(at 84.328 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2276,6 +2290,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "C 100n X5R+ 16V 0402"
+			(at 150.368 59.69 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "7d448aea-b58b-5837-ae73-5f946cf302b4")
 		)
@@ -2436,6 +2457,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "C 100n X5R+ 16V 0402"
+			(at 163.068 64.77 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "0318b38d-5ddf-5881-b03e-3ddb92b76c5a")
 		)
@@ -2561,6 +2589,13 @@
 		)
 		(property "LCSC" "C25741"
 			(at 179.324 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "R 100k 1% 0402"
+			(at 179.324 64.77 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2696,6 +2731,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 100k 1% 0402"
+			(at 189.484 67.31 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "0f9464c1-fc1b-58e9-ac74-829ab0589015")
 		)
@@ -2826,8 +2868,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Keeps translator inputs defined while the Pi pin is an input"
+		(property "Spec" "R 100k 1% 0402"
 			(at 202.184 67.31 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Keeps translator inputs defined while the Pi pin is an input"
+			(at 202.184 69.85 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2963,6 +3012,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 100k 1% 0402"
+			(at 214.884 67.31 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "538ccb81-1266-5840-8809-d5f6837ac7af")
 		)
@@ -3088,6 +3144,13 @@
 		)
 		(property "LCSC" "C25741"
 			(at 227.584 64.77 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "R 100k 1% 0402"
+			(at 227.584 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3223,8 +3286,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "UART idle high"
+		(property "Spec" "R 100k 1% 0402"
 			(at 240.284 64.77 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "UART idle high"
+			(at 240.284 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3360,8 +3430,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "UART idle high"
+		(property "Spec" "R 100k 1% 0402"
 			(at 250.444 67.31 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "UART idle high"
+			(at 250.444 69.85 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3467,8 +3544,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Rated 60 V, safe with 12 V on RESET"
+		(property "Spec" "mpn 2N7002 SOT-23"
 			(at 274.32 71.12 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Rated 60 V, safe with 12 V on RESET"
+			(at 274.32 73.66 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3615,6 +3699,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 100k 1% 0402"
+			(at 293.624 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "849709c3-ae7f-5038-828b-549d4dbffe9c")
 		)
@@ -3700,6 +3791,13 @@
 		)
 		(property "LCSC" "C8545"
 			(at 325.12 63.5 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "mpn 2N7002 SOT-23"
+			(at 325.12 66.04 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3846,6 +3944,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 100k 1% 0402"
+			(at 341.884 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "3ee22045-5b9f-5ad9-8833-98f70769ef92")
 		)
@@ -3971,6 +4076,13 @@
 		)
 		(property "LCSC" "C8545"
 			(at 370.84 66.04 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "mpn 2N7002 SOT-23"
+			(at 370.84 68.58 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4122,6 +4234,13 @@
 		)
 		(property "LCSC" "C25741"
 			(at 390.144 67.31 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "R 100k 1% 0402"
+			(at 390.144 69.85 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))

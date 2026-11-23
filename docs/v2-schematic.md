@@ -50,6 +50,9 @@ cap is `XTAL !XSW`. The schematic's own DNP flags show the build with every opti
 `cd tools && python -m bom carrier --without SD,HV` writes that build's JLC BOM (`--only` picks options the other
 way round, `--list` lists them). Rules it enforces: HV needs CLK, XSW needs XTAL.
 
+Each part's `LCSC` field is its preferred JLC part and its `Spec` field says what may replace it when stock runs
+short (no Spec: that exact part only). The chosen parts live in `hw/<board>/bom.lock.json`; see the README.
+
 With both clock buffers off (the default) the DUT runs from its crystal; to run from a driven clock, set its fuses
 to external clock (and open the crystal switch, if fitted).
 

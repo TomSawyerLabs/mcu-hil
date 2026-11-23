@@ -20,26 +20,30 @@ RES = {  # value -> LCSC, all 0402 1%
     "1k": "C11702", "1.5k": "C25867", "3.9k": "C51721", "4.7k": "C25900", "5.1k": "C25905",
     "10k": "C25744", "100k": "C25741",
 }
-CAP = {  # value -> (LCSC, footprint)
-    "12p": ("C1547", "C_0402_1005Metric"), "100n": ("C1525", "C_0402_1005Metric"),
-    "1n": ("C1523", "C_0402_1005Metric"), "1u": ("C52923", "C_0402_1005Metric"),
-    "10u": ("C19702", "C_0603_1608Metric"), "10u/25V": ("C15850", "C_0805_2012Metric"),
-    "22u/25V": ("C45783", "C_0805_2012Metric"),
+CAP = {  # value -> (preferred LCSC, footprint, spec: what any substitute must meet)
+    "12p": ("C1547", "C_0402_1005Metric", "C 12p C0G 50V 0402"),
+    "100n": ("C1525", "C_0402_1005Metric", "C 100n X5R+ 16V 0402"),
+    "1n": ("C1523", "C_0402_1005Metric", "C 1n X5R+ 50V 0402"),
+    "1u": ("C52923", "C_0402_1005Metric", "C 1u X5R+ 16V 0402"),
+    "10u": ("C19702", "C_0603_1608Metric", "C 10u X5R+ 10V 0603"),
+    "10u/25V": ("C15850", "C_0805_2012Metric", "C 10u X5R+ 25V 0805"),
+    "22u/25V": ("C45783", "C_0805_2012Metric", "C 22u X5R+ 25V 0805"),
 }
-LED_RED = dict(lcsc="C2286", mpn="KT-0603R", footprint="LED_SMD:LED_0603_1608Metric")
+LED_RED = dict(lcsc="C2286", mpn="KT-0603R", footprint="LED_SMD:LED_0603_1608Metric", spec="LED red 0603")
 
 
 def R(sh: Sheet, value: str, a: str, b: str, option: str = "", note: str = "") -> Part:
     shown = value[:-1] + "Ω" if value.endswith("R") else value + "Ω"
     return sh.add(Part("Device:R", shown, {"1": a, "2": b},
-                       footprint="Resistor_SMD:R_0402_1005Metric", lcsc=RES[value], option=option, note=note))
+                       footprint="Resistor_SMD:R_0402_1005Metric", lcsc=RES[value], option=option, note=note,
+                       spec="R 0 0402" if value == "0R" else f"R {value.rstrip('R')} 1% 0402"))
 
 
 def C(sh: Sheet, value: str, a: str, b: str = "GND", option: str = "", note: str = "") -> Part:
-    lcsc, fp = CAP[value]
+    lcsc, fp, spec = CAP[value]
     shown = value.replace("u", "µF").replace("n", "nF").replace("p", "pF")
     return sh.add(Part("Device:C", shown, {"1": a, "2": b}, footprint=f"Capacitor_SMD:{fp}", lcsc=lcsc,
-                       option=option, note=note))
+                       spec=spec, option=option, note=note))
 
 
 def LED(sh: Sheet, anode: str, cathode: str, note: str = "", option: str = "") -> Part:
@@ -48,7 +52,7 @@ def LED(sh: Sheet, anode: str, cathode: str, note: str = "", option: str = "") -
 
 def NMOS(sh: Sheet, d: str, g: str, s: str = "GND", option: str = "", note: str = "") -> Part:
     return sh.add(Part("Transistor_FET:2N7002", "2N7002", {"D": d, "G": g, "S": s}, lcsc="C8545",
-                       footprint="Package_TO_SOT_SMD:SOT-23", option=option, note=note))
+                       spec="mpn 2N7002 SOT-23", footprint="Package_TO_SOT_SMD:SOT-23", option=option, note=note))
 
 
 def TP(sh: Sheet, net: str, note: str = "") -> Part:
@@ -111,10 +115,10 @@ def sheet_dut() -> Sheet:
     R(sh, "75R", "SWUSB_DM_PIN", "SWUSB_DM")
     for net in ("SWUSB_DP", "SWUSB_DM"):
         sh.add(Part("Device:D_Zener", "3.6V", {"K": net, "A": "GND"}, footprint="Diode_SMD:D_SOD-123",
-                    lcsc="C173412", mpn="BZT52C3V6"))
+                    lcsc="C173412", mpn="BZT52C3V6", spec="mpn BZT52C3V6 SOD-123"))
     R(sh, "1.5k", "SWUSB_DM", "DUT_5V", note="Low-speed attach pull-up on D-")
     # Reset pull-up path with reset LED (lit while reset is asserted).
-    sh.add(Part("Diode:1N4148W", "1N4148W", {"A": "DUT_5V", "K": "RST_PU"}, lcsc="C81598",
+    sh.add(Part("Diode:1N4148W", "1N4148W", {"A": "DUT_5V", "K": "RST_PU"}, lcsc="C81598", spec="mpn 1N4148W SOD-123",
                 footprint="Diode_SMD:D_SOD-123", note="Blocks 12 V on RESET from DUT_5V"))
     R(sh, "10k", "RST_PU", "DUT_RESET")
     LED(sh, "RST_PU", "RST_LED_K", note="Reset asserted")
@@ -207,7 +211,7 @@ def sheet_dut_power() -> Sheet:
     C(sh, "1u", "DUT_5V")
     R(sh, "100k", "DUT_PWR_EN", "GND")
     sh.add(Part("Device:R", "1Ω", {"1": "DUT_5V", "2": "DUT_VCC"}, footprint="Resistor_SMD:R_0603_1608Metric",
-                lcsc="C22936", mpn="0603WAF100KT5E", note="Shunt, 1%"))
+                lcsc="C22936", mpn="0603WAF100KT5E", spec="R 1 1% 0603", note="Shunt, 1%"))
     sh.add(Part("Sensor_Energy:INA226", "INA226AIDGSR", {
         "A0": "GND", "A1": "GND", "~{Alert}": "PWR_ALERT", "SDA": "I2C_SDA", "SCL": "I2C_SCL",
         "VS": "+3V3", "GND": "GND", "Vbus": "DUT_VCC", "Vin-": "DUT_VCC", "Vin+": "DUT_5V",
@@ -232,11 +236,11 @@ def sheet_hv() -> Sheet:
     hv = "HV"
     sh.add(Part("Regulator_Switching:MT3608", "MT3608", {
         "IN": "+5V", "GND": "GND", "EN": "HV_BOOST_EN", "SW": "HV_SW", "FB": "HV_FB",
-    }, lcsc="C84817", option=hv))
+    }, lcsc="C84817", spec="mpn MT3608", option=hv))
     sh.add(Part("Device:L", "10µH", {"1": "+5V", "2": "HV_SW"}, footprint="mcu-hil:L_Sunlord_SWPA4030",
                 lcsc="C38117", mpn="SWPA4030S100MT", option=hv))
     sh.add(Part("Device:D_Schottky", "B5819W", {"A": "HV_SW", "K": "HV_12V"}, footprint="Diode_SMD:D_SOD-123",
-                lcsc="C8598", option=hv))
+                lcsc="C8598", spec="mpn B5819W SOD-123", option=hv))
     R(sh, "100k", "HV_12V", "HV_FB", option=hv)
     R(sh, "5.1k", "HV_FB", "GND", option=hv)
     C(sh, "10u", "+5V", option=hv)
@@ -244,7 +248,7 @@ def sheet_hv() -> Sheet:
     C(sh, "10u/25V", "HV_12V", option=hv)
     R(sh, "100k", "HV_BOOST_EN", "GND", option=hv)
     sh.add(Part("Transistor_FET:AO3401A", "AO3401A", {"S": "HV_12V", "G": "HV_GATE", "D": "HV_OUT"},
-                lcsc="C15127", option=hv, note="Gate divider limits VGS to -6 V"))
+                lcsc="C15127", spec="mpn AO3401A SOT-23", option=hv, note="Gate divider limits VGS to -6 V"))
     R(sh, "10k", "HV_12V", "HV_GATE", option=hv)
     R(sh, "10k", "HV_GATE", "HV_PULL", option=hv)
     NMOS(sh, "HV_PULL", "HV_APPLY", option=hv)
@@ -356,7 +360,7 @@ def sheet_carrier_io() -> Sheet:
     R(sh, "5.1k", "USBC_CC2", "GND")
     sh.add(Part("Power_Protection:USBLC6-2SC6", "USBLC6-2SC6", {
         "1": "USBC_DP", "6": "USBC_DP", "3": "USBC_DM", "4": "USBC_DM", "GND": "GND", "VBUS": "+5V"},
-        lcsc="C7519"))
+        lcsc="C7519", spec="mpn USBLC6-2SC6"))
     C(sh, "22u/25V", "+5V")
     C(sh, "22u/25V", "+5V")
     FLAG(sh, "+5V")
@@ -443,7 +447,7 @@ def sheet_hat_io() -> Sheet:
     R(sh, "5.1k", "HATC_CC2", "GND")
     sh.add(Part("Power_Protection:USBLC6-2SC6", "USBLC6-2SC6", {
         "1": "HAT_USB_DP", "6": "HAT_USB_DP", "3": "HAT_USB_DM", "4": "HAT_USB_DM", "GND": "GND",
-        "VBUS": "HAT_USB_VBUS"}, lcsc="C7519"))
+        "VBUS": "HAT_USB_VBUS"}, lcsc="C7519", spec="mpn USBLC6-2SC6"))
     LED(sh, "STATUS_LED_A", "GND", note="Status (GPIO24)")
     R(sh, "1k", "STATUS_LED", "STATUS_LED_A")
     for i in range(4):

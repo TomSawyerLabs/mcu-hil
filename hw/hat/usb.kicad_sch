@@ -1104,6 +1104,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "C 100n X5R+ 16V 0402"
+			(at 79.248 57.15 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "f5bb9921-2278-5b8f-914c-7faf86682a0f")
 		)
@@ -1259,6 +1266,13 @@
 		)
 		(property "LCSC" "C25741"
 			(at 95.504 57.15 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "R 100k 1% 0402"
+			(at 95.504 59.69 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))

@@ -5545,6 +5545,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "C 100n X5R+ 16V 0402"
+			(at 160.528 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "d3a83b56-cf6f-5da8-951d-e0e8032124bc")
 		)
@@ -5705,6 +5712,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 3.9k 1% 0402"
+			(at 174.244 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "2b117a4a-2f64-50fb-9fdf-4017e331f88a")
 		)
@@ -5825,6 +5839,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 3.9k 1% 0402"
+			(at 186.944 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "20fc3211-446f-524f-a663-3b2317b8e902")
 		)
@@ -5940,6 +5961,13 @@
 		)
 		(property "LCSC" "C11702"
 			(at 199.644 59.69 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "R 1k 1% 0402"
+			(at 199.644 62.23 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -6556,6 +6584,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 5.1k 1% 0402"
+			(at 308.864 67.31 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "0b390013-bad9-5229-87ec-6d5ec1b98989")
 		)
@@ -6676,6 +6711,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 5.1k 1% 0402"
+			(at 319.024 67.31 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "76c3c51b-bdd3-5cea-bfd1-90f6a31639e0")
 		)
@@ -6791,6 +6833,13 @@
 		)
 		(property "LCSC" "C7519"
 			(at 347.98 71.12 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "mpn USBLC6-2SC6"
+			(at 347.98 73.66 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -7000,15 +7049,22 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "MPN" "KT-0603R"
+		(property "Spec" "LED red 0603"
 			(at 25.908 111.506 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Status (GPIO24)"
+		(property "MPN" "KT-0603R"
 			(at 25.908 114.046 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Status (GPIO24)"
+			(at 25.908 116.586 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -7129,6 +7185,13 @@
 		)
 		(property "LCSC" "C11702"
 			(at 57.404 125.73 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "R 1k 1% 0402"
+			(at 57.404 128.27 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))

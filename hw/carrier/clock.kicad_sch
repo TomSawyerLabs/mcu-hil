@@ -1494,8 +1494,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "CLK"
+		(property "Spec" "C 100n X5R+ 16V 0402"
 			(at 79.248 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "CLK"
+			(at 79.248 64.77 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -1630,8 +1637,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "CLK"
+		(property "Spec" "R 33 1% 0402"
 			(at 95.504 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "CLK"
+			(at 95.504 64.77 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -1726,8 +1740,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "CLK"
+		(property "Spec" "R 100k 1% 0402"
 			(at 105.664 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "CLK"
+			(at 105.664 64.77 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -2048,8 +2069,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "SI"
+		(property "Spec" "C 100n X5R+ 16V 0402"
 			(at 178.308 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "SI"
+			(at 178.308 64.77 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -2184,8 +2212,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "SI"
+		(property "Spec" "R 33 1% 0402"
 			(at 192.024 64.77 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "SI"
+			(at 192.024 67.31 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -2280,8 +2315,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "SI"
+		(property "Spec" "R 100k 1% 0402"
 			(at 204.724 64.77 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "SI"
+			(at 204.724 67.31 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -2416,14 +2458,21 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "CLK"
+		(property "Spec" "R 100k 1% 0402"
 			(at 217.424 62.23 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "CLK"
+			(at 217.424 64.77 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Note" "Defined input while GPIO4 is an input"
-			(at 217.424 64.77 0)
+			(at 217.424 67.31 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -2873,8 +2922,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "SI"
+		(property "Spec" "C 100n X5R+ 16V 0402"
 			(at 287.528 57.15 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "SI"
+			(at 287.528 59.69 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -3039,8 +3095,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "SI"
+		(property "Spec" "C 100n X5R+ 16V 0402"
 			(at 302.768 57.15 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "SI"
+			(at 302.768 59.69 0)
 			(effects
 				(font (size 1.27 1.27))
 			)

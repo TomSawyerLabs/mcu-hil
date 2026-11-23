@@ -3016,6 +3016,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "C 100n X5R+ 16V 0402"
+			(at 91.948 77.47 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "1e07d9c6-5934-510e-ab63-eecc1c92d028")
 		)
@@ -3141,6 +3148,13 @@
 		)
 		(property "LCSC" "C1525"
 			(at 107.188 74.93 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "C 100n X5R+ 16V 0402"
+			(at 107.188 77.47 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3276,6 +3290,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "C 100n X5R+ 16V 0402"
+			(at 119.888 77.47 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "23b20c73-c15d-5ac1-825e-24cf5f1ef9e7")
 		)
@@ -3401,6 +3422,13 @@
 		)
 		(property "LCSC" "C19702"
 			(at 135.128 74.93 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "C 10u X5R+ 10V 0603"
+			(at 135.128 77.47 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3536,8 +3564,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "UCAP: USB regulator output"
+		(property "Spec" "C 1u X5R+ 16V 0402"
 			(at 150.368 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "UCAP: USB regulator output"
+			(at 150.368 74.93 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3810,14 +3845,21 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XTAL !XSW"
+		(property "Spec" "C 12p C0G 50V 0402"
 			(at 201.168 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XTAL !XSW"
+			(at 201.168 74.93 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Note" "Only without the switch: its ~13 pF on-capacitance takes this cap's place. Footprint kept for tuning"
-			(at 201.168 74.93 0)
+			(at 201.168 77.47 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -3943,8 +3985,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XTAL"
+		(property "Spec" "C 12p C0G 50V 0402"
 			(at 216.408 74.93 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XTAL"
+			(at 216.408 77.47 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -4255,8 +4304,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XSW"
+		(property "Spec" "C 100n X5R+ 16V 0402"
 			(at 279.908 74.93 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XSW"
+			(at 279.908 77.47 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -4391,8 +4447,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XSW"
+		(property "Spec" "R 10k 1% 0402"
 			(at 293.624 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XSW"
+			(at 293.624 74.93 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -4487,8 +4550,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XSW"
+		(property "Spec" "mpn 2N7002 SOT-23"
 			(at 327.66 76.2 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XSW"
+			(at 327.66 78.74 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
@@ -4634,14 +4704,21 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "XSW"
+		(property "Spec" "R 100k 1% 0402"
 			(at 344.424 85.09 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "XSW"
+			(at 344.424 87.63 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Note" "GPIO23 low/input: crystal connected"
-			(at 344.424 87.63 0)
+			(at 344.424 90.17 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4777,14 +4854,21 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Option" "!XSW"
+		(property "Spec" "R 0 0402"
 			(at 357.124 77.47 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Option" "!XSW"
+			(at 357.124 80.01 0)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
 		(property "Note" "Bypass: fitted only when XSW is left off"
-			(at 357.124 80.01 0)
+			(at 357.124 82.55 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -4880,6 +4964,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 22 1% 0402"
+			(at 369.824 74.93 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "c2542985-2c02-5a4c-a083-ed5425519782")
 		)
@@ -4965,6 +5056,13 @@
 		)
 		(property "LCSC" "C25092"
 			(at 382.524 72.39 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "R 22 1% 0402"
+			(at 382.524 74.93 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5060,8 +5158,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "V-USB series resistor (68R in the reference; 75R is a no-fee JLC part)"
+		(property "Spec" "R 75 1% 0402"
 			(at 395.224 77.47 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "V-USB series resistor (68R in the reference; 75R is a no-fee JLC part)"
+			(at 395.224 80.01 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5157,6 +5262,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 75 1% 0402"
+			(at 16.764 179.07 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "d94753ca-416f-5a54-a912-20002d354b71")
 		)
@@ -5247,8 +5359,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "MPN" "BZT52C3V6"
+		(property "Spec" "mpn BZT52C3V6 SOD-123"
 			(at 44.45 161.29 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "MPN" "BZT52C3V6"
+			(at 44.45 163.83 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5384,8 +5503,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "MPN" "BZT52C3V6"
+		(property "Spec" "mpn BZT52C3V6 SOD-123"
 			(at 82.55 161.29 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "MPN" "BZT52C3V6"
+			(at 82.55 163.83 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5521,8 +5647,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Low-speed attach pull-up on D-"
+		(property "Spec" "R 1.5k 1% 0402"
 			(at 108.204 179.07 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Low-speed attach pull-up on D-"
+			(at 108.204 181.61 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5628,8 +5761,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Blocks 12 V on RESET from DUT_5V"
+		(property "Spec" "mpn 1N4148W SOD-123"
 			(at 128.27 161.29 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Blocks 12 V on RESET from DUT_5V"
+			(at 128.27 163.83 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5725,6 +5865,13 @@
 				(font (size 1.27 1.27))
 			)
 		)
+		(property "Spec" "R 10k 1% 0402"
+			(at 159.004 173.99 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
 		(pin "1"
 			(uuid "cf19b1d9-4aea-5460-9652-ce390206c620")
 		)
@@ -5815,15 +5962,22 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "MPN" "KT-0603R"
+		(property "Spec" "LED red 0603"
 			(at 183.388 162.306 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "Reset asserted"
+		(property "MPN" "KT-0603R"
 			(at 183.388 164.846 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "Reset asserted"
+			(at 183.388 167.386 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5904,6 +6058,13 @@
 		)
 		(property "LCSC" "C11702"
 			(at 209.804 173.99 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Spec" "R 1k 1% 0402"
+			(at 209.804 176.53 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))
@@ -5999,8 +6160,15 @@
 				(font (size 1.27 1.27))
 			)
 		)
-		(property "Note" "HWB idle high: no DFU unless the Pi asserts HWB"
+		(property "Spec" "R 10k 1% 0402"
 			(at 222.504 179.07 0)
+			(hide yes)
+			(effects
+				(font (size 1.27 1.27))
+			)
+		)
+		(property "Note" "HWB idle high: no DFU unless the Pi asserts HWB"
+			(at 222.504 181.61 0)
 			(hide yes)
 			(effects
 				(font (size 1.27 1.27))

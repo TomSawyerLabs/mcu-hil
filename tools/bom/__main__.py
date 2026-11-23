@@ -1,8 +1,14 @@
-"""Make a board's JLC BOM for any mix of population options: python -m bom carrier --without SD,HV (from tools/).
+"""Make a board's JLC BOM for any mix of population options, from in-stock parts (run from tools/).
 
-Reads the KiCad schematics (not the generator), so it keeps working once the board is hand-edited. Options and
-their rules live in hw/options.toml. Each part's "Option" field is a condition: space-separated terms that must
-all hold, "X" = option X on, "!X" = option X off.
+  python -m bom carrier --update --qty 10     pick parts for every position, write hw/carrier/bom.lock.json
+  python -m bom carrier --without SD,HV       BOM + report for that build, from the lock
+  python -m bom carrier --qty 10              ... and re-check the locked parts' stock live
+  python -m bom carrier --list                the board's options
+
+Reads the KiCad schematics (not the generator), so it keeps working once the board is hand-edited.
+Options and their rules live in hw/options.toml. Each part's "Option" field is a condition: space-separated
+terms that must all hold, "X" = option X on, "!X" = option X off. Its "Spec" field says what parts may fill
+the position (tools/bom/spec.py); its "LCSC" field is the preferred part.
 """
 
 from __future__ import annotations
@@ -15,6 +21,10 @@ from collections import defaultdict
 from pathlib import Path
 
 from schgen.sexpr import find, find_all, parse
+
+from .jlc import Jlc
+from .resolve import ResolveError, lines_of, load_lock, needed, ref_key, resolve, save_lock, stale
+from .spec import SpecError
 
 ROOT = Path(__file__).resolve().parents[2]
 HW = ROOT / "hw"
@@ -53,7 +63,8 @@ def fitted(condition: str, on: set[str], options: dict[str, dict]) -> bool:
     return True
 
 
-def parts(board: str, project: str) -> list[dict]:
+def parts(board: str) -> list[dict]:
+    project = BOARDS[board]
     out = []
     for sch in sorted((HW / board).glob("*.kicad_sch")):
         for sym in find_all(parse(sch.read_text(encoding="utf-8")), "symbol"):
@@ -68,8 +79,8 @@ def parts(board: str, project: str) -> list[dict]:
                     for path in find_all(proj, "path")]
             for ref in refs or [props["Reference"]]:
                 out.append({"ref": str(ref), "value": props.get("Value", ""), "footprint": props.get("Footprint", ""),
-                            "lcsc": props.get("LCSC", ""), "option": props.get("Option", ""),
-                            "dnp": str(find(sym, "dnp")[1]) == "yes", "sheet": sch.name})
+                            "lcsc": props.get("LCSC", ""), "spec": props.get("Spec", ""),
+                            "option": props.get("Option", ""), "dnp": str(find(sym, "dnp")[1]) == "yes"})
     return out
 
 
@@ -79,14 +90,21 @@ def build_name(options: dict[str, dict], on: set[str]) -> str:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(prog="python -m bom", description=__doc__.splitlines()[0])
+    sys.stdout.reconfigure(encoding="utf-8")
+    ap = argparse.ArgumentParser(prog="python -m bom", description=__doc__.splitlines()[0],
+                                 formatter_class=argparse.RawDescriptionHelpFormatter,
+                                 epilog="\n".join(__doc__.splitlines()[1:]))
     ap.add_argument("board", choices=sorted(BOARDS))
     ap.add_argument("--without", default="", help="options to leave off, comma-separated (default: all on)")
     ap.add_argument("--only", default=None, help="the options to fit, comma-separated; all others off")
-    ap.add_argument("--out", type=Path, help="output CSV (default hw/<board>/out/<build>-bom.csv)")
+    ap.add_argument("--qty", type=int, help="boards to order: with --update, what the stock must cover "
+                                            "(default: the lock's); otherwise re-check the lock's stock live")
+    ap.add_argument("--update", action="store_true", help="re-pick parts and rewrite the lock")
+    ap.add_argument("--out", type=Path, help="output folder (default hw/<board>/out)")
     ap.add_argument("--list", action="store_true", help="list the board's options and exit")
     a = ap.parse_args()
     split = lambda s: {x.strip().upper() for x in s.split(",") if x.strip()}
+    lock_path = HW / a.board / "bom.lock.json"
     try:
         options = load_options(a.board)
         if a.list:
@@ -95,33 +113,75 @@ def main() -> int:
                 print(f"{k:5} {v['description']}{needs}")
             return 0
         on = choose(options, split(a.without), split(a.only) if a.only is not None else None)
-        rows = parts(a.board, BOARDS[a.board])
-        fit, dnp = [], []
-        for r in rows:
-            # Hand-set DNP with no option stays DNP; option-driven parts follow the chosen options.
-            ok = fitted(r["option"], on, options) if r["option"] else not r["dnp"]
-            (fit if ok else dnp).append(r)
-    except BuildError as e:
+        rows = parts(a.board)
+        # Every position some build can fit: option-driven parts, plus parts not hand-set DNP.
+        lines = lines_of([r for r in rows if r["option"] or not r["dnp"]])
+        lock = load_lock(lock_path)
+        jlc = Jlc()
+        if a.update:
+            qty = a.qty or (lock or {}).get("qty")
+            if not qty:
+                raise BuildError("first --update needs --qty")
+            print(f"{a.board}: resolving {len(lines)} lines for {qty} boards")
+            lock = resolve(lines, qty, jlc, (lock or {}).get("lines", {}), print)
+            save_lock(lock_path, lock)
+            print(f"  wrote {lock_path}")
+        if lock is None:
+            raise BuildError(f"no lock yet: run python -m bom {a.board} --update --qty N")
+        if changed := stale(lines, lock):
+            raise BuildError("the lock is out of date with the schematic (run --update):\n  " + "\n  ".join(changed))
+        fit = [r for r in rows if (fitted(r["option"], on, options) if r["option"] else not r["dnp"])]
+        by_line = {(l.spec, l.preferred): lock["lines"][l.key] for l in lines}
+        if a.qty and not a.update:
+            short = []
+            counts: dict[str, int] = defaultdict(int)
+            for r in fit:
+                counts[(r["spec"], r["lcsc"])] += 1
+            for k, n in counts.items():
+                e = by_line[k]
+                c = jlc.part(e["lcsc"])
+                need = needed(n, a.qty, c) if c else 0
+                if c is None or c.stock < need:
+                    short.append(f"{e['lcsc']} ({', '.join(e['refs'])}): {c.stock if c else 'not found'} in stock, "
+                                 f"needs {need}")
+            if short:
+                raise BuildError(f"locked parts short for {a.qty} boards (run --update --qty {a.qty}):\n  "
+                                 + "\n  ".join(short))
+            print(f"{a.board}: stock checked live for {a.qty} boards: OK")
+    except (BuildError, ResolveError, SpecError) as e:
         print(f"error: {e}", file=sys.stderr)
         return 2
-    missing = [r["ref"] for r in fit if not r["lcsc"]]
     groups: dict[tuple, list[str]] = defaultdict(list)
     for r in fit:
-        groups[(r["value"], r["footprint"].split(":")[-1], r["lcsc"])].append(r["ref"])
-    out = a.out or HW / a.board / "out" / f"{build_name(options, on)}-bom.csv"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    key = lambda ref: (ref.rstrip("0123456789"), int(ref[len(ref.rstrip("0123456789")):] or 0))
-    with out.open("w", newline="", encoding="utf-8") as f:
+        e = by_line[(r["spec"], r["lcsc"])]
+        groups[(r["value"], r["footprint"].split(":")[-1], e["lcsc"])].append(r["ref"])
+    name = build_name(options, on)
+    outdir = a.out or HW / a.board / "out"
+    outdir.mkdir(parents=True, exist_ok=True)
+    bom = outdir / f"{name}-bom.csv"
+    with bom.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["Comment", "Designator", "Footprint", "LCSC Part #"])
-        for (value, fp, lcsc), refs in sorted(groups.items(), key=lambda g: key(min(g[1], key=key))):
-            w.writerow([value, ",".join(sorted(refs, key=key)), fp, lcsc])
+        for (value, fp, lcsc), refs in sorted(groups.items(), key=lambda g: ref_key(min(g[1], key=ref_key))):
+            w.writerow([value, ",".join(sorted(refs, key=ref_key)), fp, lcsc])
+    used = {by_line[(r["spec"], r["lcsc"])]["lcsc"]: by_line[(r["spec"], r["lcsc"])] for r in fit}
+    subs = sorted({(e["preferred"], e["lcsc"], e["model"], e["reason"]) for e in used.values()
+                   if e["lcsc"] != e["preferred"]})
+    ext = sorted(e["lcsc"] for e in used.values() if e["library"] == "Extended")
+    report = outdir / f"{name}-report.md"
+    report.write_text("\n".join([
+        f"# {a.board} build: {name}", "",
+        f"Options on: {', '.join(o for o in options if o in on) or 'none'}. "
+        f"Lock: resolved {lock['updated']} for {lock['qty']} boards.", "",
+        f"{len(fit)} parts fitted, {len(groups)} BOM lines, {len(ext)} Extended parts (JLC charges a loading fee "
+        "for each).", "",
+        "## Substitutions", "",
+        *([f"- {p} -> {c} ({m}): {why}" for p, c, m, why in subs] or ["None: every line uses its preferred part."]),
+        ""]), encoding="utf-8", newline="\n")
     print(f"{a.board}: options on: {', '.join(o for o in options if o in on) or 'none'}")
-    print(f"  {len(fit)} parts fitted ({len(groups)} lines), {len(dnp)} not fitted")
-    print(f"  wrote {out.resolve()}")
-    if missing:
-        print(f"error: fitted parts with no LCSC number: {', '.join(sorted(missing, key=key))}", file=sys.stderr)
-        return 1
+    print(f"  {len(fit)} parts fitted ({len(groups)} lines, {len(ext)} Extended), {len(subs)} substitutions")
+    print(f"  wrote {bom.resolve()}")
+    print(f"  wrote {report.resolve()}")
     return 0
 
 

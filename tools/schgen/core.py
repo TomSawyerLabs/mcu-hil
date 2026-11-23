@@ -43,7 +43,8 @@ class Part:
     value: str
     pins: dict[str, str]              # pin number or pin name -> net
     footprint: str = ""
-    lcsc: str = ""
+    lcsc: str = ""                    # preferred JLC part
+    spec: str = ""                    # what may fill the position (tools/bom/spec.py); empty = only `lcsc`
     mpn: str = ""
     datasheet: str = ""
     description: str = ""
@@ -284,7 +285,7 @@ class Project:
         fields = [("Reference", p.ref, False), ("Value", p.value, False),
                   ("Footprint", p.footprint or sym.prop_value("Footprint"), True), ("Datasheet", p.datasheet or sym.prop_value("Datasheet"), True),
                   ("Description", p.description or sym.prop_value("Description"), True)]
-        extra = [("LCSC", p.lcsc), ("MPN", p.mpn), ("Option", p.option), ("Note", p.note)]
+        extra = [("LCSC", p.lcsc), ("Spec", p.spec), ("MPN", p.mpn), ("Option", p.option), ("Note", p.note)]
         for k, v in extra:
             if v:
                 fields.append((k, v, k != "Option"))

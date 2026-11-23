@@ -124,7 +124,7 @@ work on arrival.
      **Waiting on the user's schematic review.**
      Cosmetic follow-up: generated layout is sparse and power symbols on adjacent pins crowd each other.
 6. Layout: CM4/CM5 carrier first, then HAT.
-7. DRC/ERC, JLC DFM check, BOM/CPL generation, order review with user.
+7. DRC/ERC, JLC DFM check, BOM/CPL generation (`tools/bom`, see `plans/dynamic-bom.md`; BOM done, CPL after layout), order review with user.
 
 ## Findings / gotchas
 
@@ -228,7 +228,7 @@ work on arrival.
      Done: KiCad variants removed; options and rules in `hw/options.toml`; Option fields are conditions
      ("XTAL !XSW"); `tools/bom` (`python -m bom <board> --without ...`) writes the JLC BOM for any mix.
      Also (user: "do it"): the XTAL1-side 12 pF cap is fitted only without XSW, since the switch's ~13 pF replaces it.
-3. **Dynamic BOM** design and timing: `plans/dynamic-bom.md`.
+3. ~~Dynamic BOM~~: approved and phase 1 built (2026-11-22), `plans/dynamic-bom.md`.
 2. ~~Parts list review~~ (approved 2026-11-13). Was: (`docs/v2-parts.md`), including accepting the thin 16U2 stock (84 at JLC).
 
 Answered 2026-11-11: name `mcu-hil`, USB switch instead of a hub, no PoE in this version,
