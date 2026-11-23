@@ -1335,41 +1335,23 @@
 			)
 		)
 	)
-	(global_label "CLK_OE"
+	(hierarchical_label "CLK_OE"
 		(shape bidirectional)
 		(at 45.72 43.18 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "8a934598-5c9e-5e0d-a4e5-aa29e358a6e9")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 45.72 43.18 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "da84d1e5-bc2f-5300-a8cd-4a3516008ed5")
 	)
-	(global_label "GPCLK0"
+	(hierarchical_label "GPCLK0"
 		(shape bidirectional)
 		(at 30.48 53.34 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "666e991e-cbcd-5570-8fba-f195fcf4861a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.48 53.34 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "3dcae553-b57d-5ac1-990d-32b6b321cdc0")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -1673,23 +1655,14 @@
 		)
 		(uuid "ca037fda-c20d-5aac-bbf2-a4f2c8827764")
 	)
-	(global_label "DUT_XTAL1"
+	(hierarchical_label "DUT_XTAL1"
 		(shape bidirectional)
 		(at 96.52 49.53 270)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "2829b06a-f8d0-5994-b027-f6d8025a9a6a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 96.52 49.53 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "c4e61bf3-419f-55f1-9a36-0f25a16dbade")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -1768,23 +1741,14 @@
 			)
 		)
 	)
-	(global_label "CLK_OE"
+	(hierarchical_label "CLK_OE"
 		(shape bidirectional)
 		(at 106.68 41.91 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "6d6863c4-e222-57f0-9a4b-3df6494faa01")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 106.68 41.91 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "acd411eb-8e4a-5bbf-9c39-a70a2b428324")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -1920,23 +1884,14 @@
 			)
 		)
 	)
-	(global_label "SI_CLK_OE"
+	(hierarchical_label "SI_CLK_OE"
 		(shape bidirectional)
 		(at 142.24 45.72 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "6baeebce-17e6-59e2-a797-28f6707de8df")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 142.24 45.72 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "f7a90295-4b04-54d8-bb0b-81b4c2f951c7")
 	)
 	(label "SI_CLK0"
 		(at 127 55.88 180)
@@ -2248,23 +2203,14 @@
 		)
 		(uuid "174f0816-7b03-59b3-853c-0c714d4b2d05")
 	)
-	(global_label "DUT_XTAL1"
+	(hierarchical_label "DUT_XTAL1"
 		(shape bidirectional)
 		(at 193.04 52.07 270)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "2ad47d3b-21f4-55dc-8978-930cce27fda9")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 193.04 52.07 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "7b3e55be-1fa2-5950-bdbe-28d5cf067146")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -2343,23 +2289,14 @@
 			)
 		)
 	)
-	(global_label "SI_CLK_OE"
+	(hierarchical_label "SI_CLK_OE"
 		(shape bidirectional)
 		(at 205.74 44.45 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "a14b80ad-393e-5827-b9a2-421b924af17d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 205.74 44.45 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "42e37f93-b44a-51ad-9448-b63786a8d091")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -2493,23 +2430,14 @@
 			)
 		)
 	)
-	(global_label "GPCLK0"
+	(hierarchical_label "GPCLK0"
 		(shape bidirectional)
 		(at 218.44 41.91 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "18a2fe35-185d-59e8-a266-62c4100a6cd9")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 218.44 41.91 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "611016ff-97c4-5065-956e-1fce5e24225e")
 	)
 	(symbol
 		(lib_id "power:GND")

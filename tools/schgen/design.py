@@ -456,5 +456,10 @@ def sheet_hat_io() -> Sheet:
     return sh
 
 
+# Nets on many sheets drawn as global labels. Every other multi-sheet net is a pin on its sheet boxes, wired on the
+# root sheet. DUT_5V is the switched DUT rail (a power net without a KiCad power symbol).
+GLOBAL_NETS = {"I2C_SCL", "I2C_SDA", "DUT_5V"}
+
+
 def shared_sheets(carrier: bool) -> list[Sheet]:
     return [sheet_dut(), sheet_pi_io(), sheet_clock(), sheet_dut_power(), sheet_hv(), sheet_usb(carrier)]

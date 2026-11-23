@@ -1399,59 +1399,32 @@
 			)
 		)
 	)
-	(global_label "ISP_OE"
+	(hierarchical_label "ISP_OE"
 		(shape bidirectional)
 		(at 30.48 38.1 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "80270ff0-314a-5563-9f69-8e318c6f38ed")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.48 38.1 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "c00bc44a-6c5a-522e-bf8f-87abf4bc72ef")
 	)
-	(global_label "ISP_MOSI"
+	(hierarchical_label "ISP_MOSI"
 		(shape bidirectional)
 		(at 30.48 43.18 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "d7ca54d3-0c0d-50dc-bf05-ceed7d3ac9df")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.48 43.18 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "983ff269-5ab4-586b-9029-6128b9c667e7")
 	)
-	(global_label "ISP_SCK"
+	(hierarchical_label "ISP_SCK"
 		(shape bidirectional)
 		(at 30.48 45.72 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "4423f498-c468-5498-8278-7e6fbcfb08b0")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.48 45.72 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "fb91ab7f-f66c-507a-915c-c495bd9d1867")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -1501,23 +1474,14 @@
 			)
 		)
 	)
-	(global_label "ISP_MISO"
+	(hierarchical_label "ISP_MISO"
 		(shape bidirectional)
 		(at 30.48 50.8 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "8ebecd58-7d96-598a-88a3-7a2f83513c59")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.48 50.8 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "07bdd455-bbbb-5c53-bc4b-d078bba96cd8")
 	)
 	(no_connect
 		(at 30.48 55.88)
@@ -1545,63 +1509,36 @@
 			)
 		)
 	)
-	(global_label "DUT_PB2"
+	(hierarchical_label "DUT_PB2"
 		(shape bidirectional)
 		(at 45.72 43.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "8d4ea692-032b-5d48-9313-6a7573cdd220")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 45.72 43.18 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "f5c37a26-a14e-5a51-9edf-0c304d7e21e2")
 	)
-	(global_label "DUT_PB1"
+	(hierarchical_label "DUT_PB1"
 		(shape bidirectional)
 		(at 45.72 45.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "137cb710-46d9-5979-8c24-30401b88cb87")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 45.72 45.72 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "aaa0ca83-1a89-53c0-9a39-b79ee52f9d7b")
 	)
 	(no_connect
 		(at 45.72 48.26)
 		(uuid "e7109943-c31f-5b6c-ad1a-5132e33987f4")
 	)
-	(global_label "DUT_PB3"
+	(hierarchical_label "DUT_PB3"
 		(shape bidirectional)
 		(at 45.72 50.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "8d88e4c3-5ca2-5319-abae-39102f22b938")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 45.72 50.8 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "5e34b584-927a-537b-9869-6ee8a4082618")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -2085,59 +2022,32 @@
 			)
 		)
 	)
-	(global_label "UART_OE"
+	(hierarchical_label "UART_OE"
 		(shape bidirectional)
 		(at 111.76 38.1 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "0ce95e3a-4381-5498-a194-1899e2ae256e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 111.76 38.1 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "26a94db7-02dd-503a-9860-a5d3896d4864")
 	)
-	(global_label "PI_TXD"
+	(hierarchical_label "PI_TXD"
 		(shape bidirectional)
 		(at 111.76 43.18 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "ad85b041-c7c9-5179-9099-19cf316e4b11")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 111.76 43.18 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "d9a87a4a-9e4a-5707-bfc1-dd80947d0fc7")
 	)
-	(global_label "PI_RXD"
+	(hierarchical_label "PI_RXD"
 		(shape bidirectional)
 		(at 111.76 45.72 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "9d696052-2c45-5fc9-b585-e05d923cc295")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 111.76 45.72 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "e71f446f-4b60-5b1f-b8bd-10a263d047fd")
 	)
 	(global_label "DUT_5V"
 		(shape bidirectional)
@@ -2157,41 +2067,23 @@
 			)
 		)
 	)
-	(global_label "DUT_PD2"
+	(hierarchical_label "DUT_PD2"
 		(shape bidirectional)
 		(at 127 43.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "4b58229c-3653-515b-a0fb-f955fdc053ee")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127 43.18 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "9bcc80ba-5690-5243-9b6b-af14bc0e9e17")
 	)
-	(global_label "DUT_PD3"
+	(hierarchical_label "DUT_PD3"
 		(shape bidirectional)
 		(at 127 45.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "f3623c58-be73-5561-be3e-69453b7890f1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127 45.72 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "e4e268fb-48c7-5504-b467-a6a74ff06f31")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -2616,23 +2508,14 @@
 			)
 		)
 	)
-	(global_label "ISP_OE"
+	(hierarchical_label "ISP_OE"
 		(shape bidirectional)
 		(at 180.34 44.45 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "4582233f-6c16-5107-8a37-75f680e1b21d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 180.34 44.45 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "588c279c-0f84-5e79-bc52-de040d2053ed")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -2753,23 +2636,14 @@
 			)
 		)
 	)
-	(global_label "UART_OE"
+	(hierarchical_label "UART_OE"
 		(shape bidirectional)
 		(at 190.5 46.99 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "3a278dd1-3a1d-552c-943e-6522ce4cf228")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 190.5 46.99 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "bea12362-a2db-5dae-a09a-dfcddd806860")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -2897,23 +2771,14 @@
 			)
 		)
 	)
-	(global_label "ISP_MOSI"
+	(hierarchical_label "ISP_MOSI"
 		(shape bidirectional)
 		(at 203.2 46.99 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "e372f204-a96f-5263-83dc-3837f726e9a8")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 203.2 46.99 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "cc6fdcb8-1d93-56e1-b8d0-c87c3968c317")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -3034,23 +2899,14 @@
 			)
 		)
 	)
-	(global_label "ISP_SCK"
+	(hierarchical_label "ISP_SCK"
 		(shape bidirectional)
 		(at 215.9 46.99 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "a2639ea8-7d45-5764-a2e0-40c197e467b5")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 215.9 46.99 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "fccea129-116d-53b2-bfbb-7e71d2d89089")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -3171,23 +3027,14 @@
 			)
 		)
 	)
-	(global_label "DUT_PB3"
+	(hierarchical_label "DUT_PB3"
 		(shape bidirectional)
 		(at 228.6 46.99 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "e5e32c96-c0f4-50c9-aab4-3b5bf26d681a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 228.6 46.99 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "ed68e768-1258-5b67-8ed5-7a0eb4c67b07")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -3315,23 +3162,14 @@
 			)
 		)
 	)
-	(global_label "PI_TXD"
+	(hierarchical_label "PI_TXD"
 		(shape bidirectional)
 		(at 241.3 44.45 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "4f8ce891-7623-587a-a565-d7d876f8adb1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 241.3 44.45 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "8bbb17eb-01de-5e40-bbb8-f6f353e0e59e")
 	)
 	(symbol
 		(lib_id "power:+3V3")
@@ -3459,23 +3297,14 @@
 			)
 		)
 	)
-	(global_label "DUT_PD3"
+	(hierarchical_label "DUT_PD3"
 		(shape bidirectional)
 		(at 251.46 46.99 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "0a3b2542-382e-5b36-bac7-e8dc52d7db77")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 251.46 46.99 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "b83e9303-5805-5409-afb8-b46a1d2104e3")
 	)
 	(global_label "DUT_5V"
 		(shape bidirectional)
@@ -3632,23 +3461,14 @@
 			)
 		)
 	)
-	(global_label "DUT_RESET"
+	(hierarchical_label "DUT_RESET"
 		(shape bidirectional)
 		(at 281.94 48.26 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "7c2a41ea-35e2-54b2-8eb9-b2e3ea617345")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 281.94 48.26 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "8f8f543c-ff14-502a-96c9-686415ce60f1")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -3821,23 +3641,14 @@
 			)
 		)
 	)
-	(global_label "RESET_RELEASE"
+	(hierarchical_label "RESET_RELEASE"
 		(shape bidirectional)
 		(at 325.12 48.26 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "304ddd5e-6e64-5d3d-829e-62a459eaeb58")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 325.12 48.26 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "87f5275f-a4b4-5800-b8c8-792d890456bc")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -3966,23 +3777,14 @@
 			)
 		)
 	)
-	(global_label "RESET_RELEASE"
+	(hierarchical_label "RESET_RELEASE"
 		(shape bidirectional)
 		(at 342.9 52.07 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "3e55bd0b-e0c7-539f-9ae8-11a59af72e2b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 342.9 52.07 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "de4bb7da-a7f3-5ddc-a9a8-afb934c0ecd3")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -4106,23 +3908,14 @@
 			)
 		)
 	)
-	(global_label "HWB_ASSERT"
+	(hierarchical_label "HWB_ASSERT"
 		(shape bidirectional)
 		(at 370.84 50.8 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "c5d2b015-3e06-559f-9fc0-4c3e1f974652")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 370.84 50.8 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "581fd534-c728-5669-b69a-2cb1cc957e1e")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -4172,23 +3965,14 @@
 			)
 		)
 	)
-	(global_label "DUT_PD7"
+	(hierarchical_label "DUT_PD7"
 		(shape bidirectional)
 		(at 378.46 45.72 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "b00cef39-1b6c-5d57-a578-5a5d7c97569e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 378.46 45.72 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "e5d15ef3-b160-5df6-b011-6b8fbdcc8a14")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -4261,23 +4045,14 @@
 			)
 		)
 	)
-	(global_label "HWB_ASSERT"
+	(hierarchical_label "HWB_ASSERT"
 		(shape bidirectional)
 		(at 391.16 49.53 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "7d87404a-84f2-5a95-935d-6f80c207ffef")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 391.16 49.53 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "2b7a80de-ba78-5012-870e-ebd055052eb9")
 	)
 	(symbol
 		(lib_id "power:GND")

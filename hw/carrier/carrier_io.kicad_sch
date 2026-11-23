@@ -3274,41 +3274,23 @@
 		)
 		(uuid "e155b67e-0b0b-50ae-befe-e6ca561fcfab")
 	)
-	(global_label "USBC_DP"
+	(hierarchical_label "USBC_DP"
 		(shape bidirectional)
 		(at 43.18 53.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "4c7e0cd5-2acb-5d66-9026-4298a63d8f79")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 43.18 53.34 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "ad7c16ed-bfef-5ff6-976e-14debf9f96d6")
 	)
-	(global_label "USBC_DM"
+	(hierarchical_label "USBC_DM"
 		(shape bidirectional)
 		(at 43.18 48.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "5c10a054-a7f6-58b4-9264-49fca318a9cf")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 43.18 48.26 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "9948e5af-38ca-5711-be00-6fb0ae07f42f")
 	)
 	(no_connect
 		(at 43.18 63.5)
@@ -3322,41 +3304,23 @@
 		)
 		(uuid "e8042b2b-77cf-5609-b30f-2a547fa21379")
 	)
-	(global_label "USBC_DP"
+	(hierarchical_label "USBC_DP"
 		(shape bidirectional)
 		(at 43.18 55.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "a65c4a32-354d-5bdd-b11a-9dd955a01428")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 43.18 55.88 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "71ff794d-4f23-5543-8a4b-eef7fe3d9e58")
 	)
-	(global_label "USBC_DM"
+	(hierarchical_label "USBC_DM"
 		(shape bidirectional)
 		(at 43.18 50.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "3c99aa83-98b2-55e2-92dc-15280970eecd")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 43.18 50.8 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "6db0943b-b379-5960-9ca5-d97a6cc02819")
 	)
 	(no_connect
 		(at 43.18 66.04)
@@ -3747,23 +3711,14 @@
 			)
 		)
 	)
-	(global_label "USBC_DP"
+	(hierarchical_label "USBC_DP"
 		(shape bidirectional)
 		(at 104.14 45.72 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "2e6295e2-a190-5c4a-994d-c0faf528d6bd")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 104.14 45.72 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "9f5c68e0-8a41-5929-9e53-38ea045ab78f")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -3813,41 +3768,23 @@
 			)
 		)
 	)
-	(global_label "USBC_DM"
+	(hierarchical_label "USBC_DM"
 		(shape bidirectional)
 		(at 104.14 48.26 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "b6f384a0-0592-5e93-92c2-3522a8d9fdfe")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 104.14 48.26 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "ff827153-84d2-5b1d-b715-1e85cd0f938b")
 	)
-	(global_label "USBC_DM"
+	(hierarchical_label "USBC_DM"
 		(shape bidirectional)
 		(at 114.3 48.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "4b5a1f5d-70f3-550f-bff4-12add836ede9")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 114.3 48.26 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "829ad3ed-aee8-5a00-ad34-1eefad606cf0")
 	)
 	(symbol
 		(lib_id "power:+5V")
@@ -3897,23 +3834,14 @@
 			)
 		)
 	)
-	(global_label "USBC_DP"
+	(hierarchical_label "USBC_DP"
 		(shape bidirectional)
 		(at 114.3 45.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "4ba98d71-61b7-5f43-aa14-ae753ed593b0")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 114.3 45.72 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "c2a4d358-f513-50ae-8bda-9f8bd256edb2")
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -4559,149 +4487,77 @@
 			)
 		)
 	)
-	(global_label "ETH_0P"
+	(hierarchical_label "ETH_0P"
 		(shape bidirectional)
 		(at 203.2 35.56 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "6ccccdc8-ca64-5b28-b006-4914569cbb86")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 203.2 35.56 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "522b306e-c292-5338-80a2-c455e8af693d")
 	)
-	(global_label "ETH_0N"
+	(hierarchical_label "ETH_0N"
 		(shape bidirectional)
 		(at 203.2 38.1 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "f85f5dc2-63a7-527f-8982-4673e442eb89")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 203.2 38.1 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "c79f1f89-7f2e-5d65-b713-cb5e39287f64")
 	)
-	(global_label "ETH_1P"
+	(hierarchical_label "ETH_1P"
 		(shape bidirectional)
 		(at 203.2 40.64 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "a71a49be-b203-540b-8395-67cce2f67b47")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 203.2 40.64 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "5c6f8e07-26bf-521a-bc93-12521853ca87")
 	)
-	(global_label "ETH_1N"
+	(hierarchical_label "ETH_1N"
 		(shape bidirectional)
 		(at 203.2 43.18 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "d0cdbd46-8d24-5b46-a98e-5acbd00a7c07")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 203.2 43.18 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "0753d62c-3c52-53ba-9838-79bbe005e540")
 	)
-	(global_label "ETH_2P"
+	(hierarchical_label "ETH_2P"
 		(shape bidirectional)
 		(at 203.2 45.72 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "6fa0dfe4-14d6-53c8-a240-792677b5ba6a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 203.2 45.72 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "67ac32f0-c222-58d6-87a3-ac35f359230f")
 	)
-	(global_label "ETH_2N"
+	(hierarchical_label "ETH_2N"
 		(shape bidirectional)
 		(at 203.2 48.26 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "da372423-b03a-533b-b1d8-dbfde7a77e85")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 203.2 48.26 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "a16ebed5-6e3a-5e22-9977-ef8152b4c3dc")
 	)
-	(global_label "ETH_3P"
+	(hierarchical_label "ETH_3P"
 		(shape bidirectional)
 		(at 203.2 50.8 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "c9151be0-46e5-5bce-9c61-6c8570e37c81")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 203.2 50.8 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "3da21b52-7e83-58b8-b22c-b27f207d7fbd")
 	)
-	(global_label "ETH_3N"
+	(hierarchical_label "ETH_3N"
 		(shape bidirectional)
 		(at 203.2 53.34 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "b490a03c-6940-5ba6-8069-912569a25898")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 203.2 53.34 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "d1e94aa4-04fc-542d-afff-eb217edd0243")
 	)
 	(label "ETH_TCT"
 		(at 203.2 58.42 180)
@@ -5173,23 +5029,14 @@
 		)
 		(uuid "817082a9-e41f-5ac7-be67-f470bc93d6a0")
 	)
-	(global_label "ETH_nLED_ACT"
+	(hierarchical_label "ETH_nLED_ACT"
 		(shape bidirectional)
 		(at 264.16 52.07 270)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "a8db0532-f289-5e79-a54b-fe53f2c3ff45")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 264.16 52.07 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "fdc34eff-d0bd-5857-8eb9-bac4ed359c05")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -5270,23 +5117,14 @@
 		)
 		(uuid "fac4cf5a-d3ae-53ce-9ba2-5eefa6425604")
 	)
-	(global_label "ETH_nLED_SPEED"
+	(hierarchical_label "ETH_nLED_SPEED"
 		(shape bidirectional)
 		(at 276.86 52.07 270)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "a22be1d9-e8e6-5b59-bd49-d3c107c438b7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 276.86 52.07 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "5176bf7f-1c4f-5812-a09a-1e35e657777e")
 	)
 	(symbol
 		(lib_id "mcu-hil:TPS22918DBV")
@@ -5418,23 +5256,14 @@
 			)
 		)
 	)
-	(global_label "SD_PWR_ON"
+	(hierarchical_label "SD_PWR_ON"
 		(shape bidirectional)
 		(at 302.26 38.1 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "0f5353be-0dfc-5361-bdfc-2af9a4f58ddc")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 302.26 38.1 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "a79349a3-6ad3-53a2-bdef-9f8b051f367f")
 	)
 	(no_connect
 		(at 302.26 40.64)
@@ -5588,23 +5417,14 @@
 			)
 		)
 	)
-	(global_label "SD_PWR_ON"
+	(hierarchical_label "SD_PWR_ON"
 		(shape bidirectional)
 		(at 337.82 46.99 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "ffe3e2f7-8bdf-5031-b421-d397d428f8d3")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 337.82 46.99 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "d963d571-3967-545b-8ff8-206b5bb9b83a")
 	)
 	(symbol
 		(lib_id "power:+3V3")
@@ -6017,59 +5837,32 @@
 			)
 		)
 	)
-	(global_label "SD_DAT2"
+	(hierarchical_label "SD_DAT2"
 		(shape bidirectional)
 		(at 30.48 96.52 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "1ce2aa93-3154-5739-b916-eae515a0dc44")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.48 96.52 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "1c966b20-32c8-584a-bd0e-3ab7c33224b2")
 	)
-	(global_label "SD_DAT3"
+	(hierarchical_label "SD_DAT3"
 		(shape bidirectional)
 		(at 30.48 99.06 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "0a848655-d1c7-5013-b3a8-37f55bbc8dc5")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.48 99.06 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "e5246605-12d1-5184-b5c1-cdf7cea62003")
 	)
-	(global_label "SD_CMD"
+	(hierarchical_label "SD_CMD"
 		(shape bidirectional)
 		(at 30.48 101.6 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "d0e74182-c82d-5813-a0ab-f2f035812121")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.48 101.6 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "142838d0-032e-5952-af9d-ac567b832947")
 	)
 	(label "SD_VDD"
 		(at 30.48 104.14 180)
@@ -6079,23 +5872,14 @@
 		)
 		(uuid "8ff79c9d-768c-5519-b43f-0836102ef3f5")
 	)
-	(global_label "SD_CLK"
+	(hierarchical_label "SD_CLK"
 		(shape bidirectional)
 		(at 30.48 106.68 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "d144f8cb-58a3-5aa8-a252-c448552d038f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.48 106.68 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "7785a651-500d-58c1-a425-25b578372622")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -6145,41 +5929,23 @@
 			)
 		)
 	)
-	(global_label "SD_DAT0"
+	(hierarchical_label "SD_DAT0"
 		(shape bidirectional)
 		(at 30.48 111.76 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "e61e6ffa-a7f6-573f-be58-d8002e876e71")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.48 111.76 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "c36ae3ee-4b28-53ce-9d10-6df2b5f325c9")
 	)
-	(global_label "SD_DAT1"
+	(hierarchical_label "SD_DAT1"
 		(shape bidirectional)
 		(at 30.48 114.3 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "ce40d9e7-3900-55f9-9ae8-aec000907c1e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.48 114.3 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "49829164-9703-5ca3-b532-72b307b4980b")
 	)
 	(no_connect
 		(at 30.48 119.38)
@@ -6308,23 +6074,14 @@
 			)
 		)
 	)
-	(global_label "nRPIBOOT"
+	(hierarchical_label "nRPIBOOT"
 		(shape bidirectional)
 		(at 106.68 93.98 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "8a6df760-af53-5904-b493-70fb5854263a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 106.68 93.98 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "f1d122db-3bec-5091-a5cd-2802b2863288")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -6862,23 +6619,14 @@
 		)
 		(uuid "16e1cf84-7bb6-584b-87a5-d5549d2dcc86")
 	)
-	(global_label "LED_nACT"
+	(hierarchical_label "LED_nACT"
 		(shape bidirectional)
 		(at 220.98 110.49 270)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "91c534ee-10ee-51c2-8a79-8b11002d4605")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 220.98 110.49 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "3ee65414-ea5c-58d4-9d03-829631e7a354")
 	)
 	(symbol
 		(lib_id "Device:LED")
@@ -7092,23 +6840,14 @@
 			)
 		)
 	)
-	(global_label "STATUS_LED"
+	(hierarchical_label "STATUS_LED"
 		(shape bidirectional)
 		(at 274.32 107.95 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "3056c784-3517-5b9b-b091-63b1401f26ee")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 274.32 107.95 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "0c578da5-09c8-5a5c-8d5a-d2622a7d390f")
 	)
 	(label "STATUS_LED_A"
 		(at 274.32 115.57 270)

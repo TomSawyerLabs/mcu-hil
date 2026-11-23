@@ -2533,23 +2533,14 @@
 		)
 		(uuid "d460f1ae-8003-5a7b-b7e5-2e56bcd7ea92")
 	)
-	(global_label "HV_BOOST_EN"
+	(hierarchical_label "HV_BOOST_EN"
 		(shape bidirectional)
 		(at 35.56 50.8 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "348f2e4d-92ce-5fd8-bdde-eda6d8331ff7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 35.56 50.8 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "0e7f8f5c-4542-55b2-990e-d28785bda646")
 	)
 	(symbol
 		(lib_id "power:+5V")
@@ -3571,23 +3562,14 @@
 			)
 		)
 	)
-	(global_label "HV_BOOST_EN"
+	(hierarchical_label "HV_BOOST_EN"
 		(shape bidirectional)
 		(at 180.34 59.69 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "af86e1e4-7dc4-5308-bd19-c4470091502c")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 180.34 59.69 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "1fb713b0-da15-565d-86ed-b013ad9f4789")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -4014,23 +3996,14 @@
 			)
 		)
 	)
-	(global_label "HV_APPLY"
+	(hierarchical_label "HV_APPLY"
 		(shape bidirectional)
 		(at 256.54 58.42 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "f4ffe057-34bc-52b8-8ee4-8a8549b9580d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 256.54 58.42 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "9d34d76d-8498-5c21-b08e-6d23f24237be")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -4165,23 +4138,14 @@
 			)
 		)
 	)
-	(global_label "HV_APPLY"
+	(hierarchical_label "HV_APPLY"
 		(shape bidirectional)
 		(at 276.86 57.15 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "56816bbc-4ba2-560a-8a59-d81fc34cb6c7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 276.86 57.15 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "6efab814-096b-582b-b532-54c32f17557f")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -4316,23 +4280,14 @@
 		)
 		(uuid "08f1674b-c955-53a8-b843-a71d1ba6793b")
 	)
-	(global_label "DUT_RESET"
+	(hierarchical_label "DUT_RESET"
 		(shape bidirectional)
 		(at 289.56 59.69 270)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "de83a6bc-64b9-58d8-9763-68f1d8f5a01a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 289.56 59.69 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "7308e42a-3519-5e83-b54c-e59b94e62c8b")
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
@@ -4827,293 +4782,149 @@
 			)
 		)
 	)
-	(global_label "DUT_PB0"
+	(hierarchical_label "DUT_PB0"
 		(shape bidirectional)
 		(at 350.52 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "1c923656-2c76-521e-a4f5-eb6e8c77b1f4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 44.45 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "90f5262c-bbb8-5aa3-b15c-e68af2b44655")
 	)
-	(global_label "DUT_PB1"
+	(hierarchical_label "DUT_PB1"
 		(shape bidirectional)
 		(at 350.52 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "d85f32e8-af45-53ac-92bc-3c035fb16dbc")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 46.99 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "7038de1b-1746-55ac-9f4f-47d1b5aae8e6")
 	)
-	(global_label "DUT_PB2"
+	(hierarchical_label "DUT_PB2"
 		(shape bidirectional)
 		(at 350.52 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "c5f549b5-aa4d-5eb1-802c-2b6c048cbfb2")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 49.53 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "b4f23273-fbad-598a-89dc-201749a95a5f")
 	)
-	(global_label "DUT_PB3"
+	(hierarchical_label "DUT_PB3"
 		(shape bidirectional)
 		(at 350.52 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "3ba22ba5-0040-5f32-bbda-c44bd575d634")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 52.07 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "efd21fc9-f989-5ddc-a312-7617fc15ab3a")
 	)
-	(global_label "DUT_PB4"
+	(hierarchical_label "DUT_PB4"
 		(shape bidirectional)
 		(at 350.52 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "c3732a24-2777-5592-8595-f73dea58215a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 54.61 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "dd7dec0e-10f1-5250-86dc-abde28dacc3e")
 	)
-	(global_label "DUT_PB5"
+	(hierarchical_label "DUT_PB5"
 		(shape bidirectional)
 		(at 350.52 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "ebf567a5-3e58-5bad-8d5a-4b72bfe4d4a0")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 57.15 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "c364a2e1-922e-51fd-8229-adc6314fc20e")
 	)
-	(global_label "DUT_PB6"
+	(hierarchical_label "DUT_PB6"
 		(shape bidirectional)
 		(at 350.52 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "1400ceda-8659-5f6c-ac00-35c8db8f732a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 59.69 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "867b384a-bcee-52ea-9eb3-079dc838f3fe")
 	)
-	(global_label "DUT_PB7"
+	(hierarchical_label "DUT_PB7"
 		(shape bidirectional)
 		(at 350.52 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "3b4b04d0-f32f-5d09-8848-5d3a57e1250a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 62.23 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "72519c3b-8595-54f1-9421-f8d209f1cf87")
 	)
-	(global_label "DUT_PD1"
+	(hierarchical_label "DUT_PD1"
 		(shape bidirectional)
 		(at 350.52 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "7d326022-9e8c-5803-b315-bdfda1c7a077")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 67.31 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "dd08524c-9a4c-5648-aeeb-6d023ad98e6a")
 	)
-	(global_label "DUT_PD2"
+	(hierarchical_label "DUT_PD2"
 		(shape bidirectional)
 		(at 350.52 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "40e178e3-1e57-52c4-ab65-f0d89a298ff7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 69.85 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "1cc27743-3c2e-54c8-85c1-cf5bd460cc27")
 	)
-	(global_label "DUT_PD3"
+	(hierarchical_label "DUT_PD3"
 		(shape bidirectional)
 		(at 350.52 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "bdb45f76-d33c-52ce-94a7-147f65d3b144")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 72.39 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "6ae8053e-cefe-54d5-b244-198ee9373121")
 	)
-	(global_label "DUT_PD4"
+	(hierarchical_label "DUT_PD4"
 		(shape bidirectional)
 		(at 350.52 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "f12f2cb8-a058-5ebc-a04f-ba3e713d7a9d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 74.93 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "43061aa3-9d0b-57a9-b850-9e995b7cca8e")
 	)
-	(global_label "DUT_PD5"
+	(hierarchical_label "DUT_PD5"
 		(shape bidirectional)
 		(at 350.52 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "e9946534-64ad-5bea-8062-caea471057ca")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 77.47 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "35c9c2b2-89ef-5033-a905-853987e050e4")
 	)
-	(global_label "DUT_PD6"
+	(hierarchical_label "DUT_PD6"
 		(shape bidirectional)
 		(at 350.52 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "b74adbca-a72c-5eb4-9f66-357aa18fa9bd")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 80.01 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "35ddd15b-f819-5960-a891-cf599737dff7")
 	)
-	(global_label "DUT_PD7"
+	(hierarchical_label "DUT_PD7"
 		(shape bidirectional)
 		(at 350.52 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "10cf810f-c0f4-53cf-9644-fe92442fed12")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 82.55 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "f387ddb9-98a5-59af-87f4-654d152b78fe")
 	)
-	(global_label "DUT_PC6"
+	(hierarchical_label "DUT_PC6"
 		(shape bidirectional)
 		(at 350.52 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "124854f2-544f-53ea-b115-cbf2ef8b495b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 350.52 85.09 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "cc54365c-a3a3-5bdd-8e4e-f39b287179a3")
 	)
 	(symbol
 		(lib_id "Device:C")

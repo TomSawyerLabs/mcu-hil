@@ -1233,23 +1233,14 @@
 			)
 		)
 	)
-	(global_label "DUT_PWR_EN"
+	(hierarchical_label "DUT_PWR_EN"
 		(shape bidirectional)
 		(at 33.02 38.1 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "8795c38e-10d9-55a5-88fc-525713d97547")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 33.02 38.1 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "38f9d1f6-58b2-57ed-be16-1b6bf1fecc50")
 	)
 	(label "DUT_PWR_CT"
 		(at 33.02 40.64 180)
@@ -1852,23 +1843,14 @@
 			)
 		)
 	)
-	(global_label "DUT_PWR_EN"
+	(hierarchical_label "DUT_PWR_EN"
 		(shape bidirectional)
 		(at 114.3 49.53 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "50f0faa5-52f0-5e7d-ab0c-d04e51980bef")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 114.3 49.53 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "ed2c46db-84d8-56c8-8c2e-342db85caf4b")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -2021,23 +2003,14 @@
 			)
 		)
 	)
-	(global_label "DUT_VCC"
+	(hierarchical_label "DUT_VCC"
 		(shape bidirectional)
 		(at 127 52.07 270)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "827c1321-43a4-5a11-a5ba-6d2eec1ab641")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127 52.07 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "3a551307-add3-5cf5-a6c9-b1c4e2f63c70")
 	)
 	(symbol
 		(lib_id "Sensor_Energy:INA226")
@@ -2230,23 +2203,14 @@
 			)
 		)
 	)
-	(global_label "PWR_ALERT"
+	(hierarchical_label "PWR_ALERT"
 		(shape bidirectional)
 		(at 172.72 60.96 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "6d862131-16da-5a3b-9dbc-4e910def1d2c")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 172.72 60.96 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "87289ac6-613a-5d60-af9f-baee44ccdd02")
 	)
 	(global_label "I2C_SDA"
 		(shape bidirectional)
@@ -2380,41 +2344,23 @@
 			)
 		)
 	)
-	(global_label "DUT_VCC"
+	(hierarchical_label "DUT_VCC"
 		(shape bidirectional)
 		(at 152.4 45.72 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "86eff70c-d2d5-5422-85d3-8a714eb847c5")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 152.4 45.72 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "0a8a860f-254a-5d42-81aa-3b403eefcc8e")
 	)
-	(global_label "DUT_VCC"
+	(hierarchical_label "DUT_VCC"
 		(shape bidirectional)
 		(at 152.4 58.42 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "86c434b8-874d-5207-9727-5962cb3bca3b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 152.4 58.42 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "4d7a5780-06ec-53bb-8594-d1ca5758749b")
 	)
 	(global_label "DUT_5V"
 		(shape bidirectional)
@@ -2672,23 +2618,14 @@
 			)
 		)
 	)
-	(global_label "PWR_ALERT"
+	(hierarchical_label "PWR_ALERT"
 		(shape bidirectional)
 		(at 210.82 46.99 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "f3c1254f-2f41-5cf6-b15d-27beee62b52e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 210.82 46.99 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "ec027b89-0633-5da7-b279-c38b3adce503")
 	)
 	(symbol
 		(lib_id "power:+3V3")
@@ -2792,23 +2729,14 @@
 			)
 		)
 	)
-	(global_label "DUT_VCC"
+	(hierarchical_label "DUT_VCC"
 		(shape bidirectional)
 		(at 223.52 35.56 270)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "3c7973fb-fbd1-5a03-b230-f5299b6c126f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 223.52 35.56 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "0d978c6b-035d-5060-9c7b-40e6f7647e27")
 	)
 	(embedded_fonts no)
 )

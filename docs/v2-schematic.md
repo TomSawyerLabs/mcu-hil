@@ -16,7 +16,10 @@ python -m schgen
 ```
 
 The generator places parts on a grid and connects pins with labels, not wires: power symbols for GND/+5V/+3V3,
-local labels for nets on one sheet, global labels for nets that cross sheets, and no-connect flags on unused pins.
+local labels for nets on one sheet, global labels for the shared buses (I2C_SCL, I2C_SDA, DUT_5V), hierarchical
+labels for every other net that crosses sheets, and no-connect flags on unused pins. Hierarchical labels become pins
+on the sheet boxes, and the root sheet wires them together as a block diagram: boxes in two columns, one vertical
+trunk per net in the channel between them. Those nets are named on the root sheet (`/CLK_OE`).
 It refuses to write a design with an unassigned pin or a net with only one connection. Once the layout starts
 being edited by hand in KiCad, the generated files become the source and the generator is retired.
 

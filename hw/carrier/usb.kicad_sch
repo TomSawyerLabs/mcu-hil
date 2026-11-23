@@ -1148,23 +1148,14 @@
 			)
 		)
 	)
-	(global_label "USB_S0"
+	(hierarchical_label "USB_S0"
 		(shape bidirectional)
 		(at 33.02 35.56 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "7b8e9f58-82d8-559a-9b5e-da2b6e745c64")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 33.02 35.56 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "d575ce86-ff58-5044-b0c4-324ba6c0277b")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -1214,41 +1205,23 @@
 			)
 		)
 	)
-	(global_label "CM_USB_DP"
+	(hierarchical_label "CM_USB_DP"
 		(shape bidirectional)
 		(at 33.02 43.18 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "d8fa532f-a338-5676-9f8d-b154b42b1f57")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 33.02 43.18 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "ef2bce54-9758-5aba-9979-9c620d5ef53e")
 	)
-	(global_label "CM_USB_DM"
+	(hierarchical_label "CM_USB_DM"
 		(shape bidirectional)
 		(at 33.02 45.72 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "34bcf8d0-0ad2-5793-9847-e9f3bf2e1a43")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 33.02 45.72 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "0c6c4d74-4905-53d6-be36-54a9ab436a78")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -1298,41 +1271,23 @@
 			)
 		)
 	)
-	(global_label "USBC_DP"
+	(hierarchical_label "USBC_DP"
 		(shape bidirectional)
 		(at 53.34 33.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "107a9efb-623e-5047-838e-1a22433ed189")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 53.34 33.02 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "c162d739-fce7-5b9f-82aa-33a24a50406f")
 	)
-	(global_label "USBC_DM"
+	(hierarchical_label "USBC_DM"
 		(shape bidirectional)
 		(at 53.34 35.56 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "eae4dd2c-7426-5902-a523-144d9ad9918f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 53.34 35.56 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "6776d2c7-4440-5527-abd0-347ee1e448a9")
 	)
 	(label "SW2_DP"
 		(at 53.34 40.64 0)
@@ -1653,23 +1608,14 @@
 			)
 		)
 	)
-	(global_label "USB_S1"
+	(hierarchical_label "USB_S1"
 		(shape bidirectional)
 		(at 101.6 35.56 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "00f4f1ac-1894-5330-91fb-af8c0dc6d62f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 101.6 35.56 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "24656f5d-8dad-58bb-9d15-4f19cb4304d8")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -1783,77 +1729,41 @@
 			)
 		)
 	)
-	(global_label "DUT_USB_DP"
+	(hierarchical_label "DUT_USB_DP"
 		(shape bidirectional)
 		(at 121.92 33.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "073ad87c-97db-512f-8ecc-322188173486")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 121.92 33.02 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "e87b01cf-2d59-5f45-86b6-394c220692b8")
 	)
-	(global_label "DUT_USB_DM"
+	(hierarchical_label "DUT_USB_DM"
 		(shape bidirectional)
 		(at 121.92 35.56 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "2c92dec8-8947-55b4-95c7-5c1a428ae6ae")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 121.92 35.56 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "9af7f407-32a9-5e1e-aa78-660e815b3dc0")
 	)
-	(global_label "SWUSB_DP"
+	(hierarchical_label "SWUSB_DP"
 		(shape bidirectional)
 		(at 121.92 40.64 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "24095468-f119-56b4-81a5-c9f3c0139a25")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 121.92 40.64 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "139fffba-077b-57e1-b40b-4dcc54d239d0")
 	)
-	(global_label "SWUSB_DM"
+	(hierarchical_label "SWUSB_DM"
 		(shape bidirectional)
 		(at 121.92 43.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "e29e273a-a924-5c6e-b8e7-714e64878e1e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 121.92 43.18 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "e1980412-02d6-5b8f-a0f2-f845d4304327")
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -2093,23 +2003,14 @@
 			)
 		)
 	)
-	(global_label "USB_S0"
+	(hierarchical_label "USB_S0"
 		(shape bidirectional)
 		(at 165.1 41.91 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "eac3f02a-d550-560e-aac4-989a6bc4309b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 165.1 41.91 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "267da679-07e0-5645-9737-0c8e4183fca5")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -2230,23 +2131,14 @@
 			)
 		)
 	)
-	(global_label "USB_S1"
+	(hierarchical_label "USB_S1"
 		(shape bidirectional)
 		(at 175.26 41.91 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "e1cbe88a-4056-50ad-9f12-3a23a6eb0fa3")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 175.26 41.91 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "b1cbdd33-3118-5f1c-9cc4-66795dce2f02")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -2377,23 +2269,14 @@
 			)
 		)
 	)
-	(global_label "USB_S0"
+	(hierarchical_label "USB_S0"
 		(shape bidirectional)
 		(at 200.66 53.34 180)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify right)
 		)
-		(uuid "61110134-0c55-5f05-9468-a085722e9301")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 200.66 53.34 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify right)
-			)
-		)
+		(uuid "d4e61039-aa86-5d3b-bcbb-46d45f27ef83")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -2443,23 +2326,14 @@
 			)
 		)
 	)
-	(global_label "CM_USB_OTG_ID"
+	(hierarchical_label "CM_USB_OTG_ID"
 		(shape bidirectional)
 		(at 208.28 48.26 90)
-		(fields_autoplaced yes)
 		(effects
 			(font (size 1.27 1.27))
 			(justify left)
 		)
-		(uuid "f70b551f-1dfb-5c8d-b550-c9327104f209")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 208.28 48.26 0)
-			(hide yes)
-			(effects
-				(font (size 1.27 1.27))
-				(justify left)
-			)
-		)
+		(uuid "b0d36410-e80f-5855-b6c6-34169e01877a")
 	)
 	(embedded_fonts no)
 )

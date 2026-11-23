@@ -218,7 +218,8 @@ work on arrival.
    - ~~CM5 CC pins~~: keep open with 5.1k Rd (user: "good plan", 2026-11-16). A "CM5 PD" option can come later.
    - ~~microSD~~: optional, option `SD` (user, 2026-11-16; plans to network-boot).
    - ~~PDFs~~: replaced by KiCanvas links (user, 2026-11-16).
-   - TCA6416A own power switch? Recommended: no (user asked what "HV" meant; answered 2026-11-16).
+   - ~~TCA6416A own power switch~~: no (user: "fine", 2026-11-22).
+   - ~~Root sheet connections~~: wired as a block diagram with sheet pins (user: "yes", 2026-11-22).
    - ~~Si5351~~: optional (option SI, 2026-11-16). HV optional (option HV).
      2026-11-18 (user): crystal is now option XTAL too, plus a Pi-controlled crystal switch (option XSW,
      SN74LVC1G66 on the XTAL1 side, GPIO23 high = disconnected) with a 0R bypass fitted when XSW is off.
