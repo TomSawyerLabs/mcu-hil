@@ -108,6 +108,10 @@ HV needs CLK, because HVPP clocks XTAL1 through the GPCLK0 buffer (user OK'd, 20
 
 - ~~KiCad ERC~~: clean on both boards (kicad-cli 10.0.6, 2026-11-13), and KiCad's netlists match the generator's.
   View in the browser (KiCanvas, reads `master` on GitHub): [carrier](https://kicanvas.org/?github=https://github.com/TomSawyerLabs/mcu-hil/tree/master/hw/carrier), [HAT](https://kicanvas.org/?github=https://github.com/TomSawyerLabs/mcu-hil/tree/master/hw/hat).
+  Also on SharedCopper (LAN only, collaborative editing), uploaded from `5701c2c` on 2026-11-27 with
+  `hw/lib` copied in as `lib/`: [carrier](https://sharedcopper.tomsawyerlabs.com/p/20786115fc),
+  [HAT](https://sharedcopper.tomsawyerlabs.com/p/b71646ad7a). These are snapshots: while the generator
+  is the source, edits made there are not pulled back into the repo.
 - Tidier sheet layout (the generated placement is functional but sparse).
 - HR911130C LED colours, and its footprint against HanRun's drawing.
 - The DF40 footprint's pin-1 orientation against the CM4/CM5 mechanical drawings (layout step).
